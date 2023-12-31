@@ -6,21 +6,18 @@ import dts from 'vite-plugin-dts'
 import { defineConfig } from 'vite'
 
 /**
- * @param {object} config
- * @param {string | string[]} config.entry
- * @param {string} config.srcDir
- * @param {string[]} [config.exclude]
+ * @param {import('./index').Options} options
  * @returns {import('vite').UserConfig}
  */
-export const tanstackBuildConfig = (config) => {
+export const tanstackBuildConfig = (options) => {
   return defineConfig({
     plugins: [
       externalizeDeps(),
       dts({
         outDir: 'dist/esm',
-        entryRoot: config.srcDir,
-        include: config.srcDir,
-        exclude: config.exclude,
+        entryRoot: options.srcDir,
+        include: options.srcDir,
+        exclude: options.exclude,
         compilerOptions: {
           // @ts-expect-error
           module: 'esnext',
@@ -29,9 +26,9 @@ export const tanstackBuildConfig = (config) => {
       }),
       dts({
         outDir: 'dist/cjs',
-        entryRoot: config.srcDir,
-        include: config.srcDir,
-        exclude: config.exclude,
+        entryRoot: options.srcDir,
+        include: options.srcDir,
+        exclude: options.exclude,
         compilerOptions: {
           // @ts-expect-error
           module: 'commonjs',
@@ -55,7 +52,7 @@ export const tanstackBuildConfig = (config) => {
       minify: false,
       sourcemap: true,
       lib: {
-        entry: config.entry,
+        entry: options.entry,
         formats: ['es', 'cjs'],
         fileName: (format) => {
           if (format === 'cjs') return 'cjs/[name].cjs'
