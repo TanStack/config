@@ -4,8 +4,7 @@ import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 /**
- * List your npm packages here. The first package will be used as the versioner.
- * @type {import('./types').Package[]}
+ * @type {import('../src/types.js').RunOptions["packages"]}
  */
 export const packages = [
   {
@@ -15,8 +14,7 @@ export const packages = [
 ]
 
 /**
- * Contains config for publishable branches.
- * @type {Record<string, import('./types').BranchConfig>}
+ * @type {import('../src/types.js').RunOptions["branchConfigs"]}
  */
 export const branchConfigs = {
   main: {
@@ -34,4 +32,8 @@ export const branchConfigs = {
 }
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
+
+/**
+ * @type {import('../src/types.js').RunOptions["rootDir"]}
+ */
 export const rootDir = resolve(__dirname, '..')

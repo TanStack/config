@@ -14,25 +14,32 @@
     "url": "https://github.com/sponsors/tannerlinsley"
   },
   "type": "module",
-  "types": "build/legacy/index.d.ts",
-  "main": "build/legacy/index.cjs",
-  "module": "build/legacy/index.js",
+  "types": "src/index.d.ts",
+  "module": "src/index.js",
   "exports": {
     ".": {
       "import": {
-        "types": "./build/modern/index.d.ts",
-        "default": "./build/modern/index.js"
+        "types": "./src/index.d.ts",
+        "default": "./src/index.js"
       }
     },
     "./package.json": "./package.json"
   },
+  "bin": {
+    "tanstack-config": "./bin/config.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "preferGlobal": false,
   "sideEffects": false,
   "files": [
-    "src"
+    "src",
+    "bin"
   ],
   "packageManager": "pnpm@8.12.1",
   "scripts": {
-    "cipublish": "node src/publish.js",
+    "cipublish": "node bin/config.js publish --cwd config",
     "cipublishforce": "CI=true pnpm cipublish",
     "prettier": "prettier --ignore-unknown '**/*'",
     "prettier:write": "pnpm run prettier --write",
@@ -51,8 +58,8 @@
   "devDependencies": {
     "@commitlint/parse": "^17.6.5",
     "@types/current-git-branch": "^1.1.6",
-    "@types/git-log-parser": "^1.2.3",
     "@types/eslint": "^8.56.0",
+    "@types/git-log-parser": "^1.2.3",
     "@types/jsonfile": "^6.1.4",
     "@types/luxon": "^2.3.1",
     "@types/node": "^18.15.3",
@@ -60,37 +67,31 @@
     "@types/stream-to-array": "^2.3.3",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
-    "axios": "^0.26.1",
-    "bundlewatch": "^0.3.2",
-    "chalk": "^5.3.0",
-    "concurrently": "^8.2.1",
-    "cpy-cli": "^5.0.0",
-    "current-git-branch": "^1.1.0",
     "esbuild-plugin-file-path-extensions": "^1.0.0",
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-typescript": "^3.6.0",
     "eslint-plugin-import": "^2.28.1",
-    "fs-extra": "^11.1.1",
-    "git-log-parser": "^1.2.0",
-    "jsdom": "^22.0.0",
-    "jsonfile": "^6.1.0",
-    "luxon": "^3.3.0",
     "nx": "17.2.8",
     "prettier": "^4.0.0-alpha.8",
     "publint": "^0.1.15",
-    "rimraf": "^5.0.1",
-    "semver": "^7.3.8",
-    "stream-to-array": "^2.3.0",
-    "tsup": "8.0.1",
     "type-fest": "^4.8.3",
     "typescript": "^5.2.2"
   },
-  "bundlewatch": {
-    "files": [
-      {
-        "path": "packages/*/build/umd/*.production.js"
-      }
-    ]
+  "dependencies": {
+    "axios": "^0.26.1",
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "current-git-branch": "^1.1.0",
+    "esbuild-register": "^3.5.0",
+    "git-log-parser": "^1.2.0",
+    "interpret": "^3.1.1",
+    "jsonfile": "^6.1.0",
+    "liftoff": "^4.0.0",
+    "luxon": "^3.3.0",
+    "minimist": "^1.2.8",
+    "semver": "^7.3.8",
+    "stream-to-array": "^2.3.0",
+    "v8flags": "^4.0.1"
   }
 }

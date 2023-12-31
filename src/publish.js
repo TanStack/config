@@ -12,15 +12,70 @@ import log from 'git-log-parser'
 import streamToArray from 'stream-to-array'
 import axios from 'axios'
 import { DateTime } from 'luxon'
-import { branchConfigs, packages, rootDir } from './config.js'
 
 /** @param {string} version */
 const releaseCommitMsg = (version) => `release: v${version}`
 
-async function run() {
-  const branchName = /** @type {string} */ (
-    process.env.BRANCH ?? currentGitBranch()
-  )
+/** @param {string} str */
+function capitalize(str) {
+  return str.slice(0, 1).toUpperCase() + str.slice(1)
+}
+
+/**
+ * @param {string} pathName
+ * @returns {Promise<import('type-fest').PackageJson>}
+ */
+async function readPackageJson(pathName) {
+  return await jsonfile.readFile(pathName)
+}
+
+/**
+ * @param {string} pathName
+ * @param {(json: import('type-fest').PackageJson) => Promise<void> | void} transform
+ */
+async function updatePackageJson(pathName, transform) {
+  const json = await readPackageJson(pathName)
+  await transform(json)
+  await jsonfile.writeFile(pathName, json, {
+    spaces: 2,
+  })
+}
+
+/**
+ * @template TItem
+ * @param {((d: TItem) => any)[]} sorters
+ * @returns {(a: TItem, b: TItem) => number}
+ */
+function getSorterFn(sorters) {
+  return (a, b) => {
+    let i = 0
+
+    sorters.some((sorter) => {
+      const sortedA = sorter(a)
+      const sortedB = sorter(b)
+      if (sortedA > sortedB) {
+        i = 1
+        return true
+      }
+      if (sortedA < sortedB) {
+        i = -1
+        return true
+      }
+      return false
+    })
+
+    return i
+  }
+}
+
+/**
+ * Execute a script being published
+ * @param {import('./types.js').RunOptions} options
+ * @returns {Promise<void>}
+ */
+export async function publish(options) {
+  const { branchConfigs, packages, rootDir, branch, tag, ghToken } = options
+  const branchName = /** @type {string} */ (branch ?? currentGitBranch())
   /** @type {import('./types.js').BranchConfig | undefined} */
   const branchConfig = branchConfigs[branchName]
 
@@ -59,24 +114,24 @@ async function run() {
   // released regardless if they have changed files matching the package srcDir.
   let RELEASE_ALL = false
 
-  if (!latestTag || process.env.TAG) {
-    if (process.env.TAG) {
-      if (!process.env.TAG.startsWith('v')) {
+  if (!latestTag || tag) {
+    if (tag) {
+      if (!tag.startsWith('v')) {
         throw new Error(
-          `process.env.TAG must start with "v", eg. v0.0.0. You supplied ${process.env.TAG}`,
+          `tag must start with "v", eg. v0.0.0. You supplied ${tag}`,
         )
       }
       console.info(
         chalk.yellow(
-          `Tag is set to ${process.env.TAG}. This will force release all packages. Publishing...`,
+          `Tag is set to ${tag}. This will force release all packages. Publishing...`,
         ),
       )
       RELEASE_ALL = true
 
       // Is it a major version?
-      if (!semver.patch(process.env.TAG) && !semver.minor(process.env.TAG)) {
+      if (!semver.patch(tag) && !semver.minor(tag)) {
         range = `origin/main..HEAD`
-        latestTag = process.env.TAG
+        latestTag = tag
       }
     } else {
       throw new Error(
@@ -160,7 +215,7 @@ async function run() {
    * Uses git diff to determine which files have changed since the latest tag
    * @type {string[]}
    */
-  const changedFiles = process.env.TAG
+  const changedFiles = tag
     ? []
     : execSync(`git diff ${latestTag} --name-only`)
         .toString()
@@ -212,7 +267,7 @@ async function run() {
     }
   }
 
-  if (!process.env.TAG) {
+  if (!tag) {
     if (recommendedReleaseLevel === 2) {
       console.info(
         `Major versions releases must be tagged and released manually.`,
@@ -228,8 +283,8 @@ async function run() {
     }
   }
 
-  const changelogCommitsMd = process.env.TAG
-    ? `Manual Release: ${process.env.TAG}`
+  const changelogCommitsMd = tag
+    ? `Manual Release: ${tag}`
     : await Promise.all(
         Object.entries(
           commitsSinceLatestTag.reduce((acc, next) => {
@@ -262,7 +317,7 @@ async function run() {
               commits.map(async (commit) => {
                 let username = ''
 
-                if (process.env.GH_TOKEN) {
+                if (ghToken) {
                   const query = `${
                     commit.author.email || commit.committer.email
                   }`
@@ -274,7 +329,7 @@ async function run() {
                         q: query,
                       },
                       headers: {
-                        Authorization: `token ${process.env.GH_TOKEN}`,
+                        Authorization: `token ${ghToken}`,
                       },
                     },
                   )
@@ -303,7 +358,7 @@ async function run() {
           .join('\n\n')
       })
 
-  if (process.env.TAG && recommendedReleaseLevel === -1) {
+  if (tag && recommendedReleaseLevel === -1) {
     recommendedReleaseLevel = 0
   }
 
@@ -323,8 +378,8 @@ async function run() {
     throw new Error(`Invalid release level: ${recommendedReleaseLevel}`)
   }
 
-  const version = process.env.TAG
-    ? semver.parse(process.env.TAG)?.version
+  const version = tag
+    ? semver.parse(tag)?.version
     : semver.inc(latestTag, releaseType, npmTag)
 
   if (!version) {
@@ -412,71 +467,18 @@ async function run() {
   console.info()
   console.info(`  Tags pushed.`)
 
-  console.info(`Creating github release...`)
-  // Stringify the markdown to excape any quotes
-  execSync(
-    `gh release create v${version} ${
-      branchConfig.prerelease ? '--prerelease' : ''
-    } --notes '${changelogMd.replace(/'/g, '"')}'`,
-  )
-  console.info(`  Github release created.`)
+  if (ghToken) {
+    console.info(`Creating github release...`)
+
+    // Stringify the markdown to escape any quotes
+    execSync(
+      `gh release create v${version} ${
+        branchConfig.prerelease ? '--prerelease' : ''
+      } --notes '${changelogMd.replace(/'/g, '"')}'`,
+      { env: { ...process.env, GH_TOKEN: ghToken } },
+    )
+    console.info(`  Github release created.`)
+  }
 
   console.info(`All done!`)
-}
-
-run().catch((err) => {
-  console.info(err)
-  process.exit(1)
-})
-
-/** @param {string} str */
-function capitalize(str) {
-  return str.slice(0, 1).toUpperCase() + str.slice(1)
-}
-
-/**
- * @param {string} pathName
- * @returns {Promise<import('type-fest').PackageJson>}
- */
-async function readPackageJson(pathName) {
-  return await jsonfile.readFile(pathName)
-}
-
-/**
- * @param {string} pathName
- * @param {(json: import('type-fest').PackageJson) => Promise<void> | void} transform
- */
-async function updatePackageJson(pathName, transform) {
-  const json = await readPackageJson(pathName)
-  await transform(json)
-  await jsonfile.writeFile(pathName, json, {
-    spaces: 2,
-  })
-}
-
-/**
- * @template TItem
- * @param {((d: TItem) => any)[]} sorters
- * @returns {(a: TItem, b: TItem) => number}
- */
-function getSorterFn(sorters) {
-  return (a, b) => {
-    let i = 0
-
-    sorters.some((sorter) => {
-      const sortedA = sorter(a)
-      const sortedB = sorter(b)
-      if (sortedA > sortedB) {
-        i = 1
-        return true
-      }
-      if (sortedA < sortedB) {
-        i = -1
-        return true
-      }
-      return false
-    })
-
-    return i
-  }
 }
