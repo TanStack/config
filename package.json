@@ -46,7 +46,8 @@
     "test:build": "publint --strict",
     "test:eslint": "eslint --ext .ts,.tsx src",
     "test:format": "pnpm run prettier --check",
-    "test:pr": "nx run-many --targets=test:format,test:eslint"
+    "test:pr": "nx run-many --targets=test:format,test:eslint",
+    "test:ci": "nx run-many --targets=test:format,test:eslint"
   },
   "nx": {
     "includedScripts": [
