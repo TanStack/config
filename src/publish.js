@@ -12,12 +12,69 @@ import log from 'git-log-parser'
 import streamToArray from 'stream-to-array'
 import axios from 'axios'
 import { DateTime } from 'luxon'
-import { branchConfigs, packages, rootDir } from './config.js'
 
 /** @param {string} version */
 const releaseCommitMsg = (version) => `release: v${version}`
 
-async function run() {
+/** @param {string} str */
+function capitalize(str) {
+  return str.slice(0, 1).toUpperCase() + str.slice(1)
+}
+
+/**
+ * @param {string} pathName
+ * @returns {Promise<import('type-fest').PackageJson>}
+ */
+async function readPackageJson(pathName) {
+  return await jsonfile.readFile(pathName)
+}
+
+/**
+ * @param {string} pathName
+ * @param {(json: import('type-fest').PackageJson) => Promise<void> | void} transform
+ */
+async function updatePackageJson(pathName, transform) {
+  const json = await readPackageJson(pathName)
+  await transform(json)
+  await jsonfile.writeFile(pathName, json, {
+    spaces: 2,
+  })
+}
+
+/**
+ * @template TItem
+ * @param {((d: TItem) => any)[]} sorters
+ * @returns {(a: TItem, b: TItem) => number}
+ */
+function getSorterFn(sorters) {
+  return (a, b) => {
+    let i = 0
+
+    sorters.some((sorter) => {
+      const sortedA = sorter(a)
+      const sortedB = sorter(b)
+      if (sortedA > sortedB) {
+        i = 1
+        return true
+      }
+      if (sortedA < sortedB) {
+        i = -1
+        return true
+      }
+      return false
+    })
+
+    return i
+  }
+}
+
+/**
+ * Execute a script being published
+ * @param {import('./types.js').RunOptions} options
+ * @returns {Promise<void>}
+ */
+export async function run(options) {
+  const { branchConfigs, packages, rootDir } = options
   const branchName = /** @type {string} */ (
     process.env.BRANCH ?? currentGitBranch()
   )
@@ -422,61 +479,4 @@ async function run() {
   console.info(`  Github release created.`)
 
   console.info(`All done!`)
-}
-
-run().catch((err) => {
-  console.info(err)
-  process.exit(1)
-})
-
-/** @param {string} str */
-function capitalize(str) {
-  return str.slice(0, 1).toUpperCase() + str.slice(1)
-}
-
-/**
- * @param {string} pathName
- * @returns {Promise<import('type-fest').PackageJson>}
- */
-async function readPackageJson(pathName) {
-  return await jsonfile.readFile(pathName)
-}
-
-/**
- * @param {string} pathName
- * @param {(json: import('type-fest').PackageJson) => Promise<void> | void} transform
- */
-async function updatePackageJson(pathName, transform) {
-  const json = await readPackageJson(pathName)
-  await transform(json)
-  await jsonfile.writeFile(pathName, json, {
-    spaces: 2,
-  })
-}
-
-/**
- * @template TItem
- * @param {((d: TItem) => any)[]} sorters
- * @returns {(a: TItem, b: TItem) => number}
- */
-function getSorterFn(sorters) {
-  return (a, b) => {
-    let i = 0
-
-    sorters.some((sorter) => {
-      const sortedA = sorter(a)
-      const sortedB = sorter(b)
-      if (sortedA > sortedB) {
-        i = 1
-        return true
-      }
-      if (sortedA < sortedB) {
-        i = -1
-        return true
-      }
-      return false
-    })
-
-    return i
-  }
 }

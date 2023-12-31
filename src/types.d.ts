@@ -43,3 +43,11 @@ export type BranchConfig = {
   prerelease: boolean
   previousVersion?: boolean
 }
+
+export type RunOptions = {
+  // Contains config for publishable branches.
+  branchConfigs: Record<string, BranchConfig>
+  // List your npm packages here. The first package will be used as the versioner.
+  packages: Package[]
+  rootDir: string
+}
