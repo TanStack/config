@@ -73,7 +73,7 @@ function getSorterFn(sorters) {
  * @param {import('./types.js').RunOptions} options
  * @returns {Promise<void>}
  */
-export async function run(options) {
+export async function publish(options) {
   const { branchConfigs, packages, rootDir, branch, tag, ghToken } = options
   const branchName = /** @type {string} */ (branch ?? currentGitBranch())
   /** @type {import('./types.js').BranchConfig | undefined} */

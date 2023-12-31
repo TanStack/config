@@ -11,29 +11,32 @@
     "url": "https://github.com/sponsors/tannerlinsley"
   },
   "type": "module",
-  "types": "build/legacy/index.d.ts",
-  "main": "build/legacy/index.cjs",
-  "module": "build/legacy/index.js",
+  "types": "src/index.d.ts",
+  "module": "src/index.js",
   "exports": {
     ".": {
       "import": {
-        "types": "./build/modern/index.d.ts",
-        "default": "./build/modern/index.js"
-      },
-      "require": {
-        "types": "./build/modern/index.d.cts",
-        "default": "./build/modern/index.cjs"
+        "types": "./src/index.d.ts",
+        "default": "./src/index.js"
       }
     },
     "./package.json": "./package.json"
   },
+  "bin": {
+    "tanstack-config": "./bin/config.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "preferGlobal": false,
   "sideEffects": false,
   "files": [
-    "src"
+    "src",
+    "bin"
   ],
   "packageManager": "pnpm@8.12.1",
   "scripts": {
-    "cipublish": "node src/publish.js",
+    "cipublish": "node bin/config.js publish --cwd config",
     "cipublishforce": "CI=true pnpm cipublish",
     "prettier": "prettier --ignore-unknown '**/*'",
     "prettier:write": "pnpm run prettier --write",

@@ -7,7 +7,7 @@ import interpret from 'interpret'
 const argv = minimist(args)
 import { pathToFileURL } from 'node:url'
 import { createRequire } from 'node:module'
-import { run } from '../src/publish.js'
+import { publish } from '../src/publish.js'
 
 const require = createRequire(import.meta.url)
 
@@ -42,7 +42,7 @@ Config.prepare(
     Config.execute(prepEnv, (env) => {
       requireOrImport(env.configPath)
         .then((configOpts) => {
-          return run({
+          return publish({
             branchConfigs: configOpts.branchConfigs,
             packages: configOpts.packages,
             rootDir: configOpts.rootDir,
