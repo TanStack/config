@@ -1,0 +1,20 @@
+{
+  "docSearch": {
+    "appId": "",
+    "apiKey": "",
+    "indexName": "tanstack-config"
+  },
+  "menu": [
+    {
+      "label": "Getting Started",
+      "children": [
+        {
+          "label": "Overview",
+          "to": "overview"
+        }
+      ]
+    }
+  ],
+  "frameworkMenus": [
+  ]
+}
