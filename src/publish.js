@@ -128,8 +128,8 @@ export async function publish(options) {
       )
       RELEASE_ALL = true
 
-      // Is it a major version?
-      if (!semver.patch(tag) && !semver.minor(tag)) {
+      // Is it the first release? Is it a major version?
+      if (!latestTag || (!semver.patch(tag) && !semver.minor(tag))) {
         range = `origin/main..HEAD`
         latestTag = tag
       }
