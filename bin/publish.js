@@ -39,10 +39,19 @@ Config.prepare(
     completion: argv.completion,
   },
   function (prepEnv) {
-    Config.execute(prepEnv, (env, args) => {
-      requireOrImport(env.configPath).then((configOpts) => {
-        console.log(configOpts.branchConfigs)
-      })
+    Config.execute(prepEnv, (env) => {
+      requireOrImport(env.configPath)
+        .then((configOpts) => {
+          return run({
+            branchConfigs: configOpts.branchConfigs,
+            packages: configOpts.packages,
+            rootDir: configOpts.rootDir,
+            branch: process.env.BRANCH,
+            tag: process.env.TAG,
+            ghToken: process.env.GH_TOKEN,
+          })
+        })
+        .catch(console.error)
     })
   },
 )
