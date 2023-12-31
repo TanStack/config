@@ -38,7 +38,7 @@
     "prettier:write": "pnpm run prettier --write",
     "test:build": "publint --strict",
     "test:eslint": "eslint --ext .ts,.tsx src",
-    "test:format": "prettier --check",
+    "test:format": "pnpm run prettier --check",
     "test:pr": "nx run-many --targets=test:format,test:eslint"
   },
   "nx": {
