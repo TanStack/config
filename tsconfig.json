@@ -1,20 +1,24 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": true,
+    "baseUrl": ".",
+    "checkJs": true,
+    "declaration": true,
+    "esModuleInterop": true,
     "lib": ["ES2022"],
-    "target": "ES2020",
     "module": "ES2020",
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "strictNullChecks": true,
-    "declaration": true,
+    "noEmit": true,
+    "noImplicitAny": false,
     "noImplicitReturns": true,
-    "esModuleInterop": true,
+    "noUncheckedIndexedAccess": true,
     "skipLibCheck": true,
-    "baseUrl": ".",
-    "allowUnreachableCode": true
+    "strict": false,
+    "strictNullChecks": true,
+    "target": "ES2020"
   },
   "include": ["bin", "prettier.config.js", "src"]
 }
