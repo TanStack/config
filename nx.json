@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "affected": {
+    "defaultBase": "main"
+  },
+  "defaultBase": "main",
+  "targetDefaults": {
+    "test:build": {
+      "cache": true
+    },
+    "test:eslint": {
+      "cache": true
+    }
+  }
+}
