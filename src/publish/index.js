@@ -114,6 +114,10 @@ export async function publish(options) {
   // released regardless if they have changed files matching the package srcDir.
   let RELEASE_ALL = false
 
+  if (typeof ghToken === 'string' && ghToken.length > 0) {
+    console.log('GH_TOKEN found')
+  }
+
   if (!latestTag || tag) {
     if (tag) {
       if (!tag.startsWith('v')) {
