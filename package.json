@@ -15,14 +15,10 @@
   "main": "build/legacy/index.cjs",
   "module": "build/legacy/index.js",
   "exports": {
-    ".": {
+    "./build": {
       "import": {
-        "types": "./build/modern/index.d.ts",
-        "default": "./build/modern/index.js"
-      },
-      "require": {
-        "types": "./build/modern/index.d.cts",
-        "default": "./build/modern/index.cjs"
+        "types": "./src/build/index.d.ts",
+        "default": "./src/build/index.js"
       }
     },
     "./package.json": "./package.json"
@@ -44,8 +40,8 @@
   "devDependencies": {
     "@commitlint/parse": "^17.6.5",
     "@types/current-git-branch": "^1.1.6",
-    "@types/git-log-parser": "^1.2.3",
     "@types/eslint": "^8.56.0",
+    "@types/git-log-parser": "^1.2.3",
     "@types/jsonfile": "^6.1.4",
     "@types/luxon": "^2.3.1",
     "@types/node": "^18.15.3",
@@ -76,7 +72,11 @@
     "stream-to-array": "^2.3.0",
     "tsup": "8.0.1",
     "type-fest": "^4.8.3",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "vite": "^5.0.10",
+    "vite-plugin-dts": "^3.7.0",
+    "vite-plugin-externalize-deps": "^0.8.0",
+    "vitest": "^1.1.0"
   },
   "bundlewatch": {
     "files": [

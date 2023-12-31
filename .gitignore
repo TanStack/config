@@ -8,8 +8,6 @@ yarn.lock
 
 # builds
 types
-build
-*/build
 dist
 lib
 es
