@@ -1,7 +1,6 @@
 **/.next
 **/.nx/cache
 **/.svelte-kit
-**/build
 **/coverage
 **/dist
 **/docs
