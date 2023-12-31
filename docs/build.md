@@ -54,6 +54,7 @@ export default mergeConfig(
 ## tsconfig.json
 
 - Ensure your `"include"` field includes `"vite.config.ts"`.
+- Set `"moduleResolution"` to `"bundler"`.
 
 # Caveats
 
