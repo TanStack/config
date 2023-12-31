@@ -8,10 +8,10 @@ Hooks for fetching, caching and updating asynchronous data in React, Solid, Svel
   <img alt="#TanStack" src="https://img.shields.io/twitter/url?color=%2308a0e9&label=%23TanStack&style=social&url=https%3A%2F%2Ftwitter.com%2Fintent%2Ftweet%3Fbutton_hashtag%3DTanStack">
 </a><a href="https://discord.com/invite/WrRKjPJ" target="\_parent">
   <img alt="" src="https://img.shields.io/badge/Discord-TanStack-%235865F2" />
-</a><a href="https://www.npmjs.com/package/@tanstack/config-core" target="\_parent">
-  <img alt="" src="https://img.shields.io/npm/dm/@tanstack/config-core.svg" />
-</a><a href="https://bundlephobia.com/package/@tanstack/config-core@latest" target="\_parent">
-  <img alt="" src="https://badgen.net/bundlephobia/minzip/@tanstack/config-core" />
+</a><a href="https://www.npmjs.com/package/@tanstack/config" target="\_parent">
+  <img alt="" src="https://img.shields.io/npm/dm/@tanstack/config.svg" />
+</a><a href="https://bundlephobia.com/package/@tanstack/config@latest" target="\_parent">
+  <img alt="" src="https://badgen.net/bundlephobia/minzip/@tanstack/config" />
 </a><a href="#badge">
     <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
   </a><a href="https://github.com/TanStack/config/discussions">
