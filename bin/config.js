@@ -9,7 +9,7 @@ import interpret from 'interpret'
 const argv = minimist(args)
 import { pathToFileURL } from 'node:url'
 import { createRequire } from 'node:module'
-import { publish } from '../src/publish.js'
+import { publish } from '../src/publish/index.js'
 import { Command, Option } from 'commander'
 import fs from 'node:fs'
 import { dirname, join } from 'node:path'
