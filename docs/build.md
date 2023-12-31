@@ -34,7 +34,7 @@ The build config is quite opinionated, as it is designed to work with our intern
 }
 ```
 
-# ## vite.config.ts
+## vite.config.ts
 
 ```ts
 import { defineConfig, mergeConfig } from 'vite'
@@ -50,6 +50,10 @@ export default mergeConfig(
   }),
 )
 ```
+
+## tsconfig.json
+
+- Ensure your `"include"` field includes `"vite.config.ts"`.
 
 # Caveats
 
