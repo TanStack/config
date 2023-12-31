@@ -17,13 +17,13 @@
   "types": "src/index.d.ts",
   "module": "src/index.js",
   "exports": {
-    "./build": {
+    ".": {
       "import": {
         "types": "./src/index.d.ts",
         "default": "./src/index.js"
       }
     },
-  "./build": {
+    "./build": {
       "import": {
         "types": "./src/build/index.d.ts",
         "default": "./src/build/index.js"
@@ -52,8 +52,8 @@
     "test:build": "publint --strict",
     "test:eslint": "eslint --ext .ts,.tsx src",
     "test:format": "pnpm run prettier --check",
-    "test:pr": "nx run-many --targets=test:format,test:eslint",
-    "test:ci": "nx run-many --targets=test:format,test:eslint"
+    "test:pr": "nx run-many --targets=test:format,test:eslint,test:build",
+    "test:ci": "nx run-many --targets=test:format,test:eslint,test:build"
   },
   "nx": {
     "includedScripts": [
