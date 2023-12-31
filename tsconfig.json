@@ -16,5 +16,5 @@
     "baseUrl": ".",
     "allowUnreachableCode": true
   },
-  "include": ["prettier.config.js", "src"]
+  "include": ["bin", "prettier.config.js", "src"]
 }

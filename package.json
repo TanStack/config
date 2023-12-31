@@ -14,13 +14,11 @@
     "url": "https://github.com/sponsors/tannerlinsley"
   },
   "type": "module",
-  "types": "src/index.d.ts",
-  "module": "src/index.js",
   "exports": {
-    ".": {
+    "./publish": {
       "import": {
-        "types": "./src/index.d.ts",
-        "default": "./src/index.js"
+        "types": "./src/publish/index.d.ts",
+        "default": "./src/publish/index.js"
       }
     },
     "./build": {
