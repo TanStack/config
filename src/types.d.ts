@@ -50,4 +50,10 @@ export type RunOptions = {
   // List your npm packages here. The first package will be used as the versioner.
   packages: Package[]
   rootDir: string
+  // The branch to publish. Defaults to the current branch if none supplied.
+  branch?: string
+  // The tag to publish. Must start with `v`
+  tag?: string
+  // The GitHub token used to search for user metadata and make a GitHub release.
+  ghToken?: string
 }

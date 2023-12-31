@@ -74,10 +74,8 @@ function getSorterFn(sorters) {
  * @returns {Promise<void>}
  */
 export async function run(options) {
-  const { branchConfigs, packages, rootDir } = options
-  const branchName = /** @type {string} */ (
-    process.env.BRANCH ?? currentGitBranch()
-  )
+  const { branchConfigs, packages, rootDir, branch, tag, ghToken } = options
+  const branchName = /** @type {string} */ (branch ?? currentGitBranch())
   /** @type {import('./types.js').BranchConfig | undefined} */
   const branchConfig = branchConfigs[branchName]
 
@@ -116,24 +114,24 @@ export async function run(options) {
   // released regardless if they have changed files matching the package srcDir.
   let RELEASE_ALL = false
 
-  if (!latestTag || process.env.TAG) {
-    if (process.env.TAG) {
-      if (!process.env.TAG.startsWith('v')) {
+  if (!latestTag || tag) {
+    if (tag) {
+      if (!tag.startsWith('v')) {
         throw new Error(
-          `process.env.TAG must start with "v", eg. v0.0.0. You supplied ${process.env.TAG}`,
+          `tag must start with "v", eg. v0.0.0. You supplied ${tag}`,
         )
       }
       console.info(
         chalk.yellow(
-          `Tag is set to ${process.env.TAG}. This will force release all packages. Publishing...`,
+          `Tag is set to ${tag}. This will force release all packages. Publishing...`,
         ),
       )
       RELEASE_ALL = true
 
       // Is it a major version?
-      if (!semver.patch(process.env.TAG) && !semver.minor(process.env.TAG)) {
+      if (!semver.patch(tag) && !semver.minor(tag)) {
         range = `origin/main..HEAD`
-        latestTag = process.env.TAG
+        latestTag = tag
       }
     } else {
       throw new Error(
@@ -217,7 +215,7 @@ export async function run(options) {
    * Uses git diff to determine which files have changed since the latest tag
    * @type {string[]}
    */
-  const changedFiles = process.env.TAG
+  const changedFiles = tag
     ? []
     : execSync(`git diff ${latestTag} --name-only`)
         .toString()
@@ -269,7 +267,7 @@ export async function run(options) {
     }
   }
 
-  if (!process.env.TAG) {
+  if (!tag) {
     if (recommendedReleaseLevel === 2) {
       console.info(
         `Major versions releases must be tagged and released manually.`,
@@ -285,8 +283,8 @@ export async function run(options) {
     }
   }
 
-  const changelogCommitsMd = process.env.TAG
-    ? `Manual Release: ${process.env.TAG}`
+  const changelogCommitsMd = tag
+    ? `Manual Release: ${tag}`
     : await Promise.all(
         Object.entries(
           commitsSinceLatestTag.reduce((acc, next) => {
@@ -319,7 +317,7 @@ export async function run(options) {
               commits.map(async (commit) => {
                 let username = ''
 
-                if (process.env.GH_TOKEN) {
+                if (ghToken) {
                   const query = `${
                     commit.author.email || commit.committer.email
                   }`
@@ -331,7 +329,7 @@ export async function run(options) {
                         q: query,
                       },
                       headers: {
-                        Authorization: `token ${process.env.GH_TOKEN}`,
+                        Authorization: `token ${ghToken}`,
                       },
                     },
                   )
@@ -360,7 +358,7 @@ export async function run(options) {
           .join('\n\n')
       })
 
-  if (process.env.TAG && recommendedReleaseLevel === -1) {
+  if (tag && recommendedReleaseLevel === -1) {
     recommendedReleaseLevel = 0
   }
 
@@ -380,8 +378,8 @@ export async function run(options) {
     throw new Error(`Invalid release level: ${recommendedReleaseLevel}`)
   }
 
-  const version = process.env.TAG
-    ? semver.parse(process.env.TAG)?.version
+  const version = tag
+    ? semver.parse(tag)?.version
     : semver.inc(latestTag, releaseType, npmTag)
 
   if (!version) {
@@ -469,14 +467,18 @@ export async function run(options) {
   console.info()
   console.info(`  Tags pushed.`)
 
-  console.info(`Creating github release...`)
-  // Stringify the markdown to excape any quotes
-  execSync(
-    `gh release create v${version} ${
-      branchConfig.prerelease ? '--prerelease' : ''
-    } --notes '${changelogMd.replace(/'/g, '"')}'`,
-  )
-  console.info(`  Github release created.`)
+  if (ghToken) {
+    console.info(`Creating github release...`)
+
+    // Stringify the markdown to escape any quotes
+    execSync(
+      `gh release create v${version} ${
+        branchConfig.prerelease ? '--prerelease' : ''
+      } --notes '${changelogMd.replace(/'/g, '"')}'`,
+      { env: { ...process.env, GH_TOKEN: ghToken } },
+    )
+    console.info(`  Github release created.`)
+  }
 
   console.info(`All done!`)
 }
