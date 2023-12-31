@@ -67,6 +67,7 @@
     "axios": "^0.26.1",
     "chalk": "^5.3.0",
     "current-git-branch": "^1.1.0",
+    "esbuild-register": "^3.5.0",
     "git-log-parser": "^1.2.0",
     "interpret": "^3.1.1",
     "jsonfile": "^6.1.0",
