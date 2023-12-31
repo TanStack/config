@@ -39,7 +39,8 @@
     "prettier:write": "pnpm run prettier --write",
     "test:build": "publint --strict",
     "test:eslint": "eslint --ext .ts,.tsx src",
-    "test:format": "pnpm run prettier --check"
+    "test:format": "pnpm run prettier --check",
+    "test:pr": "pnpm test:format && pnpm test:eslint && pnpm test:build"
   },
   "devDependencies": {
     "@commitlint/parse": "^17.6.5",
