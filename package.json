@@ -4,7 +4,10 @@
   "description": "Configuration and tools for publishing and maintaining TanStack projects.",
   "author": "tannerlinsley",
   "license": "MIT",
-  "repository": "tanstack/config",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TanStack/config.git"
+  },
   "homepage": "https://tanstack.com/config",
   "funding": {
     "type": "github",
@@ -19,10 +22,6 @@
       "import": {
         "types": "./build/modern/index.d.ts",
         "default": "./build/modern/index.js"
-      },
-      "require": {
-        "types": "./build/modern/index.d.cts",
-        "default": "./build/modern/index.cjs"
       }
     },
     "./package.json": "./package.json"
@@ -39,7 +38,15 @@
     "prettier:write": "pnpm run prettier --write",
     "test:build": "publint --strict",
     "test:eslint": "eslint --ext .ts,.tsx src",
-    "test:format": "pnpm run prettier --check"
+    "test:format": "pnpm run prettier --check",
+    "test:pr": "nx run-many --targets=test:format,test:eslint"
+  },
+  "nx": {
+    "includedScripts": [
+      "test:format",
+      "test:eslint",
+      "test:build"
+    ]
   },
   "devDependencies": {
     "@commitlint/parse": "^17.6.5",
@@ -69,6 +76,7 @@
     "jsdom": "^22.0.0",
     "jsonfile": "^6.1.0",
     "luxon": "^3.3.0",
+    "nx": "17.2.8",
     "prettier": "^4.0.0-alpha.8",
     "publint": "^0.1.15",
     "rimraf": "^5.0.1",
