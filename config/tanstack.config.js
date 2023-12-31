@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url'
 export const packages = [
   {
     name: '@tanstack/config',
-    packageDir: 'packages/form-core',
+    packageDir: '',
   },
 ]
 
