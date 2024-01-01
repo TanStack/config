@@ -34,7 +34,17 @@ The build config is quite opinionated, as it is designed to work with our intern
 }
 ```
 
+## tsconfig.json
+
+- Ensure your `"include"` field includes `"vite.config.ts"`.
+- Set `"moduleResolution"` to `"bundler"`.
+
 ## vite.config.ts
+
+- Wrap your `defineConfig` in `mergeConfig` (also exported from Vite).
+- Add `tanstackBuildConfig` into `mergeConfig`.
+- Note: Please avoid modifying `build` in your own `defineConfig`.
+- See an example below:
 
 ```ts
 import { defineConfig, mergeConfig } from 'vite'
@@ -50,11 +60,6 @@ export default mergeConfig(
   }),
 )
 ```
-
-## tsconfig.json
-
-- Ensure your `"include"` field includes `"vite.config.ts"`.
-- Set `"moduleResolution"` to `"bundler"`.
 
 # Caveats
 
