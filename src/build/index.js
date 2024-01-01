@@ -21,7 +21,7 @@ export const tanstackBuildConfig = (options) => {
         compilerOptions: {
           // @ts-expect-error
           module: 'esnext',
-          declarationMap: true,
+          declarationMap: false,
         },
       }),
       dts({
