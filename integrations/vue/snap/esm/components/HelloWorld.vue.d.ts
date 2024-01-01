@@ -13,4 +13,3 @@ type __VLS_TypePropsToRuntimeProps<T> = {
         required: true;
     };
 };
-//# sourceMappingURL=HelloWorld.vue.d.ts.map

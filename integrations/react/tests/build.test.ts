@@ -6,7 +6,7 @@ import { describe, expect, it } from 'vitest'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const rootDir = resolve(__dirname, '..')
 
-const esmExtensions = ['.js', '.js.map', '.d.ts', '.d.ts.map']
+const esmExtensions = ['.js', '.js.map', '.d.ts']
 const cjsExtensions = ['.cjs', '.cjs.map', '.d.cts']
 
 const files = ['index', 'use-client', 'nested/nested']
