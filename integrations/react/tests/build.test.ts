@@ -9,22 +9,26 @@ const rootDir = resolve(__dirname, '..')
 const esmExtensions = ['.js', '.js.map', '.d.ts', '.d.ts.map']
 const cjsExtensions = ['.cjs', '.cjs.map', '.d.cts']
 
-describe('Build React', () => {
+const files = ['index', 'use-client', 'nested/nested']
+
+describe('Check React build output', () => {
   it('should build the same ESM output', () => {
-    const file = 'esm/index'
-    esmExtensions.forEach((ext) => {
-      expect(
-        readFileSync(`${rootDir}/dist/${file}${ext}`).toString(),
-      ).toMatchFileSnapshot(`${rootDir}/snap/${file}${ext}`)
+    files.forEach((file) => {
+      esmExtensions.forEach((ext) => {
+        expect(
+          readFileSync(`${rootDir}/dist/esm/${file}${ext}`).toString(),
+        ).toMatchFileSnapshot(`${rootDir}/snap/esm/${file}${ext}`)
+      })
     })
   })
 
   it('should build the same CJS output', () => {
-    const file = 'cjs/index'
-    cjsExtensions.forEach((ext) => {
-      expect(
-        readFileSync(`${rootDir}/dist/${file}${ext}`).toString(),
-      ).toMatchFileSnapshot(`${rootDir}/snap/${file}${ext}`)
+    files.forEach((file) => {
+      cjsExtensions.forEach((ext) => {
+        expect(
+          readFileSync(`${rootDir}/dist/cjs/${file}${ext}`).toString(),
+        ).toMatchFileSnapshot(`${rootDir}/snap/cjs/${file}${ext}`)
+      })
     })
   })
 })
