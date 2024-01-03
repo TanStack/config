@@ -62,3 +62,7 @@ export default mergeConfig(
   }),
 )
 ```
+
+# Caveats
+
+While this config _will_ work with most frameworks with a Vite adapter, it doesn't mean you _should_ use it for all frameworks. For instance, Svelte publishes [@sveltejs/package](https://www.npmjs.com/package/@sveltejs/package), and Angular publishes [ng-packagr](https://www.npmjs.com/package/ng-packagr). When a framework-specific build tool exists, this should be preferred.
