@@ -8,17 +8,21 @@
     "checkJs": true,
     "declaration": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
     "lib": ["ES2022"],
     "module": "ES2020",
     "moduleResolution": "Bundler",
     "noEmit": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
     "target": "ES2020"
   },
-  "include": ["bin", "prettier.config.js", "src"]
+  "include": [".eslintrc.cjs", "bin", "prettier.config.js", "src"]
 }
