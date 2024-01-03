@@ -1,0 +1,18 @@
+{
+  "name": "react-integration",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:build": "vite build && vitest"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@tanstack/config": "<1.0.0",
+    "@types/react": "^18.2.46",
+    "@types/react-dom": "^18.2.18",
+    "@vitejs/plugin-react": "^4.2.1"
+  }
+}

@@ -21,6 +21,12 @@
         "default": "./src/publish/index.js"
       }
     },
+    "./build": {
+      "import": {
+        "types": "./src/build/index.d.ts",
+        "default": "./src/build/index.js"
+      }
+    },
     "./package.json": "./package.json"
   },
   "bin": {
@@ -74,7 +80,11 @@
     "prettier": "^4.0.0-alpha.8",
     "publint": "^0.2.7",
     "type-fest": "^4.9.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "vite": "^5.0.10",
+    "vite-plugin-dts": "^3.7.0",
+    "vite-plugin-externalize-deps": "^0.8.0",
+    "vitest": "^1.1.0"
   },
   "dependencies": {
     "axios": "^1.6.3",
