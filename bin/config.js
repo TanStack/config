@@ -26,6 +26,7 @@ async function requireOrImport(path) {
   try {
     return require(path)
   } catch (e) {
+    // @ts-expect-error
     if (pathToFileURL && e.code === 'ERR_REQUIRE_ESM') {
       // This is needed on Windows, because import() fails if providing a Windows file path.
       const url = pathToFileURL(path)
