@@ -89,13 +89,13 @@ export async function publish(options) {
 
   // Filter tags to our branch/pre-release combo
   tags = tags
-    .filter((tag) => semver.valid(tag))
-    .filter((tag) => {
+    .filter((t) => semver.valid(t))
+    .filter((t) => {
       // If this is an older release, filter to only include that version
       if (isPreviousRelease) {
-        return tag.startsWith(branchName)
+        return t.startsWith(branchName)
       }
-      if (semver.prerelease(tag) === null) {
+      if (semver.prerelease(t) === null) {
         return isMainBranch
       } else {
         return !isMainBranch

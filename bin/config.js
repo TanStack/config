@@ -1,23 +1,23 @@
 #!/usr/bin/env node
-import chalk from 'chalk'
 
-const args = process.argv.slice(2)
+import { pathToFileURL } from 'node:url'
+import { createRequire } from 'node:module'
+import { readFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import chalk from 'chalk'
 import Liftoff from 'liftoff'
 import minimist from 'minimist'
 import v8flags from 'v8flags'
 import interpret from 'interpret'
-const argv = minimist(args)
-import { pathToFileURL } from 'node:url'
-import { createRequire } from 'node:module'
-import { publish } from '../src/publish/index.js'
 import { Command } from 'commander'
-import fs from 'node:fs'
-import { dirname, join } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { publish } from '../src/publish/index.js'
+
+const args = process.argv.slice(2)
+const argv = minimist(args)
+
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const pkg = JSON.parse(
-  fs.readFileSync(join(__dirname, '../package.json'), 'utf8'),
-)
+const pkg = JSON.parse(readFileSync(join(__dirname, '../package.json'), 'utf8'))
 
 const require = createRequire(import.meta.url)
 
