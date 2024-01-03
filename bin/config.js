@@ -22,7 +22,7 @@ const pkg = JSON.parse(
 const require = createRequire(import.meta.url)
 
 /**
- * @param {string} [path] 
+ * @param {string} [path]
  */
 async function requireOrImport(path) {
   if (!path) return null
@@ -50,7 +50,7 @@ const Config = new Liftoff({
 })
 
 /**
- * @param {string} [configPath] 
+ * @param {string} [configPath]
  */
 function checkForConfigFile(configPath) {
   if (configPath) return
