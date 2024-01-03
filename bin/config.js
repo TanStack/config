@@ -10,7 +10,7 @@ const argv = minimist(args)
 import { pathToFileURL } from 'node:url'
 import { createRequire } from 'node:module'
 import { publish } from '../src/publish/index.js'
-import { Command, Option } from 'commander'
+import { Command } from 'commander'
 import fs from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -21,6 +21,9 @@ const pkg = JSON.parse(
 
 const require = createRequire(import.meta.url)
 
+/**
+ * @param {string} [path]
+ */
 async function requireOrImport(path) {
   if (!path) return null
   try {
@@ -40,11 +43,15 @@ async function requireOrImport(path) {
 const Config = new Liftoff({
   name: 'tanstack-config',
   configName: 'tanstack.config',
+  // @ts-expect-error
   extensions: interpret.jsVariants,
   preload: 'esbuild-register/dist/node',
   v8flags: v8flags,
 })
 
+/**
+ * @param {string} [configPath]
+ */
 function checkForConfigFile(configPath) {
   if (configPath) return
   console.error(
