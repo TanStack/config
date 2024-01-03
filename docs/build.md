@@ -41,26 +41,24 @@ The build config is quite opinionated, as it is designed to work with our intern
 
 ## vite.config.ts
 
-- Wrap your `defineConfig` in `mergeConfig` (also exported from Vite).
-- Add `tanstackBuildConfig` into `mergeConfig`.
-- Note: Please avoid modifying `build` in your own `defineConfig`.
+- Import `mergeConfig` and `tanstackBuildConfig`.
+- Merge your custom config first, followed by `tanstackBuildConfig`.
+- Please avoid modifying `build` in your custom config.
 - See an example below:
 
 ```ts
 import { defineConfig, mergeConfig } from 'vite'
 import { tanstackBuildConfig } from '@tanstack/config/build'
 
+const config = defineConfig({
+  // Framework plugins, vitest config, etc.
+})
+
 export default mergeConfig(
+  config,
   tanstackBuildConfig({
     entry: 'src/index.ts',
     srcDir: 'src',
   }),
-  defineConfig({
-    // Add any custom options here, such as framework plugins
-  }),
 )
 ```
-
-# Caveats
-
-While this config _will_ work with most frameworks with a Vite adapter, it doesn't mean you _should_ use it for all frameworks. For instance, Svelte publishes [@sveltejs/package](https://www.npmjs.com/package/@sveltejs/package), and Angular publishes [ng-packagr](https://www.npmjs.com/package/ng-packagr). When a framework-specific build tool exists, this should be preferred.
