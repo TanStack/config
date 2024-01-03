@@ -1,0 +1,17 @@
+
+.logo[data-v-57d0a178] {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo[data-v-57d0a178]:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vue[data-v-57d0a178]:hover {
+  filter: drop-shadow(0 0 2em #42b883aa);
+}
+
+.read-the-docs[data-v-1d5be6d4] {
+  color: #888;
+}

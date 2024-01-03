@@ -1,6 +1,6 @@
 {
   "name": "@tanstack/config",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Configuration and tools for publishing and maintaining TanStack projects.",
   "author": "tannerlinsley",
   "license": "MIT",
@@ -19,6 +19,12 @@
       "import": {
         "types": "./src/publish/index.d.ts",
         "default": "./src/publish/index.js"
+      }
+    },
+    "./build": {
+      "import": {
+        "types": "./src/build/index.d.ts",
+        "default": "./src/build/index.js"
       }
     },
     "./package.json": "./package.json"
@@ -56,6 +62,24 @@
       "test:build"
     ]
   },
+  "dependencies": {
+    "axios": "^1.6.3",
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "current-git-branch": "^1.1.0",
+    "esbuild-register": "^3.5.0",
+    "git-log-parser": "^1.2.0",
+    "interpret": "^3.1.1",
+    "jsonfile": "^6.1.0",
+    "liftoff": "^4.0.0",
+    "luxon": "^3.4.4",
+    "minimist": "^1.2.8",
+    "semver": "^7.5.4",
+    "stream-to-array": "^2.3.0",
+    "v8flags": "^4.0.1",
+    "vite-plugin-dts": "^3.7.0",
+    "vite-plugin-externalize-deps": "^0.8.0"
+  },
   "devDependencies": {
     "@commitlint/parse": "^18.4.3",
     "@types/current-git-branch": "^1.1.6",
@@ -76,22 +100,8 @@
     "prettier": "^4.0.0-alpha.8",
     "publint": "^0.2.7",
     "type-fest": "^4.9.0",
-    "typescript": "^5.2.2"
-  },
-  "dependencies": {
-    "axios": "^1.6.3",
-    "chalk": "^5.3.0",
-    "commander": "^11.1.0",
-    "current-git-branch": "^1.1.0",
-    "esbuild-register": "^3.5.0",
-    "git-log-parser": "^1.2.0",
-    "interpret": "^3.1.1",
-    "jsonfile": "^6.1.0",
-    "liftoff": "^4.0.0",
-    "luxon": "^3.4.4",
-    "minimist": "^1.2.8",
-    "semver": "^7.5.4",
-    "stream-to-array": "^2.3.0",
-    "v8flags": "^4.0.1"
+    "typescript": "^5.2.2",
+    "vite": "^5.0.10",
+    "vitest": "^1.1.0"
   }
 }

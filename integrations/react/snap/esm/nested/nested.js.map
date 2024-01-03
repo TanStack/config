@@ -1,0 +1,1 @@
+{"version":3,"file":"nested.js","sources":["../../../src/nested/nested.ts"],"sourcesContent":["export const test = 'Hello world!'\n"],"names":[],"mappings":"AAAO,MAAM,OAAO;"}
