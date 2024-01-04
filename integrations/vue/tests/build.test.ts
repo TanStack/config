@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
@@ -9,9 +9,16 @@ const rootDir = resolve(__dirname, '..')
 const esmExtensions = ['.js', '.js.map', '.d.ts']
 const cjsExtensions = ['.cjs', '.cjs.map', '.d.cts']
 
-const files = ['index']
+const files = ['index', 'App.vue', 'components/HelloWorld.vue']
 
 describe('Check Vite build output', () => {
+  it('should output the same file structure', () => {
+    const distFiles = readdirSync(`${rootDir}/dist`, { recursive: true })
+    const snapFiles = readdirSync(`${rootDir}/snap`, { recursive: true })
+
+    expect(distFiles).toEqual(snapFiles)
+  })
+
   it('should build the same ESM output', () => {
     files.forEach((file) => {
       esmExtensions.forEach((ext) => {
