@@ -63,7 +63,6 @@
     ]
   },
   "dependencies": {
-    "axios": "^1.6.3",
     "chalk": "^5.3.0",
     "commander": "^11.1.0",
     "current-git-branch": "^1.1.0",

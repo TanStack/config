@@ -10,7 +10,6 @@ import currentGitBranch from 'current-git-branch'
 import { parse as parseCommit } from '@commitlint/parse'
 import log from 'git-log-parser'
 import streamToArray from 'stream-to-array'
-import axios from 'axios'
 import { DateTime } from 'luxon'
 
 /** @param {string} version */
@@ -322,19 +321,17 @@ export async function publish(options) {
                     commit.author.email || commit.committer.email
                   }`
 
-                  const res = await axios.get(
-                    'https://api.github.com/search/users',
+                  const res = await fetch(
+                    `https://api.github.com/search/users?q=${query}`,
                     {
-                      params: {
-                        q: query,
-                      },
                       headers: {
                         Authorization: `token ${ghToken}`,
                       },
                     },
                   )
-
-                  username = res.data.items[0]?.login
+                  /** @type {any} */
+                  const data = await res.json()
+                  username = data.items[0]?.login
                 }
 
                 const scope = commit.parsed.scope
