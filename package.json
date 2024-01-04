@@ -100,6 +100,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
+    "jsdom": "^23.0.1",
     "nx": "^17.2.8",
     "prettier": "^4.0.0-alpha.8",
     "publint": "^0.2.7",
