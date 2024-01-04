@@ -24,7 +24,7 @@ const require = createRequire(import.meta.url)
 /**
  * @param {string} [path]
  */
-function requireOrImport(path) {
+async function requireOrImport(path) {
   if (!path) return null
   try {
     return require(path)
@@ -74,45 +74,48 @@ Config.prepare(
   },
   function (prepEnv) {
     Config.execute(prepEnv, (env) => {
-      const configOpts = requireOrImport(env.configPath)
-      const program = new Command()
+      requireOrImport(env.configPath).then((configOpts) => {
+        const program = new Command()
 
-      program
-        .name('@tanstack/config')
-        .description(
-          'Configuration and tools for publishing and maintaining high-quality JavaScript packages',
-        )
-        .version(pkg.version)
+        program
+          .name('@tanstack/config')
+          .description(
+            'Configuration and tools for publishing and maintaining high-quality JavaScript packages',
+          )
+          .version(pkg.version)
 
-      if (configOpts) {
-        for (const key of Object.keys(configOpts)) {
-          program.setOptionValueWithSource(key, configOpts[key], 'config')
+        if (configOpts) {
+          for (const key of Object.keys(configOpts)) {
+            program.setOptionValueWithSource(key, configOpts[key], 'config')
+          }
         }
-      }
 
-      program
-        .command('publish')
-        .description('Publish your package with the current working directory')
-        .option(
-          '--cwd <dir>',
-          'Current working directory of the configuration file',
-        )
-        .option('--config <config>', 'The path to the configuration file')
-        .option('--tag <tag>', 'The tag to publish to')
-        .option('--branch <branch>', 'The branch to publish from')
-        .action((_str, opts) => {
-          checkForConfigFile(env.configPath)
-          return publish({
-            branchConfigs: configOpts.branchConfigs,
-            packages: configOpts.packages,
-            rootDir: configOpts.rootDir,
-            branch: opts.branch ?? process.env.BRANCH,
-            tag: opts.tag ?? process.env.TAG,
-            ghToken: process.env.GH_TOKEN,
+        program
+          .command('publish')
+          .description(
+            'Publish your package with the current working directory',
+          )
+          .option(
+            '--cwd <dir>',
+            'Current working directory of the configuration file',
+          )
+          .option('--config <config>', 'The path to the configuration file')
+          .option('--tag <tag>', 'The tag to publish to')
+          .option('--branch <branch>', 'The branch to publish from')
+          .action((_str, opts) => {
+            checkForConfigFile(env.configPath)
+            return publish({
+              branchConfigs: configOpts.branchConfigs,
+              packages: configOpts.packages,
+              rootDir: configOpts.rootDir,
+              branch: opts.branch ?? process.env.BRANCH,
+              tag: opts.tag ?? process.env.TAG,
+              ghToken: process.env.GH_TOKEN,
+            })
           })
-        })
 
-      program.parse()
+        program.parseAsync()
+      })
     })
   },
 )
