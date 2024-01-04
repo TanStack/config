@@ -63,6 +63,7 @@
     ]
   },
   "dependencies": {
+    "@commitlint/parse": "^18.4.3",
     "chalk": "^5.3.0",
     "commander": "^11.1.0",
     "current-git-branch": "^1.1.0",
@@ -80,7 +81,6 @@
     "vite-plugin-externalize-deps": "^0.8.0"
   },
   "devDependencies": {
-    "@commitlint/parse": "^18.4.3",
     "@types/current-git-branch": "^1.1.6",
     "@types/eslint": "^8.56.0",
     "@types/git-log-parser": "^1.2.3",
