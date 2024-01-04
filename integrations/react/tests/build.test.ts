@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
@@ -12,6 +12,13 @@ const cjsExtensions = ['.cjs', '.cjs.map', '.d.cts']
 const files = ['index', 'use-client', 'nested/nested']
 
 describe('Check React build output', () => {
+  it('should output the same file structure', () => {
+    const distFiles = readdirSync(`${rootDir}/dist`, { recursive: true })
+    const snapFiles = readdirSync(`${rootDir}/snap`, { recursive: true })
+
+    expect(distFiles).toEqual(snapFiles)
+  })
+
   it('should build the same ESM output', () => {
     files.forEach((file) => {
       esmExtensions.forEach((ext) => {
