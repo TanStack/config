@@ -3,7 +3,6 @@
 
 import path from 'node:path'
 import { execSync } from 'node:child_process'
-import { existsSync, readdirSync } from 'node:fs'
 import chalk from 'chalk'
 import jsonfile from 'jsonfile'
 import * as semver from 'semver'
@@ -421,32 +420,6 @@ export async function publish(options) {
         config.version = version
       },
     )
-  }
-
-  if (existsSync(path.resolve(rootDir, 'examples'))) {
-    console.info('Updating examples to use new package versions')
-    const examplePkgJsonArray = /** @type {string[]} */ (
-      readdirSync(path.resolve(rootDir, 'examples'), {
-        recursive: true,
-      }).filter(
-        (file) =>
-          typeof file === 'string' &&
-          file.includes('package.json') &&
-          !file.includes('node_modules'),
-      )
-    )
-    for (const examplePkgJson of examplePkgJsonArray) {
-      await updatePackageJson(
-        path.resolve(rootDir, 'examples', examplePkgJson),
-        (config) => {
-          for (const pkg of changedPackages) {
-            if (config.dependencies?.[pkg.name]) {
-              config.dependencies[pkg.name] = `^${version}`
-            }
-          }
-        },
-      )
-    }
   }
 
   if (!process.env.CI) {
