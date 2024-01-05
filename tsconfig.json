@@ -3,8 +3,8 @@
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "allowUnreachableCode": true,
-    "baseUrl": ".",
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
     "checkJs": true,
     "declaration": true,
     "esModuleInterop": true,
@@ -14,14 +14,13 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "noEmit": true,
-    "noImplicitAny": true,
     "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "strictNullChecks": true,
     "target": "ES2020"
   },
   "include": [".eslintrc.cjs", "bin", "prettier.config.js", "src"]
