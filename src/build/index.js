@@ -6,7 +6,7 @@ import dts from 'vite-plugin-dts'
 import { defineConfig } from 'vite'
 
 /**
- * @param {import('./index').Options} options
+ * @param {import('./index.js').Options} options
  * @returns {import('vite').UserConfig}
  */
 export const tanstackBuildConfig = (options) => {
