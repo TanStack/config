@@ -1,11 +1,11 @@
 import { mergeConfig, defineConfig } from 'vitest/config'
-import react from '@vitejs/plugin-react'
+import solid from 'vite-plugin-solid'
 import { tanstackBuildConfig } from '@tanstack/config/build'
 
 const config = defineConfig({
-  plugins: [react()],
+  plugins: [solid()],
   test: {
-    name: 'react-integration',
+    name: 'solid-integration',
     watch: false,
   },
 })

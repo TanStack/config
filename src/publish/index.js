@@ -4,75 +4,26 @@
 import path from 'node:path'
 import { execSync } from 'node:child_process'
 import chalk from 'chalk'
-import jsonfile from 'jsonfile'
 import * as semver from 'semver'
 import currentGitBranch from 'current-git-branch'
 import { parse as parseCommit } from '@commitlint/parse'
 import log from 'git-log-parser'
 import streamToArray from 'stream-to-array'
 import { DateTime } from 'luxon'
-
-/** @param {string} version */
-const releaseCommitMsg = (version) => `release: v${version}`
-
-/** @param {string} str */
-function capitalize(str) {
-  return str.slice(0, 1).toUpperCase() + str.slice(1)
-}
-
-/**
- * @param {string} pathName
- * @returns {Promise<import('type-fest').PackageJson>}
- */
-async function readPackageJson(pathName) {
-  return await jsonfile.readFile(pathName)
-}
-
-/**
- * @param {string} pathName
- * @param {(json: import('type-fest').PackageJson) => Promise<void> | void} transform
- */
-async function updatePackageJson(pathName, transform) {
-  const json = await readPackageJson(pathName)
-  await transform(json)
-  await jsonfile.writeFile(pathName, json, {
-    spaces: 2,
-  })
-}
-
-/**
- * @template TItem
- * @param {((d: TItem) => any)[]} sorters
- * @returns {(a: TItem, b: TItem) => number}
- */
-function getSorterFn(sorters) {
-  return (a, b) => {
-    let i = 0
-
-    sorters.some((sorter) => {
-      const sortedA = sorter(a)
-      const sortedB = sorter(b)
-      if (sortedA > sortedB) {
-        i = 1
-        return true
-      }
-      if (sortedA < sortedB) {
-        i = -1
-        return true
-      }
-      return false
-    })
-
-    return i
-  }
-}
+import {
+  capitalize,
+  getSorterFn,
+  readPackageJson,
+  releaseCommitMsg,
+  updatePackageJson,
+} from './utils.js'
 
 /**
  * Execute a script being published
  * @param {import('./types.js').RunOptions} options
  * @returns {Promise<void>}
  */
-export async function publish(options) {
+export const publish = async (options) => {
   const { branchConfigs, packages, rootDir, branch, tag, ghToken } = options
   const branchName = /** @type {string} */ (branch ?? currentGitBranch())
   /** @type {import('./types.js').BranchConfig | undefined} */
@@ -393,9 +344,9 @@ export async function publish(options) {
     `Version ${version} - ${DateTime.now().toLocaleString(
       DateTime.DATETIME_SHORT,
     )}`,
-    `## Changes`,
+    '## Changes',
     changelogCommitsMd,
-    `## Packages`,
+    '## Packages',
     changedPackages.map((d) => `- ${d.name}@${version}`).join('\n'),
   ].join('\n\n')
 
@@ -430,12 +381,12 @@ export async function publish(options) {
   }
 
   console.info()
-  console.info(`Publishing all packages to npm`)
+  console.info('Publishing all packages to npm')
 
   // Publish each package
   changedPackages.forEach((pkg) => {
     const packageDir = path.join(rootDir, pkg.packageDir)
-    const tagParam = branchConfig.previousVersion ? `` : `--tag ${npmTag}`
+    const tagParam = branchConfig.previousVersion ? '' : `--tag ${npmTag}`
 
     const cmd = `cd ${packageDir} && pnpm publish ${tagParam} --access=public --no-git-checks`
     console.info(`  Publishing ${pkg.name}@${version} to npm "${tagParam}"...`)
@@ -446,26 +397,26 @@ export async function publish(options) {
 
   console.info()
 
-  console.info(`Committing changes...`)
+  console.info('Committing changes...')
   execSync(`git add -A && git commit -m "${releaseCommitMsg(version)}"`)
   console.info()
-  console.info(`  Committed Changes.`)
+  console.info('  Committed Changes.')
 
-  console.info(`Pushing changes...`)
-  execSync(`git push`)
+  console.info('Pushing changes...')
+  execSync('git push')
   console.info()
-  console.info(`  Changes pushed.`)
+  console.info('  Changes pushed.')
 
   console.info(`Creating new git tag v${version}`)
   execSync(`git tag -a -m "v${version}" v${version}`)
 
-  console.info(`Pushing tags...`)
-  execSync(`git push --tags`)
+  console.info('Pushing tags...')
+  execSync('git push --tags')
   console.info()
-  console.info(`  Tags pushed.`)
+  console.info('  Tags pushed.')
 
   if (ghToken) {
-    console.info(`Creating github release...`)
+    console.info('Creating github release...')
 
     // Stringify the markdown to escape any quotes
     execSync(
@@ -474,8 +425,9 @@ export async function publish(options) {
       } --notes '${changelogMd.replace(/'/g, '"')}'`,
       { env: { ...process.env, GH_TOKEN: ghToken } },
     )
-    console.info(`  Github release created.`)
+    console.info('  Github release created.')
   }
 
-  console.info(`All done!`)
+  console.info('All done!')
+  return
 }
