@@ -25,13 +25,17 @@ import {
  */
 export const publish = async (options) => {
   const { branchConfigs, packages, rootDir, branch, tag, ghToken } = options
+
   const branchName = /** @type {string} */ (branch ?? currentGitBranch())
+  const isMainBranch = branchName === 'main'
+  const npmTag = isMainBranch ? 'latest' : branchName
+
   /** @type {import('./types.js').BranchConfig | undefined} */
   const branchConfig = branchConfigs[branchName]
 
-  const isMainBranch = branchName === 'main'
-  const isPreviousRelease = branchConfig?.previousVersion
-  const npmTag = isMainBranch ? 'latest' : branchName
+  if (!branchConfig) {
+    throw new Error(`No publish config found for branch: ${branchName}`)
+  }
 
   // Get tags
   /** @type {string[]} */
@@ -42,7 +46,7 @@ export const publish = async (options) => {
     .filter((t) => semver.valid(t))
     .filter((t) => {
       // If this is an older release, filter to only include that version
-      if (isPreviousRelease) {
+      if (branchConfig.previousVersion) {
         return t.startsWith(branchName)
       }
       if (semver.prerelease(t) === null) {
@@ -310,12 +314,6 @@ export const publish = async (options) => {
     recommendedReleaseLevel = 0
   }
 
-  if (!branchConfig) {
-    console.log(`No publish config found for branch: ${branchName}`)
-    console.log('Exiting...')
-    process.exit(0)
-  }
-
   const releaseType = branchConfig.prerelease
     ? 'prerelease'
     : /** @type {const} */ ({ 0: 'patch', 1: 'minor', 2: 'major' })[
@@ -381,15 +379,14 @@ export const publish = async (options) => {
   }
 
   console.info()
-  console.info('Publishing all packages to npm')
+  console.info(`Publishing all packages to npm with tag "${npmTag}"`)
 
   // Publish each package
   changedPackages.forEach((pkg) => {
     const packageDir = path.join(rootDir, pkg.packageDir)
-    const tagParam = branchConfig.previousVersion ? '' : `--tag ${npmTag}`
 
-    const cmd = `cd ${packageDir} && pnpm publish ${tagParam} --access=public --no-git-checks`
-    console.info(`  Publishing ${pkg.name}@${version} to npm "${tagParam}"...`)
+    const cmd = `cd ${packageDir} && pnpm publish --tag ${npmTag} --access=public --no-git-checks`
+    console.info(`  Publishing ${pkg.name}@${version} to npm...`)
     execSync(cmd, {
       stdio: [process.stdin, process.stdout, process.stderr],
     })
