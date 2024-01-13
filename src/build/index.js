@@ -1,9 +1,10 @@
 // @ts-check
 
 import { readdirSync, renameSync } from 'node:fs'
+import { defineConfig } from 'vite'
+import preserveDirectives from 'rollup-plugin-preserve-directives'
 import { externalizeDeps } from 'vite-plugin-externalize-deps'
 import dts from 'vite-plugin-dts'
-import { defineConfig } from 'vite'
 
 /**
  * @param {import('./index.js').Options} options
@@ -13,6 +14,7 @@ export const tanstackBuildConfig = (options) => {
   return defineConfig({
     plugins: [
       externalizeDeps(),
+      preserveDirectives(),
       dts({
         outDir: 'dist/esm',
         entryRoot: options.srcDir,

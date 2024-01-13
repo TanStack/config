@@ -74,6 +74,7 @@
     "liftoff": "^4.0.0",
     "luxon": "^3.4.4",
     "minimist": "^1.2.8",
+    "rollup-plugin-preserve-directives": "^0.2.0",
     "semver": "^7.5.4",
     "stream-to-array": "^2.3.0",
     "v8flags": "^4.0.1",
