@@ -1,0 +1,1 @@
+{"version":3,"file":"utils.js","sources":["../../src/utils.ts"],"sourcesContent":["export const optionalChaining = (data: any) => {\n  return data?.maybe?.property\n}\n"],"names":[],"mappings":"AAAa,MAAA,mBAAmB,CAAC,SAAc;AAAlC;AACX,UAAO,kCAAM,UAAN,mBAAa;AACtB;"}

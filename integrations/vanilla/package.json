@@ -1,0 +1,11 @@
+{
+  "name": "vanilla-integration",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:build": "vite build && vitest"
+  },
+  "devDependencies": {
+    "@tanstack/config": "<1.0.0"
+  }
+}
