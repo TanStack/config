@@ -4,6 +4,7 @@
     "defaultBase": "main"
   },
   "defaultBase": "main",
+  "parallel": 5,
   "targetDefaults": {
     "test:build": {
       "cache": true
