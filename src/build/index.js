@@ -2,7 +2,7 @@
 
 import { readdirSync, renameSync } from 'node:fs'
 import { defineConfig } from 'vite'
-import preserveDirectives from 'rollup-plugin-preserve-directives'
+import { preserveDirectives } from 'rollup-plugin-preserve-directives'
 import { externalizeDeps } from 'vite-plugin-externalize-deps'
 import dts from 'vite-plugin-dts'
 
