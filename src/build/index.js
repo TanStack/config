@@ -1,6 +1,5 @@
 // @ts-check
 
-import { renameSync } from 'node:fs'
 import { defineConfig } from 'vite'
 import { preserveDirectives } from 'rollup-plugin-preserve-directives'
 import { externalizeDeps } from 'vite-plugin-externalize-deps'
@@ -25,6 +24,19 @@ export const tanstackBuildConfig = (options) => {
           module: 'esnext',
           declarationMap: false,
         },
+        beforeWriteFile: (filePath, content) => {
+          content = content.replace(
+            /^import\s[\w{}*\s,]+from\s['"]\.\/[^.'"]+(?=['"];?$)/gm,
+            '$&.js',
+          )
+
+          content = content.replace(
+            /^export\s[\w{}*\s,]+from\s['"]\.\/[^.'"]+(?=['"];?$)/gm,
+            '$&.js',
+          )
+
+          return { filePath, content }
+        },
       }),
       dts({
         outDir: 'dist/cjs',
@@ -36,11 +48,20 @@ export const tanstackBuildConfig = (options) => {
           module: 'commonjs',
           declarationMap: false,
         },
-        afterBuild: (emittedFiles) => {
-          const paths = Array.from(emittedFiles.keys())
-          paths.forEach((path) => {
-            renameSync(path, path.replace('.d.ts', '.d.cts'))
-          })
+        beforeWriteFile: (filePath, content) => {
+          content = content.replace(
+            /^import\s[\w{}*\s,]+from\s['"]\.\/[^.'"]+(?=['"];?$)/gm,
+            '$&.cjs',
+          )
+
+          content = content.replace(
+            /^export\s[\w{}*\s,]+from\s['"]\.\/[^.'"]+(?=['"];?$)/gm,
+            '$&.cjs',
+          )
+
+          filePath = filePath.replace('.d.ts', '.d.cts')
+
+          return { filePath, content }
         },
       }),
     ],
