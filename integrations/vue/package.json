@@ -1,9 +1,29 @@
 {
   "name": "vue-integration",
+  "version": "0.0.0",
   "private": true,
   "type": "module",
+  "types": "dist/esm/index.d.ts",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.cts",
+        "default": "./dist/cjs/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test:build": "vite build && vitest"
+    "test:build": "vite build && vitest && publint --strict"
   },
   "dependencies": {
     "vue": "^3.4.15"
