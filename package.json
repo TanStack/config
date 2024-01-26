@@ -82,6 +82,7 @@
     "vite-plugin-externalize-deps": "^0.8.0"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.13.6",
     "@types/current-git-branch": "^1.1.6",
     "@types/eslint": "^8.56.2",
     "@types/git-log-parser": "^1.2.3",
