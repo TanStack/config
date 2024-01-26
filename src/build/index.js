@@ -1,6 +1,6 @@
 // @ts-check
 
-import { readdirSync, renameSync } from 'node:fs'
+import { renameSync } from 'node:fs'
 import { defineConfig } from 'vite'
 import { preserveDirectives } from 'rollup-plugin-preserve-directives'
 import { externalizeDeps } from 'vite-plugin-externalize-deps'
@@ -36,15 +36,10 @@ export const tanstackBuildConfig = (options) => {
           module: 'commonjs',
           declarationMap: false,
         },
-        afterBuild: () => {
-          const path = 'dist/cjs'
-          readdirSync(path, { recursive: true }).forEach((file) => {
-            if (typeof file === 'string' && file.includes('.d.ts')) {
-              renameSync(
-                `${path}/${file}`,
-                `${path}/${file.replace('.d.ts', '.d.cts')}`,
-              )
-            }
+        afterBuild: (emittedFiles) => {
+          const paths = Array.from(emittedFiles.keys())
+          paths.forEach((path) => {
+            renameSync(path, path.replace('.d.ts', '.d.cts'))
           })
         },
       }),
