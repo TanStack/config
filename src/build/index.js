@@ -26,12 +26,7 @@ export const tanstackBuildConfig = (options) => {
         },
         beforeWriteFile: (filePath, content) => {
           content = content.replace(
-            /^import\s[\w{}*\s,]+from\s['"]\.\/[^.'"]+(?=['"];?$)/gm,
-            '$&.js',
-          )
-
-          content = content.replace(
-            /^export\s[\w{}*\s,]+from\s['"]\.\/[^.'"]+(?=['"];?$)/gm,
+            /^(im|ex)port\s[\w{}*\s,]+from\s['"]\.\/[^.'"]+(?=['"];?$)/gm,
             '$&.js',
           )
 
@@ -50,12 +45,7 @@ export const tanstackBuildConfig = (options) => {
         },
         beforeWriteFile: (filePath, content) => {
           content = content.replace(
-            /^import\s[\w{}*\s,]+from\s['"]\.\/[^.'"]+(?=['"];?$)/gm,
-            '$&.cjs',
-          )
-
-          content = content.replace(
-            /^export\s[\w{}*\s,]+from\s['"]\.\/[^.'"]+(?=['"];?$)/gm,
+            /^(im|ex)port\s[\w{}*\s,]+from\s['"]\.\/[^.'"]+(?=['"];?$)/gm,
             '$&.cjs',
           )
 
