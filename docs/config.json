@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/TanStack/tanstack.com/main/tanstack-docs-config.schema.json",
   "docSearch": {
     "appId": "",
     "apiKey": "",
@@ -11,10 +12,13 @@
         {
           "label": "Overview",
           "to": "overview"
+        },
+        {
+          "label": "Build",
+          "to": "build"
         }
       ]
     }
   ],
-  "frameworkMenus": [
-  ]
+  "frameworkMenus": []
 }
