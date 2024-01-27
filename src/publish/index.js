@@ -335,7 +335,7 @@ export const publish = async (options) => {
   const changelogMd = [
     `Version ${version} - ${DateTime.now().toLocaleString(
       DateTime.DATETIME_SHORT,
-    )}${tag ? ' (Manual Release)' : undefined}`,
+    )}${tag ? ' (Manual Release)' : ''}`,
     '## Changes',
     changelogCommitsMd ? changelogCommitsMd : '- None',
     '## Packages',
