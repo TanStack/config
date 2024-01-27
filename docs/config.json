@@ -16,6 +16,10 @@
         {
           "label": "Build",
           "to": "build"
+        },
+        {
+          "label": "Publish",
+          "to": "publish"
         }
       ]
     }
