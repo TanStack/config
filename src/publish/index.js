@@ -237,78 +237,72 @@ export const publish = async (options) => {
     }
   }
 
-  const changelogCommitsMd = tag
-    ? `Manual Release: ${tag}`
-    : await Promise.all(
-        Object.entries(
-          commitsSinceLatestTag.reduce((acc, next) => {
-            const type = next.parsed.type?.toLowerCase() ?? 'other'
+  const changelogCommitsMd = await Promise.all(
+    Object.entries(
+      commitsSinceLatestTag.reduce((acc, next) => {
+        const type = next.parsed.type?.toLowerCase() ?? 'other'
 
-            return {
-              ...acc,
-              [type]: [...(acc[type] || []), next],
+        return {
+          ...acc,
+          [type]: [...(acc[type] || []), next],
+        }
+      }, /** @type {Record<string, import('./types.js').Commit[]>} */ ({})),
+    )
+      .sort(
+        getSorterFn([
+          ([d]) =>
+            [
+              'other',
+              'examples',
+              'docs',
+              'chore',
+              'refactor',
+              'perf',
+              'fix',
+              'feat',
+            ].indexOf(d),
+        ]),
+      )
+      .reverse()
+      .map(async ([type, commits]) => {
+        return Promise.all(
+          commits.map(async (commit) => {
+            let username = ''
+
+            if (ghToken) {
+              const query = `${commit.author.email || commit.committer.email}`
+
+              const res = await fetch(
+                `https://api.github.com/search/users?q=${query}`,
+                {
+                  headers: {
+                    Authorization: `token ${ghToken}`,
+                  },
+                },
+              )
+              /** @type {any} */
+              const data = await res.json()
+              username = data.items[0]?.login
             }
-          }, /** @type {Record<string, import('./types.js').Commit[]>} */ ({})),
-        )
-          .sort(
-            getSorterFn([
-              ([d]) =>
-                [
-                  'other',
-                  'examples',
-                  'docs',
-                  'chore',
-                  'refactor',
-                  'perf',
-                  'fix',
-                  'feat',
-                ].indexOf(d),
-            ]),
-          )
-          .reverse()
-          .map(async ([type, commits]) => {
-            return Promise.all(
-              commits.map(async (commit) => {
-                let username = ''
 
-                if (ghToken) {
-                  const query = `${
-                    commit.author.email || commit.committer.email
-                  }`
+            const scope = commit.parsed.scope ? `${commit.parsed.scope}: ` : ''
+            const subject = commit.parsed.subject || commit.subject
 
-                  const res = await fetch(
-                    `https://api.github.com/search/users?q=${query}`,
-                    {
-                      headers: {
-                        Authorization: `token ${ghToken}`,
-                      },
-                    },
-                  )
-                  /** @type {any} */
-                  const data = await res.json()
-                  username = data.items[0]?.login
-                }
-
-                const scope = commit.parsed.scope
-                  ? `${commit.parsed.scope}: `
-                  : ''
-                const subject = commit.parsed.subject || commit.subject
-
-                return `- ${scope}${subject} (${commit.commit.short}) ${
-                  username
-                    ? `by @${username}`
-                    : `by ${commit.author.name || commit.author.email}`
-                }`
-              }),
-            ).then((c) => /** @type {const} */ ([type, c]))
+            return `- ${scope}${subject} (${commit.commit.short}) ${
+              username
+                ? `by @${username}`
+                : `by ${commit.author.name || commit.author.email}`
+            }`
           }),
-      ).then((groups) => {
-        return groups
-          .map(([type, commits]) => {
-            return [`### ${capitalize(type)}`, commits.join('\n')].join('\n\n')
-          })
-          .join('\n\n')
+        ).then((c) => /** @type {const} */ ([type, c]))
+      }),
+  ).then((groups) => {
+    return groups
+      .map(([type, commits]) => {
+        return [`### ${capitalize(type)}`, commits.join('\n')].join('\n\n')
       })
+      .join('\n\n')
+  })
 
   if (tag && recommendedReleaseLevel === -1) {
     recommendedReleaseLevel = 0
@@ -341,9 +335,9 @@ export const publish = async (options) => {
   const changelogMd = [
     `Version ${version} - ${DateTime.now().toLocaleString(
       DateTime.DATETIME_SHORT,
-    )}`,
+    )}${tag ? ' (Manual Release)' : undefined}`,
     '## Changes',
-    changelogCommitsMd,
+    changelogCommitsMd ? changelogCommitsMd : '- None',
     '## Packages',
     changedPackages.map((d) => `- ${d.name}@${version}`).join('\n'),
   ].join('\n\n')
