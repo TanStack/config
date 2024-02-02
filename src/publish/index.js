@@ -395,8 +395,13 @@ export const publish = async (options) => {
         )
       }
       if (existsSync(path.resolve(rootDir, 'pnpm-lock.yaml'))) {
-        console.info('Updating examples to use new package versions...')
-        execSync('pnpm install')
+        console.info('  Updating pnpm-lock.yaml...')
+        try {
+          execSync('pnpm install')
+        } catch (/** @type {any} */ err) {
+          console.error(err.stdout.toString())
+          process.exit(1)
+        }
       }
     }
   }
