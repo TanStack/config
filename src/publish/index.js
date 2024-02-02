@@ -367,7 +367,7 @@ export const publish = async (options) => {
   }
 
   if (existsSync(path.resolve(rootDir, 'examples'))) {
-    console.info('Updating examples to use new package versions')
+    console.info('Updating examples to use new package versions...')
     const examplePkgJsonArray = /** @type {string[]} */ (
       readdirSync(path.resolve(rootDir, 'examples'), {
         recursive: true,
@@ -395,6 +395,7 @@ export const publish = async (options) => {
         )
       }
       if (existsSync(path.resolve(rootDir, 'pnpm-lock.yaml'))) {
+        console.info('Updating examples to use new package versions...')
         execSync('pnpm install')
       }
     }
