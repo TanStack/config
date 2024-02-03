@@ -41,7 +41,7 @@
     "src",
     "bin"
   ],
-  "packageManager": "pnpm@8.12.1",
+  "packageManager": "pnpm@8.15.1",
   "scripts": {
     "cipublish": "node bin/config.js publish --cwd config",
     "cipublishforce": "CI=true pnpm cipublish",
@@ -102,7 +102,7 @@
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
     "jsdom": "^23.2.0",
-    "nx": "^17.2.8",
+    "nx": "^17.3.2",
     "prettier": "^4.0.0-alpha.8",
     "publint": "^0.2.7",
     "type-fest": "^4.9.0",
