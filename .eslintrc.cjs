@@ -3,11 +3,13 @@
 /** @type {import('eslint').Linter.Config} */
 const config = {
   root: true,
+  reportUnusedDisableDirectives: true,
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'import'],
   extends: [
-    'plugin:@typescript-eslint/eslint-recommended',
+    'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/stylistic',
     'plugin:import/recommended',
     'plugin:import/typescript',
     'prettier',
@@ -18,7 +20,7 @@ const config = {
   },
   parserOptions: {
     tsconfigRootDir: __dirname,
-    project: './tsconfig.json',
+    project: true,
     sourceType: 'module',
     ecmaVersion: 2020,
   },
@@ -34,8 +36,10 @@ const config = {
     },
   },
   rules: {
+    '@typescript-eslint/array-type': 'off',
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/consistent-type-definitions': 'off',
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
@@ -76,6 +80,7 @@ const config = {
 
     'no-redeclare': 'off',
     'no-shadow': 'error',
+    'no-undef': 'off',
     'sort-imports': ['error', { ignoreDeclarationSort: true }],
   },
   overrides: [
