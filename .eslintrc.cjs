@@ -40,7 +40,10 @@ const config = {
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/consistent-type-definitions': 'off',
-    '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      { prefer: 'type-imports' },
+    ],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
@@ -83,14 +86,6 @@ const config = {
     'no-undef': 'off',
     'sort-imports': ['error', { ignoreDeclarationSort: true }],
   },
-  overrides: [
-    {
-      files: ['**/*.test.{ts,tsx}'],
-      rules: {
-        '@typescript-eslint/no-unnecessary-condition': 'off',
-      },
-    },
-  ],
 }
 
 module.exports = config
