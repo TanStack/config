@@ -252,22 +252,19 @@ export const publish = async (options) => {
       .sort(
         getSorterFn(([type]) =>
           [
-            'feat',
-            'fix',
-            'perf',
-            'refactor',
-            'style',
-            'chore',
-            'docs',
-            'examples',
-            'test',
-            'build',
-            'ci',
-            'revert',
             'other',
+            'examples',
+            'docs',
+            'ci',
+            'chore',
+            'refactor',
+            'perf',
+            'fix',
+            'feat',
           ].indexOf(type),
         ),
       )
+      .reverse()
       .map(async ([type, commits]) => {
         return Promise.all(
           commits.map(async (commit) => {
