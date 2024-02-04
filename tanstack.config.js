@@ -4,7 +4,7 @@ import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 /**
- * @type {import('../src/types.js').RunOptions["packages"]}
+ * @type {import('./src/publish/types.js').RunOptions["packages"]}
  */
 export const packages = [
   {
@@ -14,7 +14,7 @@ export const packages = [
 ]
 
 /**
- * @type {import('../src/types.js').RunOptions["branchConfigs"]}
+ * @type {import('./src/publish/types.js').RunOptions["branchConfigs"]}
  */
 export const branchConfigs = {
   main: {
@@ -34,6 +34,6 @@ export const branchConfigs = {
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 /**
- * @type {import('../src/types.js').RunOptions["rootDir"]}
+ * @type {import('./src/publish/types.js').RunOptions["rootDir"]}
  */
-export const rootDir = resolve(__dirname, '..')
+export const rootDir = resolve(__dirname)

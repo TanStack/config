@@ -43,7 +43,7 @@
   ],
   "packageManager": "pnpm@8.15.1",
   "scripts": {
-    "cipublish": "node bin/config.js publish --cwd config",
+    "cipublish": "node ./bin/config.js publish --cwd .",
     "cipublishforce": "CI=true pnpm cipublish",
     "prettier": "prettier --ignore-unknown '**/*'",
     "prettier:write": "pnpm run prettier --write",
