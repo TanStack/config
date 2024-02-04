@@ -240,31 +240,34 @@ export const publish = async (options) => {
 
   const changelogCommitsMd = await Promise.all(
     Object.entries(
-      commitsSinceLatestTag.reduce((acc, next) => {
-        const type = next.parsed.type?.toLowerCase() ?? 'other'
+      commitsSinceLatestTag.reduce((prev, curr) => {
+        const type = curr.parsed.type?.toLowerCase() ?? 'other'
 
         return {
-          ...acc,
-          [type]: [...(acc[type] || []), next],
+          ...prev,
+          [type]: [...(prev[type] ?? []), curr],
         }
       }, /** @type {Record<string, import('./types.js').Commit[]>} */ ({})),
     )
       .sort(
-        getSorterFn([
-          ([d]) =>
-            [
-              'other',
-              'examples',
-              'docs',
-              'chore',
-              'refactor',
-              'perf',
-              'fix',
-              'feat',
-            ].indexOf(d),
-        ]),
+        getSorterFn(([type]) =>
+          [
+            'feat',
+            'fix',
+            'perf',
+            'refactor',
+            'style',
+            'chore',
+            'docs',
+            'examples',
+            'test',
+            'build',
+            'ci',
+            'revert',
+            'other',
+          ].indexOf(type),
+        ),
       )
-      .reverse()
       .map(async ([type, commits]) => {
         return Promise.all(
           commits.map(async (commit) => {

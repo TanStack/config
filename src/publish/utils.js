@@ -32,27 +32,19 @@ export const updatePackageJson = async (pathName, transform) => {
 
 /**
  * @template TItem
- * @param {((d: TItem) => any)[]} sorters
+ * @param {((d: TItem) => number)} sorter
  * @returns {(a: TItem, b: TItem) => number}
  */
-export const getSorterFn = (sorters) => {
+export const getSorterFn = (sorter) => {
   return (a, b) => {
-    let i = 0
-
-    sorters.some((sorter) => {
-      const sortedA = sorter(a)
-      const sortedB = sorter(b)
-      if (sortedA > sortedB) {
-        i = 1
-        return true
-      }
-      if (sortedA < sortedB) {
-        i = -1
-        return true
-      }
-      return false
-    })
-
-    return i
+    const sortedA = sorter(a)
+    const sortedB = sorter(b)
+    if (sortedA > sortedB) {
+      return 1
+    }
+    if (sortedA < sortedB) {
+      return -1
+    }
+    return 0
   }
 }
