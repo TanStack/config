@@ -1,6 +1,5 @@
 // @ts-check
 
-import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 /**
@@ -31,9 +30,7 @@ export const branchConfigs = {
   },
 }
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url))
-
 /**
  * @type {import('./src/publish/types.js').RunOptions["rootDir"]}
  */
-export const rootDir = resolve(__dirname)
+export const rootDir = fileURLToPath(new URL('.', import.meta.url))
