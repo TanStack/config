@@ -115,9 +115,15 @@ Config.prepare(
               })
             })
 
-          program.parseAsync().catch(console.error)
+          program.parseAsync().catch((error) => {
+            console.error(error)
+            process.exit(1)
+          })
         })
-        .catch(console.error)
+        .catch((error) => {
+          console.error(error)
+          process.exit(1)
+        })
     })
   },
 )
