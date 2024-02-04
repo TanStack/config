@@ -9,7 +9,7 @@ const config = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/stylistic-type-checked',
+    'plugin:@typescript-eslint/stylistic',
     'plugin:import/recommended',
     'plugin:import/typescript',
     'prettier',
