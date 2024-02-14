@@ -4,12 +4,16 @@
     "defaultBase": "main"
   },
   "defaultBase": "main",
+  "nxCloudAccessToken": "ZjA2YjFlNGUtYmRlZS00YjhmLWIwZDktOWZlNTM5NDI5YWEzfHJlYWQ=",
   "parallel": 5,
   "targetDefaults": {
     "test:build": {
       "cache": true
     },
     "test:eslint": {
+      "cache": true
+    },
+    "test:types": {
       "cache": true
     }
   }
