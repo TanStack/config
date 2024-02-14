@@ -4,7 +4,7 @@
     "defaultBase": "main"
   },
   "defaultBase": "main",
-  "nxCloudAccessToken": "ZTIxMWM4NzgtOTk2Yi00NTMwLWJhYzQtZTVkYzUwNDM3YjFjfHJlYWQtd3JpdGU=",
+  "nxCloudAccessToken": "MjEyNDA0NjYtNTZkOS00NWMxLTkzZDktOTEwNGU4OTQ3YjEzfHJlYWQ=",
   "parallel": 5,
   "targetDefaults": {
     "test:build": {
