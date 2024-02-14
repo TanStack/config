@@ -12,6 +12,9 @@
     },
     "test:eslint": {
       "cache": true
+    },
+    "test:types": {
+      "cache": true
     }
   }
 }
