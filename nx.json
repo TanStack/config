@@ -15,6 +15,9 @@
     },
     "test:types": {
       "cache": true
+    },
+    "test:format": {
+      "cache": true
     }
   }
 }
