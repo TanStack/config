@@ -26,10 +26,10 @@
     "test:build": "vite build && vitest && publint --strict"
   },
   "dependencies": {
-    "vue": "^3.4.15"
+    "vue": "^3.4.19"
   },
   "devDependencies": {
     "@tanstack/config": "<1.0.0",
-    "@vitejs/plugin-vue": "^5.0.3"
+    "@vitejs/plugin-vue": "^5.0.4"
   }
 }

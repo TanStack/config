@@ -26,10 +26,10 @@
     "test:build": "vite build && vitest && publint --strict && attw --pack"
   },
   "dependencies": {
-    "solid-js": "^1.8.11"
+    "solid-js": "^1.8.15"
   },
   "devDependencies": {
     "@tanstack/config": "<1.0.0",
-    "vite-plugin-solid": "^2.8.2"
+    "vite-plugin-solid": "^2.10.1"
   }
 }
