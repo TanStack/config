@@ -10,7 +10,7 @@ import Liftoff from 'liftoff'
 import minimist from 'minimist'
 import v8flags from 'v8flags'
 import interpret from 'interpret'
-import { Command } from 'commander'
+import { program } from 'commander'
 import { publish } from '../src/publish/index.js'
 
 const args = process.argv.slice(2)
@@ -76,8 +76,6 @@ Config.prepare(
     Config.execute(prepEnv, (env) => {
       requireOrImport(env.configPath)
         .then((configOpts) => {
-          const program = new Command()
-
           program
             .name('@tanstack/config')
             .description(
