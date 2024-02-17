@@ -10,12 +10,14 @@ import dts from 'vite-plugin-dts'
  * @returns {import('vite').UserConfig}
  */
 export const tanstackBuildConfig = (options) => {
+  const outDir = options.outDir ?? 'dist'
+
   return defineConfig({
     plugins: [
       externalizeDeps(),
       preserveDirectives(),
       dts({
-        outDir: 'dist/esm',
+        outDir: `${outDir}/esm`,
         entryRoot: options.srcDir,
         include: options.srcDir,
         exclude: options.exclude,
@@ -34,7 +36,7 @@ export const tanstackBuildConfig = (options) => {
         },
       }),
       dts({
-        outDir: 'dist/cjs',
+        outDir: `${outDir}/cjs`,
         entryRoot: options.srcDir,
         include: options.srcDir,
         exclude: options.exclude,
@@ -56,7 +58,7 @@ export const tanstackBuildConfig = (options) => {
       }),
     ],
     build: {
-      outDir: 'dist',
+      outDir,
       minify: false,
       sourcemap: true,
       lib: {
