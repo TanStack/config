@@ -7,6 +7,8 @@ export type Options = {
   srcDir: string
   /** Excluded from type generation, e.g. `[./src/tests]` */
   exclude?: string[]
+  /** Directory where build output will be placed, e.g. `./dist` */
+  outDir?: string
 }
 
 export function tanstackBuildConfig(config: Options): UserConfig
