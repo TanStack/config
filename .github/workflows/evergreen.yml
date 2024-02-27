@@ -1,0 +1,21 @@
+name: Weekly dependabot checks
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '3 2 * * 6'
+
+permissions:
+  issues: write
+
+jobs:
+  evergreen:
+    name: Evergreen
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run evergreen action
+        uses: github/evergreen@v1
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          ORGANIZATION: TanStack
+          REPOSITORY: config
