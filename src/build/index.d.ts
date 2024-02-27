@@ -10,7 +10,7 @@ export type Options = {
   /** Directory where build output will be placed, e.g. `./dist` */
   outDir?: string
   /** Additional externals to include` */
-  externalInclude?: string[]
+  bundledDeps?: string[]
 }
 
 export function tanstackBuildConfig(config: Options): UserConfig

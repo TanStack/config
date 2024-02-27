@@ -14,7 +14,7 @@ export const tanstackBuildConfig = (options) => {
 
   return defineConfig({
     plugins: [
-      externalizeDeps({ include: options.externalInclude || [] }),
+      externalizeDeps({ except: options.bundledDeps || [] }),
       preserveDirectives(),
       dts({
         outDir: `${outDir}/esm`,
