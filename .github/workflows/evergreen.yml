@@ -18,4 +18,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           ORGANIZATION: TanStack
-          REPOSITORY: config
+          REPOSITORY: TanStack/config
