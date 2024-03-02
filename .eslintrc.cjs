@@ -48,16 +48,16 @@ const config = {
       { prefer: 'type-imports' },
     ],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/method-signature-style': ['error', 'property'],
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-unnecessary-condition': 'error',
+    '@typescript-eslint/no-unnecessary-type-assertion': 'error',
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-inferrable-types': [
       'error',
-      {
-        ignoreParameters: true,
-      },
+      { ignoreParameters: true },
     ],
     'import/default': 'off',
     'import/export': 'off',
@@ -83,7 +83,6 @@ const config = {
         ],
       },
     ],
-
     'no-redeclare': 'off',
     'no-shadow': 'error',
     'no-undef': 'off',
