@@ -81,7 +81,8 @@
     "stream-to-array": "^2.3.0",
     "v8flags": "^4.0.1",
     "vite-plugin-dts": "^3.7.2",
-    "vite-plugin-externalize-deps": "^0.8.0"
+    "vite-plugin-externalize-deps": "^0.8.0",
+    "vite-tsconfig-paths": "^4.3.1"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.13.10",
