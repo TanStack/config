@@ -13,4 +13,5 @@ export type Options = {
   externalDeps?: Array<string | RegExp>
 }
 
+/** https://tanstack.com/config/latest/docs/build */
 export function tanstackBuildConfig(config: Options): UserConfig
