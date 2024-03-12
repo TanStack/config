@@ -56,4 +56,6 @@ export type RunOptions = {
   tag?: string
   // The GitHub token used to search for user metadata and make a GitHub release.
   ghToken?: string
+  /** Release all packages.  Defaults to false but can be overridden with RELEASE_ALL in a commit message */
+  releaseAll?: boolean
 }

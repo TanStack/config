@@ -25,7 +25,15 @@ import {
  * @returns {Promise<void>}
  */
 export const publish = async (options) => {
-  const { branchConfigs, packages, rootDir, branch, tag, ghToken } = options
+  const {
+    branchConfigs,
+    packages,
+    rootDir,
+    branch,
+    tag,
+    ghToken,
+    releaseAll = false,
+  } = options
 
   const branchName = /** @type {string} */ (branch ?? currentGitBranch())
   const isMainBranch = branchName === 'main'
@@ -65,9 +73,13 @@ export const publish = async (options) => {
   let range = `${latestTag}..HEAD`
   // let range = ``;
 
-  // If RELEASE_ALL is set via a commit subject or body, all packages will be
-  // released regardless if they have changed files matching the package srcDir.
-  let RELEASE_ALL = false
+  // All packages will be released if any of the following conditions are met:
+  // - RELEASE_ALL is set via a commit subject or body
+  // - A tag is explicitly set
+  // - The config option releaseAll is set to true
+  //
+  // Otherwise, only packages with changed files matching the package srcDir will be released.
+  let RELEASE_ALL = releaseAll
 
   if (!latestTag || tag) {
     if (tag) {
