@@ -5,7 +5,7 @@
     "apiKey": "",
     "indexName": "tanstack-config"
   },
-  "menu": [
+  "sections": [
     {
       "label": "Getting Started",
       "children": [
@@ -23,6 +23,5 @@
         }
       ]
     }
-  ],
-  "frameworkMenus": []
+  ]
 }
