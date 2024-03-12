@@ -1,11 +1,11 @@
 {
-  "$schema": "https://raw.githubusercontent.com/TanStack/tanstack.com/main/tanstack-docs-config.schema.json",
+  "$schema": "https://raw.githubusercontent.com/TanStack/tanstack.com/docs-sidebar-restructure/tanstack-docs-config.schema.json",
   "docSearch": {
     "appId": "",
     "apiKey": "",
     "indexName": "tanstack-config"
   },
-  "menu": [
+  "sections": [
     {
       "label": "Getting Started",
       "children": [
@@ -23,6 +23,5 @@
         }
       ]
     }
-  ],
-  "frameworkMenus": []
+  ]
 }
