@@ -94,7 +94,7 @@
     "@types/liftoff": "^4.0.3",
     "@types/luxon": "^3.4.2",
     "@types/minimist": "^1.2.5",
-    "@types/node": "^18.19.8",
+    "@types/node": "^20.12.2",
     "@types/semver": "^7.5.7",
     "@types/stream-to-array": "^2.3.3",
     "@types/v8flags": "^3.1.3",
