@@ -17,12 +17,15 @@ export const tanstackBuildConfig = (options) => {
     plugins: [
       externalizeDeps({ include: options.externalDeps ?? [] }),
       preserveDirectives(),
-      tsconfigPaths(),
+      tsconfigPaths({
+        projects: options.tsconfigPath ? [options.tsconfigPath] : undefined,
+      }),
       dts({
         outDir: `${outDir}/esm`,
         entryRoot: options.srcDir,
         include: options.srcDir,
         exclude: options.exclude,
+        tsconfigPath: options.tsconfigPath,
         compilerOptions: {
           // @ts-expect-error
           module: 'esnext',
@@ -42,6 +45,7 @@ export const tanstackBuildConfig = (options) => {
         entryRoot: options.srcDir,
         include: options.srcDir,
         exclude: options.exclude,
+        tsconfigPath: options.tsconfigPath,
         compilerOptions: {
           // @ts-expect-error
           module: 'commonjs',
