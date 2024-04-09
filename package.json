@@ -109,7 +109,7 @@
     "prettier": "^4.0.0-alpha.8",
     "publint": "^0.2.7",
     "type-fest": "^4.15.0",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.4",
     "vite": "^5.2.8",
     "vitest": "^1.4.0"
   }
