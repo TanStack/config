@@ -10,7 +10,7 @@ export type Options = {
   /** Directory where build output will be placed, e.g. `./dist` */
   outDir?: string
   /** Optional path to a custom tsconfig file, defaults to `./tsconfig.json` */
-  tsconfigPath?: string;
+  tsconfigPath?: string
   /** Additional dependencies to externalize if not detected by `vite-plugin-externalize-deps` */
   externalDeps?: Array<string | RegExp>
 }
