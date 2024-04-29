@@ -41,7 +41,7 @@
     "bin",
     "src"
   ],
-  "packageManager": "pnpm@8.15.6",
+  "packageManager": "pnpm@9.0.6",
   "scripts": {
     "preinstall": "node -e \"if(process.env.CI == 'true') {console.log('Skipping preinstall...'); process.exit(1)}\" || npx -y only-allow pnpm",
     "test": "pnpm run test:ci",
@@ -51,7 +51,7 @@
     "test:types": "tsc",
     "test:eslint": "eslint --ext .js,.ts,.tsx ./bin ./src",
     "test:format": "pnpm run prettier --check",
-    "prettier": "prettier --ignore-unknown '**/*'",
+    "prettier": "prettier --ignore-unknown .",
     "prettier:write": "pnpm run prettier --write",
     "cipublish": "node ./bin/config.js publish --cwd .",
     "cipublishforce": "CI=true pnpm cipublish"
