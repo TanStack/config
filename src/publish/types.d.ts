@@ -37,6 +37,7 @@ export type Parsed = {
 export type Package = {
   name: string
   packageDir: string
+  skipPublish?: boolean
 }
 
 export type BranchConfig = {
