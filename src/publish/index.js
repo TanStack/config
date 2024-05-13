@@ -419,20 +419,20 @@ export const publish = async (options) => {
 
   console.info()
   console.info('Clear package scripts...')
-  changedPackages.forEach(async (pkg) => {
+  for (const pkg of changedPackages) {
     await updatePackageJson(
       path.resolve(rootDir, pkg.packageDir, 'package.json'),
       (config) => {
         config.scripts = {}
       },
     )
-  })
+  }
 
   console.info()
   console.info(`Publishing all packages to npm with tag "${npmTag}"`)
 
   // Publish each package
-  changedPackages.forEach((pkg) => {
+  for (const pkg of changedPackages) {
     const packageDir = path.join(rootDir, pkg.packageDir)
 
     const cmd = `cd ${packageDir} && pnpm publish --tag ${npmTag} --access=public --no-git-checks`
@@ -440,7 +440,7 @@ export const publish = async (options) => {
     execSync(cmd, {
       stdio: [process.stdin, process.stdout, process.stderr],
     })
-  })
+  }
 
   console.info()
   console.info('Pushing changes...')
