@@ -77,17 +77,17 @@
     "luxon": "^3.4.4",
     "minimist": "^1.2.8",
     "rollup-plugin-preserve-directives": "^0.4.0",
-    "semver": "^7.6.0",
+    "semver": "^7.6.2",
     "stream-to-array": "^2.3.0",
     "v8flags": "^4.0.1",
-    "vite-plugin-dts": "^3.8.1",
+    "vite-plugin-dts": "^3.9.1",
     "vite-plugin-externalize-deps": "^0.8.0",
     "vite-tsconfig-paths": "^4.3.2"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.15.3",
     "@types/current-git-branch": "^1.1.6",
-    "@types/eslint": "^8.56.7",
+    "@types/eslint": "^8.56.10",
     "@types/git-log-parser": "^1.2.3",
     "@types/interpret": "^1.1.3",
     "@types/jsonfile": "^6.1.4",
@@ -108,9 +108,9 @@
     "nx": "^18.2.3",
     "prettier": "^4.0.0-alpha.8",
     "publint": "^0.2.7",
-    "type-fest": "^4.15.0",
-    "typescript": "^5.4.4",
-    "vite": "^5.2.8",
-    "vitest": "^1.4.0"
+    "type-fest": "^4.18.2",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11",
+    "vitest": "^1.6.0"
   }
 }
