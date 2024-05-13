@@ -405,16 +405,6 @@ export const publish = async (options) => {
     }
   }
 
-  // Remove scripts section from changed packages
-  changedPackages.forEach(async (pkg) => {
-    await updatePackageJson(
-      path.resolve(rootDir, pkg.packageDir, 'package.json'),
-      (config) => {
-        config.scripts = {}
-      },
-    )
-  })
-
   if (!process.env.CI) {
     console.warn(
       `This is a dry run for version ${version}. Push to CI to publish for real or set CI=true to override!`,
@@ -423,10 +413,23 @@ export const publish = async (options) => {
   }
 
   console.info()
+  console.info('Committing changes...')
+  execSync(`git add -A && git commit -m "${releaseCommitMsg(version)}"`)
+  console.info('  Committed Changes.')
+
+  console.info()
   console.info(`Publishing all packages to npm with tag "${npmTag}"`)
 
   // Publish each package
-  changedPackages.forEach((pkg) => {
+  changedPackages.forEach(async (pkg) => {
+    // Remove scripts section
+    await updatePackageJson(
+      path.resolve(rootDir, pkg.packageDir, 'package.json'),
+      (config) => {
+        config.scripts = {}
+      },
+    )
+
     const packageDir = path.join(rootDir, pkg.packageDir)
 
     const cmd = `cd ${packageDir} && pnpm publish --tag ${npmTag} --access=public --no-git-checks`
@@ -437,26 +440,21 @@ export const publish = async (options) => {
   })
 
   console.info()
-
-  console.info('Committing changes...')
-  execSync(`git add -A && git commit -m "${releaseCommitMsg(version)}"`)
-  console.info()
-  console.info('  Committed Changes.')
-
   console.info('Pushing changes...')
   execSync('git push')
-  console.info()
   console.info('  Changes pushed.')
 
+  console.info()
   console.info(`Creating new git tag v${version}`)
   execSync(`git tag -a -m "v${version}" v${version}`)
 
+  console.info()
   console.info('Pushing tags...')
   execSync('git push --tags')
-  console.info()
   console.info('  Tags pushed.')
 
   if (ghToken) {
+    console.info()
     console.info('Creating github release...')
 
     // Stringify the markdown to escape any quotes
@@ -469,6 +467,7 @@ export const publish = async (options) => {
     console.info('  Github release created.')
   }
 
+  console.info()
   console.info('All done!')
   return
 }
