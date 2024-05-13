@@ -405,6 +405,16 @@ export const publish = async (options) => {
     }
   }
 
+  // Remove scripts section from changed packages
+  changedPackages.forEach(async (pkg) => {
+    await updatePackageJson(
+      path.resolve(rootDir, pkg.packageDir, 'package.json'),
+      (config) => {
+        config.scripts = {}
+      },
+    )
+  })
+
   if (!process.env.CI) {
     console.warn(
       `This is a dry run for version ${version}. Push to CI to publish for real or set CI=true to override!`,
