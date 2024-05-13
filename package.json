@@ -105,7 +105,7 @@
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
     "jsdom": "^24.0.0",
-    "nx": "^18.2.3",
+    "nx": "^19.0.2",
     "prettier": "^4.0.0-alpha.8",
     "publint": "^0.2.7",
     "type-fest": "^4.18.2",
