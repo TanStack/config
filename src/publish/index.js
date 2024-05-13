@@ -418,18 +418,21 @@ export const publish = async (options) => {
   console.info('  Committed Changes.')
 
   console.info()
-  console.info(`Publishing all packages to npm with tag "${npmTag}"`)
-
-  // Publish each package
+  console.info('Clear package scripts...')
   changedPackages.forEach(async (pkg) => {
-    // Remove scripts section
     await updatePackageJson(
       path.resolve(rootDir, pkg.packageDir, 'package.json'),
       (config) => {
         config.scripts = {}
       },
     )
+  })
 
+  console.info()
+  console.info(`Publishing all packages to npm with tag "${npmTag}"`)
+
+  // Publish each package
+  changedPackages.forEach((pkg) => {
     const packageDir = path.join(rootDir, pkg.packageDir)
 
     const cmd = `cd ${packageDir} && pnpm publish --tag ${npmTag} --access=public --no-git-checks`
