@@ -49,10 +49,8 @@
     "test:ci": "nx run-many --targets=test:format,test:eslint,test:types,test:build",
     "test:build": "publint --strict",
     "test:types": "tsc",
-    "test:eslint": "eslint --ext .js,.ts,.tsx ./bin ./src",
-    "test:format": "pnpm run prettier --check",
-    "prettier": "prettier --ignore-unknown .",
-    "prettier:write": "pnpm run prettier --write",
+    "test:eslint": "eslint .",
+    "fix:eslint": "pnpm run eslint --fix",
     "cipublish": "node ./bin/config.js publish --cwd .",
     "cipublishforce": "CI=true pnpm cipublish"
   },
