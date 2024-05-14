@@ -12,15 +12,15 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "noImplicitReturns": true,
-    "allowSyntheticDefaultImports": true,
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "declaration": true,
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "noEmit": true,
     "skipLibCheck": true
   },
   "include": [
