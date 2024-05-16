@@ -43,7 +43,7 @@
   ],
   "packageManager": "pnpm@9.0.6",
   "scripts": {
-    "preinstall": "node -e \"if(process.env.CI == 'true') {console.log('Skipping preinstall...')} else {process.exit(1)}\" || npx -y only-allow pnpm",
+    "preinstall": "node -e \"if(process.env.CI == 'true') {console.log('Skipping preinstall...'); process.exit(1)}\" && npx -y only-allow pnpm",
     "test": "pnpm run test:ci",
     "test:pr": "nx run-many --targets=test:format,test:eslint,test:types,test:build",
     "test:ci": "nx run-many --targets=test:format,test:eslint,test:types,test:build",
