@@ -108,7 +108,7 @@ export const publish = async (options) => {
         _: range,
       })
 
-      streamToArray(strm, function (err, arr) {
+      streamToArray(strm, (err, arr) => {
         if (err) return reject(err)
 
         Promise.all(
@@ -154,8 +154,8 @@ export const publish = async (options) => {
           releaseLevel = Math.max(releaseLevel, 2)
         }
         if (
-          commit.subject.includes('RELEASE_ALL') ||
-          commit.body.includes('RELEASE_ALL')
+          commit.subject.includes('RELEASE_ALL')
+          || commit.body.includes('RELEASE_ALL')
         ) {
           RELEASE_ALL = true
         }
@@ -173,21 +173,21 @@ export const publish = async (options) => {
   const changedFiles = tag
     ? []
     : execSync(`git diff ${latestTag} --name-only`)
-        .toString()
-        .split('\n')
-        .filter(Boolean)
+      .toString()
+      .split('\n')
+      .filter(Boolean)
 
   /** Uses packages and changedFiles to determine which packages have changed */
   const changedPackages = RELEASE_ALL
     ? packages
     : packages.filter((pkg) => {
-        const changed = changedFiles.some(
-          (file) =>
-            file.startsWith(path.join(pkg.packageDir, 'src')) ||
-            file.startsWith(path.join(pkg.packageDir, 'package.json')),
-        )
-        return changed
-      })
+      const changed = changedFiles.some(
+        (file) =>
+          file.startsWith(path.join(pkg.packageDir, 'src'))
+          || file.startsWith(path.join(pkg.packageDir, 'package.json')),
+      )
+      return changed
+    })
 
   // If a package has a dependency that has been updated, we need to update the
   // package that depends on it as well.
@@ -209,8 +209,8 @@ export const publish = async (options) => {
       if (
         allDependencies.find((dep) =>
           changedPackages.find((d) => d.name === dep),
-        ) &&
-        !changedPackages.find((d) => d.name === pkg.name)
+        )
+        && !changedPackages.find((d) => d.name === pkg.name)
       ) {
         console.info(
           'adding package dependency',
@@ -338,7 +338,7 @@ export const publish = async (options) => {
       DateTime.DATETIME_SHORT,
     )}${tag ? ' (Manual Release)' : ''}`,
     '## Changes',
-    changelogCommitsMd ? changelogCommitsMd : '- None',
+    changelogCommitsMd || '- None',
     '## Packages',
     changedPackages.map((d) => `- ${d.name}@${version}`).join('\n'),
   ].join('\n\n')
@@ -373,9 +373,9 @@ export const publish = async (options) => {
         recursive: true,
       }).filter(
         (file) =>
-          typeof file === 'string' &&
-          file.includes('package.json') &&
-          !file.includes('node_modules'),
+          typeof file === 'string'
+          && file.includes('package.json')
+          && !file.includes('node_modules'),
       )
     )
     if (examplePkgJsonArray.length !== 0) {
@@ -472,5 +472,4 @@ export const publish = async (options) => {
 
   console.info()
   console.info('All done!')
-  return
 }

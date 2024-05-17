@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
-import { pathToFileURL } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 import { createRequire } from 'node:module'
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
-import { fileURLToPath } from 'node:url'
 import chalk from 'chalk'
 import Liftoff from 'liftoff'
 import minimist from 'minimist'
@@ -46,7 +45,7 @@ const Config = new Liftoff({
   // @ts-expect-error
   extensions: interpret.jsVariants,
   preload: 'esbuild-register/dist/node',
-  v8flags: v8flags,
+  v8flags,
 })
 
 /**
@@ -57,7 +56,7 @@ function checkForConfigFile(configPath) {
   console.error(
     [
       chalk.red('No tanstack.config.js file found!'),
-      "This may be because you're not passing the --config or --cwd flags.",
+      'This may be because you\'re not passing the --config or --cwd flags.',
       'If you are passing these flags, check that the path is correct.',
       '',
       'Otherwise, you can create a `tanstack.config.js` file in your project root.',
@@ -72,7 +71,7 @@ Config.prepare(
     configPath: argv.config,
     completion: argv.completion,
   },
-  function (prepEnv) {
+  (prepEnv) => {
     Config.execute(prepEnv, (env) => {
       requireOrImport(env.configPath)
         .then((configOpts) => {

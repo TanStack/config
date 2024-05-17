@@ -23,7 +23,7 @@ pnpm run tanstack-config publish
 To use the TanStack Config programmatically, you can import the `publish` function:
 
 ```ts
-import { publish } from '@tanstack/config';
+import { publish } from '@tanstack/config'
 
 publish({
   branchConfigs: configOpts.branchConfigs,
@@ -34,7 +34,7 @@ publish({
   ghToken: process.env.GH_TOKEN,
 })
   .then(() => {
-    console.log('Successfully published packages!');
+    console.log('Successfully published packages!')
   })
   .catch(console.error)
 ```

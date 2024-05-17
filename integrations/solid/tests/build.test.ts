@@ -11,7 +11,7 @@ const cjsExtensions = ['.cjs', '.cjs.map', '.d.cts']
 
 const files = ['index', 'App']
 
-describe('Check Solid build output', () => {
+describe('check Solid build output', () => {
   it('should output the same file structure', () => {
     const distFiles = readdirSync(`${rootDir}/dist`, { recursive: true })
     const snapFiles = readdirSync(`${rootDir}/snap`, { recursive: true })
