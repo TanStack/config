@@ -11,7 +11,7 @@ const cjsExtensions = ['.cjs', '.cjs.map', '.d.cts']
 
 const files = ['index', 'App.vue', 'components/HelloWorld.vue']
 
-describe('Check Vite build output', () => {
+describe('check Vite build output', () => {
   it('should output the same file structure', () => {
     const distFiles = readdirSync(`${rootDir}/dist`, { recursive: true })
     const snapFiles = readdirSync(`${rootDir}/snap`, { recursive: true })
