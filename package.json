@@ -45,12 +45,12 @@
   "scripts": {
     "preinstall": "node -e \"if(process.env.CI == 'true') {console.log('Skipping preinstall...'); process.exit(1)}\" || npx -y only-allow pnpm",
     "test": "pnpm run test:ci",
-    "test:pr": "nx run-many --targets=test:format,test:eslint,test:types,test:build",
-    "test:ci": "nx run-many --targets=test:format,test:eslint,test:types,test:build",
+    "test:pr": "nx run-many --targets=test:eslint,test:types,test:build",
+    "test:ci": "nx run-many --targets=test:eslint,test:types,test:build",
     "test:build": "publint --strict",
     "test:types": "tsc",
     "test:eslint": "eslint .",
-    "fix:eslint": "pnpm run eslint --fix",
+    "fix:eslint": "eslint . --fix",
     "cipublish": "node ./bin/config.js publish --cwd .",
     "cipublishforce": "CI=true pnpm cipublish"
   },

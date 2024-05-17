@@ -5,6 +5,8 @@ export default antfu(
     formatters: true,
     ignores: [
       '**/snap',
+      '**/vite.config.js.timestamp-*',
+      '**/vite.config.ts.timestamp-*',
     ],
   },
   {
