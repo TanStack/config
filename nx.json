@@ -1,10 +1,8 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "affected": {
-    "defaultBase": "main"
-  },
   "defaultBase": "main",
   "nxCloudAccessToken": "ZjA2YjFlNGUtYmRlZS00YjhmLWIwZDktOWZlNTM5NDI5YWEzfHJlYWQ=",
+  "useInferencePlugins": false,
   "parallel": 5,
   "targetDefaults": {
     "test:build": {
