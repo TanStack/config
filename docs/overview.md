@@ -7,8 +7,8 @@ TanStack Config allows you to publish, update, and maintain your packages withou
 
 ## Utilities
 
-- [Build](./build)
-- [Publish](./publish)
+- [Build](./build.md)
+- [Publish](./publish.md)
 
 ## Required Pre-Requisites
 
