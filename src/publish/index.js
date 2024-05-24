@@ -10,7 +10,6 @@ import currentGitBranch from 'current-git-branch'
 import { parse as parseCommit } from '@commitlint/parse'
 import log from 'git-log-parser'
 import streamToArray from 'stream-to-array'
-import { DateTime } from 'luxon'
 import {
   capitalize,
   getSorterFn,
@@ -334,10 +333,13 @@ export const publish = async (options) => {
     )
   }
 
+  const date = new Intl.DateTimeFormat(undefined, {
+    dateStyle: 'short',
+    timeStyle: 'short',
+  }).format(Date.now())
+
   const changelogMd = [
-    `Version ${version} - ${DateTime.now().toLocaleString(
-      DateTime.DATETIME_SHORT,
-    )}${tag ? ' (Manual Release)' : ''}`,
+    `Version ${version} - ${date}${tag ? ' (Manual Release)' : ''}`,
     '## Changes',
     changelogCommitsMd || '- None',
     '## Packages',
