@@ -81,9 +81,6 @@ importers:
       '@types/liftoff':
         specifier: ^4.0.3
         version: 4.0.3
-      '@types/luxon':
-        specifier: ^3.4.2
-        version: 3.4.2
       '@types/minimist':
         specifier: ^1.2.5
         version: 1.2.5
@@ -887,9 +884,6 @@ packages:
 
   '@types/liftoff@4.0.3':
     resolution: {integrity: sha512-UgbL2kR5pLrWICvr8+fuSg0u43LY250q7ZMkC+XKC3E+rs/YBDEnQIzsnhU5dYsLlwMi3R75UvCL87pObP1sxw==}
-
-  '@types/luxon@3.4.2':
-    resolution: {integrity: sha512-TifLZlFudklWlMBfhubvgqTXRzLDI5pCbGa4P8a3wPyUQSW+1xQ5eDsreP9DWHX3tjq1ke96uYG/nwundroWcA==}
 
   '@types/mdast@3.0.15':
     resolution: {integrity: sha512-LnwD+mUEfxWMa1QpDraczIn6k0Ee3SMicuYSSzS6ZYl2gKS09EClnJYGd8Du6rfc5r/GZEk5o1mRb8TaTj03sQ==}
@@ -4124,8 +4118,6 @@ snapshots:
     dependencies:
       '@types/fined': 1.1.5
       '@types/node': 18.19.8
-
-  '@types/luxon@3.4.2': {}
 
   '@types/mdast@3.0.15':
     dependencies:

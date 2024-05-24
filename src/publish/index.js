@@ -333,11 +333,13 @@ export const publish = async (options) => {
     )
   }
 
+  const date = new Intl.DateTimeFormat(undefined, {
+    dateStyle: 'short',
+    timeStyle: 'short',
+  }).format(Date.now())
+
   const changelogMd = [
-    `Version ${version} - ${new Intl.DateTimeFormat(undefined, {
-      dateStyle: 'short',
-      timeStyle: 'short',
-    }).format(Date.now())}${tag ? ' (Manual Release)' : ''}`,
+    `Version ${version} - ${date}${tag ? ' (Manual Release)' : ''}`,
     '## Changes',
     changelogCommitsMd || '- None',
     '## Packages',
