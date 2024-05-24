@@ -49,6 +49,7 @@ export type RunOptions = {
   branchConfigs: Record<string, BranchConfig>
   // List your npm packages here. The first package will be used as the versioner.
   packages: Array<Package>
+  // Path to root directory of your project.
   rootDir: string
   // The branch to publish. Defaults to the current branch if none supplied.
   branch?: string

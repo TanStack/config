@@ -4,7 +4,6 @@
 import path from 'node:path'
 import { execSync } from 'node:child_process'
 import { existsSync, readdirSync } from 'node:fs'
-import chalk from 'chalk'
 import * as semver from 'semver'
 import currentGitBranch from 'current-git-branch'
 import { parse as parseCommit } from '@commitlint/parse'
@@ -62,7 +61,6 @@ export const publish = async (options) => {
   let latestTag = /** @type {string} */ ([...tags].pop())
 
   let range = `${latestTag}..HEAD`
-  // let range = ``;
 
   // If RELEASE_ALL is set via a commit subject or body, all packages will be
   // released regardless if they have changed files matching the package srcDir.
@@ -70,27 +68,25 @@ export const publish = async (options) => {
 
   if (!latestTag || tag) {
     if (tag) {
-      if (!tag.startsWith('v')) {
-        throw new Error(
-          `tag must start with "v", eg. v0.0.0. You supplied ${tag}`,
-        )
+      if (!semver.valid(tag)) {
+        throw new Error(`tag '${tag}' is not a semantically valid version`)
       }
-      console.info(
-        chalk.yellow(
-          `Tag is set to ${tag}. This will force release all packages. Publishing...`,
-        ),
-      )
+      if (!tag.startsWith('v')) {
+        throw new Error(`tag must start with "v" (e.g. v0.0.0). You supplied ${tag}`)
+      }
+      if (tags.includes(tag)) {
+        throw new Error(`tag ${tag} has already been released`)
+      }
+      console.info(`Tag is set to ${tag}. This will force release all packages. Publishing...`)
       RELEASE_ALL = true
 
       // Is it the first release? Is it a major version?
-      if (!latestTag || (!semver.patch(tag) && !semver.minor(tag))) {
+      if (!latestTag || (semver.patch(tag) === 0 && semver.minor(tag) === 0)) {
         range = `origin/main..HEAD`
         latestTag = tag
       }
     } else {
-      throw new Error(
-        'Could not find latest tag! To make a release tag of v0.0.1, run with TAG=v0.0.1',
-      )
+      throw new Error('Could not find latest tag! To make a release tag of v0.0.1, run with TAG=v0.0.1')
     }
   }
 
