@@ -38,11 +38,14 @@ export const publish = async (options) => {
 
   // Get tags
   /** @type {string[]} */
-  let tags = execSync('git tag').toString().split('\n')
+  const allTags = execSync('git tag').toString().split('\n')
 
-  // Filter tags to our branch/pre-release combo
-  tags = tags
+  const filteredTags = allTags
+    // Ensure tag is valid
     .filter((t) => semver.valid(t))
+    // sort by latest
+    .sort(semver.compare)
+    // Filter tags to our branch/pre-release combo
     .filter((t) => {
       // If this is an older release, filter to only include that version
       if (branchConfig.previousVersion) {
@@ -54,11 +57,9 @@ export const publish = async (options) => {
         return !isMainBranch
       }
     })
-    // sort by latest
-    .sort(semver.compare)
 
   // Get the latest tag
-  let latestTag = /** @type {string} */ ([...tags].pop())
+  let latestTag = filteredTags.at(-1)
 
   let range = `${latestTag}..HEAD`
 
@@ -66,17 +67,21 @@ export const publish = async (options) => {
   // released regardless if they have changed files matching the package srcDir.
   let RELEASE_ALL = false
 
+  // Validate manual tag
+  if (tag) {
+    if (!semver.valid(tag)) {
+      throw new Error(`tag '${tag}' is not a semantically valid version`)
+    }
+    if (!tag.startsWith('v')) {
+      throw new Error(`tag must start with "v" (e.g. v0.0.0). You supplied ${tag}`)
+    }
+    if (allTags.includes(tag)) {
+      throw new Error(`tag ${tag} has already been released`)
+    }
+  }
+
   if (!latestTag || tag) {
     if (tag) {
-      if (!semver.valid(tag)) {
-        throw new Error(`tag '${tag}' is not a semantically valid version`)
-      }
-      if (!tag.startsWith('v')) {
-        throw new Error(`tag must start with "v" (e.g. v0.0.0). You supplied ${tag}`)
-      }
-      if (tags.includes(tag)) {
-        throw new Error(`tag ${tag} has already been released`)
-      }
       console.info(`Tag is set to ${tag}. This will force release all packages. Publishing...`)
       RELEASE_ALL = true
 
@@ -124,9 +129,7 @@ export const publish = async (options) => {
     return !exclude
   })
 
-  console.info(
-    `Parsing ${commitsSinceLatestTag.length} commits since ${latestTag}...`,
-  )
+  console.info(`Parsing ${commitsSinceLatestTag.length} commits since ${latestTag}...`)
 
   /**
    * Parses the commit messsages, log them, and determine the type of release needed
@@ -148,18 +151,57 @@ export const publish = async (options) => {
         if (commit.body.includes('BREAKING CHANGE')) {
           releaseLevel = Math.max(releaseLevel, 2)
         }
-        if (
-          commit.subject.includes('RELEASE_ALL')
-          || commit.body.includes('RELEASE_ALL')
-        ) {
+        if (commit.subject.includes('RELEASE_ALL') || commit.body.includes('RELEASE_ALL')) {
           RELEASE_ALL = true
         }
       }
-
       return releaseLevel
     },
     -1,
   )
+
+  // If there is a breaking change and no manual tag is set, do not release
+  if (recommendedReleaseLevel === 2 && !tag) {
+    throw new Error('Major versions releases must be tagged and released manually.')
+  }
+
+  // If no release is semantically necessary and no manual tag is set, do not release
+  if (recommendedReleaseLevel === -1 && !tag) {
+    console.info(`There have been no changes since ${latestTag} that require a new version. You're good!`)
+    return
+  }
+
+  // If no release is samantically necessary but a manual tag is set, do a patch release
+  if (recommendedReleaseLevel === -1 && tag) {
+    recommendedReleaseLevel = 0
+  }
+
+  const releaseType = branchConfig.prerelease
+    ? 'prerelease'
+    : /** @type {const} */ ({ 0: 'patch', 1: 'minor', 2: 'major' })[
+        recommendedReleaseLevel
+      ]
+
+  if (!releaseType) {
+    throw new Error(`Invalid release level: ${recommendedReleaseLevel}`)
+  }
+
+  const version = tag
+    ? semver.parse(tag)?.version
+    : semver.inc(latestTag, releaseType, npmTag)
+
+  if (!version) {
+    throw new Error(
+      [
+        'Invalid version increment from semver.inc()',
+        `- latestTag: ${latestTag}`,
+        `- recommendedReleaseLevel: ${recommendedReleaseLevel}`,
+        `- prerelease: ${branchConfig.prerelease}`,
+      ].join('\n'),
+    )
+  }
+
+  console.log(`Targeting version ${version}...`)
 
   /**
    * Uses git diff to determine which files have changed since the latest tag
@@ -187,7 +229,6 @@ export const publish = async (options) => {
   // If a package has a dependency that has been updated, we need to update the
   // package that depends on it as well.
   // run this multiple times so that dependencies of dependencies are also included
-  // changes to query-core affect query-persist-client-core, which affects react-query-persist-client and then indirectly the sync/async persisters
   for (let runs = 0; runs < 3; runs++) {
     for (const pkg of packages) {
       const packageJson = await readPackageJson(
@@ -207,29 +248,9 @@ export const publish = async (options) => {
         )
         && !changedPackages.find((d) => d.name === pkg.name)
       ) {
-        console.info(
-          'adding package dependency',
-          pkg.name,
-          'to changed packages',
-        )
+        console.info(`  Adding dependency ${pkg.name} to changed packages`)
         changedPackages.push(pkg)
       }
-    }
-  }
-
-  if (!tag) {
-    if (recommendedReleaseLevel === 2) {
-      console.info(
-        `Major versions releases must be tagged and released manually.`,
-      )
-      return
-    }
-
-    if (recommendedReleaseLevel === -1) {
-      console.info(
-        `There have been no changes since the release of ${latestTag} that require a new version. You're good!`,
-      )
-      return
     }
   }
 
@@ -300,34 +321,6 @@ export const publish = async (options) => {
       })
       .join('\n\n')
   })
-
-  if (tag && recommendedReleaseLevel === -1) {
-    recommendedReleaseLevel = 0
-  }
-
-  const releaseType = branchConfig.prerelease
-    ? 'prerelease'
-    : /** @type {const} */ ({ 0: 'patch', 1: 'minor', 2: 'major' })[
-        recommendedReleaseLevel
-      ]
-
-  if (!releaseType) {
-    throw new Error(`Invalid release level: ${recommendedReleaseLevel}`)
-  }
-
-  const version = tag
-    ? semver.parse(tag)?.version
-    : semver.inc(latestTag, releaseType, npmTag)
-
-  if (!version) {
-    throw new Error(
-      `Invalid version increment from semver.inc(${[
-        latestTag,
-        recommendedReleaseLevel,
-        branchConfig.prerelease,
-      ].join(', ')}`,
-    )
-  }
 
   const date = new Intl.DateTimeFormat(undefined, {
     dateStyle: 'short',
