@@ -201,6 +201,8 @@ export const publish = async (options) => {
     )
   }
 
+  console.log(`Targeting version ${version}...`)
+
   /**
    * Uses git diff to determine which files have changed since the latest tag
    * @type {string[]}
