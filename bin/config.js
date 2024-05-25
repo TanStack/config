@@ -4,7 +4,6 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { createRequire } from 'node:module'
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
-import chalk from 'chalk'
 import Liftoff from 'liftoff'
 import minimist from 'minimist'
 import v8flags from 'v8flags'
@@ -55,10 +54,9 @@ function checkForConfigFile(configPath) {
   if (configPath) return
   console.error(
     [
-      chalk.red('No tanstack.config.js file found!'),
+      'No tanstack.config.js file found!',
       'This may be because you\'re not passing the --config or --cwd flags.',
       'If you are passing these flags, check that the path is correct.',
-      '',
       'Otherwise, you can create a `tanstack.config.js` file in your project root.',
     ].join('\n'),
   )
