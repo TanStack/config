@@ -23,7 +23,7 @@ import {
  * @returns {Promise<void>}
  */
 export const publish = async (options) => {
-  const { branchConfigs, packages, rootDir, branch, tag: manualTag, ghToken } = options
+  const { branchConfigs, packages, rootDir, branch, tag, ghToken } = options
 
   const branchName = /** @type {string} */ (branch ?? currentGitBranch())
   const isMainBranch = branchName === 'main'
@@ -68,27 +68,27 @@ export const publish = async (options) => {
   let RELEASE_ALL = false
 
   // Validate manual tag
-  if (manualTag) {
-    if (!semver.valid(manualTag)) {
-      throw new Error(`tag '${manualTag}' is not a semantically valid version`)
+  if (tag) {
+    if (!semver.valid(tag)) {
+      throw new Error(`tag '${tag}' is not a semantically valid version`)
     }
-    if (!manualTag.startsWith('v')) {
-      throw new Error(`tag must start with "v" (e.g. v0.0.0). You supplied ${manualTag}`)
+    if (!tag.startsWith('v')) {
+      throw new Error(`tag must start with "v" (e.g. v0.0.0). You supplied ${tag}`)
     }
-    if (allTags.includes(manualTag)) {
-      throw new Error(`tag ${manualTag} has already been released`)
+    if (allTags.includes(tag)) {
+      throw new Error(`tag ${tag} has already been released`)
     }
   }
 
-  if (!latestTag || manualTag) {
-    if (manualTag) {
-      console.info(`Tag is set to ${manualTag}. This will force release all packages. Publishing...`)
+  if (!latestTag || tag) {
+    if (tag) {
+      console.info(`Tag is set to ${tag}. This will force release all packages. Publishing...`)
       RELEASE_ALL = true
 
       // Is it the first release? Is it a major version?
-      if (!latestTag || (semver.patch(manualTag) === 0 && semver.minor(manualTag) === 0)) {
+      if (!latestTag || (semver.patch(tag) === 0 && semver.minor(tag) === 0)) {
         range = `origin/main..HEAD`
-        latestTag = manualTag
+        latestTag = tag
       }
     } else {
       throw new Error('Could not find latest tag! To make a release tag of v0.0.1, run with TAG=v0.0.1')
@@ -161,18 +161,18 @@ export const publish = async (options) => {
   )
 
   // If there is a breaking change and no manual tag is set, do not release
-  if (recommendedReleaseLevel === 2 && !manualTag) {
+  if (recommendedReleaseLevel === 2 && !tag) {
     throw new Error('Major versions releases must be tagged and released manually.')
   }
 
   // If no release is semantically necessary and no manual tag is set, do not release
-  if (recommendedReleaseLevel === -1 && !manualTag) {
+  if (recommendedReleaseLevel === -1 && !tag) {
     console.info(`There have been no changes since ${latestTag} that require a new version. You're good!`)
     return
   }
 
   // If no release is samantically necessary but a manual tag is set, do a patch release
-  if (recommendedReleaseLevel === -1 && manualTag) {
+  if (recommendedReleaseLevel === -1 && tag) {
     recommendedReleaseLevel = 0
   }
 
@@ -186,8 +186,8 @@ export const publish = async (options) => {
     throw new Error(`Invalid release level: ${recommendedReleaseLevel}`)
   }
 
-  const version = manualTag
-    ? semver.parse(manualTag)?.version
+  const version = tag
+    ? semver.parse(tag)?.version
     : semver.inc(latestTag, releaseType, npmTag)
 
   if (!version) {
@@ -205,7 +205,7 @@ export const publish = async (options) => {
    * Uses git diff to determine which files have changed since the latest tag
    * @type {string[]}
    */
-  const changedFiles = manualTag
+  const changedFiles = tag
     ? []
     : execSync(`git diff ${latestTag} --name-only`)
       .toString()
@@ -326,7 +326,7 @@ export const publish = async (options) => {
   }).format(Date.now())
 
   const changelogMd = [
-    `Version ${version} - ${date}${manualTag ? ' (Manual Release)' : ''}`,
+    `Version ${version} - ${date}${tag ? ' (Manual Release)' : ''}`,
     '## Changes',
     changelogCommitsMd || '- None',
     '## Packages',

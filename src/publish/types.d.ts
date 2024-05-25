@@ -45,16 +45,16 @@ export type BranchConfig = {
 }
 
 export type RunOptions = {
-  // Contains config for publishable branches.
+  /** Contains config for publishable branches. */
   branchConfigs: Record<string, BranchConfig>
-  // List your npm packages here. The first package will be used as the versioner.
+  /** List your npm packages here. The first package will be used as the versioner. */
   packages: Array<Package>
-  // Path to root directory of your project.
+  /** Path to root directory of your project. */
   rootDir: string
-  // The branch to publish. Defaults to the current branch if none supplied.
+  /** The branch to publish. Defaults to the current branch if none supplied. */
   branch?: string
-  // The tag to publish. Must start with `v`
+  /** A manual tag to force release. Must start with `v` */
   tag?: string
-  // The GitHub token used to search for user metadata and make a GitHub release.
+  /** The GitHub token used to search for user metadata and make a GitHub release. */
   ghToken?: string
 }
