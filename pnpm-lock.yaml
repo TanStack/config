@@ -103,7 +103,7 @@ importers:
         specifier: ^24.1.0
         version: 24.1.0
       nx:
-        specifier: ^19.0.2
+        specifier: ^19.2.2
         version: 19.2.2
       publint:
         specifier: ^0.2.8

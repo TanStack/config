@@ -42,5 +42,6 @@ stats.html
 nx-cloud.env
 
 .nx/cache
+.nx/workspace-data
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
