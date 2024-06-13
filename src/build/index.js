@@ -27,8 +27,7 @@ export const tanstackBuildConfig = (options) => {
         exclude: options.exclude,
         tsconfigPath: options.tsconfigPath,
         compilerOptions: {
-          // @ts-expect-error
-          module: 'esnext',
+          module: 99, // ESNext
           declarationMap: false,
         },
         beforeWriteFile: (filePath, content) => {
@@ -47,8 +46,7 @@ export const tanstackBuildConfig = (options) => {
         exclude: options.exclude,
         tsconfigPath: options.tsconfigPath,
         compilerOptions: {
-          // @ts-expect-error
-          module: 'commonjs',
+          module: 1, // CommonJS
           declarationMap: false,
         },
         beforeWriteFile: (filePath, content) => {
