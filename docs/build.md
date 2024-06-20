@@ -3,9 +3,13 @@ id: build
 title: Build
 ---
 
-The Vite build setup provided is the culmination of several attempts to make the TanStack libraries work in all environments, including ESM, CJS, the various TypeScript module resolution options, and a diverse bundler ecosystem.
+The Vite build setup is the culmination of several attempts to dual publish ESM and CJS for TanStack projects, while preserving compatibility with all Typescript module resolution options.
 
-## Usage
+## Do I Need This?
+
+ES Modules (ESM) is the standard for writing JavaScript modules. However, due to the historical dependency on CommonJS (CJS), many ecosystem tools and projects were initially incompatible with ESM. It is becoming exceedingly rare for this to be the case, and I would urge you to consider whether it is necessary to distribute CJS code at all. Sindre Sorhus has a good summary on this issue [here](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
+
+## Setup
 
 The build config is quite opinionated, as it is designed to work with our internal libraries. If you follow the below instructions, it _may_ work for your library too!
 
@@ -63,6 +67,14 @@ export default mergeConfig(
 )
 ```
 
-## Caveats
+## Frameworks
 
-While this config _will_ work with most frameworks with a Vite adapter, it doesn't mean you _should_ use it for all frameworks. For instance, Svelte publishes [@sveltejs/package](https://www.npmjs.com/package/@sveltejs/package), and Angular publishes [ng-packagr](https://www.npmjs.com/package/ng-packagr). When a framework-specific build tool exists, this should be preferred.
+While this config _will_ work with most frameworks with a Vite adapter, it doesn't mean you _should_ use it for all frameworks, as many have their own build tools which are optimised for their ecosystem. When a framework-specific build tool exists, this should be preferred.
+
+| Framework | Recommendation                                                                                     |
+| --------- | -------------------------------------------------------------------------------------------------- |
+| Angular   | [ng-packagr](https://www.npmjs.com/package/ng-packagr) (official tool)                             |
+| React     | [@tanstack/config](https://www.npmjs.com/package/@tanstack/config) (only if you need dual ESM/CJS) |
+| Solid     | [tsc](https://www.npmjs.com/package/typescript) (preserves JSX, necessary for SSR)                 |
+| Svelte    | [@sveltejs/package](https://www.npmjs.com/package/@sveltejs/package) (official tool)               |
+| Vue       | [@tanstack/config](https://www.npmjs.com/package/@tanstack/config) (only if you need dual ESM/CJS) |
