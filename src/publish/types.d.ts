@@ -1,22 +1,11 @@
 export type Commit = {
+  hash: string
   body: string
   message: string
-  parsed: Parsed
-}
-
-export type Parsed = {
-  type: string | null
-  scope?: string | null
-  subject: string
-  merge?: null
-  header: string
-  body?: null
-  footer?: null
-  notes?: Array<null> | null
-  references?: Array<null> | null
-  mentions?: Array<null> | null
-  revert?: null
-  raw: string
+  author_name: string
+  author_email: string
+  type: string
+  scope: string | null | undefined
 }
 
 export type Package = {

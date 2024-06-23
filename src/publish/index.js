@@ -7,8 +7,6 @@ import { existsSync, readdirSync } from 'node:fs'
 import * as semver from 'semver'
 import currentGitBranch from 'current-git-branch'
 import { parse as parseCommit } from '@commitlint/parse'
-import log from 'git-log-parser'
-import streamToArray from 'stream-to-array'
 import { simpleGit } from 'simple-git'
 import {
   capitalize,
@@ -98,7 +96,7 @@ export const publish = async (options) => {
 
   console.info(`Git Range: ${rangeFrom}..HEAD`)
 
-  const commitsSinceLatestTag = (await simpleGit().log({ from: rangeFrom, to: 'HEAD' })).all
+  const rawCommitsLog = (await simpleGit().log({ from: rangeFrom, to: 'HEAD' })).all
     .filter((c) => {
       const exclude = [
         c.message.startsWith('Merge branch '), // No merge commits
@@ -108,12 +106,24 @@ export const publish = async (options) => {
       return !exclude
     })
 
-  const parsedCommitsSinceLatestTag = await Promise.all(commitsSinceLatestTag.map(async (c) => {
+  /**
+   * Get the commits since the latest tag
+   * @type {import('./types.js').Commit[]}
+   */
+  const commitsSinceLatestTag = await Promise.all(rawCommitsLog.map(async (c) => {
     const parsed = await parseCommit(c.message)
-    return { body: c.body, message: c.message, parsed }
+    return {
+      hash: c.hash.substring(0, 7),
+      body: c.body,
+      message: c.message,
+      author_name: c.author_name,
+      author_email: c.author_email,
+      type: parsed.type?.toLowerCase() ?? 'other',
+      scope: parsed.scope,
+    }
   }))
 
-  console.info(`Processing ${parsedCommitsSinceLatestTag.length} commits since ${rangeFrom}...`)
+  console.info(`Processing ${commitsSinceLatestTag.length} commits since ${rangeFrom}...`)
 
   /**
    * Parses the commit messsages, log them, and determine the type of release needed
@@ -123,13 +133,13 @@ export const publish = async (options) => {
    * 2 means major release is necessary
    * @type {number}
    */
-  let recommendedReleaseLevel = parsedCommitsSinceLatestTag.reduce(
+  let recommendedReleaseLevel = commitsSinceLatestTag.reduce(
     (releaseLevel, commit) => {
-      if (commit.parsed.type) {
-        if (['fix', 'refactor', 'perf'].includes(commit.parsed.type)) {
+      if (commit.type) {
+        if (['fix', 'refactor', 'perf'].includes(commit.type)) {
           releaseLevel = Math.max(releaseLevel, 0)
         }
-        if (['feat'].includes(commit.parsed.type)) {
+        if (['feat'].includes(commit.type)) {
           releaseLevel = Math.max(releaseLevel, 1)
         }
         if (commit.body.includes('BREAKING CHANGE')) {
@@ -240,8 +250,8 @@ export const publish = async (options) => {
 
   const changelogCommitsMd = await Promise.all(
     Object.entries(
-      parsedCommitsSinceLatestTag.reduce((prev, curr) => {
-        const type = curr.parsed.type?.toLowerCase() ?? 'other'
+      commitsSinceLatestTag.reduce((prev, curr) => {
+        const type = curr.type
 
         return {
           ...prev,
@@ -271,7 +281,7 @@ export const publish = async (options) => {
             let username = ''
 
             if (ghToken) {
-              const query = `${commit.author.email || commit.committer.email}`
+              const query = commit.author_email
 
               const res = await fetch(
                 `https://api.github.com/search/users?q=${query}`,
@@ -287,13 +297,13 @@ export const publish = async (options) => {
               }
             }
 
-            const scope = commit.parsed.scope ? `${commit.parsed.scope}: ` : ''
-            const subject = commit.parsed.subject || commit.subject
+            const scope = commit.scope ? `${commit.scope}: ` : ''
+            const message = commit.message
 
-            return `- ${scope}${subject} (${commit.commit.short}) ${
+            return `- ${scope}${message} (${commit.hash}) ${
               username
                 ? `by @${username}`
-                : `by ${commit.author.name || commit.author.email}`
+                : `by ${commit.author_name || commit.author_email}`
             }`
           }),
         ).then((c) => /** @type {const} */ ([type, c]))
