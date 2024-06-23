@@ -115,7 +115,7 @@ export const publish = async (options) => {
     return {
       hash: c.hash.substring(0, 7),
       body: c.body,
-      message: c.message,
+      subject: parsed.subject ?? '',
       author_name: c.author_name,
       author_email: c.author_email,
       type: parsed.type?.toLowerCase() ?? 'other',
@@ -145,7 +145,7 @@ export const publish = async (options) => {
         if (commit.body.includes('BREAKING CHANGE')) {
           releaseLevel = Math.max(releaseLevel, 2)
         }
-        if (commit.message.includes('RELEASE_ALL') || commit.body.includes('RELEASE_ALL')) {
+        if (commit.subject.includes('RELEASE_ALL') || commit.body.includes('RELEASE_ALL')) {
           RELEASE_ALL = true
         }
       }
@@ -296,9 +296,9 @@ export const publish = async (options) => {
             }
 
             const scope = commit.scope ? `${commit.scope}: ` : ''
-            const message = commit.message
+            const subject = commit.subject
 
-            return `- ${scope}${message} (${commit.hash}) ${
+            return `- ${scope}${subject} (${commit.hash}) ${
               username
                 ? `by @${username}`
                 : `by ${commit.author_name || commit.author_email}`
