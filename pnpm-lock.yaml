@@ -23,6 +23,9 @@ importers:
       git-log-parser:
         specifier: ^1.2.0
         version: 1.2.0
+      gitlog:
+        specifier: ^5.0.1
+        version: 5.0.1
       interpret:
         specifier: ^3.1.1
         version: 3.1.1
@@ -1865,6 +1868,10 @@ packages:
 
   git-log-parser@1.2.0:
     resolution: {integrity: sha512-rnCVNfkTL8tdNryFuaY0fYiBWEBcgF748O6ZI61rslBvr2o7U65c2/6npCRqH40vuAhtgtDiqLTJjBVdrejCzA==}
+
+  gitlog@5.0.1:
+    resolution: {integrity: sha512-cxKQGlSJkZn2KsSmiHh7UtjYgUio7cwHPmCW0w1cAdsARpfqHaDtrZtS8hs2/sAXySxn/baV0f7mzTXtS1d2Cg==}
+    engines: {node: '>= 20.x'}
 
   glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
@@ -5255,6 +5262,12 @@ snapshots:
       stream-combiner2: 1.1.1
       through2: 2.0.5
       traverse: 0.6.8
+
+  gitlog@5.0.1:
+    dependencies:
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
 
   glob-parent@5.1.2:
     dependencies:

@@ -8,6 +8,7 @@ import * as semver from 'semver'
 import currentGitBranch from 'current-git-branch'
 import { parse as parseCommit } from '@commitlint/parse'
 import log from 'git-log-parser'
+import gitlog from 'gitlog'
 import streamToArray from 'stream-to-array'
 import {
   capitalize,
