@@ -1,7 +1,7 @@
 export type Commit = {
   hash: string
   body: string
-  message: string
+  subject: string
   author_name: string
   author_email: string
   type: string
