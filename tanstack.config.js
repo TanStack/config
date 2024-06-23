@@ -22,9 +22,6 @@ export const branchConfigs = {
   next: {
     prerelease: true,
   },
-  gitlog: {
-    prerelease: true,
-  },
   beta: {
     prerelease: true,
   },

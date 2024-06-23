@@ -123,7 +123,7 @@ export const publish = async (options) => {
     }
   }))
 
-  console.info(`Processing ${commitsSinceLatestTag.length} commits since ${rangeFrom}...`)
+  console.info(`Parsing ${commitsSinceLatestTag.length} commits since ${rangeFrom}...`)
 
   /**
    * Parses the commit messsages, log them, and determine the type of release needed
@@ -251,11 +251,9 @@ export const publish = async (options) => {
   const changelogCommitsMd = await Promise.all(
     Object.entries(
       commitsSinceLatestTag.reduce((prev, curr) => {
-        const type = curr.type
-
         return {
           ...prev,
-          [type]: [...(prev[type] ?? []), curr],
+          [curr.type]: [...(prev[curr.type] ?? []), curr],
         }
       }, /** @type {Record<string, import('./types.js').Commit[]>} */ ({})),
     )
