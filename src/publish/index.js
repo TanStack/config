@@ -8,8 +8,8 @@ import * as semver from 'semver'
 import currentGitBranch from 'current-git-branch'
 import { parse as parseCommit } from '@commitlint/parse'
 import log from 'git-log-parser'
-import gitlog from 'gitlog'
 import streamToArray from 'stream-to-array'
+import { simpleGit } from 'simple-git'
 import {
   capitalize,
   getSorterFn,
@@ -62,7 +62,7 @@ export const publish = async (options) => {
   // Get the latest tag
   let latestTag = filteredTags.at(-1)
 
-  let range = `${latestTag}..HEAD`
+  let rangeFrom = latestTag
 
   // If RELEASE_ALL is set via a commit subject or body, all packages will be
   // released regardless if they have changed files matching the package srcDir.
@@ -88,7 +88,7 @@ export const publish = async (options) => {
 
       // Is it the first release? Is it a major version?
       if (!latestTag || (semver.patch(tag) === 0 && semver.minor(tag) === 0)) {
-        range = `origin/main..HEAD`
+        rangeFrom = 'origin/main'
         latestTag = tag
       }
     } else {
@@ -96,41 +96,24 @@ export const publish = async (options) => {
     }
   }
 
-  console.info(`Git Range: ${range}`)
+  console.info(`Git Range: ${rangeFrom}..HEAD`)
 
-  /**
-   * Get the commits since the latest tag
-   * @type {import('./types.js').Commit[]}
-   */
-  const commitsSinceLatestTag = (
-    await new Promise((resolve, reject) => {
-      /** @type {NodeJS.ReadableStream} */
-      const strm = log.parse({
-        _: range,
-      })
+  const commitsSinceLatestTag = (await simpleGit().log({ from: rangeFrom, to: 'HEAD' })).all
+    .filter((c) => {
+      const exclude = [
+        c.message.startsWith('Merge branch '), // No merge commits
+        c.message.startsWith(releaseCommitMsg('')), // No example update commits
+      ].some(Boolean)
 
-      streamToArray(strm, (err, arr) => {
-        if (err) return reject(err)
-
-        Promise.all(
-          arr.map(async (d) => {
-            const parsed = await parseCommit(d.subject)
-
-            return { ...d, parsed }
-          }),
-        ).then((res) => resolve(res.filter(Boolean)))
-      })
+      return !exclude
     })
-  ).filter((/** @type {import('./types.js').Commit} */ commit) => {
-    const exclude = [
-      commit.subject.startsWith('Merge branch '), // No merge commits
-      commit.subject.startsWith(releaseCommitMsg('')), // No example update commits
-    ].some(Boolean)
 
-    return !exclude
-  })
+  const parsedCommitsSinceLatestTag = await Promise.all(commitsSinceLatestTag.map(async (c) => {
+    const parsed = await parseCommit(c.message)
+    return { body: c.body, message: c.message, parsed }
+  }))
 
-  console.info(`Parsing ${commitsSinceLatestTag.length} commits since ${latestTag}...`)
+  console.info(`Processing ${parsedCommitsSinceLatestTag.length} commits since ${rangeFrom}...`)
 
   /**
    * Parses the commit messsages, log them, and determine the type of release needed
@@ -140,7 +123,7 @@ export const publish = async (options) => {
    * 2 means major release is necessary
    * @type {number}
    */
-  let recommendedReleaseLevel = commitsSinceLatestTag.reduce(
+  let recommendedReleaseLevel = parsedCommitsSinceLatestTag.reduce(
     (releaseLevel, commit) => {
       if (commit.parsed.type) {
         if (['fix', 'refactor', 'perf'].includes(commit.parsed.type)) {
@@ -152,7 +135,7 @@ export const publish = async (options) => {
         if (commit.body.includes('BREAKING CHANGE')) {
           releaseLevel = Math.max(releaseLevel, 2)
         }
-        if (commit.subject.includes('RELEASE_ALL') || commit.body.includes('RELEASE_ALL')) {
+        if (commit.message.includes('RELEASE_ALL') || commit.body.includes('RELEASE_ALL')) {
           RELEASE_ALL = true
         }
       }
@@ -257,7 +240,7 @@ export const publish = async (options) => {
 
   const changelogCommitsMd = await Promise.all(
     Object.entries(
-      commitsSinceLatestTag.reduce((prev, curr) => {
+      parsedCommitsSinceLatestTag.reduce((prev, curr) => {
         const type = curr.parsed.type?.toLowerCase() ?? 'other'
 
         return {

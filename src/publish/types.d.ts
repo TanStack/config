@@ -1,22 +1,7 @@
 export type Commit = {
-  commit: CommitOrTree
-  tree: CommitOrTree
-  author: AuthorOrCommitter
-  committer: AuthorOrCommitter
-  subject: string
   body: string
+  message: string
   parsed: Parsed
-}
-
-export type CommitOrTree = {
-  long: string
-  short: string
-}
-
-export type AuthorOrCommitter = {
-  name: string
-  email: string
-  date: string
 }
 
 export type Parsed = {
