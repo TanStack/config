@@ -7,8 +7,7 @@ import { existsSync, readdirSync } from 'node:fs'
 import * as semver from 'semver'
 import currentGitBranch from 'current-git-branch'
 import { parse as parseCommit } from '@commitlint/parse'
-import log from 'git-log-parser'
-import streamToArray from 'stream-to-array'
+import { simpleGit } from 'simple-git'
 import {
   capitalize,
   getSorterFn,
@@ -61,7 +60,7 @@ export const publish = async (options) => {
   // Get the latest tag
   let latestTag = filteredTags.at(-1)
 
-  let range = `${latestTag}..HEAD`
+  let rangeFrom = latestTag
 
   // If RELEASE_ALL is set via a commit subject or body, all packages will be
   // released regardless if they have changed files matching the package srcDir.
@@ -87,7 +86,7 @@ export const publish = async (options) => {
 
       // Is it the first release? Is it a major version?
       if (!latestTag || (semver.patch(tag) === 0 && semver.minor(tag) === 0)) {
-        range = `origin/main..HEAD`
+        rangeFrom = 'origin/main'
         latestTag = tag
       }
     } else {
@@ -95,41 +94,36 @@ export const publish = async (options) => {
     }
   }
 
-  console.info(`Git Range: ${range}`)
+  console.info(`Git Range: ${rangeFrom}..HEAD`)
+
+  const rawCommitsLog = (await simpleGit().log({ from: rangeFrom, to: 'HEAD' })).all
+    .filter((c) => {
+      const exclude = [
+        c.message.startsWith('Merge branch '), // No merge commits
+        c.message.startsWith(releaseCommitMsg('')), // No example update commits
+      ].some(Boolean)
+
+      return !exclude
+    })
 
   /**
    * Get the commits since the latest tag
    * @type {import('./types.js').Commit[]}
    */
-  const commitsSinceLatestTag = (
-    await new Promise((resolve, reject) => {
-      /** @type {NodeJS.ReadableStream} */
-      const strm = log.parse({
-        _: range,
-      })
+  const commitsSinceLatestTag = await Promise.all(rawCommitsLog.map(async (c) => {
+    const parsed = await parseCommit(c.message)
+    return {
+      hash: c.hash.substring(0, 7),
+      body: c.body,
+      message: c.message,
+      author_name: c.author_name,
+      author_email: c.author_email,
+      type: parsed.type?.toLowerCase() ?? 'other',
+      scope: parsed.scope,
+    }
+  }))
 
-      streamToArray(strm, (err, arr) => {
-        if (err) return reject(err)
-
-        Promise.all(
-          arr.map(async (d) => {
-            const parsed = await parseCommit(d.subject)
-
-            return { ...d, parsed }
-          }),
-        ).then((res) => resolve(res.filter(Boolean)))
-      })
-    })
-  ).filter((/** @type {import('./types.js').Commit} */ commit) => {
-    const exclude = [
-      commit.subject.startsWith('Merge branch '), // No merge commits
-      commit.subject.startsWith(releaseCommitMsg('')), // No example update commits
-    ].some(Boolean)
-
-    return !exclude
-  })
-
-  console.info(`Parsing ${commitsSinceLatestTag.length} commits since ${latestTag}...`)
+  console.info(`Parsing ${commitsSinceLatestTag.length} commits since ${rangeFrom}...`)
 
   /**
    * Parses the commit messsages, log them, and determine the type of release needed
@@ -141,17 +135,17 @@ export const publish = async (options) => {
    */
   let recommendedReleaseLevel = commitsSinceLatestTag.reduce(
     (releaseLevel, commit) => {
-      if (commit.parsed.type) {
-        if (['fix', 'refactor', 'perf'].includes(commit.parsed.type)) {
+      if (commit.type) {
+        if (['fix', 'refactor', 'perf'].includes(commit.type)) {
           releaseLevel = Math.max(releaseLevel, 0)
         }
-        if (['feat'].includes(commit.parsed.type)) {
+        if (['feat'].includes(commit.type)) {
           releaseLevel = Math.max(releaseLevel, 1)
         }
         if (commit.body.includes('BREAKING CHANGE')) {
           releaseLevel = Math.max(releaseLevel, 2)
         }
-        if (commit.subject.includes('RELEASE_ALL') || commit.body.includes('RELEASE_ALL')) {
+        if (commit.message.includes('RELEASE_ALL') || commit.body.includes('RELEASE_ALL')) {
           RELEASE_ALL = true
         }
       }
@@ -257,11 +251,9 @@ export const publish = async (options) => {
   const changelogCommitsMd = await Promise.all(
     Object.entries(
       commitsSinceLatestTag.reduce((prev, curr) => {
-        const type = curr.parsed.type?.toLowerCase() ?? 'other'
-
         return {
           ...prev,
-          [type]: [...(prev[type] ?? []), curr],
+          [curr.type]: [...(prev[curr.type] ?? []), curr],
         }
       }, /** @type {Record<string, import('./types.js').Commit[]>} */ ({})),
     )
@@ -287,7 +279,7 @@ export const publish = async (options) => {
             let username = ''
 
             if (ghToken) {
-              const query = `${commit.author.email || commit.committer.email}`
+              const query = commit.author_email
 
               const res = await fetch(
                 `https://api.github.com/search/users?q=${query}`,
@@ -303,13 +295,13 @@ export const publish = async (options) => {
               }
             }
 
-            const scope = commit.parsed.scope ? `${commit.parsed.scope}: ` : ''
-            const subject = commit.parsed.subject || commit.subject
+            const scope = commit.scope ? `${commit.scope}: ` : ''
+            const message = commit.message
 
-            return `- ${scope}${subject} (${commit.commit.short}) ${
+            return `- ${scope}${message} (${commit.hash}) ${
               username
                 ? `by @${username}`
-                : `by ${commit.author.name || commit.author.email}`
+                : `by ${commit.author_name || commit.author_email}`
             }`
           }),
         ).then((c) => /** @type {const} */ ([type, c]))

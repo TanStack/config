@@ -1,37 +1,11 @@
 export type Commit = {
-  commit: CommitOrTree
-  tree: CommitOrTree
-  author: AuthorOrCommitter
-  committer: AuthorOrCommitter
-  subject: string
+  hash: string
   body: string
-  parsed: Parsed
-}
-
-export type CommitOrTree = {
-  long: string
-  short: string
-}
-
-export type AuthorOrCommitter = {
-  name: string
-  email: string
-  date: string
-}
-
-export type Parsed = {
-  type: string | null
-  scope?: string | null
-  subject: string
-  merge?: null
-  header: string
-  body?: null
-  footer?: null
-  notes?: Array<null> | null
-  references?: Array<null> | null
-  mentions?: Array<null> | null
-  revert?: null
-  raw: string
+  message: string
+  author_name: string
+  author_email: string
+  type: string
+  scope: string | null | undefined
 }
 
 export type Package = {
