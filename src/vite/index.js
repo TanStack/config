@@ -10,7 +10,7 @@ import dts from 'vite-plugin-dts'
  * @param {import('./index.js').Options} options
  * @returns {import('vite').UserConfig}
  */
-export const tanstackBuildConfig = (options) => {
+export const tanstackViteConfig = (options) => {
   const outDir = options.outDir ?? 'dist'
 
   return defineConfig({

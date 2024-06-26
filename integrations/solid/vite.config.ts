@@ -1,6 +1,6 @@
 import { defineConfig, mergeConfig } from 'vitest/config'
 import solid from 'vite-plugin-solid'
-import { tanstackBuildConfig } from '@tanstack/config/build'
+import { tanstackViteConfig } from '@tanstack/config/vite'
 
 const config = defineConfig({
   plugins: [solid()],
@@ -12,7 +12,7 @@ const config = defineConfig({
 
 export default mergeConfig(
   config,
-  tanstackBuildConfig({
+  tanstackViteConfig({
     entry: './src/index.ts',
     srcDir: './src',
   }),
