@@ -28,10 +28,10 @@
         "default": "./src/publish/index.js"
       }
     },
-    "./build": {
+    "./vite": {
       "import": {
-        "types": "./src/build/index.d.ts",
-        "default": "./src/build/index.js"
+        "types": "./src/vite/index.d.ts",
+        "default": "./src/vite/index.js"
       }
     },
     "./package.json": "./package.json"

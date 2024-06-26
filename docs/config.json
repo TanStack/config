@@ -14,12 +14,16 @@
           "to": "overview"
         },
         {
-          "label": "Build",
-          "to": "build"
+          "label": "ESLint",
+          "to": "eslint"
         },
         {
           "label": "Publish",
           "to": "publish"
+        },
+        {
+          "label": "Vite",
+          "to": "vite"
         }
       ]
     }

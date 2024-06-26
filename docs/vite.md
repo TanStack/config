@@ -1,6 +1,6 @@
 ---
-id: build
-title: Build
+id: vite
+title: Vite
 ---
 
 The Vite build setup is the culmination of several attempts to dual publish ESM and CJS for TanStack projects, while preserving compatibility with all Typescript module resolution options.
@@ -45,14 +45,14 @@ The build config is quite opinionated, as it is designed to work with our intern
 
 ### vite.config.ts
 
-- Import `mergeConfig` and `tanstackBuildConfig`.
-- Merge your custom config first, followed by `tanstackBuildConfig`.
+- Import `mergeConfig` and `tanstackViteConfig`.
+- Merge your custom config first, followed by `tanstackViteConfig`.
 - Please avoid modifying `build` in your custom config.
 - See an example below:
 
 ```ts
 import { defineConfig, mergeConfig } from 'vite'
-import { tanstackBuildConfig } from '@tanstack/config/build'
+import { tanstackViteConfig } from '@tanstack/config/vite'
 
 const config = defineConfig({
   // Framework plugins, vitest config, etc.
@@ -60,7 +60,7 @@ const config = defineConfig({
 
 export default mergeConfig(
   config,
-  tanstackBuildConfig({
+  tanstackViteConfig({
     entry: './src/index.ts',
     srcDir: './src',
   }),

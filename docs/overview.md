@@ -7,8 +7,9 @@ TanStack Config allows you to publish, update, and maintain your packages withou
 
 ## Utilities
 
-- [Build](../build)
+- [ESLint](../eslint)
 - [Publish](../publish)
+- [Vite](../vite)
 
 ## Required Pre-Requisites
 
