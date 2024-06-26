@@ -55,7 +55,7 @@ function checkForConfigFile(configPath) {
   console.error(
     [
       'No tanstack.config.js file found!',
-      'This may be because you\'re not passing the --config or --cwd flags.',
+      "This may be because you're not passing the --config or --cwd flags.",
       'If you are passing these flags, check that the path is correct.',
       'Otherwise, you can create a `tanstack.config.js` file in your project root.',
     ].join('\n'),

@@ -72,7 +72,9 @@ export const publish = async (options) => {
       throw new Error(`tag '${tag}' is not a semantically valid version`)
     }
     if (!tag.startsWith('v')) {
-      throw new Error(`tag must start with "v" (e.g. v0.0.0). You supplied ${tag}`)
+      throw new Error(
+        `tag must start with "v" (e.g. v0.0.0). You supplied ${tag}`,
+      )
     }
     if (allTags.includes(tag)) {
       throw new Error(`tag ${tag} has already been released`)
@@ -81,7 +83,9 @@ export const publish = async (options) => {
 
   if (!latestTag || tag) {
     if (tag) {
-      console.info(`Tag is set to ${tag}. This will force release all packages. Publishing...`)
+      console.info(
+        `Tag is set to ${tag}. This will force release all packages. Publishing...`,
+      )
       RELEASE_ALL = true
 
       // Is it the first release? Is it a major version?
@@ -90,40 +94,47 @@ export const publish = async (options) => {
         latestTag = tag
       }
     } else {
-      throw new Error('Could not find latest tag! To make a release tag of v0.0.1, run with TAG=v0.0.1')
+      throw new Error(
+        'Could not find latest tag! To make a release tag of v0.0.1, run with TAG=v0.0.1',
+      )
     }
   }
 
   console.info(`Git Range: ${rangeFrom}..HEAD`)
 
-  const rawCommitsLog = (await simpleGit().log({ from: rangeFrom, to: 'HEAD' })).all
-    .filter((c) => {
-      const exclude = [
-        c.message.startsWith('Merge branch '), // No merge commits
-        c.message.startsWith(releaseCommitMsg('')), // No example update commits
-      ].some(Boolean)
+  const rawCommitsLog = (
+    await simpleGit().log({ from: rangeFrom, to: 'HEAD' })
+  ).all.filter((c) => {
+    const exclude = [
+      c.message.startsWith('Merge branch '), // No merge commits
+      c.message.startsWith(releaseCommitMsg('')), // No example update commits
+    ].some(Boolean)
 
-      return !exclude
-    })
+    return !exclude
+  })
 
   /**
    * Get the commits since the latest tag
    * @type {import('./types.js').Commit[]}
    */
-  const commitsSinceLatestTag = await Promise.all(rawCommitsLog.map(async (c) => {
-    const parsed = await parseCommit(c.message)
-    return {
-      hash: c.hash.substring(0, 7),
-      body: c.body,
-      subject: parsed.subject ?? '',
-      author_name: c.author_name,
-      author_email: c.author_email,
-      type: parsed.type?.toLowerCase() ?? 'other',
-      scope: parsed.scope,
-    }
-  }))
+  const commitsSinceLatestTag = await Promise.all(
+    rawCommitsLog.map(async (c) => {
+      const parsed = await parseCommit(c.message)
+      return {
+        hash: c.hash.substring(0, 7),
+        body: c.body,
+        subject: parsed.subject ?? '',
+        author_name: c.author_name,
+        author_email: c.author_email,
+        type: parsed.type?.toLowerCase() ?? 'other',
+        scope: parsed.scope,
+      }
+    }),
+  )
 
-  console.info(`Parsing ${commitsSinceLatestTag.length} commits since ${rangeFrom}...`)
+  console.info(
+    `Parsing ${commitsSinceLatestTag.length} commits since ${rangeFrom}...`,
+  )
 
   /**
    * Parses the commit messsages, log them, and determine the type of release needed
@@ -145,7 +156,10 @@ export const publish = async (options) => {
         if (commit.body.includes('BREAKING CHANGE')) {
           releaseLevel = Math.max(releaseLevel, 2)
         }
-        if (commit.subject.includes('RELEASE_ALL') || commit.body.includes('RELEASE_ALL')) {
+        if (
+          commit.subject.includes('RELEASE_ALL') ||
+          commit.body.includes('RELEASE_ALL')
+        ) {
           RELEASE_ALL = true
         }
       }
@@ -156,12 +170,16 @@ export const publish = async (options) => {
 
   // If there is a breaking change and no manual tag is set, do not release
   if (recommendedReleaseLevel === 2 && !tag) {
-    throw new Error('Major versions releases must be tagged and released manually.')
+    throw new Error(
+      'Major versions releases must be tagged and released manually.',
+    )
   }
 
   // If no release is semantically necessary and no manual tag is set, do not release
   if (recommendedReleaseLevel === -1 && !tag) {
-    console.info(`There have been no changes since ${latestTag} that require a new version. You're good!`)
+    console.info(
+      `There have been no changes since ${latestTag} that require a new version. You're good!`,
+    )
     return
   }
 
@@ -204,21 +222,21 @@ export const publish = async (options) => {
   const changedFiles = tag
     ? []
     : execSync(`git diff ${latestTag} --name-only`)
-      .toString()
-      .split('\n')
-      .filter(Boolean)
+        .toString()
+        .split('\n')
+        .filter(Boolean)
 
   /** Uses packages and changedFiles to determine which packages have changed */
   const changedPackages = RELEASE_ALL
     ? packages
     : packages.filter((pkg) => {
-      const changed = changedFiles.some(
-        (file) =>
-          file.startsWith(path.join(pkg.packageDir, 'src'))
-          || file.startsWith(path.join(pkg.packageDir, 'package.json')),
-      )
-      return changed
-    })
+        const changed = changedFiles.some(
+          (file) =>
+            file.startsWith(path.join(pkg.packageDir, 'src')) ||
+            file.startsWith(path.join(pkg.packageDir, 'package.json')),
+        )
+        return changed
+      })
 
   // If a package has a dependency that has been updated, we need to update the
   // package that depends on it as well.
@@ -239,8 +257,8 @@ export const publish = async (options) => {
       if (
         allDependencies.find((dep) =>
           changedPackages.find((d) => d.name === dep),
-        )
-        && !changedPackages.find((d) => d.name === pkg.name)
+        ) &&
+        !changedPackages.find((d) => d.name === pkg.name)
       ) {
         console.info(`  Adding dependency ${pkg.name} to changed packages`)
         changedPackages.push(pkg)
@@ -289,8 +307,10 @@ export const publish = async (options) => {
                   },
                 },
               )
-              const data = /** @type {{items: Array<{login: string}>}} */ (await res.json())
-              if (data.items && data.items[0]) {
+              const data = /** @type {{items: Array<{login: string}>}} */ (
+                await res.json()
+              )
+              if (data.items.length && data.items[0]) {
                 username = data.items[0].login
               }
             }
@@ -357,9 +377,9 @@ export const publish = async (options) => {
         recursive: true,
       }).filter(
         (file) =>
-          typeof file === 'string'
-          && file.includes('package.json')
-          && !file.includes('node_modules'),
+          typeof file === 'string' &&
+          file.includes('package.json') &&
+          !file.includes('node_modules'),
       )
     )
     if (examplePkgJsonArray.length !== 0) {
