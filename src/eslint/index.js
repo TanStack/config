@@ -60,7 +60,7 @@ export const rootConfig = [
       ecmaVersion: 2020,
       sourceType: 'module',
       parserOptions: {
-        projectService: true,
+        project: true,
       },
     },
     plugins: {
