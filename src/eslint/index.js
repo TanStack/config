@@ -1,10 +1,14 @@
 import tseslint from 'typescript-eslint'
 import pluginImport from 'eslint-plugin-import-x'
+import pluginSvelte from 'eslint-plugin-svelte'
+import pluginReact from '@eslint-react/eslint-plugin'
 import globals from 'globals'
 // @ts-expect-error
 import eslint from '@eslint/js'
 // @ts-expect-error
 import configPrettier from 'eslint-config-prettier'
+// @ts-expect-error
+import pluginReactHooks from 'eslint-plugin-react-hooks'
 
 export const rootConfig = [
   {
@@ -103,6 +107,39 @@ export const rootConfig = [
         'error',
         { ignoreParameters: true },
       ],
+    },
+  },
+]
+
+export const reactConfig = [
+  {
+    files: ['**/*.{ts,tsx}'],
+    ...pluginReact.configs.recommended,
+  },
+  {
+    plugins: {
+      'react-hooks': pluginReactHooks,
+    },
+    rules: {
+      'react-hooks/exhaustive-deps': 'error',
+      'react-hooks/rules-of-hooks': 'error',
+    },
+  },
+]
+
+export const svelteConfig = [
+  ...pluginSvelte.configs['flat/recommended'],
+  {
+    files: ['**/*.svelte'],
+    languageOptions: {
+      parserOptions: {
+        parser: tseslint.parser,
+      },
+    },
+  },
+  {
+    rules: {
+      'svelte/no-svelte-internal': 'error',
     },
   },
 ]
