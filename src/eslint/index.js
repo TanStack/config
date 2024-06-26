@@ -105,12 +105,4 @@ export const rootConfig = [
       ],
     },
   },
-  {
-    name: 'tanstack/temp',
-    rules: {
-      '@typescript-eslint/array-type': 'off',
-      '@typescript-eslint/prefer-for-of': 'off',
-      '@typescript-eslint/no-unused-expressions': 'off',
-    },
-  },
 ]
