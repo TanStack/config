@@ -26,7 +26,7 @@
   "include": [
     "bin",
     "src",
-    ".eslintrc.cjs",
+    "eslint.config.js",
     "prettier.config.js",
     "tanstack.config.js"
   ]
