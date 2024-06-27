@@ -19,6 +19,7 @@
   "exports": {
     "./eslint": {
       "import": {
+        "types": "./src/eslint/index.d.ts",
         "default": "./src/eslint/index.js"
       }
     },
