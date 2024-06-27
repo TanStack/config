@@ -1,3 +1,5 @@
+// https://github.com/un-ts/eslint-plugin-import-x
+
 /** @type {import('eslint').Linter.FlatConfig} */
 export const importRules = {
   name: 'tanstack/import',

@@ -1,3 +1,5 @@
+// https://typescript-eslint.io/rules/
+
 /** @type {import('eslint').Linter.FlatConfig} */
 export const typescriptRules = {
   name: 'tanstack/typescript',
