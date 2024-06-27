@@ -16,7 +16,7 @@ export const rootConfig = [
       parser: tseslint.parser,
       parserOptions: {
         project: true,
-        extraFileExtensions: ['.js', '.svelte', '.vue'],
+        extraFileExtensions: ['.svelte', '.vue'],
         parser: tseslint.parser,
       },
       globals: {
