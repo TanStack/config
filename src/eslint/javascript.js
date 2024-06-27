@@ -2,7 +2,9 @@
 export const javascriptRules = {
   name: 'tanstack/javascript',
   rules: {
+    /** Constructors of derived classes must call super() */
     'constructor-super': 'error',
+    /** TODO */
     'for-direction': 'error',
     'getter-return': 'error',
     'no-async-promise-executor': 'error',
@@ -44,6 +46,7 @@ export const javascriptRules = {
     'no-regex-spaces': 'error',
     'no-self-assign': 'error',
     'no-setter-return': 'error',
+    'no-shadow': 'error',
     'no-shadow-restricted-names': 'error',
     'no-sparse-arrays': 'error',
     'no-this-before-super': 'error',
@@ -57,18 +60,16 @@ export const javascriptRules = {
     'no-useless-backreference': 'error',
     'no-useless-catch': 'error',
     'no-useless-escape': 'error',
-    'no-with': 'error',
-    'require-yield': 'error',
-    'use-isnan': 'error',
-    'valid-typeof': 'error',
-    'no-shadow': 'error',
-    /** Handled by TypeScript */
-    'no-undef': 'off',
     /** Prefer let and const */
     'no-var': 'error',
+    'no-with': 'error',
     /** Prefer const if never re-assigned */
     'prefer-const': 'error',
+    'require-yield': 'error',
     /** Stylistic consistency */
     'sort-imports': ['error', { ignoreDeclarationSort: true }],
+    'use-isnan': 'error',
+    /** Enforce comparing typeof against valid strings */
+    'valid-typeof': 'error',
   },
 }

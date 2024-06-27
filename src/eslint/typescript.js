@@ -36,7 +36,7 @@ export const typescriptRules = {
     'ts/no-unnecessary-type-assertion': 'error',
     /** Don't over-define types for simple things like strings */
     'ts/no-inferrable-types': ['error', { ignoreParameters: true }],
-    /** Newer strategy */
+    /** The recommended way to narrow a type to itself */
     'ts/prefer-as-const': 'error',
     /** From recommended preset */
     'ts/prefer-for-of': 'error',
