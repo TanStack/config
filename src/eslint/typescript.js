@@ -6,6 +6,8 @@ export const typescriptRules = {
     'ts/array-type': ['error', { default: 'generic', readonly: 'generic' }],
     /** Prevent @ts-ignore, allow @ts-expect-error */
     'ts/ban-ts-comment': ['error', { 'ts-expect-error': false }],
+    /** Bans specific built-in types and can suggest alternatives */
+    'ts/ban-types': 'error',
     /** Enforce import type { T } */
     'ts/consistent-type-imports': ['error', { prefer: 'type-imports' }],
     /** Shorthand method style is less strict */
@@ -24,23 +26,31 @@ export const typescriptRules = {
         },
       },
     ],
+    /** Duplicate values can lead to bugs that are hard to track down */
+    'ts/no-duplicate-enum-values': 'error',
     /** Using the operator any more than once does nothing */
     'ts/no-extra-non-null-assertion': 'error',
-    /** From recommended preset */
-    'ts/no-namespace': 'error',
-    /** From recommended preset */
+    /** There are several potential bugs with this compared to other loops */
+    'ts/no-for-in-array': 'error',
+    /** Enforce valid definition of new and constructor */
     'ts/no-misused-new': 'error',
+    /** Disallow TypeScript namespaces */
+    'ts/no-namespace': 'error',
+    /** Disallow non-null assertions after an optional chain expression */
+    'ts/no-non-null-asserted-optional-chain': 'error',
     /** Detects conditionals which will always evaluate truthy or falsy */
     'ts/no-unnecessary-condition': 'error',
     /** Checks if the the explicit type is identical to the inferred type */
     'ts/no-unnecessary-type-assertion': 'error',
     /** Don't over-define types for simple things like strings */
     'ts/no-inferrable-types': ['error', { ignoreParameters: true }],
-    /** The recommended way to narrow a type to itself */
+    /** Enforce the use of as const over literal type */
     'ts/prefer-as-const': 'error',
     /** From recommended preset */
     'ts/prefer-for-of': 'error',
-    /** From recommended preset */
+    /** Disallow async functions which have no await expression */
+    'ts/require-await': 'error',
+    /** Prefer of ES6-style import declarations */
     'ts/triple-slash-reference': 'error',
   },
 }
