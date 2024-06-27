@@ -1,3 +1,3 @@
-import { Linter } from 'eslint'
+import type { Linter } from 'eslint'
 
-export declare const rootConfig: Linter.FlatConfig[]
+export declare const rootConfig: Array<Linter.FlatConfig>
