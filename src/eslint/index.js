@@ -6,6 +6,7 @@ import eslint from '@eslint/js'
 // @ts-expect-error
 import configPrettier from 'eslint-config-prettier'
 
+/** @type {import('eslint').Linter.FlatConfig[]} */
 export const rootConfig = [
   {
     name: 'eslint/rules',
@@ -52,7 +53,6 @@ export const rootConfig = [
   },
   {
     name: 'tanstack/custom',
-    ignores: ['**/build', '**/coverage', '**/dist', '**/snap'],
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -60,6 +60,7 @@ export const rootConfig = [
       ecmaVersion: 2020,
       sourceType: 'module',
       parserOptions: {
+        extraFileExtensions: ['.js', '.svelte', '.vue'],
         project: true,
       },
     },
