@@ -9,7 +9,27 @@ import configPrettier from 'eslint-config-prettier'
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export const rootConfig = [
   {
-    name: 'eslint/rules',
+    name: 'tanstack/setup',
+    languageOptions: {
+      sourceType: 'module',
+      ecmaVersion: 2020,
+      parser: tseslint.parser,
+      parserOptions: {
+        project: true,
+        extraFileExtensions: ['.js', '.svelte', '.vue'],
+        parser: tseslint.parser,
+      },
+      globals: {
+        ...globals.browser,
+      },
+    },
+    plugins: {
+      import: pluginImport,
+      ts: tseslint.plugin,
+    },
+  },
+  {
+    name: 'tanstack/eslint/rules',
     rules: {
       ...eslint.configs.recommended.rules,
       'no-async-promise-executor': 'off',
@@ -21,16 +41,13 @@ export const rootConfig = [
     },
   },
   {
-    name: 'prettier/rules',
+    name: 'tanstack/prettier/rules',
     ...configPrettier,
   },
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
   {
-    name: 'import/rules',
-    plugins: {
-      import: pluginImport,
-    },
+    name: 'tanstack/import/rules',
     rules: {
       'import/newline-after-import': 'error',
       'import/no-cycle': 'error',
@@ -52,36 +69,16 @@ export const rootConfig = [
     },
   },
   {
-    name: 'tanstack/custom',
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-      },
-      ecmaVersion: 2020,
-      sourceType: 'module',
-      parserOptions: {
-        extraFileExtensions: ['.js', '.svelte', '.vue'],
-        project: true,
-      },
-    },
-    plugins: {
-      '@typescript-eslint': tseslint.plugin,
-    },
+    name: 'tanstack/ts/rules',
     rules: {
-      '@typescript-eslint/array-type': [
-        'error',
-        { default: 'generic', readonly: 'generic' },
-      ],
-      '@typescript-eslint/ban-types': 'off',
-      '@typescript-eslint/ban-ts-comment': 'off',
-      '@typescript-eslint/consistent-type-definitions': 'off',
-      '@typescript-eslint/consistent-type-imports': [
-        'error',
-        { prefer: 'type-imports' },
-      ],
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/method-signature-style': ['error', 'property'],
-      '@typescript-eslint/naming-convention': [
+      'ts/array-type': ['error', { default: 'generic', readonly: 'generic' }],
+      'ts/ban-types': 'off',
+      'ts/ban-ts-comment': 'off',
+      'ts/consistent-type-definitions': 'off',
+      'ts/consistent-type-imports': ['error', { prefer: 'type-imports' }],
+      'ts/explicit-module-boundary-types': 'off',
+      'ts/method-signature-style': ['error', 'property'],
+      'ts/naming-convention': [
         'error',
         {
           selector: 'typeParameter',
@@ -94,16 +91,13 @@ export const rootConfig = [
           },
         },
       ],
-      '@typescript-eslint/no-empty-interface': 'off',
-      '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-non-null-assertion': 'off',
-      '@typescript-eslint/no-unnecessary-condition': 'error',
-      '@typescript-eslint/no-unnecessary-type-assertion': 'error',
-      '@typescript-eslint/no-unused-vars': 'off',
-      '@typescript-eslint/no-inferrable-types': [
-        'error',
-        { ignoreParameters: true },
-      ],
+      'ts/no-empty-interface': 'off',
+      'ts/no-explicit-any': 'off',
+      'ts/no-non-null-assertion': 'off',
+      'ts/no-unnecessary-condition': 'error',
+      'ts/no-unnecessary-type-assertion': 'error',
+      'ts/no-unused-vars': 'off',
+      'ts/no-inferrable-types': ['error', { ignoreParameters: true }],
     },
   },
 ]
