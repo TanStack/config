@@ -13,10 +13,10 @@ title: ESLint
 ### eslint.config.js
 
 ```js
-import { rootConfig } from '@tanstack/config/eslint'
+import { tanstackConfig } from '@tanstack/config/eslint'
 
 export default [
-  ...rootConfig,
+  ...tanstackConfig,
   {
     // Custom rules go here
   },

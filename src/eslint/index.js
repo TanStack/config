@@ -6,9 +6,10 @@ import { importRules } from './import.js'
 import { typescriptRules } from './typescript.js'
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
-export const rootConfig = [
+export const tanstackConfig = [
   {
     name: 'tanstack/setup',
+    files: ['**/*.{js,svelte,ts,tsx,vue}'],
     languageOptions: {
       sourceType: 'module',
       ecmaVersion: 2020,
@@ -29,8 +30,10 @@ export const rootConfig = [
       // @ts-expect-error
       ts: tseslint.plugin,
     },
+    rules: {
+      ...javascriptRules,
+      ...importRules,
+      ...typescriptRules,
+    },
   },
-  javascriptRules,
-  importRules,
-  typescriptRules,
 ]
