@@ -12,7 +12,7 @@ export const typescriptRules = {
       'ts-ignore': 'allow-with-description',
     },
   ],
-  /** Bans specific built-in types and can suggest alternatives */
+  /** Bans problematic built-in types and suggests alternatives */
   'ts/ban-types': 'error',
   /** Enforce import type { T } */
   'ts/consistent-type-imports': ['error', { prefer: 'type-imports' }],
@@ -52,10 +52,10 @@ export const typescriptRules = {
   'ts/no-inferrable-types': ['error', { ignoreParameters: true }],
   /** Enforce the use of as const over literal type */
   'ts/prefer-as-const': 'error',
-  /** From recommended preset */
-  'ts/prefer-for-of': 'error',
-  /** Disallow async functions which have no await expression */
-  'ts/require-await': 'error',
+  /** Prefer for-of loop over the standard for loop */
+  'ts/prefer-for-of': 'warn',
+  /** Warn about async functions which have no await expression */
+  'ts/require-await': 'warn',
   /** Prefer of ES6-style import declarations */
   'ts/triple-slash-reference': 'error',
 }
