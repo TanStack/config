@@ -5,11 +5,23 @@ import { javascriptRules } from './javascript.js'
 import { importRules } from './import.js'
 import { typescriptRules } from './typescript.js'
 
+const GLOB_INCLUDE = ['**/*.{js,svelte,ts,tsx,vue}']
+
+const GLOB_EXCLUDE = [
+  '**/.nx/**',
+  '**/.svelte-kit/**',
+  '**/build/**',
+  '**/coverage/**',
+  '**/dist/**',
+  '**/snap/**',
+]
+
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export const tanstackConfig = [
   {
     name: 'tanstack/setup',
-    files: ['**/*.{js,svelte,ts,tsx,vue}'],
+    files: GLOB_INCLUDE,
+    ignores: GLOB_EXCLUDE,
     languageOptions: {
       sourceType: 'module',
       ecmaVersion: 2020,
