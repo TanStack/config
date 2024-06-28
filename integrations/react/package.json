@@ -26,14 +26,14 @@
     "test:build": "vite build && vitest && publint --strict && attw --pack"
   },
   "dependencies": {
-    "@tanstack/query-core": "^5.36.0",
+    "@tanstack/query-core": "^5.48.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@tanstack/config": "<1.0.0",
-    "@types/react": "^18.3.2",
+    "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.2.1"
+    "@vitejs/plugin-react": "^4.3.1"
   }
 }
