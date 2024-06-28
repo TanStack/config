@@ -10,10 +10,6 @@ export const importRules = {
   'import/no-cycle': 'error',
   /** Reports if a resolved path is imported more than once */
   'import/no-duplicates': 'error',
-  /** Default export name cannot match named export */
-  'import/no-named-as-default': 'error',
-  /** Don't access named imports from default export */
-  'import/no-named-as-default-member': 'error',
   /** Stylistic preference */
   'import/order': [
     'error',

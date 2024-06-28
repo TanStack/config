@@ -5,7 +5,13 @@ export const typescriptRules = {
   /** Prefer Array<T> format */
   'ts/array-type': ['error', { default: 'generic', readonly: 'generic' }],
   /** Prevent @ts-ignore, allow @ts-expect-error */
-  'ts/ban-ts-comment': ['error', { 'ts-expect-error': false }],
+  'ts/ban-ts-comment': [
+    'error',
+    {
+      'ts-expect-error': false,
+      'ts-ignore': 'allow-with-description',
+    },
+  ],
   /** Bans specific built-in types and can suggest alternatives */
   'ts/ban-types': 'error',
   /** Enforce import type { T } */

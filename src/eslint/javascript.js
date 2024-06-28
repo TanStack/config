@@ -56,7 +56,6 @@ export const javascriptRules = {
   'no-unsafe-optional-chaining': 'error',
   'no-unused-labels': 'error',
   'no-unused-private-class-members': 'error',
-  'no-unused-vars': 'error',
   'no-useless-backreference': 'error',
   'no-useless-catch': 'error',
   'no-useless-escape': 'error',
