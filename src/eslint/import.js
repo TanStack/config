@@ -2,6 +2,8 @@
 
 /** @type {import('eslint').Linter.RulesRecord} */
 export const importRules = {
+  /** Reports any imports that come after non-import statements */
+  'import/first': 'error',
   /** Stylistic preference */
   'import/newline-after-import': 'error',
   /** No require() or module.exports */
