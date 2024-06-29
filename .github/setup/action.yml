@@ -10,7 +10,6 @@ runs:
       with:
         node-version-file: .nvmrc
     - name: Get pnpm store directory
-      shell: bash
       run: |
         echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
     - name: Setup pnpm cache
@@ -21,5 +20,4 @@ runs:
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
     - name: Install dependencies
-      shell: bash
       run: pnpm install --frozen-lockfile
