@@ -133,8 +133,8 @@ importers:
   integrations/react:
     dependencies:
       '@tanstack/query-core':
-        specifier: ^5.49.0
-        version: 5.49.0
+        specifier: ^5.48.0
+        version: 5.48.0
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -714,8 +714,8 @@ packages:
     resolution: {integrity: sha512-t09vSN3MdfsyCHoFcTRCH/iUtG7OJ0CsjzB8cjAmKc/va/kIgeDI/TxsigdncE/4be734m0cvIYwNaV4i2XqAw==}
     engines: {node: '>=10'}
 
-  '@tanstack/query-core@5.49.0':
-    resolution: {integrity: sha512-xUTjCPHC8G+ZvIUzjoMOLnMpNXYPQI4HjhlizTVVBwtSp24iWo4/kaBzHAzsrCVyfbiaPIFFkUvicsY4r8kF8A==}
+  '@tanstack/query-core@5.48.0':
+    resolution: {integrity: sha512-lZAfPPeVIqXCswE9SSbG33B6/91XOWt/Iq41bFeWb/mnHwQSIfFRbkS4bfs+WhIk9abRArF9Id2fp0Mgo+hq6Q==}
 
   '@types/argparse@1.0.38':
     resolution: {integrity: sha512-ebDJ9b0e702Yr7pWgB0jzm+CX4Srzz8RcXtLJDJB+BSccqMa36uyH/zUsSYao5+BD1ytv3k3rPYCq4mAE1hsXA==}
@@ -3383,7 +3383,7 @@ snapshots:
 
   '@sindresorhus/is@4.6.0': {}
 
-  '@tanstack/query-core@5.49.0': {}
+  '@tanstack/query-core@5.48.0': {}
 
   '@types/argparse@1.0.38': {}
 
