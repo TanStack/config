@@ -1,5 +1,5 @@
-name: Setup Node and pnpm
-description: Composite action that sets up Node and pnpm
+name: Setup Tools
+description: Action that sets up Node, pnpm, and caching
 runs:
   using: composite
   steps:

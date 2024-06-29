@@ -23,8 +23,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Setup Node and pnpm
-        uses: ./.github/setup
+      - name: Setup Tools
+        uses: TanStack/config/.github/setup
       - name: Get base and head commits for `nx affected`
         uses: nrwl/nx-set-shas@v4
         with:
