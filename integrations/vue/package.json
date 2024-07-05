@@ -29,7 +29,7 @@
     "vue": "^3.4.31"
   },
   "devDependencies": {
-    "@tanstack/config": "<1.0.0",
+    "@tanstack/config": "workspace:*",
     "@vitejs/plugin-vue": "^5.0.5"
   }
 }

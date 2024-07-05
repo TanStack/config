@@ -31,7 +31,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@tanstack/config": "<1.0.0",
+    "@tanstack/config": "workspace:*",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1"

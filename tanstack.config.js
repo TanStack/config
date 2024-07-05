@@ -3,17 +3,17 @@
 import { fileURLToPath } from 'node:url'
 
 /**
- * @type {import('./src/publish/types.js').RunOptions["packages"]}
+ * @type {import('./packages/config/src/publish/types.js').RunOptions["packages"]}
  */
 export const packages = [
   {
     name: '@tanstack/config',
-    packageDir: '',
+    packageDir: 'packages/config',
   },
 ]
 
 /**
- * @type {import('./src/publish/types.js').RunOptions["branchConfigs"]}
+ * @type {import('./packages/config/src/publish/types.js').RunOptions["branchConfigs"]}
  */
 export const branchConfigs = {
   main: {
@@ -31,6 +31,6 @@ export const branchConfigs = {
 }
 
 /**
- * @type {import('./src/publish/types.js').RunOptions["rootDir"]}
+ * @type {import('./packages/config/src/publish/types.js').RunOptions["rootDir"]}
  */
 export const rootDir = fileURLToPath(new URL('.', import.meta.url))
