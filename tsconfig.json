@@ -23,11 +23,5 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "include": [
-    "bin",
-    "packages/config/src",
-    "packages/config/eslint.config.js",
-    "prettier.config.js",
-    "tanstack.config.js"
-  ]
+  "include": ["prettier.config.js", "tanstack.config.js"]
 }
