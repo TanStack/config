@@ -1,12 +1,11 @@
 import tseslint from 'typescript-eslint'
 import pluginImport from 'eslint-plugin-import-x'
-// @ts-expect-error
-import pluginUnicorn from 'eslint-plugin-unicorn'
+import pluginNode from 'eslint-plugin-n'
 import globals from 'globals'
 import { javascriptRules } from './javascript.js'
 import { importRules } from './import.js'
 import { typescriptRules } from './typescript.js'
-import { unicornRules } from './unicorn.js'
+import { nodeRules } from './node.js'
 
 const GLOB_INCLUDE = ['**/*.{js,svelte,ts,tsx,vue}']
 
@@ -47,13 +46,13 @@ export const tanstackConfig = [
       ts: tseslint.plugin,
       // @ts-expect-error
       import: pluginImport,
-      unicorn: pluginUnicorn,
+      node: pluginNode,
     },
     rules: {
       ...javascriptRules,
       ...typescriptRules,
       ...importRules,
-      ...unicornRules,
+      ...nodeRules,
     },
   },
 ]
