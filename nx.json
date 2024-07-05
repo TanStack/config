@@ -5,16 +5,19 @@
   "useInferencePlugins": false,
   "parallel": 5,
   "targetDefaults": {
-    "test:build": {
-      "cache": true
-    },
     "test:eslint": {
       "cache": true
     },
     "test:types": {
       "cache": true
     },
+    "test:build": {
+      "cache": true
+    },
     "test:format": {
+      "cache": true
+    },
+    "test:sherif": {
       "cache": true
     }
   }
