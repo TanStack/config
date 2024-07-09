@@ -68,7 +68,7 @@
     "rollup-plugin-preserve-directives": "^0.4.0",
     "semver": "^7.6.2",
     "simple-git": "^3.25.0",
-    "typescript-eslint": "^7.15.0",
+    "typescript-eslint": "^7.16.0",
     "v8flags": "^4.0.1",
     "vite-plugin-dts": "^3.9.1",
     "vite-plugin-externalize-deps": "^0.8.0",
