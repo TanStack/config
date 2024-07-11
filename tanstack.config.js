@@ -1,36 +1,30 @@
 // @ts-check
 
-import { fileURLToPath } from 'node:url'
+import { resolve } from 'node:path'
 
-/**
- * @type {import('./packages/config/src/publish/types.js').RunOptions["packages"]}
- */
-export const packages = [
-  {
-    name: '@tanstack/config',
-    packageDir: 'packages/config',
+/** @type {import('./packages/config/src/publish/types.js').RunOptions} */
+const config = {
+  packages: [
+    {
+      name: '@tanstack/config',
+      packageDir: 'packages/config',
+    },
+  ],
+  branchConfigs: {
+    main: {
+      prerelease: false,
+    },
+    next: {
+      prerelease: true,
+    },
+    beta: {
+      prerelease: true,
+    },
+    alpha: {
+      prerelease: true,
+    },
   },
-]
-
-/**
- * @type {import('./packages/config/src/publish/types.js').RunOptions["branchConfigs"]}
- */
-export const branchConfigs = {
-  main: {
-    prerelease: false,
-  },
-  next: {
-    prerelease: true,
-  },
-  beta: {
-    prerelease: true,
-  },
-  alpha: {
-    prerelease: true,
-  },
+  rootDir: resolve(import.meta.dirname, '.'),
 }
 
-/**
- * @type {import('./packages/config/src/publish/types.js').RunOptions["rootDir"]}
- */
-export const rootDir = fileURLToPath(new URL('.', import.meta.url))
+export default config
