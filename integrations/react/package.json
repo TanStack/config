@@ -22,7 +22,7 @@
     "dist"
   ],
   "scripts": {
-    "test:build": "vite build && vitest && publint --strict && attw --pack"
+    "test:build": "vite build && vitest && publint --strict"
   },
   "dependencies": {
     "@tanstack/query-core": "^5.50.1",

@@ -28,7 +28,6 @@
     ]
   },
   "devDependencies": {
-    "@arethetypeswrong/cli": "^0.15.3",
     "@types/node": "^20.14.10",
     "jsdom": "^24.1.0",
     "nx": "^19.4.2",
