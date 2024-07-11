@@ -12,7 +12,12 @@
         {
           "label": "Overview",
           "to": "overview"
-        },
+        }
+      ]
+    },
+    {
+      "label": "Utilities",
+      "children": [
         {
           "label": "ESLint",
           "to": "eslint"
@@ -24,6 +29,19 @@
         {
           "label": "Vite",
           "to": "vite"
+        }
+      ]
+    },
+    {
+      "label": "Conventions",
+      "children": [
+        {
+          "label": "Nx",
+          "to": "nx"
+        },
+        {
+          "label": "Package Structure",
+          "to": "package-structure"
         }
       ]
     }
