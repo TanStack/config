@@ -32,5 +32,6 @@ pnpm add -D @tanstack/config
 
 ## Conventions
 
-- [Nx](../nx)
+- [CI/CD](../ci-cd)
+- [Dependencies](../dependencies)
 - [Package Structure](../package-structure)

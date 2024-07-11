@@ -3,6 +3,8 @@ id: package-structure
 title: Package Structure
 ---
 
+The following structure ensures packages work optimally with our monorepo/Nx workflow.
+
 ### `./package.json`
 
 - All TanStack projects have `"type": "module"` to set the default resolution of `.js` files to ESM; this does not have any impact on building for CJS
