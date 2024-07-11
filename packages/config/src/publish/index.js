@@ -307,11 +307,14 @@ export const publish = async (options) => {
                   },
                 },
               )
-              const data = /** @type {{items: Array<{login: string}>}} */ (
-                await res.json()
-              )
-              if (data.items.length && data.items[0]) {
-                username = data.items[0].login
+              const data = /** @type {unknown} */ (await res.json())
+              if (data && typeof data === 'object' && 'items' in data) {
+                if (Array.isArray(data.items) && data.items[0]) {
+                  const item = /** @type {object} */ (data.items[0])
+                  if ('login' in item && typeof item.login === 'string') {
+                    username = item.login
+                  }
+                }
               }
             }
 
