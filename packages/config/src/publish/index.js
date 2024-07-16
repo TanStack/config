@@ -282,6 +282,7 @@ export const publish = async (options) => {
             'examples',
             'docs',
             'ci',
+            'test',
             'chore',
             'refactor',
             'perf',
