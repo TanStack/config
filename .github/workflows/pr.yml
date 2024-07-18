@@ -2,10 +2,6 @@ name: pr
 
 on:
   pull_request:
-    paths-ignore:
-      - 'docs/**'
-      - 'media/**'
-      - '**/*.md'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
@@ -27,7 +23,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup Tools
-        uses: tanstack/config/.github/setup@main
+        uses: ./.github/setup
       - name: Get base and head commits for `nx affected`
         uses: nrwl/nx-set-shas@v4
         with:
@@ -43,6 +39,6 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup Tools
-        uses: tanstack/config/.github/setup@main
+        uses: ./.github/setup
       - name: Publish Previews
         run: pnpx pkg-pr-new publish --pnpm --compact './packages/*' --no-template
