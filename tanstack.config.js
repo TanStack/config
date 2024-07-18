@@ -33,4 +33,4 @@ export const branchConfigs = {
 /**
  * @type {import('./packages/config/src/publish/types.js').RunOptions["rootDir"]}
  */
-export const rootDir = fileURLToPath(new URL('.', import.meta.url))
+export const rootDir = fileURLToPath( new URL('.', import.meta.url))
