@@ -12,7 +12,7 @@ title: CI/CD
 - `ci.yml`:
     - Runs tests for code merged into release branches
     - Runs `nx run-many`, which executes all tasks and ensures the outputs are present (necessary for publishing builds)
-    - Uses [@tanstack/config/publish](../publish) to handle versioning and npm release
+    - Uses [@tanstack/config/publish](./publish.md) to handle versioning and npm release
 
 ## Nx
 
