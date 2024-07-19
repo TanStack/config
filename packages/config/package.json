@@ -32,6 +32,12 @@
         "default": "./src/publish/index.js"
       }
     },
+    "./typedoc": {
+      "import": {
+        "types": "./src/typedoc/index.d.ts",
+        "default": "./src/typedoc/index.js"
+      }
+    },
     "./vite": {
       "import": {
         "types": "./src/vite/index.d.ts",
@@ -68,6 +74,9 @@
     "rollup-plugin-preserve-directives": "^0.4.0",
     "semver": "^7.6.3",
     "simple-git": "^3.25.0",
+    "typedoc": "^0.26.4",
+    "typedoc-plugin-frontmatter": "^1.0.0",
+    "typedoc-plugin-markdown": "^4.2.1",
     "typescript-eslint": "^7.16.1",
     "v8flags": "^4.0.1",
     "vite-plugin-dts": "^3.9.1",
