@@ -18,7 +18,7 @@ import {
 
 /**
  * Execute a script being published
- * @param {import('./types.js').RunOptions} options
+ * @param {import('./index.js').Options} options
  * @returns {Promise<void>}
  */
 export const publish = async (options) => {
@@ -28,7 +28,7 @@ export const publish = async (options) => {
   const isMainBranch = branchName === 'main'
   const npmTag = isMainBranch ? 'latest' : branchName
 
-  /** @type {import('./types.js').BranchConfig | undefined} */
+  /** @type {import('./index.js').BranchConfig | undefined} */
   const branchConfig = branchConfigs[branchName]
 
   if (!branchConfig) {
@@ -115,7 +115,7 @@ export const publish = async (options) => {
 
   /**
    * Get the commits since the latest tag
-   * @type {import('./types.js').Commit[]}
+   * @type {import('./index.js').Commit[]}
    */
   const commitsSinceLatestTag = await Promise.all(
     rawCommitsLog.map(async (c) => {
@@ -273,7 +273,7 @@ export const publish = async (options) => {
           ...prev,
           [curr.type]: [...(prev[curr.type] ?? []), curr],
         }
-      }, /** @type {Record<string, import('./types.js').Commit[]>} */ ({})),
+      }, /** @type {Record<string, import('./index.js').Commit[]>} */ ({})),
     )
       .sort(
         getSorterFn(([type]) =>
