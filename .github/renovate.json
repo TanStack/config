@@ -4,7 +4,6 @@
     "config:recommended",
     "schedule:weekly",
     ":approveMajorUpdates",
-    ":automergeStableNonMajor",
     ":disablePeerDependencies",
     ":semanticCommits",
     ":semanticCommitTypeAll(chore)"
@@ -13,5 +12,14 @@
   "labels": ["dependencies"],
   "rangeStrategy": "bump",
   "postUpdateOptions": ["pnpmDedupe"],
+  "packageRules": [
+    {
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
+      "matchCurrentVersion": ">=1.0.0",
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    }
+  ],
   "ignoreDeps": ["@types/node", "node", "typescript"]
 }
