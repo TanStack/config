@@ -30,3 +30,15 @@ jobs:
           main-branch-name: main
       - name: Run Checks
         run: pnpm run test:pr
+  preview:
+    name: Preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
+        with:
+          fetch-depth: 0
+      - name: Setup Tools
+        uses: ./.github/setup
+      - name: Publish Previews
+        run: pnpx pkg-pr-new publish --pnpm --compact './packages/*' --no-template
