@@ -1,7 +1,9 @@
-name: PR
+name: Preview
 
 on:
   pull_request:
+  push:
+    branches-ignore: [main, alpha, beta]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
@@ -14,8 +16,9 @@ permissions:
   contents: read
 
 jobs:
-  test:
-    name: Test
+  preview:
+    name: Preview
+    if: github.repository_owner == 'TanStack'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,9 +27,5 @@ jobs:
           fetch-depth: 0
       - name: Setup Tools
         uses: ./.github/setup
-      - name: Get base and head commits for `nx affected`
-        uses: nrwl/nx-set-shas@v4.0.6
-        with:
-          main-branch-name: main
-      - name: Run Checks
-        run: pnpm run test:pr
+      - name: Publish Previews
+        run: pnpx pkg-pr-new publish --pnpm --compact './packages/*' --no-template
