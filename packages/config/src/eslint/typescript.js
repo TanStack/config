@@ -3,9 +3,9 @@
 /** @type {import('eslint').Linter.RulesRecord} */
 export const typescriptRules = {
   /** Prefer Array<T> format */
-  'ts/array-type': ['error', { default: 'generic', readonly: 'generic' }],
+  '@typescript-eslint/array-type': ['error', { default: 'generic', readonly: 'generic' }],
   /** Prevent @ts-ignore, allow @ts-expect-error */
-  'ts/ban-ts-comment': [
+  '@typescript-eslint/ban-ts-comment': [
     'error',
     {
       'ts-expect-error': false,
@@ -13,13 +13,13 @@ export const typescriptRules = {
     },
   ],
   /** Bans problematic built-in types and suggests alternatives */
-  'ts/ban-types': 'error',
+  '@typescript-eslint/ban-types': 'error',
   /** Enforce import type { T } */
-  'ts/consistent-type-imports': ['error', { prefer: 'type-imports' }],
+  '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
   /** Shorthand method style is less strict */
-  'ts/method-signature-style': ['error', 'property'],
+  '@typescript-eslint/method-signature-style': ['error', 'property'],
   /** Enforces generic type convention */
-  'ts/naming-convention': [
+  '@typescript-eslint/naming-convention': [
     'error',
     {
       selector: 'typeParameter',
@@ -33,29 +33,29 @@ export const typescriptRules = {
     },
   ],
   /** Duplicate values can lead to bugs that are hard to track down */
-  'ts/no-duplicate-enum-values': 'error',
+  '@typescript-eslint/no-duplicate-enum-values': 'error',
   /** Using the operator any more than once does nothing */
-  'ts/no-extra-non-null-assertion': 'error',
+  '@typescript-eslint/no-extra-non-null-assertion': 'error',
   /** There are several potential bugs with this compared to other loops */
-  'ts/no-for-in-array': 'error',
+  '@typescript-eslint/no-for-in-array': 'error',
   /** Enforce valid definition of new and constructor */
-  'ts/no-misused-new': 'error',
+  '@typescript-eslint/no-misused-new': 'error',
   /** Disallow TypeScript namespaces */
-  'ts/no-namespace': 'error',
+  '@typescript-eslint/no-namespace': 'error',
   /** Disallow non-null assertions after an optional chain expression */
-  'ts/no-non-null-asserted-optional-chain': 'error',
+  '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
   /** Detects conditionals which will always evaluate truthy or falsy */
-  'ts/no-unnecessary-condition': 'error',
+  '@typescript-eslint/no-unnecessary-condition': 'error',
   /** Checks if the the explicit type is identical to the inferred type */
-  'ts/no-unnecessary-type-assertion': 'error',
+  '@typescript-eslint/no-unnecessary-type-assertion': 'error',
   /** Don't over-define types for simple things like strings */
-  'ts/no-inferrable-types': ['error', { ignoreParameters: true }],
+  '@typescript-eslint/no-inferrable-types': ['error', { ignoreParameters: true }],
   /** Enforce the use of as const over literal type */
-  'ts/prefer-as-const': 'error',
+  '@typescript-eslint/prefer-as-const': 'error',
   /** Prefer for-of loop over the standard for loop */
-  'ts/prefer-for-of': 'warn',
+  '@typescript-eslint/prefer-for-of': 'warn',
   /** Warn about async functions which have no await expression */
-  'ts/require-await': 'warn',
+  '@typescript-eslint/require-await': 'warn',
   /** Prefer of ES6-style import declarations */
-  'ts/triple-slash-reference': 'error',
+  '@typescript-eslint/triple-slash-reference': 'error',
 }

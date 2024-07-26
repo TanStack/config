@@ -43,7 +43,7 @@ export const tanstackConfig = [
     },
     plugins: {
       // @ts-expect-error
-      ts: tseslint.plugin,
+      '@typescript-eslint': tseslint.plugin,
       // @ts-expect-error
       import: pluginImport,
       node: pluginNode,
