@@ -3,7 +3,10 @@
 /** @type {import('eslint').Linter.RulesRecord} */
 export const typescriptRules = {
   /** Prefer Array<T> format */
-  '@typescript-eslint/array-type': ['error', { default: 'generic', readonly: 'generic' }],
+  '@typescript-eslint/array-type': [
+    'error',
+    { default: 'generic', readonly: 'generic' },
+  ],
   /** Prevent @ts-ignore, allow @ts-expect-error */
   '@typescript-eslint/ban-ts-comment': [
     'error',
@@ -15,7 +18,10 @@ export const typescriptRules = {
   /** Bans problematic built-in types and suggests alternatives */
   '@typescript-eslint/ban-types': 'error',
   /** Enforce import type { T } */
-  '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
+  '@typescript-eslint/consistent-type-imports': [
+    'error',
+    { prefer: 'type-imports' },
+  ],
   /** Shorthand method style is less strict */
   '@typescript-eslint/method-signature-style': ['error', 'property'],
   /** Enforces generic type convention */
@@ -49,7 +55,10 @@ export const typescriptRules = {
   /** Checks if the the explicit type is identical to the inferred type */
   '@typescript-eslint/no-unnecessary-type-assertion': 'error',
   /** Don't over-define types for simple things like strings */
-  '@typescript-eslint/no-inferrable-types': ['error', { ignoreParameters: true }],
+  '@typescript-eslint/no-inferrable-types': [
+    'error',
+    { ignoreParameters: true },
+  ],
   /** Enforce the use of as const over literal type */
   '@typescript-eslint/prefer-as-const': 'error',
   /** Prefer for-of loop over the standard for loop */
