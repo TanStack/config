@@ -61,6 +61,7 @@
   "dependencies": {
     "@commitlint/parse": "^19.0.3",
     "@eslint/js": "^8.57.0",
+    "@stylistic/eslint-plugin-js": "^2.3.0",
     "commander": "^12.1.0",
     "current-git-branch": "^1.1.0",
     "esbuild-register": "^3.5.0",

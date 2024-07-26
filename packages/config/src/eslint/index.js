@@ -1,4 +1,5 @@
 import tseslint from 'typescript-eslint'
+import stylisticJs from '@stylistic/eslint-plugin-js'
 import pluginImport from 'eslint-plugin-import-x'
 import pluginNode from 'eslint-plugin-n'
 import globals from 'globals'
@@ -6,6 +7,7 @@ import { javascriptRules } from './javascript.js'
 import { importRules } from './import.js'
 import { typescriptRules } from './typescript.js'
 import { nodeRules } from './node.js'
+import { stylisticRules } from './stylistic.js'
 
 const GLOB_INCLUDE = ['**/*.{js,svelte,ts,tsx,vue}']
 
@@ -43,6 +45,8 @@ export const tanstackConfig = [
     },
     plugins: {
       // @ts-expect-error
+      '@stylistic/js': stylisticJs,
+      // @ts-expect-error
       '@typescript-eslint': tseslint.plugin,
       // @ts-expect-error
       import: pluginImport,
@@ -53,6 +57,7 @@ export const tanstackConfig = [
       ...typescriptRules,
       ...importRules,
       ...nodeRules,
+      ...stylisticRules,
     },
   },
 ]
