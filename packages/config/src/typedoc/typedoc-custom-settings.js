@@ -25,13 +25,9 @@ export function load(app) {
      * @param {import("typedoc-plugin-markdown").MarkdownRendererEvent} renderer
      */ (renderer) => {
       renderer.urls = renderer.urls?.map((urlMapping) => {
-        const name = urlMapping.url.split('.')
-        if (name[0] !== 'index') {
-          name.splice(0, 1)
-        }
-        const newBasename = name.join('.')
-        urlMapping.url = newBasename
-        urlMapping.model.url = newBasename
+        const name = urlMapping.url.toLowerCase()
+        urlMapping.url = name
+        urlMapping.model.url = name
         return urlMapping
       })
     },
