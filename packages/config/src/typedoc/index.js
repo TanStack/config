@@ -16,7 +16,6 @@ const settings = {
   ],
   hideGenerator: true,
   readme: 'none',
-  flattenOutputFiles: true,
   entryFileName: 'index',
   hideBreadcrumbs: true,
   hidePageHeader: true,
