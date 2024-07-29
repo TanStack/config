@@ -25,12 +25,12 @@
   "devDependencies": {
     "@types/node": "^20.14.10",
     "jsdom": "^24.1.1",
-    "nx": "^19.5.1",
+    "nx": "^19.5.3",
     "prettier": "^3.3.3",
-    "publint": "^0.2.8",
+    "publint": "^0.2.9",
     "sherif": "^0.10.0",
     "typescript": "^5.5.3",
-    "vite": "^5.3.4",
+    "vite": "^5.3.5",
     "vitest": "^2.0.4"
   }
 }
