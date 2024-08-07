@@ -1,4 +1,8 @@
 
+.read-the-docs[data-v-1d5be6d4] {
+  color: #888;
+}
+
 .logo[data-v-57d0a178] {
   height: 6em;
   padding: 1.5em;
@@ -10,8 +14,4 @@
 }
 .logo.vue[data-v-57d0a178]:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
-}
-
-.read-the-docs[data-v-1d5be6d4] {
-  color: #888;
 }
