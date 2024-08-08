@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test:types": "tsc",
-    "test:eslint": "eslint ./bin ./src",
+    "test:eslint": "oxlint --import-plugin --promise-plugin && eslint ./bin ./src",
     "test:build": "publint --strict"
   },
   "type": "module",
@@ -67,6 +67,7 @@
     "esbuild-register": "^3.6.0",
     "eslint-plugin-import-x": "^4.1.1",
     "eslint-plugin-n": "^17.10.2",
+    "eslint-plugin-oxlint": "^0.9.1",
     "globals": "^15.9.0",
     "interpret": "^3.1.1",
     "jsonfile": "^6.1.0",

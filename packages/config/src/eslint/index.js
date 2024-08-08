@@ -2,6 +2,7 @@ import tseslint from 'typescript-eslint'
 import stylisticJs from '@stylistic/eslint-plugin-js'
 import pluginImport from 'eslint-plugin-import-x'
 import pluginNode from 'eslint-plugin-n'
+import pluginOxlint from 'eslint-plugin-oxlint'
 import globals from 'globals'
 import { javascriptRules } from './javascript.js'
 import { importRules } from './import.js'
@@ -52,12 +53,14 @@ export const tanstackConfig = [
       import: pluginImport,
       node: pluginNode,
     },
+    // @ts-expect-error
     rules: {
       ...javascriptRules,
       ...typescriptRules,
       ...importRules,
       ...nodeRules,
       ...stylisticRules,
+      ...pluginOxlint.configs['flat/recommended'].rules,
     },
   },
 ]
