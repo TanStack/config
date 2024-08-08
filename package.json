@@ -29,6 +29,7 @@
     "@types/node": "catalog:",
     "jsdom": "catalog:",
     "nx": "catalog:",
+    "oxlint": "catalog:",
     "prettier": "catalog:",
     "publint": "catalog:",
     "sherif": "catalog:",
