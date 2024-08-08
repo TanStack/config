@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test:types": "tsc",
-    "test:eslint": "eslint --concurrency=auto ./src",
+    "test:eslint": "oxlint -c ../../oxlint.json && eslint ./src",
     "test:build": "publint --strict"
   },
   "type": "module",
@@ -41,6 +41,7 @@
     "@stylistic/eslint-plugin": "catalog:",
     "eslint-plugin-import-x": "catalog:",
     "eslint-plugin-n": "catalog:",
+    "eslint-plugin-oxlint": "catalog:",
     "globals": "catalog:",
     "typescript-eslint": "catalog:",
     "vue-eslint-parser": "catalog:"
