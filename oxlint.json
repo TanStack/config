@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["import", "unicorn"],
+  "categories": {
+    "correctness": "deny",
+    "perf": "deny"
+  }
+}
