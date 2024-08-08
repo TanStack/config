@@ -82,7 +82,7 @@
     "v8flags": "^4.0.1",
     "vite-plugin-dts": "^4.0.1",
     "vite-plugin-externalize-deps": "^0.8.0",
-    "vite-tsconfig-paths": "^4.3.2"
+    "vite-tsconfig-paths": "^5.0.0"
   },
   "devDependencies": {
     "@types/current-git-branch": "^1.1.6",
