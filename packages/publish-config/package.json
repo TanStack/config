@@ -31,9 +31,7 @@
   },
   "preferGlobal": false,
   "sideEffects": false,
-  "files": [
-    "src"
-  ],
+  "files": ["src"],
   "engines": {
     "node": ">=18"
   },

@@ -49,10 +49,7 @@
     "./package.json": "./package.json"
   },
   "sideEffects": false,
-  "files": [
-    "dist",
-    "src"
-  ],
+  "files": ["src"],
   "engines": {
     "node": ">=18"
   },

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
+  "fmt": {
+    "useTabs": false,
+    "lineWidth": 80,
+    "indentWidth": 2,
+    "semiColons": false,
+    "singleQuote": true,
+    "proseWrap": "preserve",
+    "exclude": [
+      "**/.next",
+      "**/.nx/cache",
+      "**/.svelte-kit",
+      "**/coverage",
+      "**/dist",
+      "**/docs",
+      "**/snap",
+      "pnpm-lock.yaml"
+    ]
+  },
+  "unstable": ["fmt-html", "fmt-css", "fmt-yaml", "fmt-component"]
+}
