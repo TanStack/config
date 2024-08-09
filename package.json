@@ -16,20 +16,19 @@
     "test:types": "nx affected --target=test:types",
     "test:eslint": "nx affected --target=test:eslint",
     "test:sherif": "sherif",
-    "test:format": "pnpm run prettier --check",
-    "prettier": "prettier --ignore-unknown .",
-    "prettier:write": "pnpm run prettier --write",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
     "changeset": "changeset",
     "changeset:version": "changeset version && pnpm install && pnpm prettier:write",
     "changeset:publish": "changeset publish"
   },
   "devDependencies": {
+    "@biomejs/biome": "catalog:",
     "@changesets/changelog-github": "catalog:",
     "@changesets/cli": "catalog:",
     "@types/node": "catalog:",
     "jsdom": "catalog:",
     "nx": "catalog:",
-    "prettier": "catalog:",
     "publint": "catalog:",
     "sherif": "catalog:",
     "typescript": "catalog:"

@@ -47,9 +47,7 @@
     "./package.json": "./package.json"
   },
   "sideEffects": false,
-  "files": [
-    "src"
-  ],
+  "files": ["src"],
   "engines": {
     "node": ">=18"
   },
