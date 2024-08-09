@@ -268,12 +268,15 @@ export const publish = async (options) => {
 
   const changelogCommitsMd = await Promise.all(
     Object.entries(
-      commitsSinceLatestTag.reduce((prev, curr) => {
-        return {
-          ...prev,
-          [curr.type]: [...(prev[curr.type] ?? []), curr],
-        }
-      }, /** @type {Record<string, import('./index.js').Commit[]>} */ ({})),
+      commitsSinceLatestTag.reduce(
+        (prev, curr) => {
+          return {
+            ...prev,
+            [curr.type]: [...(prev[curr.type] ?? []), curr],
+          }
+        },
+        /** @type {Record<string, import('./index.js').Commit[]>} */ ({}),
+      ),
     )
       .sort(
         getSorterFn(([type]) =>
