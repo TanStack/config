@@ -23,5 +23,5 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "include": ["prettier.config.js", "tanstack.config.js"]
+  "include": ["tanstack.config.js"]
 }

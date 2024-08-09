@@ -51,10 +51,7 @@
   },
   "preferGlobal": false,
   "sideEffects": false,
-  "files": [
-    "bin",
-    "src"
-  ],
+  "files": ["bin", "src"],
   "engines": {
     "node": ">=18"
   },
