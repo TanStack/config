@@ -23,6 +23,8 @@
     "cipublishforce": "CI=true pnpm cipublish"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "catalog:",
+    "@changesets/cli": "catalog:",
     "@types/node": "catalog:",
     "jsdom": "catalog:",
     "nx": "catalog:",
