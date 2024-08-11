@@ -23,6 +23,8 @@
     "cipublishforce": "CI=true pnpm cipublish"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.7",
     "@types/node": "^20.16.2",
     "jsdom": "^25.0.0",
     "nx": "^19.6.4",
