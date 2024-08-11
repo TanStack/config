@@ -3,6 +3,8 @@ packages:
   - packages/*
 
 catalog:
+  '@changesets/changelog-github': ^0.5.0
+  '@changesets/cli': ^2.27.12
   '@commitlint/parse': ^19.5.0
   '@eslint/js': ^9.20.0
   '@stylistic/eslint-plugin-js': ^3.1.0
