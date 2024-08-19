@@ -25,7 +25,7 @@
     "test:build": "vite build && vitest && publint --strict"
   },
   "dependencies": {
-    "vue": "^3.4.37"
+    "vue": "^3.4.38"
   },
   "devDependencies": {
     "@tanstack/config": "workspace:*",
