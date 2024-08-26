@@ -14,7 +14,7 @@ import dts from 'vite-plugin-dts'
 function ensureImportFileExtension({ content, extension }) {
   // replace e.g. `import { foo } from './foo'` with `import { foo } from './foo.js'`
   content = content.replace(
-    /^(im|ex)port\s[\w{}*\s,]+from\s['"]\.\/[^.'"]+(?=['"];?$)/gm,
+    /(im|ex)port\s[\w{}/*\s,]+from\s['"]\.\/[^.'"]+(?=['"];?)/gm,
     `$&.${extension}`,
   )
 
