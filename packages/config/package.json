@@ -77,7 +77,7 @@
     "simple-git": "^3.25.0",
     "typedoc": "^0.26.6",
     "typedoc-plugin-frontmatter": "^1.0.0",
-    "typedoc-plugin-markdown": "^4.2.5",
+    "typedoc-plugin-markdown": "^4.2.6",
     "typescript-eslint": "^7.18.0",
     "v8flags": "^4.0.1",
     "vite-plugin-dts": "^4.0.3",
