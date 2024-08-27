@@ -21,6 +21,7 @@ const settings = {
   hidePageHeader: true,
   useCodeBlocks: true,
   excludePrivate: true,
+  gitRevision: 'main',
 }
 
 /**
