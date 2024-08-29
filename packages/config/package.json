@@ -1,6 +1,6 @@
 {
   "name": "@tanstack/config",
-  "version": "0.11.3",
+  "version": "0.12.0",
   "description": "Configuration and tools for publishing and maintaining TanStack projects.",
   "author": "tannerlinsley",
   "license": "MIT",
