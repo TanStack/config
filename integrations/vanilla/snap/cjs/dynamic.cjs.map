@@ -1,0 +1,1 @@
+{"version":3,"file":"dynamic.cjs","sources":["../../src/dynamic.ts"],"sourcesContent":["export const foo = 'HELLO'\n"],"names":[],"mappings":";;AAAO,MAAM,MAAM;;"}
