@@ -7,7 +7,6 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 import dts from 'vite-plugin-dts'
 
 /**
- *
  * @param {{content: string, extension: string}} params
  * @returns
  */
