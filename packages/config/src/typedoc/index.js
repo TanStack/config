@@ -42,6 +42,7 @@ export const generateReferenceDocs = async (options) => {
 
     const app = await TypeDoc.Application.bootstrapWithPlugins({
       ...settings,
+      gitRevision: options.gitBranch ?? 'main',
       entryPoints: pkg.entryPoints,
       tsconfig: pkg.tsconfig,
       exclude: pkg.exclude,

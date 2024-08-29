@@ -11,6 +11,7 @@ export type Package = {
 export type Options = {
   /** Config for packages that need reference docs */
   packages: Array<Package>
+  gitBranch?: string
 }
 
 export function generateReferenceDocs(config: Options): Promise<void>
