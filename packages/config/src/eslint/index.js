@@ -20,7 +20,7 @@ const GLOB_EXCLUDE = [
   '**/snap/**',
 ]
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
+/** @type {import('eslint').Linter.Config[]} */
 export const tanstackConfig = [
   {
     name: 'tanstack/ignores',
