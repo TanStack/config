@@ -23,8 +23,8 @@
     "cipublishforce": "CI=true pnpm cipublish"
   },
   "devDependencies": {
-    "@types/node": "^20.14.10",
-    "jsdom": "^24.1.3",
+    "@types/node": "^20.16.2",
+    "jsdom": "^25.0.0",
     "nx": "^19.6.4",
     "prettier": "^3.3.3",
     "publint": "^0.2.10",
