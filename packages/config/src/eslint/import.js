@@ -2,6 +2,8 @@
 
 /** @type {import('eslint').Linter.RulesRecord} */
 export const importRules = {
+  /** Bans the use of inline type-only markers for named imports */
+  'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
   /** Reports any imports that come after non-import statements */
   'import/first': 'error',
   /** Stylistic preference */
