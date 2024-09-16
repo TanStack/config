@@ -53,6 +53,12 @@ export const tanstackViteConfig = (options) => {
           filePath,
           content: ensureImportFileExtension({ content, extension: 'js' }),
         }),
+        afterDiagnostic: (diagnostics) => {
+          if (diagnostics.length > 0) {
+            console.error('Please fix the above type errors')
+            process.exit(1)
+          }
+        },
       }),
       dts({
         outDir: `${outDir}/cjs`,
@@ -64,11 +70,15 @@ export const tanstackViteConfig = (options) => {
           module: 1, // CommonJS
           declarationMap: false,
         },
-        beforeWriteFile: (filePath, content) => {
-          content = ensureImportFileExtension({ content, extension: 'cjs' })
-          filePath = filePath.replace('.d.ts', '.d.cts')
-
-          return { filePath, content }
+        beforeWriteFile: (filePath, content) => ({
+          filePath: filePath.replace('.d.ts', '.d.cts'),
+          content: ensureImportFileExtension({ content, extension: 'cjs' }),
+        }),
+        afterDiagnostic: (diagnostics) => {
+          if (diagnostics.length > 0) {
+            console.error('Please fix the above type errors')
+            process.exit(1)
+          }
         },
       }),
     ],
