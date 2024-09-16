@@ -16,5 +16,5 @@
   "labels": ["dependencies"],
   "rangeStrategy": "bump",
   "postUpdateOptions": ["pnpmDedupe"],
-  "ignoreDeps": ["@types/node", "node", "typescript"]
+  "ignoreDeps": ["@types/node", "node", "typescript", "vite-plugin-dts"]
 }
