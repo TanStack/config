@@ -59,7 +59,7 @@
     "node": ">=18"
   },
   "dependencies": {
-    "@commitlint/parse": "^19.0.3",
+    "@commitlint/parse": "^19.5.0",
     "@eslint/js": "^9.10.0",
     "@stylistic/eslint-plugin-js": "^2.8.0",
     "commander": "^12.1.0",
