@@ -18,7 +18,7 @@ const GLOB_EXCLUDE = [
   '**/coverage/**',
   '**/dist/**',
   '**/snap/**',
-  '**/vite.config.*.timestamp-*.*'
+  '**/vite.config.*.timestamp-*.*',
 ]
 
 /** @type {import('eslint').Linter.Config[]} */
