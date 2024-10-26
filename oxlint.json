@@ -1,8 +1,9 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["import", "unicorn"],
+  "plugins": ["import", "unicorn", "jsdoc"],
   "categories": {
     "correctness": "deny",
-    "perf": "deny"
+    "perf": "deny",
+    "suspicious": "deny"
   }
 }
