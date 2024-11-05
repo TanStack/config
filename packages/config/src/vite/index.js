@@ -31,6 +31,7 @@ function ensureImportFileExtension({ content, extension }) {
  */
 export const tanstackViteConfig = (options) => {
   const outDir = options.outDir ?? 'dist'
+  const cjs = options.cjs ?? true
 
   return defineConfig({
     plugins: [
@@ -60,27 +61,29 @@ export const tanstackViteConfig = (options) => {
           }
         },
       }),
-      dts({
-        outDir: `${outDir}/cjs`,
-        entryRoot: options.srcDir,
-        include: options.srcDir,
-        exclude: options.exclude,
-        tsconfigPath: options.tsconfigPath,
-        compilerOptions: {
-          module: 1, // CommonJS
-          declarationMap: false,
-        },
-        beforeWriteFile: (filePath, content) => ({
-          filePath: filePath.replace('.d.ts', '.d.cts'),
-          content: ensureImportFileExtension({ content, extension: 'cjs' }),
-        }),
-        afterDiagnostic: (diagnostics) => {
-          if (diagnostics.length > 0) {
-            console.error('Please fix the above type errors')
-            process.exit(1)
-          }
-        },
-      }),
+      cjs
+        ? dts({
+            outDir: `${outDir}/cjs`,
+            entryRoot: options.srcDir,
+            include: options.srcDir,
+            exclude: options.exclude,
+            tsconfigPath: options.tsconfigPath,
+            compilerOptions: {
+              module: 1, // CommonJS
+              declarationMap: false,
+            },
+            beforeWriteFile: (filePath, content) => ({
+              filePath: filePath.replace('.d.ts', '.d.cts'),
+              content: ensureImportFileExtension({ content, extension: 'cjs' }),
+            }),
+            afterDiagnostic: (diagnostics) => {
+              if (diagnostics.length > 0) {
+                console.error('Please fix the above type errors')
+                process.exit(1)
+              }
+            },
+          })
+        : undefined,
     ],
     build: {
       outDir,
@@ -88,7 +91,7 @@ export const tanstackViteConfig = (options) => {
       sourcemap: true,
       lib: {
         entry: options.entry,
-        formats: ['es', 'cjs'],
+        formats: cjs ? ['es', 'cjs'] : ['es'],
         fileName: (format) => {
           if (format === 'cjs') return 'cjs/[name].cjs'
           return 'esm/[name].js'
