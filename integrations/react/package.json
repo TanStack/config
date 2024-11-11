@@ -25,7 +25,7 @@
     "test:build": "vite build && vitest && publint --strict"
   },
   "dependencies": {
-    "@tanstack/query-core": "^5.59.17",
+    "@tanstack/query-core": "^5.59.20",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
