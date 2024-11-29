@@ -1,29 +1,6 @@
 "use strict";
 const vue = require("vue");
-const _withScopeId = (n) => (vue.pushScopeId("data-v-1d5be6d4"), n = n(), vue.popScopeId(), n);
 const _hoisted_1 = { class: "card" };
-const _hoisted_2 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("p", null, [
-  /* @__PURE__ */ vue.createTextVNode(" Edit "),
-  /* @__PURE__ */ vue.createElementVNode("code", null, "components/HelloWorld.vue"),
-  /* @__PURE__ */ vue.createTextVNode(" to test HMR ")
-], -1));
-const _hoisted_3 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("p", null, [
-  /* @__PURE__ */ vue.createTextVNode(" Check out "),
-  /* @__PURE__ */ vue.createElementVNode("a", {
-    href: "https://vuejs.org/guide/quick-start.html#local",
-    target: "_blank"
-  }, "create-vue"),
-  /* @__PURE__ */ vue.createTextVNode(", the official Vue + Vite starter ")
-], -1));
-const _hoisted_4 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("p", null, [
-  /* @__PURE__ */ vue.createTextVNode(" Install "),
-  /* @__PURE__ */ vue.createElementVNode("a", {
-    href: "https://github.com/vuejs/language-tools",
-    target: "_blank"
-  }, "Volar"),
-  /* @__PURE__ */ vue.createTextVNode(" in your IDE for a better DX ")
-], -1));
-const _hoisted_5 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("p", { class: "read-the-docs" }, "Click on the Vite and Vue logos to learn more", -1));
 const _sfc_main = /* @__PURE__ */ vue.defineComponent({
   __name: "HelloWorld",
   props: {
@@ -39,11 +16,29 @@ const _sfc_main = /* @__PURE__ */ vue.defineComponent({
             type: "button",
             onClick: _cache[0] || (_cache[0] = ($event) => count.value++)
           }, "count is " + vue.toDisplayString(count.value), 1),
-          _hoisted_2
+          _cache[1] || (_cache[1] = vue.createElementVNode("p", null, [
+            vue.createTextVNode(" Edit "),
+            vue.createElementVNode("code", null, "components/HelloWorld.vue"),
+            vue.createTextVNode(" to test HMR ")
+          ], -1))
         ]),
-        _hoisted_3,
-        _hoisted_4,
-        _hoisted_5
+        _cache[2] || (_cache[2] = vue.createElementVNode("p", null, [
+          vue.createTextVNode(" Check out "),
+          vue.createElementVNode("a", {
+            href: "https://vuejs.org/guide/quick-start.html#local",
+            target: "_blank"
+          }, "create-vue"),
+          vue.createTextVNode(", the official Vue + Vite starter ")
+        ], -1)),
+        _cache[3] || (_cache[3] = vue.createElementVNode("p", null, [
+          vue.createTextVNode(" Install "),
+          vue.createElementVNode("a", {
+            href: "https://github.com/vuejs/language-tools",
+            target: "_blank"
+          }, "Volar"),
+          vue.createTextVNode(" in your IDE for a better DX ")
+        ], -1)),
+        _cache[4] || (_cache[4] = vue.createElementVNode("p", { class: "read-the-docs" }, "Click on the Vite and Vue logos to learn more", -1))
       ], 64);
     };
   }

@@ -5,7 +5,7 @@
     "type": "git",
     "url": "https://github.com/TanStack/config.git"
   },
-  "packageManager": "pnpm@9.7.1",
+  "packageManager": "pnpm@9.14.2",
   "type": "module",
   "scripts": {
     "preinstall": "node -e \"if(process.env.CI == 'true') {console.log('Skipping preinstall...')} else {process.exit(1)}\" || npx -y only-allow pnpm",
@@ -23,14 +23,14 @@
     "cipublishforce": "CI=true pnpm cipublish"
   },
   "devDependencies": {
-    "@types/node": "^20.14.10",
-    "jsdom": "^24.1.1",
-    "nx": "^19.6.0",
+    "@types/node": "^22.9.3",
+    "jsdom": "^25.0.1",
+    "nx": "^20.1.3",
     "prettier": "^3.3.3",
-    "publint": "^0.2.10",
-    "sherif": "^0.11.0",
+    "publint": "^0.2.12",
+    "sherif": "^1.0.2",
     "typescript": "^5.5.3",
-    "vite": "^5.4.1",
-    "vitest": "^2.0.5"
+    "vite": "^5.4.11",
+    "vitest": "^2.1.5"
   }
 }

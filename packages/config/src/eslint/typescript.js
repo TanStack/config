@@ -15,8 +15,6 @@ export const typescriptRules = {
       'ts-ignore': 'allow-with-description',
     },
   ],
-  /** Bans problematic built-in types and suggests alternatives */
-  '@typescript-eslint/ban-types': 'error',
   /** Enforce import type { T } */
   '@typescript-eslint/consistent-type-imports': [
     'error',
@@ -44,6 +42,11 @@ export const typescriptRules = {
   '@typescript-eslint/no-extra-non-null-assertion': 'error',
   /** There are several potential bugs with this compared to other loops */
   '@typescript-eslint/no-for-in-array': 'error',
+  /** Don't over-define types for simple things like strings */
+  '@typescript-eslint/no-inferrable-types': [
+    'error',
+    { ignoreParameters: true },
+  ],
   /** Enforce valid definition of new and constructor */
   '@typescript-eslint/no-misused-new': 'error',
   /** Disallow TypeScript namespaces */
@@ -54,11 +57,10 @@ export const typescriptRules = {
   '@typescript-eslint/no-unnecessary-condition': 'error',
   /** Checks if the the explicit type is identical to the inferred type */
   '@typescript-eslint/no-unnecessary-type-assertion': 'error',
-  /** Don't over-define types for simple things like strings */
-  '@typescript-eslint/no-inferrable-types': [
-    'error',
-    { ignoreParameters: true },
-  ],
+  /** Disallow using the unsafe built-in Function type */
+  '@typescript-eslint/no-unsafe-function-type': 'error',
+  /** Disallow using confusing built-in primitive class wrappers */
+  '@typescript-eslint/no-wrapper-object-types': 'error',
   /** Enforce the use of as const over literal type */
   '@typescript-eslint/prefer-as-const': 'error',
   /** Prefer for-of loop over the standard for loop */

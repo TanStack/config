@@ -3,7 +3,7 @@
 import { fileURLToPath } from 'node:url'
 
 /**
- * @type {import('./packages/config/src/publish/types.js').RunOptions["packages"]}
+ * @type {import('./packages/config/src/publish/index.js').Options["packages"]}
  */
 export const packages = [
   {
@@ -13,7 +13,7 @@ export const packages = [
 ]
 
 /**
- * @type {import('./packages/config/src/publish/types.js').RunOptions["branchConfigs"]}
+ * @type {import('./packages/config/src/publish/index.js').Options["branchConfigs"]}
  */
 export const branchConfigs = {
   main: {
@@ -28,6 +28,6 @@ export const branchConfigs = {
 }
 
 /**
- * @type {import('./packages/config/src/publish/types.js').RunOptions["rootDir"]}
+ * @type {import('./packages/config/src/publish/index.js').Options["rootDir"]}
  */
 export const rootDir = fileURLToPath(new URL('.', import.meta.url))

@@ -18,9 +18,10 @@ const GLOB_EXCLUDE = [
   '**/coverage/**',
   '**/dist/**',
   '**/snap/**',
+  '**/vite.config.*.timestamp-*.*',
 ]
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
+/** @type {import('eslint').Linter.Config[]} */
 export const tanstackConfig = [
   {
     name: 'tanstack/ignores',

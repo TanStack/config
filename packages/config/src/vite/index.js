@@ -7,11 +7,31 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 import dts from 'vite-plugin-dts'
 
 /**
+ * @param {{content: string, extension: string}} params
+ * @returns
+ */
+function ensureImportFileExtension({ content, extension }) {
+  // replace e.g. `import { foo } from './foo'` with `import { foo } from './foo.js'`
+  content = content.replace(
+    /(im|ex)port\s[\w{}/*\s,]+from\s['"]\.\.?\/[^.'"]+(?=['"];?)/gm,
+    `$&.${extension}`,
+  )
+
+  // replace e.g. `import('./foo')` with `import('./foo.js')`
+  content = content.replace(
+    /import\(['"]\.\.?\/[^.'"]+(?=['"];?)/gm,
+    `$&.${extension}`,
+  )
+  return content
+}
+
+/**
  * @param {import('./index.js').Options} options
  * @returns {import('vite').UserConfig}
  */
 export const tanstackViteConfig = (options) => {
   const outDir = options.outDir ?? 'dist'
+  const cjs = options.cjs ?? true
 
   return defineConfig({
     plugins: [
@@ -30,36 +50,40 @@ export const tanstackViteConfig = (options) => {
           module: 99, // ESNext
           declarationMap: false,
         },
-        beforeWriteFile: (filePath, content) => {
-          content = content.replace(
-            /^(im|ex)port\s[\w{}*\s,]+from\s['"]\.\/[^.'"]+(?=['"];?$)/gm,
-            '$&.js',
-          )
-
-          return { filePath, content }
+        beforeWriteFile: (filePath, content) => ({
+          filePath,
+          content: ensureImportFileExtension({ content, extension: 'js' }),
+        }),
+        afterDiagnostic: (diagnostics) => {
+          if (diagnostics.length > 0) {
+            console.error('Please fix the above type errors')
+            process.exit(1)
+          }
         },
       }),
-      dts({
-        outDir: `${outDir}/cjs`,
-        entryRoot: options.srcDir,
-        include: options.srcDir,
-        exclude: options.exclude,
-        tsconfigPath: options.tsconfigPath,
-        compilerOptions: {
-          module: 1, // CommonJS
-          declarationMap: false,
-        },
-        beforeWriteFile: (filePath, content) => {
-          content = content.replace(
-            /^(im|ex)port\s[\w{}*\s,]+from\s['"]\.\/[^.'"]+(?=['"];?$)/gm,
-            '$&.cjs',
-          )
-
-          filePath = filePath.replace('.d.ts', '.d.cts')
-
-          return { filePath, content }
-        },
-      }),
+      cjs
+        ? dts({
+            outDir: `${outDir}/cjs`,
+            entryRoot: options.srcDir,
+            include: options.srcDir,
+            exclude: options.exclude,
+            tsconfigPath: options.tsconfigPath,
+            compilerOptions: {
+              module: 1, // CommonJS
+              declarationMap: false,
+            },
+            beforeWriteFile: (filePath, content) => ({
+              filePath: filePath.replace('.d.ts', '.d.cts'),
+              content: ensureImportFileExtension({ content, extension: 'cjs' }),
+            }),
+            afterDiagnostic: (diagnostics) => {
+              if (diagnostics.length > 0) {
+                console.error('Please fix the above type errors')
+                process.exit(1)
+              }
+            },
+          })
+        : undefined,
     ],
     build: {
       outDir,
@@ -67,7 +91,7 @@ export const tanstackViteConfig = (options) => {
       sourcemap: true,
       lib: {
         entry: options.entry,
-        formats: ['es', 'cjs'],
+        formats: cjs ? ['es', 'cjs'] : ['es'],
         fileName: (format) => {
           if (format === 'cjs') return 'cjs/[name].cjs'
           return 'esm/[name].js'
