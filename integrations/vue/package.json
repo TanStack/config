@@ -29,6 +29,6 @@
   },
   "devDependencies": {
     "@tanstack/config": "workspace:*",
-    "@vitejs/plugin-vue": "^5.2.0"
+    "@vitejs/plugin-vue": "^5.2.1"
   }
 }
