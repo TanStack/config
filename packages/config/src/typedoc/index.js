@@ -46,12 +46,13 @@ export const generateReferenceDocs = async (options) => {
       entryPoints: pkg.entryPoints,
       tsconfig: pkg.tsconfig,
       exclude: pkg.exclude,
+      out: pkg.outputDir,
     })
 
     const project = await app.convert()
 
     if (project) {
-      await app.generateDocs(project, pkg.outputDir)
+      await app.generateOutputs(project)
     }
   }
 }
