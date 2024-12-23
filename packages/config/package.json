@@ -82,7 +82,8 @@
     "v8flags": "^4.0.1",
     "vite-plugin-dts": "4.0.3",
     "vite-plugin-externalize-deps": "^0.8.0",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite-tsconfig-paths": "^5.1.4",
+    "vue-eslint-parser": "^9.4.3"
   },
   "devDependencies": {
     "@types/current-git-branch": "^1.1.6",
