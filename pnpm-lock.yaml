@@ -39,8 +39,8 @@ importers:
   integrations/react:
     dependencies:
       '@tanstack/query-core':
-        specifier: ^5.62.9
-        version: 5.62.9
+        specifier: ^5.62.15
+        version: 5.62.15
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -135,12 +135,12 @@ importers:
         version: 0.27.6(typescript@5.7.2)
       typedoc-plugin-frontmatter:
         specifier: ^1.1.2
-        version: 1.1.2(typedoc-plugin-markdown@4.4.0(typedoc@0.27.6(typescript@5.7.2)))
+        version: 1.1.2(typedoc-plugin-markdown@4.4.1(typedoc@0.27.6(typescript@5.7.2)))
       typedoc-plugin-markdown:
-        specifier: ^4.3.3
-        version: 4.4.0(typedoc@0.27.6(typescript@5.7.2))
+        specifier: ^4.4.1
+        version: 4.4.1(typedoc@0.27.6(typescript@5.7.2))
       typescript-eslint:
-        specifier: ^8.18.2
+        specifier: ^8.19.0
         version: 8.19.0(eslint@9.17.0)(typescript@5.7.2)
       v8flags:
         specifier: ^4.0.1
@@ -746,8 +746,8 @@ packages:
     peerDependencies:
       eslint: '>=8.40.0'
 
-  '@tanstack/query-core@5.62.9':
-    resolution: {integrity: sha512-lwePd8hNYhyQ4nM/iRQ+Wz2cDtspGeZZHFZmCzHJ7mfKXt+9S301fULiY2IR2byJYY6Z03T427E5PoVfMexHjw==}
+  '@tanstack/query-core@5.62.15':
+    resolution: {integrity: sha512-wT20X14CxcWY8YLJ/1pnsXn/y1Q2uRJZYWW93PWRtZt+3/JlGZyiyTcO4pGnqycnP7CokCROAyatsraosqZsDA==}
 
   '@tybys/wasm-util@0.9.0':
     resolution: {integrity: sha512-6+7nlbMVX/PVDCwaIQ8nTOPveOcFLSt8GcXdx8hD0bt39uWxYT88uXzqTd4fTvqta7oeUJqudepapKNt2DYJFw==}
@@ -2424,8 +2424,8 @@ packages:
     peerDependencies:
       typedoc-plugin-markdown: '>=4.3.0'
 
-  typedoc-plugin-markdown@4.4.0:
-    resolution: {integrity: sha512-4207DYcxJGWQRrEVTza7XkIo7ldhuEzJBaZO6dX5ogUGlvWeRTo4uiN+R1F11ttJGh4toLtxrpoi2wTTP+nEwA==}
+  typedoc-plugin-markdown@4.4.1:
+    resolution: {integrity: sha512-fx23nSCvewI9IR8lzIYtzDphETcgTDuxKcmHKGD4lo36oexC+B1k4NaCOY58Snqb4OlE8OXDAGVcQXYYuLRCNw==}
     engines: {node: '>= 18'}
     peerDependencies:
       typedoc: 0.27.x
@@ -3196,7 +3196,7 @@ snapshots:
       eslint-visitor-keys: 4.2.0
       espree: 10.3.0
 
-  '@tanstack/query-core@5.62.9': {}
+  '@tanstack/query-core@5.62.15': {}
 
   '@tybys/wasm-util@0.9.0':
     dependencies:
@@ -4949,12 +4949,12 @@ snapshots:
 
   type-fest@4.31.0: {}
 
-  typedoc-plugin-frontmatter@1.1.2(typedoc-plugin-markdown@4.4.0(typedoc@0.27.6(typescript@5.7.2))):
+  typedoc-plugin-frontmatter@1.1.2(typedoc-plugin-markdown@4.4.1(typedoc@0.27.6(typescript@5.7.2))):
     dependencies:
-      typedoc-plugin-markdown: 4.4.0(typedoc@0.27.6(typescript@5.7.2))
+      typedoc-plugin-markdown: 4.4.1(typedoc@0.27.6(typescript@5.7.2))
       yaml: 2.7.0
 
-  typedoc-plugin-markdown@4.4.0(typedoc@0.27.6(typescript@5.7.2)):
+  typedoc-plugin-markdown@4.4.1(typedoc@0.27.6(typescript@5.7.2)):
     dependencies:
       typedoc: 0.27.6(typescript@5.7.2)
 
