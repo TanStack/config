@@ -3,6 +3,7 @@ import vueparser from 'vue-eslint-parser'
 import stylisticJs from '@stylistic/eslint-plugin-js'
 import pluginImport from 'eslint-plugin-import-x'
 import pluginNode from 'eslint-plugin-n'
+import pluginOxlint from 'eslint-plugin-oxlint'
 import globals from 'globals'
 import { javascriptRules } from './javascript.js'
 import { importRules } from './import.js'
@@ -29,6 +30,7 @@ const jsRules = {
   ...importRules,
   ...nodeRules,
   ...stylisticRules,
+  ...pluginOxlint.configs['flat/recommended'].rules,
 }
 
 const jsPlugins = {
