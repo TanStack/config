@@ -4,8 +4,8 @@
 import path from 'node:path'
 import { execSync } from 'node:child_process'
 import { existsSync, readdirSync } from 'node:fs'
+import { platform } from 'node:os'
 import * as semver from 'semver'
-import currentGitBranch from 'current-git-branch'
 import { parse as parseCommit } from '@commitlint/parse'
 import { simpleGit } from 'simple-git'
 import {
@@ -15,6 +15,29 @@ import {
   releaseCommitMsg,
   updatePackageJson,
 } from './utils.js'
+
+function currentGitBranch() {
+  let stdout
+
+  try {
+    let cmd = ''
+
+    if (platform() === 'win32') {
+      cmd = `git branch | findstr \\*`
+    } else {
+      cmd = `git branch | grep \\*`
+    }
+
+    stdout = execSync(cmd).toString()
+  } catch (e) {
+    console.error(e)
+    return false
+  }
+
+  const branchName = stdout.slice(2, stdout.length).trim()
+
+  return branchName
+}
 
 /**
  * Execute a script being published
