@@ -25,9 +25,9 @@
   "devDependencies": {
     "@types/node": "^22.10.1",
     "jsdom": "^25.0.1",
-    "nx": "^20.3.0",
+    "nx": "^20.3.1",
     "prettier": "^3.4.2",
-    "publint": "^0.2.12",
+    "publint": "^0.3.1",
     "sherif": "^1.1.1",
     "typescript": "^5.5.3",
     "vite": "^5.4.11",
