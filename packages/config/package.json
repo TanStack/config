@@ -62,7 +62,7 @@
     "@commitlint/parse": "^19.5.0",
     "@eslint/js": "^9.18.0",
     "@stylistic/eslint-plugin-js": "^2.13.0",
-    "commander": "^12.1.0",
+    "commander": "^13.0.0",
     "current-git-branch": "^1.1.0",
     "esbuild-register": "^3.6.0",
     "eslint-plugin-import-x": "^4.6.1",
