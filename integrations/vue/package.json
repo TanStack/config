@@ -1,5 +1,6 @@
 {
   "name": "vue-integration",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "exports": {
@@ -29,6 +30,6 @@
   },
   "devDependencies": {
     "@tanstack/config": "workspace:*",
-    "@vitejs/plugin-vue": "^5.2.0"
+    "@vitejs/plugin-vue": "^5.2.1"
   }
 }

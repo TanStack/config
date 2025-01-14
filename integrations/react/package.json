@@ -1,5 +1,6 @@
 {
   "name": "react-integration",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "exports": {
@@ -25,14 +26,14 @@
     "test:build": "vite build && vitest && publint --strict"
   },
   "dependencies": {
-    "@tanstack/query-core": "^5.60.6",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "@tanstack/query-core": "^5.64.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@tanstack/config": "workspace:*",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.3"
+    "@types/react": "^19.0.6",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4"
   }
 }

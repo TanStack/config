@@ -1,4 +1,5 @@
 import tseslint from 'typescript-eslint'
+import vueparser from 'vue-eslint-parser'
 import stylisticJs from '@stylistic/eslint-plugin-js'
 import pluginImport from 'eslint-plugin-import-x'
 import pluginNode from 'eslint-plugin-n'
@@ -9,7 +10,8 @@ import { typescriptRules } from './typescript.js'
 import { nodeRules } from './node.js'
 import { stylisticRules } from './stylistic.js'
 
-const GLOB_INCLUDE = ['**/*.{js,svelte,ts,tsx,vue}']
+const JS_GLOB_INCLUDE = ['**/*.{js,ts,tsx}']
+const VUE_GLOB_INCLUDE = ['**/*.vue']
 
 const GLOB_EXCLUDE = [
   '**/.nx/**',
@@ -21,6 +23,21 @@ const GLOB_EXCLUDE = [
   '**/vite.config.*.timestamp-*.*',
 ]
 
+const jsRules = {
+  ...javascriptRules,
+  ...typescriptRules,
+  ...importRules,
+  ...nodeRules,
+  ...stylisticRules,
+}
+
+const jsPlugins = {
+  '@stylistic/js': stylisticJs,
+  '@typescript-eslint': tseslint.plugin,
+  import: pluginImport,
+  node: pluginNode,
+}
+
 /** @type {import('eslint').Linter.Config[]} */
 export const tanstackConfig = [
   {
@@ -29,7 +46,7 @@ export const tanstackConfig = [
   },
   {
     name: 'tanstack/setup',
-    files: GLOB_INCLUDE,
+    files: JS_GLOB_INCLUDE,
     languageOptions: {
       sourceType: 'module',
       ecmaVersion: 2020,
@@ -37,28 +54,34 @@ export const tanstackConfig = [
       parser: tseslint.parser,
       parserOptions: {
         project: true,
-        extraFileExtensions: ['.svelte', '.vue'],
         parser: tseslint.parser,
       },
       globals: {
         ...globals.browser,
       },
     },
-    plugins: {
-      // @ts-expect-error
-      '@stylistic/js': stylisticJs,
-      // @ts-expect-error
-      '@typescript-eslint': tseslint.plugin,
-      // @ts-expect-error
-      import: pluginImport,
-      node: pluginNode,
+    // @ts-expect-error
+    plugins: jsPlugins,
+    rules: jsRules,
+  },
+  {
+    name: 'tanstack/vue',
+    files: VUE_GLOB_INCLUDE,
+    languageOptions: {
+      parser: vueparser,
+      parserOptions: {
+        sourceType: 'module',
+        ecmaVersion: 2020,
+        parser: tseslint.parser,
+        project: true,
+        extraFileExtensions: ['.vue'],
+      },
+      globals: {
+        ...globals.browser,
+      },
     },
-    rules: {
-      ...javascriptRules,
-      ...typescriptRules,
-      ...importRules,
-      ...nodeRules,
-      ...stylisticRules,
-    },
+    // @ts-expect-error
+    plugins: jsPlugins,
+    rules: jsRules,
   },
 ]
