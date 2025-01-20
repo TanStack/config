@@ -77,10 +77,10 @@
     "typedoc": "^0.27.6",
     "typedoc-plugin-frontmatter": "^1.1.2",
     "typedoc-plugin-markdown": "^4.4.1",
-    "typescript-eslint": "^8.19.1",
+    "typescript-eslint": "^8.20.0",
     "v8flags": "^4.0.1",
     "vite-plugin-dts": "4.0.3",
-    "vite-plugin-externalize-deps": "^0.8.0",
+    "vite-plugin-externalize-deps": "^0.9.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vue-eslint-parser": "^9.4.3"
   },
