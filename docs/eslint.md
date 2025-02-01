@@ -36,4 +36,4 @@ export default [
 
 ## Rules
 
-You can inspect the enabled rules by running `pnpm dlx @eslint/config-inspector`, or by browsing the source [here](https://github.com/TanStack/config/tree/main/src/eslint). Each rule has a comment explaining why it is included in the shared config.
+You can inspect the enabled rules by running `pnpm dlx @eslint/config-inspector`, or by browsing the source [here](https://github.com/TanStack/config/tree/main/packages/config/src/eslint). Each rule has a comment explaining why it is included in the shared config.
