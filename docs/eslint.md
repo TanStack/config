@@ -11,8 +11,7 @@ This package unifies the shared ESLint config used across all TanStack projects.
 
 ### package.json
 
-- Make sure you have ESLint v8.57.0+ installed
-- We will upgrade to ESLint v9 once `typescript-eslint` v8 and `eslint-plugin-react-hooks` v5 release
+- Make sure you have ESLint v9+ installed
 
 ### eslint.config.js
 
