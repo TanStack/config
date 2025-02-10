@@ -26,10 +26,12 @@
     "test:build": "vite build && vitest && publint --strict"
   },
   "dependencies": {
-    "vue": "^3.5.13"
+    "vue": "catalog:"
   },
   "devDependencies": {
     "@tanstack/config": "workspace:*",
-    "@vitejs/plugin-vue": "^5.2.1"
+    "@vitejs/plugin-vue": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:"
   }
 }
