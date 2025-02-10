@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test:types": "tsc",
-    "test:eslint": "eslint ./bin ./src",
+    "test:eslint": "oxlint -c ../../oxlint.json && eslint ./bin ./src",
     "test:build": "publint --strict"
   },
   "type": "module",
@@ -66,6 +66,7 @@
     "esbuild-register": "catalog:",
     "eslint-plugin-import-x": "catalog:",
     "eslint-plugin-n": "catalog:",
+    "eslint-plugin-oxlint": "catalog:",
     "globals": "catalog:",
     "interpret": "catalog:",
     "jsonfile": "catalog:",
