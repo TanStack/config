@@ -1,4 +1,4 @@
-import { defineComponent, openBlock, createBlock } from "vue";
+import { defineComponent, createBlock, openBlock } from "vue";
 import HelloWorld from "./components/HelloWorld.vue.js";
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "App",
