@@ -185,6 +185,9 @@ importers:
 
   integrations/react:
     dependencies:
+      '@csstools/css-tokenizer':
+        specifier: ^3.0.3
+        version: 3.0.3
       '@tanstack/query-core':
         specifier: 'catalog:'
         version: 5.66.4
