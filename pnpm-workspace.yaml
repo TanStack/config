@@ -47,7 +47,7 @@ catalog:
   typescript-eslint: ^8.24.0
   v8flags: ^4.0.1
   vite: ^6.1.0
-  vite-plugin-dts: ^4.5.0
+  vite-plugin-dts: 4.2.3
   vite-plugin-externalize-deps: ^0.9.0
   vite-tsconfig-paths: ^5.1.4
   vitest: ^3.0.5
