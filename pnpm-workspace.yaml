@@ -12,7 +12,7 @@ catalog:
   '@types/jsonfile': ^6.1.4
   '@types/liftoff': ^4.0.3
   '@types/minimist': ^1.2.5
-  '@types/node': ^22.13.1
+  '@types/node': ^22.13.6
   '@types/react': ^19.0.10
   '@types/react-dom': ^19.0.4
   '@types/semver': ^7.5.8
@@ -43,7 +43,7 @@ catalog:
   typedoc: ^0.27.9
   typedoc-plugin-frontmatter: ^1.2.1
   typedoc-plugin-markdown: ^4.4.2
-  typescript: ^5.7.3
+  typescript: ^5.8.2
   typescript-eslint: ^8.25.0
   v8flags: ^4.0.1
   vite: ^6.2.0
