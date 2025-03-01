@@ -15,6 +15,8 @@ export type Options = {
   tsconfigPath?: string
   /** Additional dependencies to externalize if not detected by `vite-plugin-externalize-deps` */
   externalDeps?: Array<string | RegExp>
+  /** Hook called prior to writing each declaration file; allows to transform the content */
+  beforeWriteDeclarationFile?: (filePath: string, content: string) => string
 }
 
 /** https://tanstack.com/config/latest/docs/vite */

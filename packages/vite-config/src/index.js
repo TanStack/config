@@ -50,10 +50,14 @@ export const tanstackViteConfig = (options) => {
           module: 99, // ESNext
           declarationMap: false,
         },
-        beforeWriteFile: (filePath, content) => ({
-          filePath,
-          content: ensureImportFileExtension({ content, extension: 'js' }),
-        }),
+        beforeWriteFile: (filePath, content) => {
+          content =
+            options.beforeWriteDeclarationFile?.(filePath, content) || content
+          return {
+            filePath,
+            content: ensureImportFileExtension({ content, extension: 'js' }),
+          }
+        },
         afterDiagnostic: (diagnostics) => {
           if (diagnostics.length > 0) {
             console.error('Please fix the above type errors')
@@ -72,10 +76,18 @@ export const tanstackViteConfig = (options) => {
               module: 1, // CommonJS
               declarationMap: false,
             },
-            beforeWriteFile: (filePath, content) => ({
-              filePath: filePath.replace('.d.ts', '.d.cts'),
-              content: ensureImportFileExtension({ content, extension: 'cjs' }),
-            }),
+            beforeWriteFile: (filePath, content) => {
+              content =
+                options.beforeWriteDeclarationFile?.(filePath, content) ||
+                content
+              return {
+                filePath: filePath.replace('.d.ts', '.d.cts'),
+                content: ensureImportFileExtension({
+                  content,
+                  extension: 'cjs',
+                }),
+              }
+            },
             afterDiagnostic: (diagnostics) => {
               if (diagnostics.length > 0) {
                 console.error('Please fix the above type errors')
