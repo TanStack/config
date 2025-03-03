@@ -7,5 +7,5 @@
   "updateInternalDependencies": "patch",
   "fixed": [],
   "linked": [],
-  "ignore": []
+  "ignore": ["@tanstack/integration-*"]
 }
