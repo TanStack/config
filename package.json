@@ -19,8 +19,9 @@
     "test:format": "pnpm run prettier --check",
     "prettier": "prettier --ignore-unknown .",
     "prettier:write": "pnpm run prettier --write",
-    "cipublish": "node ./packages/config/bin/config.js publish --cwd .",
-    "cipublishforce": "CI=true pnpm cipublish"
+    "changeset": "changeset",
+    "changeset:version": "changeset version && pnpm install && pnpm prettier:write",
+    "changeset:publish": "changeset publish"
   },
   "devDependencies": {
     "@changesets/changelog-github": "catalog:",
