@@ -62,7 +62,7 @@
     "@commitlint/parse": "catalog:",
     "@eslint/js": "catalog:",
     "@stylistic/eslint-plugin-js": "catalog:",
-    "@tanstack/typedoc-config": "workspace:",
+    "@tanstack/typedoc-config": "workspace:*",
     "commander": "catalog:",
     "esbuild-register": "catalog:",
     "eslint-plugin-import-x": "catalog:",

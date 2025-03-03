@@ -269,7 +269,7 @@ importers:
         specifier: 'catalog:'
         version: 4.1.0(eslint@9.21.0)
       '@tanstack/typedoc-config':
-        specifier: 'workspace:'
+        specifier: workspace:*
         version: link:../typedoc-config
       commander:
         specifier: 'catalog:'
