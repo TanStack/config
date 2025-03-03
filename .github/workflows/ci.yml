@@ -19,6 +19,7 @@ env:
 permissions:
   contents: write
   id-token: write
+  pull-requests: write
 
 jobs:
   test-and-publish:
