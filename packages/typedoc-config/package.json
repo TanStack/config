@@ -41,5 +41,9 @@
     "typedoc": "catalog:",
     "typedoc-plugin-frontmatter": "catalog:",
     "typedoc-plugin-markdown": "catalog:"
+  },
+  "devDependencies": {
+    "@types/eslint": "catalog:",
+    "eslint": "catalog:"
   }
 }

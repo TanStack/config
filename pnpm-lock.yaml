@@ -368,6 +368,13 @@ importers:
       typedoc-plugin-markdown:
         specifier: 'catalog:'
         version: 4.4.2(typedoc@0.27.9(typescript@5.8.2))
+    devDependencies:
+      '@types/eslint':
+        specifier: 'catalog:'
+        version: 9.6.1
+      eslint:
+        specifier: 'catalog:'
+        version: 9.21.0
 
 packages:
 
