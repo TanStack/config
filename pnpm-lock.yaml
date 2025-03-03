@@ -67,8 +67,8 @@ catalogs:
       specifier: ^4.6.1
       version: 4.6.1
     eslint-plugin-n:
-      specifier: ^17.15.1
-      version: 17.15.1
+      specifier: ^17.16.1
+      version: 17.16.1
     globals:
       specifier: ^16.0.0
       version: 16.0.0
@@ -91,8 +91,8 @@ catalogs:
       specifier: ^20.4.6
       version: 20.4.6
     prettier:
-      specifier: ^3.5.2
-      version: 3.5.2
+      specifier: ^3.5.3
+      version: 3.5.3
     publint:
       specifier: ^0.3.7
       version: 0.3.7
@@ -109,14 +109,14 @@ catalogs:
       specifier: ^7.7.1
       version: 7.7.1
     sherif:
-      specifier: ^1.3.0
-      version: 1.3.0
+      specifier: ^1.4.0
+      version: 1.4.0
     simple-git:
       specifier: ^3.27.0
       version: 3.27.0
     type-fest:
-      specifier: ^4.35.0
-      version: 4.35.0
+      specifier: ^4.36.0
+      version: 4.36.0
     typedoc:
       specifier: ^0.27.9
       version: 0.27.9
@@ -172,13 +172,13 @@ importers:
         version: 20.4.6
       prettier:
         specifier: 'catalog:'
-        version: 3.5.2
+        version: 3.5.3
       publint:
         specifier: 'catalog:'
         version: 0.3.7
       sherif:
         specifier: 'catalog:'
-        version: 1.3.0
+        version: 1.4.0
       typescript:
         specifier: 'catalog:'
         version: 5.8.2
@@ -267,7 +267,7 @@ importers:
         version: 4.6.1(eslint@9.21.0)(typescript@5.8.2)
       eslint-plugin-n:
         specifier: 'catalog:'
-        version: 17.15.1(eslint@9.21.0)
+        version: 17.16.1(eslint@9.21.0)(typescript@5.8.2)
       globals:
         specifier: 'catalog:'
         version: 16.0.0
@@ -346,7 +346,7 @@ importers:
         version: 9.21.0
       type-fest:
         specifier: 'catalog:'
-        version: 4.35.0
+        version: 4.36.0
       vite:
         specifier: 'catalog:'
         version: 6.2.0(@types/node@22.13.7)(yaml@2.7.0)
@@ -1547,8 +1547,8 @@ packages:
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
 
-  eslint-plugin-n@17.15.1:
-    resolution: {integrity: sha512-KFw7x02hZZkBdbZEFQduRGH4VkIH4MW97ClsbAM4Y4E6KguBJWGfWG1P4HEIpZk2bkoWf0bojpnjNAhYQP8beA==}
+  eslint-plugin-n@17.16.1:
+    resolution: {integrity: sha512-/7FVAwjUrix9P5lycnsYRIQRwFo/DZROD+ZXWLpE+/EZWLyuLvyFaRdAPYJSz+nlAdZIZp+LAzlBerQSVYUNFg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: '>=8.23.0'
@@ -2090,6 +2090,10 @@ packages:
     resolution: {integrity: sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==}
     engines: {node: '>=6'}
 
+  minimatch@10.0.1:
+    resolution: {integrity: sha512-ethXTt3SGGR+95gudmqJ1eNhRO7eGEGIgYA9vnPatK4/etz2MEVDno5GMCibdMTuBMyElzIlgxMna3K94XDIDQ==}
+    engines: {node: 20 || >=22}
+
   minimatch@3.0.8:
     resolution: {integrity: sha512-6FsRAQsxQ61mw+qP1ZzbL9Bc78x2p5OqNgNpnoAFLTrX8n5Kxph0CsnhmKKNXTWjXqU5L0pGPR7hYk+XWZr60Q==}
 
@@ -2257,8 +2261,8 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier@3.5.2:
-    resolution: {integrity: sha512-lc6npv5PH7hVqozBR7lkBNOGXV9vMwROAPlumdBkX0wTbbzPu/U1hk5yL8p2pt4Xoc+2mkT8t/sow2YrV/M5qg==}
+  prettier@3.5.3:
+    resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -2403,38 +2407,38 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  sherif-darwin-arm64@1.3.0:
-    resolution: {integrity: sha512-vwt1txYQYxETI8390pHptuS2+TckM3rZRdSvuDlI+1bA9Pbqc1Ad9bXq7iNGZcb+0eFbimoIqJWqi0d5ailDew==}
+  sherif-darwin-arm64@1.4.0:
+    resolution: {integrity: sha512-7PTK+BMC7zHxie3dDi/TPJXrHvCVs+Kf80NO6G9dm/DHFwLi/EJpw/i49H9W3NgN2ND9+MlR0/q0g2rSiaCmkg==}
     cpu: [arm64]
     os: [darwin]
 
-  sherif-darwin-x64@1.3.0:
-    resolution: {integrity: sha512-POrNEfVQ+HJYWiiDwC9fVAumc/MIRqYrnmW+zvY2khusWr1sQitNcc4qAtz/iDJktqQqFIQ4J0h+pSWa84sxDg==}
+  sherif-darwin-x64@1.4.0:
+    resolution: {integrity: sha512-r4pwDHjPgeothxvl+d58BvJ1WhSiWfiukivltJJXgQDg4p64K4nv9dsQw1+zO4I2gYSlsUOXA9LDYlka79JyTA==}
     cpu: [x64]
     os: [darwin]
 
-  sherif-linux-arm64@1.3.0:
-    resolution: {integrity: sha512-kftGHdZRat1p2PntW6vXC+TqPQI6Sm55Zxi3gfXZiz1knFY53dJHr+MaP1W6DlzJ+DhOuZzJ4HkfT/K3/5BPUA==}
+  sherif-linux-arm64@1.4.0:
+    resolution: {integrity: sha512-cABgykKbFYruIZkU07ubiKgJS6qooIbMpwBTpivCb7/5Xwgw2Jm1oryhKFFv4i8I3R1TPdNxHpz2yyGuaW+7Uw==}
     cpu: [arm64]
     os: [linux]
 
-  sherif-linux-x64@1.3.0:
-    resolution: {integrity: sha512-9nbK5wqazisbhHGJ+t/DQM8Cr1QEgOSJ4J071wrLrYNEcvr/9PMkKXmX2YJdY9VWKz+AIohXJ2ZkXtB/oEyPDQ==}
+  sherif-linux-x64@1.4.0:
+    resolution: {integrity: sha512-igofjXjgov2QTyivMCkPuXklqBHfVDikicyilQlPTEMO3ZIsz1uE6D6IC1iq7iDV/cbx0IYJo6v0cSSpiYTrSA==}
     cpu: [x64]
     os: [linux]
 
-  sherif-windows-arm64@1.3.0:
-    resolution: {integrity: sha512-q+tkYx0kSAm8bUpt8jAv1JQMZolG4sTXwVH/CAU47ukPO8t4ghzEEhPZDdJYcDf6co7D2V1JbXdfaG9u1+3d+w==}
+  sherif-windows-arm64@1.4.0:
+    resolution: {integrity: sha512-1oQ178TfmRYrhMOyRrQ3AOKwt7hmGXZJJwyJE4LV3c7PgKvOiWz3USBI1FapLbNBmslgsTnzJJVD7CFZNOqDZA==}
     cpu: [arm64]
     os: [win32]
 
-  sherif-windows-x64@1.3.0:
-    resolution: {integrity: sha512-bd0mS6GIs0Mwdx9nP7deFATzGM5AVw3wUv/fRoum3bRkJNKJrm5HTh9cKuXiz6gc3pHjUUZOnKL0i7fZGfu+ew==}
+  sherif-windows-x64@1.4.0:
+    resolution: {integrity: sha512-hTY6gYKRlOA0SqpK4yklAPzFZhn6NJGeM50ida67b2k7B6ApsStru9U3yt//b6cqy+6z3HxgxH9IpVVBiWJnVQ==}
     cpu: [x64]
     os: [win32]
 
-  sherif@1.3.0:
-    resolution: {integrity: sha512-UeCSc/Jx33ykalVx07Z/aHu0XKwg/UL5qprU+fYll97atJXLPZhy+FefPrDDEohzkQZ2jZbb6q4TX/crKuoJEA==}
+  sherif@1.4.0:
+    resolution: {integrity: sha512-mo7zKtRsDrRadbXa8tuoK5mtov5kV4qw2iuzD/ZyEVSeZfY0BpR1+KUhvJHCUJDHBv2nh0dJMwKkmlbbq/QKOg==}
     hasBin: true
 
   siginfo@2.0.0:
@@ -2570,6 +2574,11 @@ packages:
     peerDependencies:
       typescript: '>=4.8.4'
 
+  ts-declaration-location@1.0.5:
+    resolution: {integrity: sha512-WqmlO9IoeYwCqJ2E9kHMcY9GZhhfLYItC3VnHDlPOrg6nNdUWS4wn4hhDZUPt60m1EvtjPIZyprTjpI992Bgzw==}
+    peerDependencies:
+      typescript: '>=4.0.0'
+
   tsconfck@3.1.5:
     resolution: {integrity: sha512-CLDfGgUp7XPswWnezWwsCRxNmgQjhYq3VXHM0/XIRxhVrKw0M1if9agzryh1QS3nxjCROvV+xWxoJO1YctzzWg==}
     engines: {node: ^18 || >=20}
@@ -2591,8 +2600,8 @@ packages:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
 
-  type-fest@4.35.0:
-    resolution: {integrity: sha512-2/AwEFQDFEy30iOLjrvHDIH7e4HEWH+f1Yl1bI5XMqzuoCUqwYCdxachgsgv0og/JdVZUhbfjcJAoHj5L1753A==}
+  type-fest@4.36.0:
+    resolution: {integrity: sha512-3T/PUdKTCnkUmhQU6FFJEHsLwadsRegktX3TNHk+2JJB9HlA8gp1/VXblXVDI93kSnXF2rdPx0GMbHtJIV2LPg==}
     engines: {node: '>=16'}
 
   typedoc-plugin-frontmatter@1.2.1:
@@ -4097,9 +4106,10 @@ snapshots:
       - supports-color
       - typescript
 
-  eslint-plugin-n@17.15.1(eslint@9.21.0):
+  eslint-plugin-n@17.16.1(eslint@9.21.0)(typescript@5.8.2):
     dependencies:
       '@eslint-community/eslint-utils': 4.4.1(eslint@9.21.0)
+      '@typescript-eslint/utils': 8.25.0(eslint@9.21.0)(typescript@5.8.2)
       enhanced-resolve: 5.18.1
       eslint: 9.21.0
       eslint-plugin-es-x: 7.8.0(eslint@9.21.0)
@@ -4108,6 +4118,10 @@ snapshots:
       ignore: 5.3.2
       minimatch: 9.0.5
       semver: 7.7.1
+      ts-declaration-location: 1.0.5(typescript@5.8.2)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
 
   eslint-scope@7.2.2:
     dependencies:
@@ -4642,6 +4656,10 @@ snapshots:
 
   mimic-fn@2.1.0: {}
 
+  minimatch@10.0.1:
+    dependencies:
+      brace-expansion: 2.0.1
+
   minimatch@3.0.8:
     dependencies:
       brace-expansion: 1.1.11
@@ -4848,7 +4866,7 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier@3.5.2: {}
+  prettier@3.5.3: {}
 
   pretty-format@29.7.0:
     dependencies:
@@ -4987,32 +5005,32 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  sherif-darwin-arm64@1.3.0:
+  sherif-darwin-arm64@1.4.0:
     optional: true
 
-  sherif-darwin-x64@1.3.0:
+  sherif-darwin-x64@1.4.0:
     optional: true
 
-  sherif-linux-arm64@1.3.0:
+  sherif-linux-arm64@1.4.0:
     optional: true
 
-  sherif-linux-x64@1.3.0:
+  sherif-linux-x64@1.4.0:
     optional: true
 
-  sherif-windows-arm64@1.3.0:
+  sherif-windows-arm64@1.4.0:
     optional: true
 
-  sherif-windows-x64@1.3.0:
+  sherif-windows-x64@1.4.0:
     optional: true
 
-  sherif@1.3.0:
+  sherif@1.4.0:
     optionalDependencies:
-      sherif-darwin-arm64: 1.3.0
-      sherif-darwin-x64: 1.3.0
-      sherif-linux-arm64: 1.3.0
-      sherif-linux-x64: 1.3.0
-      sherif-windows-arm64: 1.3.0
-      sherif-windows-x64: 1.3.0
+      sherif-darwin-arm64: 1.4.0
+      sherif-darwin-x64: 1.4.0
+      sherif-linux-arm64: 1.4.0
+      sherif-linux-x64: 1.4.0
+      sherif-windows-arm64: 1.4.0
+      sherif-windows-x64: 1.4.0
 
   siginfo@2.0.0: {}
 
@@ -5120,6 +5138,11 @@ snapshots:
     dependencies:
       typescript: 5.8.2
 
+  ts-declaration-location@1.0.5(typescript@5.8.2):
+    dependencies:
+      minimatch: 10.0.1
+      typescript: 5.8.2
+
   tsconfck@3.1.5(typescript@5.8.2):
     optionalDependencies:
       typescript: 5.8.2
@@ -5136,7 +5159,7 @@ snapshots:
     dependencies:
       prelude-ls: 1.2.1
 
-  type-fest@4.35.0: {}
+  type-fest@4.36.0: {}
 
   typedoc-plugin-frontmatter@1.2.1(typedoc-plugin-markdown@4.4.2(typedoc@0.27.9(typescript@5.8.2))):
     dependencies:
