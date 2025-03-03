@@ -1,0 +1,45 @@
+{
+  "name": "@tanstack/typedoc-config",
+  "version": "0.0.0",
+  "description": "Configuration and tools for publishing and maintaining TanStack projects.",
+  "author": "tannerlinsley",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TanStack/config.git",
+    "directory": "packages/typedoc-config"
+  },
+  "homepage": "https://tanstack.com/config",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/tannerlinsley"
+  },
+  "scripts": {
+    "test:types": "tsc",
+    "test:eslint": "eslint ./src",
+    "test:build": "publint --strict"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./src/index.d.ts",
+        "default": "./src/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "preferGlobal": false,
+  "sideEffects": false,
+  "files": [
+    "src"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "typedoc": "catalog:",
+    "typedoc-plugin-frontmatter": "catalog:",
+    "typedoc-plugin-markdown": "catalog:"
+  }
+}
