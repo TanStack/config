@@ -21,7 +21,20 @@ The following tools are required to use this package:
 To install the package, run the following command:
 
 ```bash
+# AIO
 pnpm add -D @tanstack/config
+
+# ESLint
+pnpm add -D @tanstack/eslint-config
+
+# Publish
+pnpm add -D @tanstack/publish-config
+
+# Typedoc
+pnpm add -D @tanstack/typedoc-config
+
+# Vite
+pnpm add -D @tanstack/vite-config
 ```
 
 ## Utilities

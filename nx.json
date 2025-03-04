@@ -11,11 +11,16 @@
     "test:types": {
       "cache": true
     },
-    "test:build": {
-      "cache": true
-    },
     "test:sherif": {
       "cache": true
+    },
+    "build": {
+      "cache": true,
+      "dependsOn": ["^build"]
+    },
+    "test:build": {
+      "cache": true,
+      "dependsOn": ["build"]
     }
   }
 }

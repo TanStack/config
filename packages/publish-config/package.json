@@ -46,7 +46,6 @@
   "devDependencies": {
     "@types/jsonfile": "catalog:",
     "@types/semver": "catalog:",
-    "eslint": "catalog:",
     "type-fest": "catalog:"
   }
 }

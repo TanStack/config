@@ -44,7 +44,6 @@
     "vite-tsconfig-paths": "catalog:"
   },
   "devDependencies": {
-    "eslint": "catalog:",
     "vite": "catalog:"
   }
 }
