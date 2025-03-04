@@ -60,14 +60,10 @@
   },
   "dependencies": {
     "@commitlint/parse": "catalog:",
-    "@eslint/js": "catalog:",
-    "@stylistic/eslint-plugin-js": "catalog:",
+    "@tanstack/eslint-config": "workspace:*",
     "@tanstack/typedoc-config": "workspace:*",
     "commander": "catalog:",
     "esbuild-register": "catalog:",
-    "eslint-plugin-import-x": "catalog:",
-    "eslint-plugin-n": "catalog:",
-    "globals": "catalog:",
     "interpret": "catalog:",
     "jsonfile": "catalog:",
     "liftoff": "catalog:",
@@ -75,22 +71,18 @@
     "rollup-plugin-preserve-directives": "catalog:",
     "semver": "catalog:",
     "simple-git": "catalog:",
-    "typescript-eslint": "catalog:",
     "v8flags": "catalog:",
     "vite-plugin-dts": "catalog:",
     "vite-plugin-externalize-deps": "catalog:",
-    "vite-tsconfig-paths": "catalog:",
-    "vue-eslint-parser": "catalog:"
+    "vite-tsconfig-paths": "catalog:"
   },
   "devDependencies": {
-    "@types/eslint": "catalog:",
     "@types/interpret": "catalog:",
     "@types/jsonfile": "catalog:",
     "@types/liftoff": "catalog:",
     "@types/minimist": "catalog:",
     "@types/semver": "catalog:",
     "@types/v8flags": "catalog:",
-    "eslint": "catalog:",
     "type-fest": "catalog:",
     "vite": "catalog:"
   }

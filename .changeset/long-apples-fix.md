@@ -2,4 +2,4 @@
 '@tanstack/typedoc-config': minor
 ---
 
-feat: release @tanstack/typedoc-config
+Release @tanstack/typedoc-config

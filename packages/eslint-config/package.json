@@ -1,0 +1,53 @@
+{
+  "name": "@tanstack/eslint-config",
+  "version": "0.0.0",
+  "description": "Configuration and tools for publishing and maintaining TanStack projects.",
+  "author": "tannerlinsley",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TanStack/config.git",
+    "directory": "packages/eslint-config"
+  },
+  "homepage": "https://tanstack.com/config",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/tannerlinsley"
+  },
+  "scripts": {
+    "test:types": "tsc",
+    "test:eslint": "eslint ./src",
+    "test:build": "publint --strict"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./src/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "preferGlobal": false,
+  "sideEffects": false,
+  "files": [
+    "src"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@eslint/js": "catalog:",
+    "@stylistic/eslint-plugin-js": "catalog:",
+    "esbuild-register": "catalog:",
+    "eslint-plugin-import-x": "catalog:",
+    "eslint-plugin-n": "catalog:",
+    "globals": "catalog:",
+    "typescript-eslint": "catalog:",
+    "vue-eslint-parser": "catalog:"
+  },
+  "devDependencies": {
+    "@types/eslint": "catalog:",
+    "eslint": "catalog:"
+  }
+}
