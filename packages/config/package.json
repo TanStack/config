@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test:types": "tsc",
-    "test:eslint": "eslint ./bin ./src",
+    "test:eslint": "eslint ./src",
     "test:build": "publint --strict"
   },
   "type": "module",
@@ -46,13 +46,8 @@
     },
     "./package.json": "./package.json"
   },
-  "bin": {
-    "tanstack-config": "./bin/config.js"
-  },
-  "preferGlobal": false,
   "sideEffects": false,
   "files": [
-    "bin",
     "src"
   ],
   "engines": {
@@ -62,20 +57,9 @@
     "@tanstack/eslint-config": "workspace:*",
     "@tanstack/publish-config": "workspace:*",
     "@tanstack/typedoc-config": "workspace:*",
-    "@tanstack/vite-config": "workspace:*",
-    "commander": "catalog:",
-    "esbuild-register": "catalog:",
-    "interpret": "catalog:",
-    "liftoff": "catalog:",
-    "minimist": "catalog:",
-    "v8flags": "catalog:"
+    "@tanstack/vite-config": "workspace:*"
   },
   "devDependencies": {
-    "@types/interpret": "catalog:",
-    "@types/liftoff": "catalog:",
-    "@types/minimist": "catalog:",
-    "@types/v8flags": "catalog:",
-    "eslint": "catalog:",
-    "vite": "catalog:"
+    "eslint": "catalog:"
   }
 }
