@@ -27,6 +27,7 @@
     "@changesets/changelog-github": "catalog:",
     "@changesets/cli": "catalog:",
     "@types/node": "catalog:",
+    "eslint": "catalog:",
     "jsdom": "catalog:",
     "nx": "catalog:",
     "prettier": "catalog:",

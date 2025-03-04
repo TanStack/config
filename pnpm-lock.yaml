@@ -73,8 +73,8 @@ catalogs:
       specifier: ^3.5.3
       version: 3.5.3
     publint:
-      specifier: ^0.3.7
-      version: 0.3.7
+      specifier: ^0.3.8
+      version: 0.3.8
     react:
       specifier: ^19.0.0
       version: 19.0.0
@@ -146,6 +146,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 22.13.7
+      eslint:
+        specifier: 'catalog:'
+        version: 9.21.0
       jsdom:
         specifier: 'catalog:'
         version: 26.0.0
@@ -157,7 +160,7 @@ importers:
         version: 3.5.3
       publint:
         specifier: 'catalog:'
-        version: 0.3.7
+        version: 0.3.8
       sherif:
         specifier: 'catalog:'
         version: 1.4.0
@@ -242,9 +245,9 @@ importers:
         specifier: workspace:*
         version: link:../vite-config
     devDependencies:
-      eslint:
+      vite:
         specifier: 'catalog:'
-        version: 9.21.0
+        version: 6.2.0(@types/node@22.13.7)(yaml@2.7.0)
 
   packages/eslint-config:
     dependencies:
@@ -298,9 +301,6 @@ importers:
       '@types/semver':
         specifier: 'catalog:'
         version: 7.5.8
-      eslint:
-        specifier: 'catalog:'
-        version: 9.21.0
       type-fest:
         specifier: 'catalog:'
         version: 4.36.0
@@ -316,10 +316,6 @@ importers:
       typedoc-plugin-markdown:
         specifier: 'catalog:'
         version: 4.4.2(typedoc@0.27.9(typescript@5.8.2))
-    devDependencies:
-      eslint:
-        specifier: 'catalog:'
-        version: 9.21.0
 
   packages/vite-config:
     dependencies:
@@ -336,9 +332,6 @@ importers:
         specifier: 'catalog:'
         version: 5.1.4(typescript@5.8.2)(vite@6.2.0(@types/node@22.13.7)(yaml@2.7.0))
     devDependencies:
-      eslint:
-        specifier: 'catalog:'
-        version: 9.21.0
       vite:
         specifier: 'catalog:'
         version: 6.2.0(@types/node@22.13.7)(yaml@2.7.0)
@@ -870,8 +863,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@publint/pack@0.1.1':
-    resolution: {integrity: sha512-TvCl79Y8v18ZhFGd5mjO1kYPovSBq3+4LVCi5Nfl1JI8fS8i8kXbgQFGwBJRXczim8GlW8c2LMBKTtExYXOy/A==}
+  '@publint/pack@0.1.2':
+    resolution: {integrity: sha512-S+9ANAvUmjutrshV4jZjaiG8XQyuJIZ8a4utWmN/vW1sgQ9IfBnPndwkmQYw53QmouOIytT874u65HEmu6H5jw==}
     engines: {node: '>=18'}
 
   '@rollup/pluginutils@5.1.4':
@@ -2326,8 +2319,8 @@ packages:
   proxy-from-env@1.1.0:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
 
-  publint@0.3.7:
-    resolution: {integrity: sha512-UJAdT3pHmhxGHfFadlZZnTZWNyagwPplW4YJ7kM0ysDs45otRnusonRxeWYQHrdryWxAntsjCuXcUHkbUHGk7g==}
+  publint@0.3.8:
+    resolution: {integrity: sha512-qJyxCpQFf0j0uvlr7GizYZiQgAFgePbAVRV2uecAbNIXniDD/NMSNNBL8+DxLMMjhjgPuLJ3l2GbrB0F9MwvfA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -3549,7 +3542,7 @@ snapshots:
   '@nx/nx-win32-x64-msvc@20.4.6':
     optional: true
 
-  '@publint/pack@0.1.1': {}
+  '@publint/pack@0.1.2': {}
 
   '@rollup/pluginutils@5.1.4(rollup@4.34.8)':
     dependencies:
@@ -5091,9 +5084,9 @@ snapshots:
 
   proxy-from-env@1.1.0: {}
 
-  publint@0.3.7:
+  publint@0.3.8:
     dependencies:
-      '@publint/pack': 0.1.1
+      '@publint/pack': 0.1.2
       package-manager-detector: 0.2.10
       picocolors: 1.1.1
       sade: 1.8.1

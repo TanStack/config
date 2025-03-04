@@ -17,37 +17,40 @@
   "scripts": {
     "test:types": "tsc",
     "test:eslint": "eslint ./src",
-    "test:build": "publint --strict"
+    "test:build": "publint --strict",
+    "build": "vite build"
   },
   "type": "module",
   "exports": {
     "./eslint": {
       "import": {
-        "default": "./src/eslint/index.js"
+        "types": "./dist/esm/eslint.d.ts",
+        "default": "./dist/esm/eslint.js"
       }
     },
     "./publish": {
       "import": {
-        "types": "./src/publish/index.d.ts",
-        "default": "./src/publish/index.js"
+        "types": "./dist/esm/publish.d.ts",
+        "default": "./dist/esm/publish.js"
       }
     },
     "./typedoc": {
       "import": {
-        "types": "./src/typedoc/index.d.ts",
-        "default": "./src/typedoc/index.js"
+        "types": "./dist/esm/typedoc.d.ts",
+        "default": "./dist/esm/typedoc.js"
       }
     },
     "./vite": {
       "import": {
-        "types": "./src/vite/index.d.ts",
-        "default": "./src/vite/index.js"
+        "types": "./dist/esm/vite.d.ts",
+        "default": "./dist/esm/vite.js"
       }
     },
     "./package.json": "./package.json"
   },
   "sideEffects": false,
   "files": [
+    "dist",
     "src"
   ],
   "engines": {
@@ -60,6 +63,6 @@
     "@tanstack/vite-config": "workspace:*"
   },
   "devDependencies": {
-    "eslint": "catalog:"
+    "vite": "catalog:"
   }
 }

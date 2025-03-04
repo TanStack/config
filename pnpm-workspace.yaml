@@ -34,7 +34,7 @@ catalog:
   minimist: ^1.2.8
   nx: ^20.4.6
   prettier: ^3.5.3
-  publint: ^0.3.7
+  publint: ^0.3.8
   react: ^19.0.0
   react-dom: ^19.0.0
   rollup-plugin-preserve-directives: ^0.4.0
