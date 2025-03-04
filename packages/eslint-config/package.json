@@ -39,7 +39,6 @@
   "dependencies": {
     "@eslint/js": "catalog:",
     "@stylistic/eslint-plugin-js": "catalog:",
-    "esbuild-register": "catalog:",
     "eslint-plugin-import-x": "catalog:",
     "eslint-plugin-n": "catalog:",
     "globals": "catalog:",

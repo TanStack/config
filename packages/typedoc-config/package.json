@@ -43,7 +43,6 @@
     "typedoc-plugin-markdown": "catalog:"
   },
   "devDependencies": {
-    "@types/eslint": "catalog:",
     "eslint": "catalog:"
   }
 }
