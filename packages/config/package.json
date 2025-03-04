@@ -1,7 +1,7 @@
 {
   "name": "@tanstack/config",
   "version": "0.16.3",
-  "description": "Configuration and tools for publishing and maintaining TanStack projects.",
+  "description": "All-in-one config used by TanStack projects.",
   "author": "tannerlinsley",
   "license": "MIT",
   "repository": {
@@ -59,32 +59,23 @@
     "node": ">=18"
   },
   "dependencies": {
-    "@commitlint/parse": "catalog:",
     "@tanstack/eslint-config": "workspace:*",
+    "@tanstack/publish-config": "workspace:*",
     "@tanstack/typedoc-config": "workspace:*",
+    "@tanstack/vite-config": "workspace:*",
     "commander": "catalog:",
     "esbuild-register": "catalog:",
     "interpret": "catalog:",
-    "jsonfile": "catalog:",
     "liftoff": "catalog:",
     "minimist": "catalog:",
-    "rollup-plugin-preserve-directives": "catalog:",
-    "semver": "catalog:",
-    "simple-git": "catalog:",
-    "v8flags": "catalog:",
-    "vite-plugin-dts": "catalog:",
-    "vite-plugin-externalize-deps": "catalog:",
-    "vite-tsconfig-paths": "catalog:"
+    "v8flags": "catalog:"
   },
   "devDependencies": {
     "@types/interpret": "catalog:",
-    "@types/jsonfile": "catalog:",
     "@types/liftoff": "catalog:",
     "@types/minimist": "catalog:",
-    "@types/semver": "catalog:",
     "@types/v8flags": "catalog:",
     "eslint": "catalog:",
-    "type-fest": "catalog:",
     "vite": "catalog:"
   }
 }

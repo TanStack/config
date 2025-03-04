@@ -1,7 +1,7 @@
 {
   "name": "@tanstack/eslint-config",
   "version": "0.0.0",
-  "description": "Configuration and tools for publishing and maintaining TanStack projects.",
+  "description": "Shared ESLint config used by TanStack projects.",
   "author": "tannerlinsley",
   "license": "MIT",
   "repository": {
