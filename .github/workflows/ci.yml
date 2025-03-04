@@ -1,11 +1,6 @@
-name: ci
+name: release
 
 on:
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: override release tag
-        required: false
   push:
     branches: [main, alpha, beta]
 
@@ -22,8 +17,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  test-and-publish:
-    name: Test & Publish
+  release:
+    name: Release
     if: github.repository_owner == 'TanStack'
     runs-on: ubuntu-latest
     steps:

@@ -1,5 +1,3 @@
-import type { UserConfig } from 'vite'
-
 export type Package = {
   name: string
   entryPoints: Array<string>
