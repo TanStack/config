@@ -1,5 +1,11 @@
 # @tanstack/config
 
+## 0.17.1
+
+### Patch Changes
+
+- [#224](https://github.com/TanStack/config/pull/224) [`d538019`](https://github.com/TanStack/config/commit/d53801911cc01110d981e88a08838bdcc3a41163) Thanks [@lachlancollins](https://github.com/lachlancollins)! - Migrate to TS, build with @tanstack/vite-config
+
 ## 0.17.0
 
 ### Minor Changes
