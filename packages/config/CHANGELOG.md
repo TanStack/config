@@ -1,0 +1,17 @@
+# @tanstack/config
+
+## 0.17.0
+
+### Minor Changes
+
+- [#223](https://github.com/TanStack/config/pull/223) [`01f0402`](https://github.com/TanStack/config/commit/01f0402555f006e0fbd2b9bc74dd2fb158d35c5a) Thanks [@lachlancollins](https://github.com/lachlancollins)! - Remove CLI option in favour of API
+
+  This is currently only used for @tanstack/publish-config, which we considering replacing with changesets.
+
+### Patch Changes
+
+- Updated dependencies [[`43aae6e`](https://github.com/TanStack/config/commit/43aae6efe2642634e1ce1867b80b15a8cc829ac6), [`5ca7b1f`](https://github.com/TanStack/config/commit/5ca7b1fa45206cb83f95aee4cd784cdc8c1f377b), [`43aae6e`](https://github.com/TanStack/config/commit/43aae6efe2642634e1ce1867b80b15a8cc829ac6), [`83d5dbc`](https://github.com/TanStack/config/commit/83d5dbc885c7533b0fc45b34873692be51c4eb25)]:
+  - @tanstack/publish-config@0.1.0
+  - @tanstack/typedoc-config@0.1.0
+  - @tanstack/vite-config@0.1.0
+  - @tanstack/eslint-config@0.1.0
