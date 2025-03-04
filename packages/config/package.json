@@ -83,6 +83,7 @@
     "@types/minimist": "catalog:",
     "@types/semver": "catalog:",
     "@types/v8flags": "catalog:",
+    "eslint": "catalog:",
     "type-fest": "catalog:",
     "vite": "catalog:"
   }
