@@ -24,8 +24,8 @@
     "changeset:publish": "changeset publish"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "catalog:",
     "@changesets/cli": "catalog:",
+    "@svitejs/changesets-changelog-github-compact": "catalog:",
     "@types/node": "catalog:",
     "eslint": "catalog:",
     "jsdom": "catalog:",

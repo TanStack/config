@@ -3,11 +3,11 @@ packages:
   - packages/*
 
 catalog:
-  '@changesets/changelog-github': ^0.5.1
   '@changesets/cli': ^2.28.1
   '@commitlint/parse': ^19.5.0
   '@eslint/js': ^9.21.0
   '@stylistic/eslint-plugin-js': ^4.1.0
+  '@svitejs/changesets-changelog-github-compact': ^1.2.0
   '@tanstack/query-core': ^5.66.11
   '@types/eslint': ^9.6.1
   '@types/interpret': ^1.1.3

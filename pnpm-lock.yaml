@@ -6,9 +6,6 @@ settings:
 
 catalogs:
   default:
-    '@changesets/changelog-github':
-      specifier: ^0.5.1
-      version: 0.5.1
     '@changesets/cli':
       specifier: ^2.28.1
       version: 2.28.1
@@ -21,6 +18,9 @@ catalogs:
     '@stylistic/eslint-plugin-js':
       specifier: ^4.1.0
       version: 4.1.0
+    '@svitejs/changesets-changelog-github-compact':
+      specifier: ^1.2.0
+      version: 1.2.0
     '@tanstack/query-core':
       specifier: ^5.66.11
       version: 5.66.11
@@ -137,12 +137,12 @@ importers:
 
   .:
     devDependencies:
-      '@changesets/changelog-github':
-        specifier: 'catalog:'
-        version: 0.5.1
       '@changesets/cli':
         specifier: 'catalog:'
         version: 2.28.1
+      '@svitejs/changesets-changelog-github-compact':
+        specifier: 'catalog:'
+        version: 1.2.0
       '@types/node':
         specifier: 'catalog:'
         version: 22.13.7
@@ -436,9 +436,6 @@ packages:
 
   '@changesets/changelog-git@0.2.1':
     resolution: {integrity: sha512-x/xEleCFLH28c3bQeQIyeZf8lFXyDFVn1SgcBiR2Tw/r4IAWlk1fzxCEZ6NxQAjF2Nwtczoen3OA2qR+UawQ8Q==}
-
-  '@changesets/changelog-github@0.5.1':
-    resolution: {integrity: sha512-BVuHtF+hrhUScSoHnJwTELB4/INQxVFc+P/Qdt20BLiBFIHFJDDUaGsZw+8fQeJTRP5hJZrzpt3oZWh0G19rAQ==}
 
   '@changesets/cli@2.28.1':
     resolution: {integrity: sha512-PiIyGRmSc6JddQJe/W1hRPjiN4VrMvb2VfQ6Uydy2punBioQrsxppyG5WafinKcW1mT0jOe/wU4k9Zy5ff21AA==}
@@ -1011,6 +1008,10 @@ packages:
     peerDependencies:
       eslint: '>=9.0.0'
 
+  '@svitejs/changesets-changelog-github-compact@1.2.0':
+    resolution: {integrity: sha512-08eKiDAjj4zLug1taXSIJ0kGL5cawjVCyJkBb6EWSg5fEPX6L+Wtr0CH2If4j5KYylz85iaZiFlUItvgJvll5g==}
+    engines: {node: ^14.13.1 || ^16.0.0 || >=18}
+
   '@tanstack/query-core@5.66.11':
     resolution: {integrity: sha512-ZEYxgHUcohj3sHkbRaw0gYwFxjY5O6M3IXOYXEun7E1rqNhsP8fOtqjJTKPZpVHcdIdrmX4lzZctT4+pts0OgA==}
 
@@ -1513,10 +1514,6 @@ packages:
   dotenv@16.4.7:
     resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
     engines: {node: '>=12'}
-
-  dotenv@8.6.0:
-    resolution: {integrity: sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==}
-    engines: {node: '>=10'}
 
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
@@ -3106,14 +3103,6 @@ snapshots:
     dependencies:
       '@changesets/types': 6.1.0
 
-  '@changesets/changelog-github@0.5.1':
-    dependencies:
-      '@changesets/get-github-info': 0.6.0
-      '@changesets/types': 6.1.0
-      dotenv: 8.6.0
-    transitivePeerDependencies:
-      - encoding
-
   '@changesets/cli@2.28.1':
     dependencies:
       '@changesets/apply-release-plan': 7.0.10
@@ -3662,6 +3651,13 @@ snapshots:
       eslint: 9.21.0
       eslint-visitor-keys: 4.2.0
       espree: 10.3.0
+
+  '@svitejs/changesets-changelog-github-compact@1.2.0':
+    dependencies:
+      '@changesets/get-github-info': 0.6.0
+      dotenv: 16.4.7
+    transitivePeerDependencies:
+      - encoding
 
   '@tanstack/query-core@5.66.11': {}
 
@@ -4221,8 +4217,6 @@ snapshots:
       dotenv: 16.4.7
 
   dotenv@16.4.7: {}
-
-  dotenv@8.6.0: {}
 
   dunder-proto@1.0.1:
     dependencies:
