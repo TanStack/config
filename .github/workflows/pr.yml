@@ -40,5 +40,7 @@ jobs:
           fetch-depth: 0
       - name: Setup Tools
         uses: ./.github/setup
+      - name: Build Packages
+        run: pnpm run build:all
       - name: Publish Previews
         run: pnpx pkg-pr-new publish --pnpm --compact './packages/*' --no-template
