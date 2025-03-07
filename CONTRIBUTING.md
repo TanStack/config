@@ -23,17 +23,17 @@ If you have been assigned to fix an issue or develop a new feature, please follo
   pnpm install
   ```
 
-- We use [pnpm](https://pnpm.io/) v9 for package management (run in case of pnpm-related issues).
+  - We use [pnpm](https://pnpm.io/) v9 for package management (run in case of pnpm-related issues).
 
-  ```bash
-  corepack enable && corepack prepare
-  ```
+    ```bash
+    corepack enable && corepack prepare
+    ```
 
-- We use [nvm](https://github.com/nvm-sh/nvm) to manage node versions - please make sure to use the version mentioned in `.nvmrc`
+  - We use [nvm](https://github.com/nvm-sh/nvm) to manage node versions - please make sure to use the version mentioned in `.nvmrc`
 
-  ```bash
-  nvm use
-  ```
+    ```bash
+    nvm use
+    ```
 
 - Build all packages.
 
@@ -54,10 +54,10 @@ If you have been assigned to fix an issue or develop a new feature, please follo
 
 ### Editing the docs locally and previewing the changes
 
-The documentations for all the TanStack projects are hosted on [tanstack.com](https://tanstack.com), which is a Remix application (https://github.com/TanStack/tanstack.com). You need to run this app locally to preview your changes in the `TanStack/config` docs.
+The documentations for all the TanStack projects are hosted on [tanstack.com](https://tanstack.com), which is a TanStack Start application (https://github.com/TanStack/tanstack.com). You need to run this app locally to preview your changes in the `TanStack/config` docs.
 
 > [!NOTE]
-> The Remix app fetches the doc pages from GitHub in production, and searches for them at `../config/docs` in development. Your local clone of `TanStack/config` needs to be in the same directory as the local clone of `TansStack/tanstack.com`.
+> The website fetches the doc pages from GitHub in production, and searches for them at `../config/docs` in development. Your local clone of `TanStack/config` needs to be in the same directory as the local clone of `TansStack/tanstack.com`.
 
 You can follow these steps to set up the docs for local development:
 
@@ -128,10 +128,6 @@ https://github.com/fulopkovacs/form/assets/43729152/9d35a3c3-8153-4e74-9cb2-af27
   ```bash
   pnpm run dev
   ```
-
-#### Note on `examples/react-native`
-
-React Native example requires Expo to work. Please follow the instructions from example's README.md file to learn more.
 
 #### Note on standalone execution
 
