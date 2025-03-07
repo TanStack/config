@@ -67,8 +67,8 @@ catalogs:
       specifier: ^6.1.0
       version: 6.1.0
     nx:
-      specifier: ^20.4.6
-      version: 20.4.6
+      specifier: ^20.5.0
+      version: 20.5.0
     prettier:
       specifier: ^3.5.3
       version: 3.5.3
@@ -130,8 +130,8 @@ catalogs:
       specifier: ^3.5.13
       version: 3.5.13
     vue-eslint-parser:
-      specifier: ^9.4.3
-      version: 9.4.3
+      specifier: ^10.1.1
+      version: 10.1.1
 
 importers:
 
@@ -154,7 +154,7 @@ importers:
         version: 26.0.0
       nx:
         specifier: 'catalog:'
-        version: 20.4.6
+        version: 20.5.0
       prettier:
         specifier: 'catalog:'
         version: 3.5.3
@@ -271,7 +271,7 @@ importers:
         version: 8.25.0(eslint@9.21.0)(typescript@5.8.2)
       vue-eslint-parser:
         specifier: 'catalog:'
-        version: 9.4.3(eslint@9.21.0)
+        version: 10.1.1(eslint@9.21.0)
     devDependencies:
       '@types/eslint':
         specifier: 'catalog:'
@@ -800,62 +800,62 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@nx/nx-darwin-arm64@20.4.6':
-    resolution: {integrity: sha512-yYBkXCqx9XDS88IKlbXQUMKAmNE6OA7AwmreDabL0zKCeB5x9qit5iaGwQOYCA7PSdjFQTYvPdKK+S3ytKCJ2w==}
+  '@nx/nx-darwin-arm64@20.5.0':
+    resolution: {integrity: sha512-HlMMC4d253kk/yrafiepk8bhXMl+v4BIugftwUzRl7AOznyNgaj5WDaIVXZLZzt+WwYw6CTb+zYxfY4LuPFvOg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@nx/nx-darwin-x64@20.4.6':
-    resolution: {integrity: sha512-YeGCTQPmZmWYSJ3Km8rsx3YhohbQNp8grclyEp4KA7GXrPY+AKA9hcy0e5KwF4hPP41EEYkju2Xpl0XdmOfdBQ==}
+  '@nx/nx-darwin-x64@20.5.0':
+    resolution: {integrity: sha512-+LO8YC5Iy1168saPeItNePChToP2TuRCj3MuxEtTTJXoRlab38rNaOjWaV1itvtcgrzkQi/IohINWMI8WC5b7g==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
 
-  '@nx/nx-freebsd-x64@20.4.6':
-    resolution: {integrity: sha512-49Ad0ysTWrNARmZxc02bmWfrGT5XKEnb5+Nms+RGzQVs+5WI6yqKx2iuLGrx2CDY0FEY11Z0zFpwvrZPGnnLXw==}
+  '@nx/nx-freebsd-x64@20.5.0':
+    resolution: {integrity: sha512-he3VOuj35XDAAmO3s6LqiWx00CsCMgHceNOHziCELQL0tfQlvvyI0Agmhesw68BAbabt+mKH9g+miENiaMknbg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [freebsd]
 
-  '@nx/nx-linux-arm-gnueabihf@20.4.6':
-    resolution: {integrity: sha512-+SMu0xYf2Qim2AC4eYn2SKLXd94UwudMIdPiwbHQUtqRnX88T8rGQKxtINdEAEmIt/KkHyceyJ7lpHGRKmFfbw==}
+  '@nx/nx-linux-arm-gnueabihf@20.5.0':
+    resolution: {integrity: sha512-xeysjXvm4xZa/ED7XlbzuS28sCOGZ0AlS7DKWRxEMv60iprxewj0WKPdH7RveiNNauzgHWOW/wxvTWXRu+i36Q==}
     engines: {node: '>= 10'}
     cpu: [arm]
     os: [linux]
 
-  '@nx/nx-linux-arm64-gnu@20.4.6':
-    resolution: {integrity: sha512-1u+qawDO4R8w6op2mqIECzJ8YEViPhpqyq3RiRyAchPodUgrd1rnYnYj+xgQeED4d+L+djeZfhN6000WDhZ5oA==}
+  '@nx/nx-linux-arm64-gnu@20.5.0':
+    resolution: {integrity: sha512-pj+6OA7d1ltkW/ZYFooi3bDtqVFPxi8YYiZlQx7enEuOxbrTvpjEPvBjVyf+oYpCe9rfKlx9ghzufqsI4uGM0w==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@nx/nx-linux-arm64-musl@20.4.6':
-    resolution: {integrity: sha512-8sFM3Z8k2iojXpL1E/ynlp+BPD8YWCs12cc+qk/4Ke5uOILcpDQ7XZSmzYoNIxp/0fcbZ1bosE+o7Lx4sbpfjQ==}
+  '@nx/nx-linux-arm64-musl@20.5.0':
+    resolution: {integrity: sha512-gCIJEb/VYv6pxiAcSeizX0jpOmTnPmgYVi2EZLSWus0Pg6FIwMHE4MX5kuqehyvnDt9xInb7Rh8vgz/JBOOsbA==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@nx/nx-linux-x64-gnu@20.4.6':
-    resolution: {integrity: sha512-9t8jPREQN8a2j09O9q9aQI4cP6UXn7tOD+UVYhlQ9EO+EsHKCcaTzszeLoatySVxzeG0RB3vutMgaa8AiS4qcA==}
+  '@nx/nx-linux-x64-gnu@20.5.0':
+    resolution: {integrity: sha512-hfCDmfy7TBQJdgBwNvOh55e8Y00Cxcddw2QeKguvy6vsnVa7fesXDWCw2t3m/VPPQDKQGd8cY1lS1JqX3N+wCA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@nx/nx-linux-x64-musl@20.4.6':
-    resolution: {integrity: sha512-4EO71ND0OJcvinYNc+enB3ouFeKWjCcb73xG2RdjF5s8A9/RFFK6Z3zasYTmGWR06nSLm3mi6xiyiNXWvIdZMA==}
+  '@nx/nx-linux-x64-musl@20.5.0':
+    resolution: {integrity: sha512-RTTCPjZNSDFE5mUdavDFimDw/aXNBY0w+iuRM5q17rDHxwa//DghCY0GEkBdfuxD7wpw+sRwE18mWsNDek5lXA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@nx/nx-win32-arm64-msvc@20.4.6':
-    resolution: {integrity: sha512-o8Vurr2c9SMP+a2jrBD3VUkQqmHXqi1yC+NJHMzO7GiVPaCFoJR1IizAECXIiKUXv5dB+WFQow7yzVkQQAjk6g==}
+  '@nx/nx-win32-arm64-msvc@20.5.0':
+    resolution: {integrity: sha512-nT9WlG0QA8D74UJhEP1feGrV00/bas1nnqS+zkwnpJs0vcPmMuIktdETh3lEnqrGD04R7GtwbKtoGIGiZh5m9w==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
 
-  '@nx/nx-win32-x64-msvc@20.4.6':
-    resolution: {integrity: sha512-PtBlsTJHsHeAEawt2HrWkSEsHbwu7MlqFIrw8cS+tg7ZblpesUWva1L3Ylx0hEcQrY7UjMGDR0RVo2DKAUvKZA==}
+  '@nx/nx-win32-x64-msvc@20.5.0':
+    resolution: {integrity: sha512-KQVqFSYfc8ToSBgzhVNV8WcFEvLdy1zp58qwewa0xnE7DDncMbA+6YoVizUcQ/6GZRlMJ9sdVn3kwm5B8eD5mg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -1607,10 +1607,6 @@ packages:
     peerDependencies:
       eslint: '>=8.23.0'
 
-  eslint-scope@7.2.2:
-    resolution: {integrity: sha512-dOt21O7lTMhDM+X9mB4GX+DZrZtCUJPL/wlcTqxyrx5IvO0IYtILdtrQGQp+8n5S0gwSVmOf9NQrjMOgfQZlIg==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-
   eslint-scope@8.2.0:
     resolution: {integrity: sha512-PHlWUfG6lvPc3yvP5A4PNyBL1W8fkDUccmI21JUu/+GKZBoH/W5u6usENXUrWFRsyoW5ACUjFGgAFQp5gUlb/A==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -1636,10 +1632,6 @@ packages:
   espree@10.3.0:
     resolution: {integrity: sha512-0QYC8b24HWY8zjRnDTL6RiHfDbAWn63qb4LMj1Z4b076A4une81+z03Kg7l7mn/48PUTqoLptSXez8oknU8Clg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-
-  espree@9.6.1:
-    resolution: {integrity: sha512-oruZaFkjorTpF32kDSI5/75ViwGeZginGGy2NoOSg3Q9bnwlnmDm4HLnkl0RE3n+njDXR037aY1+x58Z/zFdwQ==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
   esprima@4.0.1:
     resolution: {integrity: sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==}
@@ -2172,8 +2164,8 @@ packages:
   nwsapi@2.2.16:
     resolution: {integrity: sha512-F1I/bimDpj3ncaNDhfyMWuFqmQDBwDB0Fogc2qpL3BWvkQteFD/8BzWuIRl83rq0DXfm8SGt/HFhLXZyljTXcQ==}
 
-  nx@20.4.6:
-    resolution: {integrity: sha512-gXRw3urAq4glK6B1+jxHjzXRyuNrFFI7L3ggNg34UmQ46AyT7a6FgjZp2OZ779urwnoQSTvxNfBuD4+RrB31MQ==}
+  nx@20.5.0:
+    resolution: {integrity: sha512-KuAzhTj1NHu3iOVsTBrzu7cboO69UgwzUMoAb8KfszV5FwQD5dARrkR7Ew4NZzFdB+arUr2rvo1ik9f1O19keg==}
     hasBin: true
     peerDependencies:
       '@swc-node/register': ^1.8.0
@@ -2835,11 +2827,11 @@ packages:
   vscode-uri@3.1.0:
     resolution: {integrity: sha512-/BpdSx+yCQGnCvecbyXdxHDkuk55/G3xwnC0GqY4gmQ3j+A+g8kzzgB4Nk/SINjqn6+waqw3EgbVF2QKExkRxQ==}
 
-  vue-eslint-parser@9.4.3:
-    resolution: {integrity: sha512-2rYRLWlIpaiN8xbPiDyXZXRgLGOtWxERV7ND5fFAv5qo1D2N9Fu9MNajBNc6o13lZ+24DAWCkQCvj4klgmcITg==}
-    engines: {node: ^14.17.0 || >=16.0.0}
+  vue-eslint-parser@10.1.1:
+    resolution: {integrity: sha512-bh2Z/Au5slro9QJ3neFYLanZtb1jH+W2bKqGHXAoYD4vZgNG3KeotL7JpPv5xzY4UXUXJl7TrIsnzECH63kd3Q==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
-      eslint: '>=6.0.0'
+      eslint: ^8.57.0 || ^9.0.0
 
   vue@3.5.13:
     resolution: {integrity: sha512-wmeiSMxkZCSc+PM2w2VRsOYAZC8GdipNFRTsLSfodVqI9mbejKeXEGr8SckuLnrQPGe3oJN5c3K0vpoU9q/wCQ==}
@@ -3501,34 +3493,34 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.19.1
 
-  '@nx/nx-darwin-arm64@20.4.6':
+  '@nx/nx-darwin-arm64@20.5.0':
     optional: true
 
-  '@nx/nx-darwin-x64@20.4.6':
+  '@nx/nx-darwin-x64@20.5.0':
     optional: true
 
-  '@nx/nx-freebsd-x64@20.4.6':
+  '@nx/nx-freebsd-x64@20.5.0':
     optional: true
 
-  '@nx/nx-linux-arm-gnueabihf@20.4.6':
+  '@nx/nx-linux-arm-gnueabihf@20.5.0':
     optional: true
 
-  '@nx/nx-linux-arm64-gnu@20.4.6':
+  '@nx/nx-linux-arm64-gnu@20.5.0':
     optional: true
 
-  '@nx/nx-linux-arm64-musl@20.4.6':
+  '@nx/nx-linux-arm64-musl@20.5.0':
     optional: true
 
-  '@nx/nx-linux-x64-gnu@20.4.6':
+  '@nx/nx-linux-x64-gnu@20.5.0':
     optional: true
 
-  '@nx/nx-linux-x64-musl@20.4.6':
+  '@nx/nx-linux-x64-musl@20.5.0':
     optional: true
 
-  '@nx/nx-win32-arm64-msvc@20.4.6':
+  '@nx/nx-win32-arm64-msvc@20.5.0':
     optional: true
 
-  '@nx/nx-win32-x64-msvc@20.4.6':
+  '@nx/nx-win32-x64-msvc@20.5.0':
     optional: true
 
   '@publint/pack@0.1.2': {}
@@ -4356,11 +4348,6 @@ snapshots:
       - supports-color
       - typescript
 
-  eslint-scope@7.2.2:
-    dependencies:
-      esrecurse: 4.3.0
-      estraverse: 5.3.0
-
   eslint-scope@8.2.0:
     dependencies:
       esrecurse: 4.3.0
@@ -4414,12 +4401,6 @@ snapshots:
       acorn: 8.14.0
       acorn-jsx: 5.3.2(acorn@8.14.0)
       eslint-visitor-keys: 4.2.0
-
-  espree@9.6.1:
-    dependencies:
-      acorn: 8.14.0
-      acorn-jsx: 5.3.2(acorn@8.14.0)
-      eslint-visitor-keys: 3.4.3
 
   esprima@4.0.1: {}
 
@@ -4906,7 +4887,7 @@ snapshots:
 
   nwsapi@2.2.16: {}
 
-  nx@20.4.6:
+  nx@20.5.0:
     dependencies:
       '@napi-rs/wasm-runtime': 0.2.4
       '@yarnpkg/lockfile': 1.1.0
@@ -4943,16 +4924,16 @@ snapshots:
       yargs: 17.7.2
       yargs-parser: 21.1.1
     optionalDependencies:
-      '@nx/nx-darwin-arm64': 20.4.6
-      '@nx/nx-darwin-x64': 20.4.6
-      '@nx/nx-freebsd-x64': 20.4.6
-      '@nx/nx-linux-arm-gnueabihf': 20.4.6
-      '@nx/nx-linux-arm64-gnu': 20.4.6
-      '@nx/nx-linux-arm64-musl': 20.4.6
-      '@nx/nx-linux-x64-gnu': 20.4.6
-      '@nx/nx-linux-x64-musl': 20.4.6
-      '@nx/nx-win32-arm64-msvc': 20.4.6
-      '@nx/nx-win32-x64-msvc': 20.4.6
+      '@nx/nx-darwin-arm64': 20.5.0
+      '@nx/nx-darwin-x64': 20.5.0
+      '@nx/nx-freebsd-x64': 20.5.0
+      '@nx/nx-linux-arm-gnueabihf': 20.5.0
+      '@nx/nx-linux-arm64-gnu': 20.5.0
+      '@nx/nx-linux-arm64-musl': 20.5.0
+      '@nx/nx-linux-x64-gnu': 20.5.0
+      '@nx/nx-linux-x64-musl': 20.5.0
+      '@nx/nx-win32-arm64-msvc': 20.5.0
+      '@nx/nx-win32-x64-msvc': 20.5.0
     transitivePeerDependencies:
       - debug
 
@@ -5542,13 +5523,13 @@ snapshots:
 
   vscode-uri@3.1.0: {}
 
-  vue-eslint-parser@9.4.3(eslint@9.21.0):
+  vue-eslint-parser@10.1.1(eslint@9.21.0):
     dependencies:
       debug: 4.4.0
       eslint: 9.21.0
-      eslint-scope: 7.2.2
-      eslint-visitor-keys: 3.4.3
-      espree: 9.6.1
+      eslint-scope: 8.2.0
+      eslint-visitor-keys: 4.2.0
+      espree: 10.3.0
       esquery: 1.6.0
       lodash: 4.17.21
       semver: 7.7.1

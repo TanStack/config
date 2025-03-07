@@ -17,10 +17,36 @@ If you are here to suggest a feature, first create an issue if it does not alrea
 If you have been assigned to fix an issue or develop a new feature, please follow these steps to get started:
 
 - Fork this repository.
-- Install dependencies by running `$ pnpm install`.
-  - We use [pnpm](https://pnpm.io/) v7 for package management.
-  - We use [nvm](https://github.com/nvm-sh/nvm) to manage node versions - please make sure to use the version mentioned in `.nvmrc`.
-- Run development server using `pnpm run watch`.
+- Install dependencies
+
+  ```bash
+  pnpm install
+  ```
+
+- We use [pnpm](https://pnpm.io/) v9 for package management (run in case of pnpm-related issues).
+
+  ```bash
+  corepack enable && corepack prepare
+  ```
+
+- We use [nvm](https://github.com/nvm-sh/nvm) to manage node versions - please make sure to use the version mentioned in `.nvmrc`
+
+  ```bash
+  nvm use
+  ```
+
+- Build all packages.
+
+  ```bash
+  pnpm build:all
+  ```
+
+- Run development server.
+
+  ```bash
+  pnpm run watch
+  ```
+
 - Implement your changes and tests to files in the `src/` directory and corresponding test files.
 - Document your changes in the appropriate doc page.
 - Git stage your required changes and commit (see below commit guidelines).
@@ -85,9 +111,23 @@ https://github.com/fulopkovacs/form/assets/43729152/9d35a3c3-8153-4e74-9cb2-af27
 
 ### Running examples
 
-- Make sure you've installed the dependencies by running `$ pnpm install` in the repo's root directory.
-- If you want to run the example against your local changes, run `pnpm run watch` in the repo's root directory. Otherwise, it will be run against the latest TanStack Config release.
-- Run `pnpm run dev` in the selected examples' directory.
+- Make sure you've installed the dependencies in the repo's root directory.
+
+  ```bash
+  pnpm install
+  ```
+
+- If you want to run the example against your local changes, run below in the repo's root directory. Otherwise, it will be run against the latest TanStack Config release.
+
+  ```bash
+  pnpm run watch
+  ```
+
+- Run below in the selected examples' directory.
+
+  ```bash
+  pnpm run dev
+  ```
 
 #### Note on `examples/react-native`
 
@@ -103,8 +143,17 @@ You can use Gitpod (An Online Open Source VS Code like IDE which is free for Ope
 
 - clone the `TanStack/config` repo.
 - install all the dependencies in `/` and `/docs`.
-- run `npm start` in the root(`/`) to Auto-build files.
-- run `npm run dev` in `/docs`.
+- run below in the root(`/`) to Auto-build files.
+
+  ```bash
+  npm start
+  ```
+
+- run below in `/docs`.
+
+  ```bash
+  npm run dev
+  ```
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/TanStack/config)
 
