@@ -5,25 +5,12 @@ title: Publish
 
 ## Usage
 
-You have two options for using TanStack Config to publish:
-
-- [CLI Usage](#cli-usage)
-- [Programmatic Usage](#programmatic-usage)
-
-### CLI Usage
-
-To run the publish script for your package, run the following command:
-
-```bash
-pnpm run tanstack-config publish
-```
-
-### Programmatic Usage
-
 To use the TanStack Config programmatically, you can import the `publish` function:
 
 ```ts
 import { publish } from '@tanstack/config/publish'
+// OR
+import { publish } from '@tanstack/publish-config'
 
 publish({
   branchConfigs: configOpts.branchConfigs,

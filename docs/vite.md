@@ -52,7 +52,10 @@ The build config is quite opinionated, as it is designed to work with our intern
 
 ```ts
 import { defineConfig, mergeConfig } from 'vite'
+
 import { tanstackViteConfig } from '@tanstack/config/vite'
+// OR
+import { tanstackViteConfig } from '@tanstack/vite-config'
 
 const config = defineConfig({
   // Framework plugins, vitest config, etc.
