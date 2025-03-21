@@ -97,13 +97,13 @@ catalogs:
       specifier: ^4.37.0
       version: 4.37.0
     typedoc:
-      specifier: ^0.27.9
+      specifier: 0.27.9
       version: 0.27.9
     typedoc-plugin-frontmatter:
-      specifier: ^1.2.1
+      specifier: 1.2.1
       version: 1.2.1
     typedoc-plugin-markdown:
-      specifier: ^4.4.2
+      specifier: 4.4.2
       version: 4.4.2
     typescript:
       specifier: ^5.8.2
