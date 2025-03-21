@@ -1,5 +1,11 @@
 # @tanstack/vite-config
 
+## 0.2.0
+
+### Minor Changes
+
+- Add `beforeWriteDeclarationFile` callback ([#215](https://github.com/TanStack/config/pull/215))
+
 ## 0.1.0
 
 ### Minor Changes

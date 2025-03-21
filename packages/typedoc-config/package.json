@@ -1,6 +1,6 @@
 {
   "name": "@tanstack/typedoc-config",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Shared Typedoc config used by TanStack projects.",
   "author": "tannerlinsley",
   "license": "MIT",

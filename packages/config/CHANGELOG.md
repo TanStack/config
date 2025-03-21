@@ -1,5 +1,19 @@
 # @tanstack/config
 
+## 0.18.0
+
+### Minor Changes
+
+- Add `beforeWriteDeclarationFile` callback ([#215](https://github.com/TanStack/config/pull/215))
+
+- Pin typedoc dependency versions ([#232](https://github.com/TanStack/config/pull/232))
+
+### Patch Changes
+
+- Updated dependencies [[`cd06146`](https://github.com/TanStack/config/commit/cd06146b7a64cf733cba9a66116c3df50503fbfc), [`ccccd9c`](https://github.com/TanStack/config/commit/ccccd9c67ba8e02c189072e20e579fb655399170)]:
+  - @tanstack/vite-config@0.2.0
+  - @tanstack/typedoc-config@0.2.0
+
 ## 0.17.1
 
 ### Patch Changes
