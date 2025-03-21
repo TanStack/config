@@ -3,4 +3,4 @@
 '@tanstack/vite-config': minor
 ---
 
-add `beforeWriteDeclarationFile` callback
+Add `beforeWriteDeclarationFile` callback
