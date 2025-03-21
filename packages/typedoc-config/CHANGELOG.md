@@ -1,5 +1,11 @@
 # @tanstack/typedoc-config
 
+## 0.2.0
+
+### Minor Changes
+
+- Pin typedoc dependency versions ([#232](https://github.com/TanStack/config/pull/232))
+
 ## 0.1.0
 
 ### Minor Changes
