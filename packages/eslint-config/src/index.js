@@ -15,7 +15,9 @@ const VUE_GLOB_INCLUDE = ['**/*.vue']
 
 const GLOB_EXCLUDE = [
   '**/.nx/**',
+  '**/.output/**'
   '**/.svelte-kit/**',
+  '**/.vinxi/**', 
   '**/build/**',
   '**/coverage/**',
   '**/dist/**',
