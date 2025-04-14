@@ -45,7 +45,15 @@ function currentGitBranch() {
  * @returns {Promise<void>}
  */
 export const publish = async (options) => {
-  const { branchConfigs, packages, rootDir, branch, tag, ghToken } = options
+  const {
+    branchConfigs,
+    packages,
+    rootDir,
+    branch,
+    tag,
+    ghToken,
+    releaseTogether = false,
+  } = options
 
   const branchName = /** @type {string} */ (branch ?? currentGitBranch())
   const isMainBranch = branchName === 'main'
@@ -250,16 +258,22 @@ export const publish = async (options) => {
         .filter(Boolean)
 
   /** Uses packages and changedFiles to determine which packages have changed */
-  const changedPackages = RELEASE_ALL
-    ? packages
-    : packages.filter((pkg) => {
-        const changed = changedFiles.some(
-          (file) =>
-            file.startsWith(path.join(pkg.packageDir, 'src')) ||
-            file.startsWith(path.join(pkg.packageDir, 'package.json')),
-        )
-        return changed
-      })
+  const packagesWithChanges = packages.filter((pkg) => {
+    const changed = changedFiles.some(
+      (file) =>
+        file.startsWith(path.join(pkg.packageDir, 'src')) ||
+        file.startsWith(path.join(pkg.packageDir, 'package.json')),
+    )
+    return changed
+  })
+
+  // If RELEASE_ALL is set, release all packages
+  // If releaseTogether is set, release all packages if any package has changed
+  // Otherwise, only release packages that have changed
+  const changedPackages =
+    RELEASE_ALL || (releaseTogether && packagesWithChanges.length > 0)
+      ? packages
+      : packagesWithChanges
 
   // If a package has a dependency that has been updated, we need to update the
   // package that depends on it as well.
