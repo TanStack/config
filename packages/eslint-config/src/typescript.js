@@ -61,6 +61,15 @@ export const typescriptRules = {
   '@typescript-eslint/no-unsafe-function-type': 'error',
   /** Disallow using confusing built-in primitive class wrappers */
   '@typescript-eslint/no-wrapper-object-types': 'error',
+  /** Permit `throw new Redirect` w/ @typescript-eslint's strict config */
+  '@typescript-eslint/only-throw-error': [
+    'warn', // Since this is meant for users of @typescript-eslint's strict config, I'm setting this to be an eslint "warning" instead of "error" - The goal is to be less aggressive, and get the PR merged – although one could argue this belongs in a new `@tanstack/ts-eslint-strict-config`, it's hard for me to justify that if it's literally just ONE rule.
+    {
+      allow: ['Redirect', 'NotFoundError'],
+      allowThrowingAny: false,
+      allowThrowingUnknown: false,
+    },
+  ],
   /** Enforce the use of as const over literal type */
   '@typescript-eslint/prefer-as-const': 'error',
   /** Prefer for-of loop over the standard for loop */
