@@ -5,7 +5,7 @@
     "type": "git",
     "url": "https://github.com/TanStack/config.git"
   },
-  "packageManager": "pnpm@10.9.0",
+  "packageManager": "pnpm@10.10.0",
   "type": "module",
   "scripts": {
     "preinstall": "node -e \"if(process.env.CI == 'true') {console.log('Skipping preinstall...')} else {process.exit(1)}\" || npx -y only-allow pnpm",
