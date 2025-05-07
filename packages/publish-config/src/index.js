@@ -361,10 +361,7 @@ export const publish = async (options) => {
       .join('\n\n')
   })
 
-  const date = new Intl.DateTimeFormat(undefined, {
-    dateStyle: 'short',
-    timeStyle: 'short',
-  }).format(Date.now())
+  const date = `${new Date().toISOString().split('T')[0]} ${new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit' }).format(Date.now())}`
 
   const changelogMd = [
     `Version ${version} - ${date}${tag ? ' (Manual Release)' : ''}`,
