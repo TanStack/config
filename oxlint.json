@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["import", "unicorn", "jsdoc", "react", "typescript", "oxc"],
+  "categories": {
+    "correctness": "deny",
+    "perf": "deny",
+    "suspicious": "deny"
+  },
+  "rules": {
+    "eslint/no-await-in-loop": "allow",
+    "jsdoc/check-tag-names": "allow",
+    "oxc/no-accumulating-spread": "allow"
+  }
+}

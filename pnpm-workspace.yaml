@@ -26,6 +26,7 @@ catalog:
   eslint: ^9.27.0
   eslint-plugin-import-x: ^4.12.2
   eslint-plugin-n: ^17.18.0
+  eslint-plugin-oxlint: ^0.16.11
   globals: ^16.1.0
   interpret: ^3.1.1
   jsdom: ^26.1.0
@@ -33,6 +34,7 @@ catalog:
   liftoff: ^5.0.0
   minimist: ^1.2.8
   nx: ^20.8.2
+  oxlint: ^0.16.11
   prettier: ^3.5.3
   publint: ^0.3.12
   react: ^19.1.0
