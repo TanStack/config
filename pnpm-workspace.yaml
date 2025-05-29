@@ -6,7 +6,7 @@ catalog:
   '@changesets/cli': ^2.29.4
   '@commitlint/parse': ^19.8.1
   '@eslint/js': ^9.27.0
-  '@stylistic/eslint-plugin-js': ^4.4.0
+  '@stylistic/eslint-plugin': ^4.4.0
   '@svitejs/changesets-changelog-github-compact': ^1.2.0
   '@tanstack/query-core': ^5.77.2
   '@types/eslint': ^9.6.1
