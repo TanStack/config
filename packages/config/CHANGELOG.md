@@ -1,5 +1,12 @@
 # @tanstack/config
 
+## 0.18.2
+
+### Patch Changes
+
+- Updated dependencies [[`0c67d9b`](https://github.com/TanStack/config/commit/0c67d9b3384954e5fb8e39041f41919436791994)]:
+  - @tanstack/eslint-config@0.2.0
+
 ## 0.18.1
 
 ### Patch Changes
