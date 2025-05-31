@@ -48,6 +48,7 @@ export const publish = async (options) => {
   const { branchConfigs, packages, rootDir, branch, tag, ghToken } = options
 
   const branchName = /** @type {string} */ (branch ?? currentGitBranch())
+  const isMainBranch = branchName === 'main'
 
   /** @type {import('./index.js').BranchConfig | undefined} */
   const branchConfig = branchConfigs[branchName]
@@ -55,8 +56,6 @@ export const publish = async (options) => {
   if (!branchConfig) {
     throw new Error(`No publish config found for branch: ${branchName}`)
   }
-
-  const isMainBranch = branchName === 'main'
 
   // Get tags
   /** @type {string[]} */
