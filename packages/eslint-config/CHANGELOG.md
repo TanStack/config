@@ -1,5 +1,11 @@
 # @tanstack/eslint-config
 
+## 0.2.0
+
+### Minor Changes
+
+- @stylistic/eslint-plugin-js to @stylistic/eslint-plugin as eslint-plugin-js is now deprecated ([#248](https://github.com/TanStack/config/pull/248))
+
 ## 0.1.0
 
 ### Minor Changes
