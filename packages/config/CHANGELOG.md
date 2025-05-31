@@ -1,5 +1,12 @@
 # @tanstack/config
 
+## 0.18.1
+
+### Patch Changes
+
+- Updated dependencies [[`0a85390`](https://github.com/TanStack/config/commit/0a85390d32d0dd649bd5d81499fd9020b371f3ac)]:
+  - @tanstack/publish-config@0.1.1
+
 ## 0.18.0
 
 ### Minor Changes
