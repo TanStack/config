@@ -48,8 +48,6 @@ export const publish = async (options) => {
   const { branchConfigs, packages, rootDir, branch, tag, ghToken } = options
 
   const branchName = /** @type {string} */ (branch ?? currentGitBranch())
-  const isMainBranch = branchName === 'main'
-  const npmTag = isMainBranch ? 'latest' : branchName
 
   /** @type {import('./index.js').BranchConfig | undefined} */
   const branchConfig = branchConfigs[branchName]
@@ -57,6 +55,8 @@ export const publish = async (options) => {
   if (!branchConfig) {
     throw new Error(`No publish config found for branch: ${branchName}`)
   }
+
+  const isMainBranch = branchName === 'main'
 
   // Get tags
   /** @type {string[]} */
@@ -179,12 +179,6 @@ export const publish = async (options) => {
         if (commit.body.includes('BREAKING CHANGE')) {
           releaseLevel = Math.max(releaseLevel, 2)
         }
-        if (
-          commit.subject.includes('RELEASE_ALL') ||
-          commit.body.includes('RELEASE_ALL')
-        ) {
-          RELEASE_ALL = true
-        }
       }
       return releaseLevel
     },
@@ -211,11 +205,11 @@ export const publish = async (options) => {
     recommendedReleaseLevel = 0
   }
 
-  const releaseType = branchConfig.prerelease
-    ? 'prerelease'
-    : /** @type {const} */ ({ 0: 'patch', 1: 'minor', 2: 'major' })[
-        recommendedReleaseLevel
-      ]
+  const releaseType = /** @type {const} */ ({
+    0: 'patch',
+    1: 'minor',
+    2: 'major',
+  })[recommendedReleaseLevel]
 
   if (!releaseType) {
     throw new Error(`Invalid release level: ${recommendedReleaseLevel}`)
@@ -223,7 +217,9 @@ export const publish = async (options) => {
 
   const version = tag
     ? semver.parse(tag)?.version
-    : semver.inc(latestTag, releaseType, npmTag)
+    : branchConfig.prerelease
+      ? semver.inc(latestTag, 'prerelease', branchName)
+      : semver.inc(latestTag, releaseType)
 
   if (!version) {
     throw new Error(
@@ -458,6 +454,13 @@ export const publish = async (options) => {
       },
     )
   }
+
+  /** 'latest' for current version, 'previous' for old versions, and custom for prereleases */
+  const npmTag = isMainBranch
+    ? 'latest'
+    : branchConfig.previousVersion
+      ? 'previous'
+      : branchName
 
   console.info()
   console.info(`Publishing all packages to npm with tag "${npmTag}"`)
