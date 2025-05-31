@@ -1,6 +1,6 @@
 import tseslint from 'typescript-eslint'
 import vueparser from 'vue-eslint-parser'
-import stylisticJs from '@stylistic/eslint-plugin-js'
+import stylisticJs from '@stylistic/eslint-plugin'
 import pluginImport from 'eslint-plugin-import-x'
 import pluginNode from 'eslint-plugin-n'
 import globals from 'globals'
