@@ -6,9 +6,9 @@ catalog:
   '@changesets/cli': ^2.29.4
   '@commitlint/parse': ^19.8.1
   '@eslint/js': ^9.28.0
-  '@stylistic/eslint-plugin': ^4.4.0
+  '@stylistic/eslint-plugin': ^4.4.1
   '@svitejs/changesets-changelog-github-compact': ^1.2.0
-  '@tanstack/query-core': ^5.79.0
+  '@tanstack/query-core': ^5.80.6
   '@types/eslint': ^9.6.1
   '@types/interpret': ^1.1.3
   '@types/jsonfile': ^6.1.4
@@ -16,16 +16,16 @@ catalog:
   '@types/minimist': ^1.2.5
   '@types/node': ^22.13.6
   '@types/react': ^19.1.6
-  '@types/react-dom': ^19.1.5
+  '@types/react-dom': ^19.1.6
   '@types/semver': ^7.7.0
   '@types/v8flags': ^3.1.3
-  '@vitejs/plugin-react': ^4.5.0
+  '@vitejs/plugin-react': ^4.5.1
   '@vitejs/plugin-vue': ^5.2.4
   commander: ^13.1.0
   esbuild-register: ^3.6.0
   eslint: ^9.28.0
-  eslint-plugin-import-x: ^4.15.0
-  eslint-plugin-n: ^17.18.0
+  eslint-plugin-import-x: ^4.15.1
+  eslint-plugin-n: ^17.19.0
   globals: ^16.2.0
   interpret: ^3.1.1
   jsdom: ^26.1.0
@@ -40,18 +40,18 @@ catalog:
   rollup-plugin-preserve-directives: ^0.4.0
   semver: ^7.7.2
   sherif: ^1.5.0
-  simple-git: ^3.27.0
+  simple-git: ^3.28.0
   type-fest: ^4.41.0
   typedoc: 0.27.9
   typedoc-plugin-frontmatter: 1.2.1
   typedoc-plugin-markdown: 4.4.2
   typescript: ^5.8.2
-  typescript-eslint: ^8.33.0
+  typescript-eslint: ^8.33.1
   v8flags: ^4.0.1
   vite: ^6.3.5
   vite-plugin-dts: 4.2.3
   vite-plugin-externalize-deps: ^0.9.0
   vite-tsconfig-paths: ^5.1.4
-  vitest: ^3.1.4
+  vitest: ^3.2.2
   vue: ^3.5.16
   vue-eslint-parser: ^10.1.3
