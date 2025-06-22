@@ -443,17 +443,6 @@ export const publish = async (options) => {
   execSync(`git add -A && git commit -m "${releaseCommitMsg(version)}"`)
   console.info('  Committed Changes.')
 
-  console.info()
-  console.info('Clear package scripts...')
-  for (const pkg of changedPackages) {
-    await updatePackageJson(
-      path.resolve(rootDir, pkg.packageDir, 'package.json'),
-      (config) => {
-        config.scripts = {}
-      },
-    )
-  }
-
   /** 'latest' for current version, 'previous' for old versions, and custom for prereleases */
   const npmTag = isMainBranch
     ? 'latest'
