@@ -1,5 +1,16 @@
 # @tanstack/config
 
+## 0.19.0
+
+### Minor Changes
+
+- don't remove package scripts before publish ([#258](https://github.com/TanStack/config/pull/258))
+
+### Patch Changes
+
+- Updated dependencies [[`e566552`](https://github.com/TanStack/config/commit/e566552684afad0c014a3f81e2bc87f42db9f8a7)]:
+  - @tanstack/publish-config@0.2.0
+
 ## 0.18.2
 
 ### Patch Changes
