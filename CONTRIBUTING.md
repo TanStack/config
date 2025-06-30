@@ -22,6 +22,7 @@ If you have been assigned to fix an issue or develop a new feature, please follo
   ```bash
   pnpm install
   ```
+
   - We use [pnpm](https://pnpm.io/) v9 for package management (run in case of pnpm-related issues).
 
     ```bash
