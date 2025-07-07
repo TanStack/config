@@ -5,7 +5,7 @@ packages:
 catalog:
   '@changesets/cli': ^2.29.5
   '@commitlint/parse': ^19.8.1
-  '@eslint/js': ^9.30.0
+  '@eslint/js': ^9.30.1
   '@stylistic/eslint-plugin': ^4.4.1
   '@svitejs/changesets-changelog-github-compact': ^1.2.0
   '@tanstack/query-core': ^5.81.5
@@ -23,16 +23,16 @@ catalog:
   '@vitejs/plugin-vue': ^5.2.4
   commander: ^13.1.0
   esbuild-register: ^3.6.0
-  eslint: ^9.30.0
+  eslint: ^9.30.1
   eslint-plugin-import-x: ^4.16.1
-  eslint-plugin-n: ^17.20.0
-  globals: ^16.2.0
+  eslint-plugin-n: ^17.21.0
+  globals: ^16.3.0
   interpret: ^3.1.1
   jsdom: ^26.1.0
   jsonfile: ^6.1.0
   liftoff: ^5.0.1
   minimist: ^1.2.8
-  nx: ^21.2.1
+  nx: ^21.2.2
   prettier: ^3.6.2
   publint: ^0.3.12
   react: ^19.1.0
@@ -46,7 +46,7 @@ catalog:
   typedoc-plugin-frontmatter: 1.2.1
   typedoc-plugin-markdown: 4.4.2
   typescript: ^5.8.2
-  typescript-eslint: ^8.35.0
+  typescript-eslint: ^8.35.1
   v8flags: ^4.0.1
   vite: ^6.3.5
   vite-plugin-dts: 4.2.3
@@ -54,4 +54,4 @@ catalog:
   vite-tsconfig-paths: ^5.1.4
   vitest: ^3.2.4
   vue: ^3.5.17
-  vue-eslint-parser: ^10.1.4
+  vue-eslint-parser: ^10.2.0
