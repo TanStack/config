@@ -39,12 +39,12 @@ pnpm add -D @tanstack/vite-config
 
 ## Utilities
 
-- [ESLint](./eslint.md)
-- [Publish](./publish.md)
-- [Vite](./vite.md)
+- [ESLint](../eslint.md)
+- [Publish](../publish.md)
+- [Vite](../vite.md)
 
 ## Conventions
 
-- [CI/CD](./ci-cd.md)
-- [Dependencies](./dependencies.md)
-- [Package Structure](./package-structure.md)
+- [CI/CD](../ci-cd.md)
+- [Dependencies](../dependencies.md)
+- [Package Structure](../package-structure.md)
