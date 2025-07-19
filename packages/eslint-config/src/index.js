@@ -1,17 +1,17 @@
 import tseslint from 'typescript-eslint'
-import vueparser from 'vue-eslint-parser'
-import stylisticJs from '@stylistic/eslint-plugin'
-import pluginImport from 'eslint-plugin-import-x'
-import pluginNode from 'eslint-plugin-n'
+import jsoncParser from 'jsonc-eslint-parser'
+import vueParser from 'vue-eslint-parser'
+import yamlParser from 'yaml-eslint-parser'
+import stylisticPlugin from '@stylistic/eslint-plugin'
+import importPlugin from 'eslint-plugin-import-x'
+import nodePlugin from 'eslint-plugin-n'
+import pnpmPlugin from 'eslint-plugin-pnpm'
 import globals from 'globals'
 import { javascriptRules } from './javascript.js'
 import { importRules } from './import.js'
 import { typescriptRules } from './typescript.js'
 import { nodeRules } from './node.js'
 import { stylisticRules } from './stylistic.js'
-
-const JS_GLOB_INCLUDE = ['**/*.{js,ts,tsx}']
-const VUE_GLOB_INCLUDE = ['**/*.vue']
 
 const GLOB_EXCLUDE = [
   '**/.nx/**',
@@ -32,10 +32,10 @@ const jsRules = {
 }
 
 const jsPlugins = {
-  '@stylistic/js': stylisticJs,
+  '@stylistic/js': stylisticPlugin,
   '@typescript-eslint': tseslint.plugin,
-  import: pluginImport,
-  node: pluginNode,
+  import: importPlugin,
+  node: nodePlugin,
 }
 
 /** @type {import('eslint').Linter.Config[]} */
@@ -45,8 +45,8 @@ export const tanstackConfig = [
     ignores: GLOB_EXCLUDE,
   },
   {
-    name: 'tanstack/setup',
-    files: JS_GLOB_INCLUDE,
+    name: 'tanstack/javascript',
+    files: ['**/*.{js,ts,tsx}'],
     languageOptions: {
       sourceType: 'module',
       ecmaVersion: 2020,
@@ -66,9 +66,9 @@ export const tanstackConfig = [
   },
   {
     name: 'tanstack/vue',
-    files: VUE_GLOB_INCLUDE,
+    files: ['**/*.vue'],
     languageOptions: {
-      parser: vueparser,
+      parser: vueParser,
       parserOptions: {
         sourceType: 'module',
         ecmaVersion: 2020,
@@ -83,5 +83,34 @@ export const tanstackConfig = [
     // @ts-expect-error
     plugins: jsPlugins,
     rules: jsRules,
+  },
+  {
+    name: 'tanstack/package-json',
+    files: ['package.json', '**/package.json'],
+    languageOptions: {
+      parser: jsoncParser,
+    },
+    plugins: {
+      pnpm: pnpmPlugin,
+    },
+    rules: {
+      'pnpm/json-enforce-catalog': 'error',
+      'pnpm/json-valid-catalog': 'error',
+      'pnpm/json-prefer-workspace-settings': 'error',
+    },
+  },
+  {
+    name: 'tanstack/pnpm-workspace',
+    files: ['pnpm-workspace.yaml'],
+    languageOptions: {
+      parser: yamlParser,
+    },
+    plugins: {
+      pnpm: pnpmPlugin,
+    },
+    rules: {
+      'pnpm/yaml-no-unused-catalog-item': 'error',
+      'pnpm/yaml-no-duplicate-catalog-item': 'error',
+    },
   },
 ]
