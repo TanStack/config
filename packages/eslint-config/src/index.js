@@ -32,7 +32,7 @@ const jsRules = {
 }
 
 const jsPlugins = {
-  '@stylistic/js': stylisticPlugin,
+  '@stylistic': stylisticPlugin,
   '@typescript-eslint': tseslint.plugin,
   import: importPlugin,
   node: nodePlugin,
