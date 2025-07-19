@@ -1,4 +1,5 @@
 ---
+'@tanstack/config': minor
 '@tanstack/eslint-config': minor
 ---
 
