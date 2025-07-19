@@ -10,8 +10,6 @@ export const importRules = {
   'import/newline-after-import': 'error',
   /** No require() or module.exports */
   'import/no-commonjs': 'error',
-  /** No import loops */
-  'import/no-cycle': 'error',
   /** Reports if a resolved path is imported more than once */
   'import/no-duplicates': 'error',
   /** Stylistic preference */

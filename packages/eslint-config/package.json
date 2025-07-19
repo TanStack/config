@@ -16,7 +16,6 @@
   },
   "scripts": {
     "test:types": "tsc",
-    "test:eslint": "eslint ./src",
     "test:build": "publint --strict"
   },
   "type": "module",
@@ -41,9 +40,12 @@
     "@stylistic/eslint-plugin": "catalog:",
     "eslint-plugin-import-x": "catalog:",
     "eslint-plugin-n": "catalog:",
+    "eslint-plugin-pnpm": "catalog:",
     "globals": "catalog:",
+    "jsonc-eslint-parser": "catalog:",
     "typescript-eslint": "catalog:",
-    "vue-eslint-parser": "catalog:"
+    "vue-eslint-parser": "catalog:",
+    "yaml-eslint-parser": "catalog:"
   },
   "devDependencies": {
     "@types/eslint": "catalog:",
