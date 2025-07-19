@@ -1,5 +1,13 @@
 # @tanstack/eslint-config
 
+## 0.3.0
+
+### Minor Changes
+
+- chore: update @stylistic/eslint-plugin ([#267](https://github.com/TanStack/config/pull/267))
+
+- feat: add eslint-plugin-pnpm ([#267](https://github.com/TanStack/config/pull/267))
+
 ## 0.2.0
 
 ### Minor Changes
