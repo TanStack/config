@@ -1,5 +1,16 @@
 # @tanstack/config
 
+## 0.20.0
+
+### Minor Changes
+
+- feat: add eslint-plugin-pnpm ([#267](https://github.com/TanStack/config/pull/267))
+
+### Patch Changes
+
+- Updated dependencies [[`93e7783`](https://github.com/TanStack/config/commit/93e778343d16c8cfc0aba4568af709b72954e090), [`93e7783`](https://github.com/TanStack/config/commit/93e778343d16c8cfc0aba4568af709b72954e090)]:
+  - @tanstack/eslint-config@0.3.0
+
 ## 0.19.0
 
 ### Minor Changes
