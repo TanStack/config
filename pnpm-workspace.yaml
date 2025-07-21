@@ -25,7 +25,7 @@ catalog:
   jsdom: ^26.1.0
   jsonc-eslint-parser: ^2.4.0
   jsonfile: ^6.1.0
-  nx: ^21.3.0
+  nx: ^21.3.1
   prettier: ^3.6.2
   publint: ^0.3.12
   react: ^19.1.0
