@@ -1,4 +1,4 @@
-name: 🐛 Bug report
+name: 🐛 Bug Report
 description: Report a reproducible bug or regression
 body:
   - type: markdown
