@@ -23,6 +23,7 @@
     "dev": "pnpm run watch",
     "prettier": "prettier --experimental-cli --ignore-unknown '**/*'",
     "prettier:write": "pnpm run prettier --write",
+    "verify-links": "node scripts/verify-links.ts",
     "changeset": "changeset",
     "changeset:version": "changeset version && pnpm install --no-frozen-lockfile && pnpm prettier:write",
     "changeset:publish": "changeset publish"
@@ -39,10 +40,13 @@
     "@types/node": "catalog:",
     "eslint": "catalog:",
     "jsdom": "catalog:",
+    "markdown-link-extractor": "catalog:",
     "nx": "catalog:",
     "prettier": "catalog:",
     "publint": "catalog:",
     "sherif": "catalog:",
-    "typescript": "catalog:"
+    "tinyglobby": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:"
   }
 }
