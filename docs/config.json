@@ -36,8 +36,8 @@
       "label": "Conventions",
       "children": [
         {
-          "label": "Nx",
-          "to": "nx"
+          "label": "CI/CD",
+          "to": "ci-cd"
         },
         {
           "label": "Package Structure",
