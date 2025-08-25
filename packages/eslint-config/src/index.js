@@ -50,7 +50,6 @@ export const tanstackConfig = [
     languageOptions: {
       sourceType: 'module',
       ecmaVersion: 2020,
-      // @ts-expect-error
       parser: tseslint.parser,
       parserOptions: {
         project: true,
