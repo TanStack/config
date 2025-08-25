@@ -1,5 +1,11 @@
 # @tanstack/eslint-config
 
+## 0.3.1
+
+### Patch Changes
+
+- fix: remove pnpm rules ([#276](https://github.com/TanStack/config/pull/276))
+
 ## 0.3.0
 
 ### Minor Changes
