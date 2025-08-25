@@ -15,7 +15,9 @@ import { stylisticRules } from './stylistic.js'
 
 const GLOB_EXCLUDE = [
   '**/.nx/**',
+  '**/.output/**'
   '**/.svelte-kit/**',
+  '**/.vinxi/**', 
   '**/build/**',
   '**/coverage/**',
   '**/dist/**',
