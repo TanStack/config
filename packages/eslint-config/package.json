@@ -40,12 +40,9 @@
     "@stylistic/eslint-plugin": "catalog:",
     "eslint-plugin-import-x": "catalog:",
     "eslint-plugin-n": "catalog:",
-    "eslint-plugin-pnpm": "catalog:",
     "globals": "catalog:",
-    "jsonc-eslint-parser": "catalog:",
     "typescript-eslint": "catalog:",
-    "vue-eslint-parser": "catalog:",
-    "yaml-eslint-parser": "catalog:"
+    "vue-eslint-parser": "catalog:"
   },
   "devDependencies": {
     "@types/eslint": "catalog:",

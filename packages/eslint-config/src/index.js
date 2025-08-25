@@ -1,11 +1,8 @@
 import tseslint from 'typescript-eslint'
-import jsoncParser from 'jsonc-eslint-parser'
 import vueParser from 'vue-eslint-parser'
-import yamlParser from 'yaml-eslint-parser'
 import stylisticPlugin from '@stylistic/eslint-plugin'
 import importPlugin from 'eslint-plugin-import-x'
 import nodePlugin from 'eslint-plugin-n'
-import pnpmPlugin from 'eslint-plugin-pnpm'
 import globals from 'globals'
 import { javascriptRules } from './javascript.js'
 import { importRules } from './import.js'
@@ -82,34 +79,5 @@ export const tanstackConfig = [
     // @ts-expect-error
     plugins: jsPlugins,
     rules: jsRules,
-  },
-  {
-    name: 'tanstack/package-json',
-    files: ['package.json', '**/package.json'],
-    languageOptions: {
-      parser: jsoncParser,
-    },
-    plugins: {
-      pnpm: pnpmPlugin,
-    },
-    rules: {
-      'pnpm/json-enforce-catalog': 'error',
-      'pnpm/json-valid-catalog': 'error',
-      'pnpm/json-prefer-workspace-settings': 'error',
-    },
-  },
-  {
-    name: 'tanstack/pnpm-workspace',
-    files: ['pnpm-workspace.yaml'],
-    languageOptions: {
-      parser: yamlParser,
-    },
-    plugins: {
-      pnpm: pnpmPlugin,
-    },
-    rules: {
-      'pnpm/yaml-no-unused-catalog-item': 'error',
-      'pnpm/yaml-no-duplicate-catalog-item': 'error',
-    },
   },
 ]
