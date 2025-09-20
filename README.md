@@ -35,11 +35,10 @@
 
 An opinionated toolkit for building, versioning, and publishing high‑quality JS/TS packages with minimal setup and consistent results.
 
-- Vite‑powered builds with extendable workflows  
-- Automated publishing, versioning & changelogs  
-- Publint‑compliant with sensible defaults  
+- Vite‑powered builds with extendable workflows
+- Automated publishing, versioning & changelogs
+- Publint‑compliant with sensible defaults
 - Minimal configuration for faster, hassle‑free setup
-
 
 ### <a href="https://tanstack.com/config">Read the docs →</b></a>
 
@@ -88,7 +87,7 @@ We're looking for TanStack Config Partners to join our mission! Partner with us 
 - <a href="https://github.com/tanstack/db"><b>TanStack DB</b></a> – Reactive sync client store
 - <a href="https://github.com/tanstack/devtools"><b>TanStack DevTools</b></a> – Unified devtools panel
 - <a href="https://github.com/tanstack/form"><b>TanStack Form</b></a> – Type‑safe form state
-- <a href="https://github.com/tanstack/pacer"><b>TanStack Pacer</b></a> – Debouncing, throttling, batching 
+- <a href="https://github.com/tanstack/pacer"><b>TanStack Pacer</b></a> – Debouncing, throttling, batching
 - <a href="https://github.com/tanstack/query"><b>TanStack Query</b></a> – Async state & caching
 - <a href="https://github.com/tanstack/ranger"><b>TanStack Ranger</b></a> – Range & slider primitives
 - <a href="https://github.com/tanstack/router"><b>TanStack Router</b></a> – Type‑safe routing, caching & URL state
