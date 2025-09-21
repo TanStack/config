@@ -1,5 +1,11 @@
 # @tanstack/typedoc-config
 
+## 0.2.1
+
+### Patch Changes
+
+- chore: update dependencies ([#285](https://github.com/TanStack/config/pull/285))
+
 ## 0.2.0
 
 ### Minor Changes

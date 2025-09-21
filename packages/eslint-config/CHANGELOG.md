@@ -1,5 +1,11 @@
 # @tanstack/eslint-config
 
+## 0.3.2
+
+### Patch Changes
+
+- chore: update dependencies ([#285](https://github.com/TanStack/config/pull/285))
+
 ## 0.3.1
 
 ### Patch Changes
