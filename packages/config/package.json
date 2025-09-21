@@ -16,6 +16,7 @@
   },
   "scripts": {
     "test:types": "tsc",
+    "test:eslint": "eslint --concurrency=auto ./src",
     "test:build": "publint --strict",
     "build": "vite build"
   },
