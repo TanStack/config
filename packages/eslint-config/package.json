@@ -1,6 +1,6 @@
 {
   "name": "@tanstack/eslint-config",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Shared ESLint config used by TanStack projects.",
   "author": "tannerlinsley",
   "license": "MIT",
