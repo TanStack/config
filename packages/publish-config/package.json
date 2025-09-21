@@ -16,6 +16,7 @@
   },
   "scripts": {
     "test:types": "tsc",
+    "test:eslint": "eslint ./src",
     "test:build": "publint --strict"
   },
   "type": "module",
