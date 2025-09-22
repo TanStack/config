@@ -3,6 +3,10 @@ description: Action that sets up Node, pnpm, and caching
 runs:
   using: composite
   steps:
+    - name: Check provenance
+      uses: danielroe/provenance-action@v0.1.1
+      with:
+        fail-on-downgrade: true
     - name: Setup pnpm
       uses: pnpm/action-setup@v4.1.0
     - name: Setup Node
