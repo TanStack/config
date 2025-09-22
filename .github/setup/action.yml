@@ -6,7 +6,7 @@ runs:
     - name: Check provenance
       uses: danielroe/provenance-action@v0.1.1
       with:
-        fail-on-provenance-change: true
+        fail-on-downgrade: true
     - name: Setup pnpm
       uses: pnpm/action-setup@v4.1.0
     - name: Setup Node
