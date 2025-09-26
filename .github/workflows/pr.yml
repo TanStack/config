@@ -57,3 +57,10 @@ jobs:
           fetch-depth: 0
       - name: Check Dependencies
         uses: e18e/action-dependency-diff@main
+        with:
+          duplicate-threshold: 2
+          size-threshold: 1000000
+      - name: Check Provenance
+        uses: danielroe/provenance-action@v0.1.1
+        with:
+          fail-on-downgrade: true
