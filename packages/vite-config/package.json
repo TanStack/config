@@ -1,6 +1,6 @@
 {
   "name": "@tanstack/vite-config",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Shared Vite build config used by TanStack projects.",
   "author": "tannerlinsley",
   "license": "MIT",

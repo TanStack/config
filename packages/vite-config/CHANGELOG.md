@@ -1,5 +1,11 @@
 # @tanstack/vite-config
 
+## 0.3.0
+
+### Minor Changes
+
+- feat: update to vite v7 ([#292](https://github.com/TanStack/config/pull/292))
+
 ## 0.2.1
 
 ### Patch Changes
