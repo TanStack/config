@@ -1,5 +1,12 @@
 # @tanstack/config
 
+## 0.20.3
+
+### Patch Changes
+
+- Updated dependencies [[`60ac898`](https://github.com/TanStack/config/commit/60ac898fdcd86b320a344d5fb2f29743ce0df475)]:
+  - @tanstack/vite-config@0.3.0
+
 ## 0.20.2
 
 ### Patch Changes
