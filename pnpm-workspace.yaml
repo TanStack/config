@@ -1,7 +1,6 @@
 cleanupUnusedCatalogs: true
 linkWorkspacePackages: true
 preferWorkspacePackages: true
-minimumReleaseAge: 1440
 
 packages:
   - integrations/*
