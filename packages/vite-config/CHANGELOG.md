@@ -1,5 +1,11 @@
 # @tanstack/vite-config
 
+## 0.4.0
+
+### Minor Changes
+
+- feat: support for bundling dependencies ([#302](https://github.com/TanStack/config/pull/302))
+
 ## 0.3.0
 
 ### Minor Changes
