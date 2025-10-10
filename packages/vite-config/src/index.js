@@ -37,7 +37,7 @@ export const tanstackViteConfig = (options) => {
     plugins: [
       externalizeDeps({
         include: options.externalDeps ?? [],
-        except: options.bundledDeps ?? []
+        except: options.bundledDeps ?? [],
       }),
       preserveDirectives(),
       tsconfigPaths({
