@@ -153,9 +153,7 @@ async function main() {
     return
   }
 
-  console.log(
-    `Processing ${publishedPackages.length} published package(s)...`,
-  )
+  console.log(`Processing ${publishedPackages.length} published package(s)...`)
 
   // Group PRs by number
   const prMap = groupPRsByNumber(publishedPackages)
