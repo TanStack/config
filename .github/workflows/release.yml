@@ -43,9 +43,6 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Comment on PRs about release
         if: steps.changesets.outputs.published == 'true'
-        env:
-          PUBLISHED_PACKAGES: ${{ steps.changesets.outputs.publishedPackages }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          sleep 0.01
-          npx tsx scripts/comment-on-release.ts
+        uses: ./.github/comment-on-release
+        with:
+          published-packages: ${{ steps.changesets.outputs.publishedPackages }}
