@@ -5,6 +5,7 @@ A reusable GitHub Action that automatically comments on PRs when they are includ
 ## What It Does
 
 When packages are published via Changesets:
+
 1. Parses each published package's CHANGELOG to find PR numbers in the latest version
 2. Groups PRs by number (handling cases where one PR affects multiple packages)
 3. Posts a comment on each PR with release info and CHANGELOG links
@@ -31,8 +32,8 @@ Add this step to your `.github/workflows/release.yml` file after the `changesets
   with:
     version: pnpm run changeset:version
     publish: pnpm run changeset:publish
-    commit: "ci: Version Packages"
-    title: "ci: Version Packages"
+    commit: 'ci: Version Packages'
+    title: 'ci: Version Packages'
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -53,13 +54,14 @@ Add this step to your `.github/workflows/release.yml` file after the `changesets
 
 ## Inputs
 
-| Input | Required | Description |
-|-------|----------|-------------|
-| `published-packages` | Yes | JSON string of published packages from `changesets/action` outputs |
+| Input                | Required | Description                                                        |
+| -------------------- | -------- | ------------------------------------------------------------------ |
+| `published-packages` | Yes      | JSON string of published packages from `changesets/action` outputs |
 
 ## How It Works
 
 The action:
+
 1. Receives the list of published packages from the Changesets action
 2. For each package, reads its CHANGELOG at `packages/{package-name}/CHANGELOG.md`
 3. Extracts PR numbers from the latest version section using regex
@@ -70,10 +72,12 @@ The action:
 ## Troubleshooting
 
 **No comments are posted:**
+
 - Verify your CHANGELOGs have PR links in the correct format
 - Check that `steps.changesets.outputs.published` is `true`
 - Ensure the workflow has `pull-requests: write` permission
 
 **Script fails to find CHANGELOGs:**
+
 - The script expects packages at `packages/{package-name}/CHANGELOG.md`
 - Package name should match after removing the scope (e.g., `@tanstack/query` → `query`)
