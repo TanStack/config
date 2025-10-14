@@ -32,6 +32,12 @@ jobs:
         run: pnpm run test:pr
       - name: Verify Links
         run: pnpm run verify-links
+      - name: Comment on PRs about release
+        if: steps.changesets.outputs.published == 'true'
+        uses: ./.github/comment-on-release
+        with:
+          published-packages: '[{"name":"@tanstack/config","version":"0.22.0"},{"name":"@tanstack/typedoc-config","version":"0.3.0"}]'
+
   preview:
     name: Preview
     runs-on: ubuntu-latest
