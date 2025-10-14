@@ -9,7 +9,8 @@ runs:
   steps:
     - name: Comment on PRs
       shell: bash
+      run: node ${{ github.action_path }}/comment-on-release.ts
       env:
         PUBLISHED_PACKAGES: ${{ inputs.published-packages }}
         REPOSITORY: ${{ github.repository }}
-      run: node {{ github.action_path }}/comment-on-release.ts
+        GH_TOKEN: ${{ github.token }}
