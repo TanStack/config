@@ -15,8 +15,8 @@ When packages are published via Changesets:
 ```
 🎉 This PR has been released!
 
-- **@tanstack/query@5.0.0** - [CHANGELOG](https://github.com/TanStack/query/blob/main/packages/query-core/CHANGELOG.md)
-- **@tanstack/react-query@5.0.0** - [CHANGELOG](https://github.com/TanStack/query/blob/main/packages/react-query/CHANGELOG.md)
+- [@tanstack/query-core@5.0.0](https://github.com/TanStack/query/blob/main/packages/query-core/CHANGELOG.md#500)
+- [@tanstack/react-query@5.0.0](https://github.com/TanStack/query/blob/main/packages/react-query/CHANGELOG.md#500)
 
 Thank you for your contribution!
 ```
@@ -80,4 +80,4 @@ The action:
 **Script fails to find CHANGELOGs:**
 
 - The script expects packages at `packages/{package-name}/CHANGELOG.md`
-- Package name should match after removing the scope (e.g., `@tanstack/query` → `query`)
+- Package name should match after removing the scope (e.g., `@tanstack/query-core` → `query-core`)

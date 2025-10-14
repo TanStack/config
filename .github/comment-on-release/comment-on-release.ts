@@ -11,7 +11,7 @@ interface PublishedPackage {
 
 interface PRInfo {
   number: number
-  packages: Array<{ name: string; version: string }>
+  packages: Array<{ name: string; pkgPath: string; version: string }>
 }
 
 /**
@@ -79,12 +79,8 @@ function groupPRsByNumber(
   const prMap = new Map<number, PRInfo>()
 
   for (const pkg of publishedPackages) {
-    const changelogPath = resolve(
-      process.cwd(),
-      'packages',
-      pkg.name.replace('@tanstack/', ''),
-      'CHANGELOG.md',
-    )
+    const pkgPath = `packages/${pkg.name.replace('@tanstack/', '')}`
+    const changelogPath = resolve(process.cwd(), pkgPath, 'CHANGELOG.md')
 
     const prNumbers = extractPRsFromChangelog(changelogPath, pkg.version)
 
@@ -94,6 +90,7 @@ function groupPRsByNumber(
       }
       prMap.get(prNumber)!.packages.push({
         name: pkg.name,
+        pkgPath: pkgPath,
         version: pkg.version,
       })
     }
@@ -105,15 +102,16 @@ function groupPRsByNumber(
 /**
  * Post a comment on a GitHub PR using gh CLI
  */
-async function commentOnPR(pr: PRInfo): Promise<void> {
+async function commentOnPR(pr: PRInfo, repository: string): Promise<void> {
   const { number, packages } = pr
 
   // Build the comment body
   let comment = `🎉 This PR has been released!\n\n`
 
   for (const pkg of packages) {
-    const changelogUrl = `https://github.com/TanStack/config/blob/main/packages/${pkg.name.replace('@tanstack/', '')}/CHANGELOG.md`
-    comment += `- **${pkg.name}@${pkg.version}** - [CHANGELOG](${changelogUrl})\n`
+    // Link to the package's changelog and version anchor
+    const changelogUrl = `https://github.com/${repository}/blob/main/${pkg.pkgPath}/CHANGELOG.md#${pkg.version.replaceAll('.', '')}`
+    comment += `- [${pkg.name}@${pkg.version}](${changelogUrl})\n`
   }
 
   comment += `\nThank you for your contribution!`
@@ -135,8 +133,15 @@ async function commentOnPR(pr: PRInfo): Promise<void> {
 async function main() {
   // Read published packages from environment variable (set by GitHub Actions)
   const publishedPackagesJson = process.env.PUBLISHED_PACKAGES
+  const repository = process.env.REPOSITORY
+
   if (!publishedPackagesJson) {
     console.log('No packages were published. Skipping PR comments.')
+    return
+  }
+
+  if (!repository) {
+    console.log('Repository is missing. Skipping PR comments.')
     return
   }
 
@@ -167,7 +172,7 @@ async function main() {
 
   // Comment on each PR
   for (const pr of prMap.values()) {
-    await commentOnPR(pr)
+    await commentOnPR(pr, repository)
   }
 
   console.log('✓ Done!')

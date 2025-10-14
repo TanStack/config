@@ -11,4 +11,5 @@ runs:
       shell: bash
       env:
         PUBLISHED_PACKAGES: ${{ inputs.published-packages }}
+        REPOSITORY: ${{ github.repository }}
       run: node {{ github.action_path }}/comment-on-release.ts
