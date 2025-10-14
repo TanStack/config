@@ -2,6 +2,7 @@
 
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { execSync } from 'node:child_process'
 
 interface PublishedPackage {
   name: string
@@ -119,7 +120,6 @@ async function commentOnPR(pr: PRInfo): Promise<void> {
 
   try {
     // Use gh CLI to post the comment
-    const { execSync } = await import('node:child_process')
     execSync(`gh pr comment ${number} --body ${JSON.stringify(comment)}`, {
       stdio: 'inherit',
     })

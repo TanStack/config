@@ -11,5 +11,4 @@ runs:
       shell: bash
       env:
         PUBLISHED_PACKAGES: ${{ inputs.published-packages }}
-      run: |
-        npx tsx ${{ github.action_path }}/comment-on-release.ts
+      run: node {{ github.action_path }}/comment-on-release.ts
