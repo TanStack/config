@@ -118,7 +118,7 @@ async function commentOnPR(pr: PRInfo, repository: string): Promise<void> {
 
   try {
     // Use gh CLI to post the comment
-    execSync(`gh pr comment ${number} --body ${JSON.stringify(comment)}`, {
+    execSync(`gh pr comment ${number} --body ${comment}`, {
       stdio: 'inherit',
     })
     console.log(`✓ Commented on PR #${number}`)
