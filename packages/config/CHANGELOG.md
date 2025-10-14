@@ -1,5 +1,18 @@
 # @tanstack/config
 
+## 0.22.0
+
+### Minor Changes
+
+- feat: update to typedoc v0.28 ([#306](https://github.com/TanStack/config/pull/306))
+
+- BREAKING: typedoc output is no longer lower-cased due to API changes ([#306](https://github.com/TanStack/config/pull/306))
+
+### Patch Changes
+
+- Updated dependencies [[`d480b77`](https://github.com/TanStack/config/commit/d480b773ffcc8b9c0b323c3a2073c21a9097af47), [`d480b77`](https://github.com/TanStack/config/commit/d480b773ffcc8b9c0b323c3a2073c21a9097af47)]:
+  - @tanstack/typedoc-config@0.3.0
+
 ## 0.21.0
 
 ### Minor Changes
