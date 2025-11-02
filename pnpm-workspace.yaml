@@ -7,7 +7,7 @@ packages:
   - packages/*
 
 catalog:
-  '@biomejs/biome': ^1.9.4
+  '@biomejs/biome': ^2.3.2
   '@changesets/cli': ^2.29.7
   '@commitlint/parse': ^20.0.0
   '@eslint/js': ^9.37.0

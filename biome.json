@@ -1,18 +1,21 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.3.2/schema.json",
+  "files": {
+    "includes": [
+      "**",
+      "!**/.next/**",
+      "!**/.nx/cache/**",
+      "!**/.nx/workspace-data/**",
+      "!**/.svelte-kit/**",
+      "!**/coverage/**",
+      "!**/dist/**",
+      "!**/docs/**",
+      "!**/snap/**"
+    ]
+  },
   "formatter": {
     "enabled": true,
-    "indentStyle": "space",
-    "ignore": [
-      "**/.next/**",
-      "**/.nx/cache/**",
-      "**/.nx/workspace-data/**",
-      "**/.svelte-kit/**",
-      "**/coverage/**",
-      "**/dist/**",
-      "**/docs/**",
-      "**/snap/**"
-    ]
+    "indentStyle": "space"
   },
   "javascript": {
     "formatter": {
@@ -24,7 +27,12 @@
   "linter": {
     "enabled": false
   },
-  "organizeImports": {
-    "enabled": false
-  }
+  "html": {
+    "formatter": {
+      "enabled": true,
+      "indentScriptAndStyle": true
+    },
+    "experimentalFullSupportEnabled": true
+  },
+  "assist": { "actions": { "source": { "organizeImports": "off" } } }
 }
