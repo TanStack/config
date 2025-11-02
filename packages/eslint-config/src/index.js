@@ -1,8 +1,11 @@
+// @ts-check
+
 import tseslint from 'typescript-eslint'
 import vueParser from 'vue-eslint-parser'
 import stylisticPlugin from '@stylistic/eslint-plugin'
 import importPlugin from 'eslint-plugin-import-x'
 import nodePlugin from 'eslint-plugin-n'
+import oxlintPlugin from 'eslint-plugin-oxlint'
 import globals from 'globals'
 import { javascriptRules } from './javascript.js'
 import { importRules } from './import.js'
@@ -26,6 +29,8 @@ const jsRules = {
   ...importRules,
   ...nodeRules,
   ...stylisticRules,
+  // @ts-ignore Invalid type
+  ...oxlintPlugin.configs['flat/recommended'].rules,
 }
 
 const jsPlugins = {
