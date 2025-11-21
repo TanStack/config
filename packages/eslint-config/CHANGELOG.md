@@ -1,5 +1,13 @@
 # @tanstack/eslint-config
 
+## 0.3.3
+
+### Patch Changes
+
+- chore: update deps ([#315](https://github.com/TanStack/config/pull/315))
+
+- fix: add types ([#313](https://github.com/TanStack/config/pull/313))
+
 ## 0.3.2
 
 ### Patch Changes

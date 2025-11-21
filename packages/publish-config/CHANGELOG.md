@@ -1,5 +1,11 @@
 # @tanstack/publish-config
 
+## 0.2.2
+
+### Patch Changes
+
+- chore: update deps ([#315](https://github.com/TanStack/config/pull/315))
+
 ## 0.2.1
 
 ### Patch Changes

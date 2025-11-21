@@ -1,5 +1,17 @@
 # @tanstack/config
 
+## 0.22.1
+
+### Patch Changes
+
+- chore: update deps ([#315](https://github.com/TanStack/config/pull/315))
+
+- Updated dependencies [[`2c67197`](https://github.com/TanStack/config/commit/2c671970060713655df07fb9dd5b45e8e6cc128b), [`8fa3822`](https://github.com/TanStack/config/commit/8fa3822d2190e0c25c05934500def0bab08cb433)]:
+  - @tanstack/eslint-config@0.3.3
+  - @tanstack/publish-config@0.2.2
+  - @tanstack/typedoc-config@0.3.1
+  - @tanstack/vite-config@0.4.1
+
 ## 0.22.0
 
 ### Minor Changes
