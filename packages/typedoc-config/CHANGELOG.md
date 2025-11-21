@@ -1,5 +1,11 @@
 # @tanstack/typedoc-config
 
+## 0.3.1
+
+### Patch Changes
+
+- chore: update deps ([#315](https://github.com/TanStack/config/pull/315))
+
 ## 0.3.0
 
 ### Minor Changes
