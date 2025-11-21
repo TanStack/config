@@ -1,3 +1,3 @@
 import type { Linter } from 'eslint'
 
-export const config: Array<Linter.Config>
+export const tanstackConfig: Array<Linter.Config>
