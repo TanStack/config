@@ -35,7 +35,7 @@ const jsPlugins = {
   node: nodePlugin,
 }
 
-/** @type {import('eslint').Linter.Config[]} */
+/** @type {Array<import('eslint').Linter.Config>} */
 export const tanstackConfig = [
   {
     name: 'tanstack/ignores',
