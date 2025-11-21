@@ -1,5 +1,5 @@
 ---
-"@tanstack/eslint-config": patch
+'@tanstack/eslint-config': patch
 ---
 
 fix: add types
