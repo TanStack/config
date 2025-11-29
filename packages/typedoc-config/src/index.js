@@ -45,7 +45,7 @@ export const generateReferenceDocs = async (options) => {
       gitRevision: options.gitBranch ?? 'main',
       entryPoints: pkg.entryPoints,
       tsconfig: pkg.tsconfig,
-      exclude: pkg.exclude,
+      exclude: pkg.exclude ?? [],
       out: pkg.outputDir,
     })
 
