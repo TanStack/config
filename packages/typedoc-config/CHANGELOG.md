@@ -1,5 +1,11 @@
 # @tanstack/typedoc-config
 
+## 0.3.2
+
+### Patch Changes
+
+- fix: warning when not using the 'exclude' option ([#318](https://github.com/TanStack/config/pull/318))
+
 ## 0.3.1
 
 ### Patch Changes

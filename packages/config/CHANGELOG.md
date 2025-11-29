@@ -1,5 +1,12 @@
 # @tanstack/config
 
+## 0.22.2
+
+### Patch Changes
+
+- Updated dependencies [[`504787d`](https://github.com/TanStack/config/commit/504787d71d39ef794ca80aab9000962e0fe30e54)]:
+  - @tanstack/typedoc-config@0.3.2
+
 ## 0.22.1
 
 ### Patch Changes
