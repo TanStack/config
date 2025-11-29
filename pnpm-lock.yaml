@@ -72,6 +72,9 @@ catalogs:
     nx:
       specifier: 22.1.0
       version: 22.1.0
+    premove:
+      specifier: ^4.0.0
+      version: 4.0.0
     prettier:
       specifier: ^3.7.1
       version: 3.7.1
@@ -164,6 +167,9 @@ importers:
       nx:
         specifier: 'catalog:'
         version: 22.1.0
+      premove:
+        specifier: 'catalog:'
+        version: 4.0.0
       prettier:
         specifier: 'catalog:'
         version: 3.7.1
@@ -2547,6 +2553,11 @@ packages:
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+
+  premove@4.0.0:
+    resolution: {integrity: sha512-zim/Hr4+FVdCIM7zL9b9Z0Wfd5Ya3mnKtiuDv7L5lzYzanSq6cOcVJ7EFcgK4I0pt28l8H0jX/x3nyog380XgQ==}
+    engines: {node: '>=6'}
+    hasBin: true
 
   prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
@@ -5559,6 +5570,8 @@ snapshots:
       source-map-js: 1.2.1
 
   prelude-ls@1.2.1: {}
+
+  premove@4.0.0: {}
 
   prettier@2.8.8: {}
 
