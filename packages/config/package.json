@@ -15,6 +15,7 @@
     "url": "https://github.com/sponsors/tannerlinsley"
   },
   "scripts": {
+    "clean": "premove ./dist",
     "test:types": "tsc",
     "test:eslint": "eslint --concurrency=auto ./src",
     "test:build": "publint --strict",

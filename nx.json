@@ -5,13 +5,18 @@
   "useInferencePlugins": false,
   "parallel": 5,
   "targetDefaults": {
+    "test:docs": {
+      "cache": true,
+      "inputs": ["{workspaceRoot}/docs/**/*"]
+    },
+    "test:sherif": {
+      "cache": true,
+      "inputs": ["{workspaceRoot}/**/package.json"]
+    },
     "test:eslint": {
       "cache": true
     },
     "test:types": {
-      "cache": true
-    },
-    "test:sherif": {
       "cache": true
     },
     "build": {
