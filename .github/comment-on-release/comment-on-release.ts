@@ -14,6 +14,12 @@ interface PRInfo {
   packages: Array<{ name: string; pkgPath: string; version: string }>
 }
 
+interface IssueInfo {
+  number: number
+  prs: Set<number>
+  packages: Array<{ name: string; pkgPath: string; version: string }>
+}
+
 /**
  * Parse CHANGELOG.md to extract PR numbers from the latest version entry
  */
@@ -100,17 +106,85 @@ function groupPRsByNumber(
 }
 
 /**
+ * Check if we've already commented on a PR/issue to avoid duplicates
+ */
+function hasExistingComment(number: number, type: 'pr' | 'issue'): boolean {
+  try {
+    const result = execSync(
+      `gh api repos/\${GITHUB_REPOSITORY}/issues/${number}/comments --jq '[.[] | select(.body | contains("has been released!"))] | length'`,
+      { encoding: 'utf-8', stdio: ['pipe', 'pipe', 'pipe'] },
+    )
+    const count = parseInt(result.trim(), 10)
+    return count > 0
+  } catch (error) {
+    console.warn(
+      `Warning: Could not check existing comments for ${type} #${number}`,
+    )
+    return false
+  }
+}
+
+/**
+ * Find issues that a PR closes/fixes using GitHub's GraphQL API
+ */
+function findLinkedIssues(prNumber: number, repository: string): Array<number> {
+  const [owner, repo] = repository.split('/')
+  const query = `
+    query($owner: String!, $repo: String!, $pr: Int!) {
+      repository(owner: $owner, name: $repo) {
+        pullRequest(number: $pr) {
+          closingIssuesReferences(first: 10) {
+            nodes {
+              number
+            }
+          }
+        }
+      }
+    }
+  `
+
+  try {
+    const result = execSync(
+      `gh api graphql -f query='${query}' -F owner='${owner}' -F repo='${repo}' -F pr=${prNumber} --jq '.data.repository.pullRequest.closingIssuesReferences.nodes[].number'`,
+      { encoding: 'utf-8', stdio: ['pipe', 'pipe', 'pipe'] },
+    )
+
+    const issueNumbers = result
+      .trim()
+      .split('\n')
+      .filter((line) => line)
+      .map((line) => parseInt(line, 10))
+
+    if (issueNumbers.length > 0) {
+      console.log(
+        `  PR #${prNumber} links to issues: ${issueNumbers.join(', ')}`,
+      )
+    }
+
+    return issueNumbers
+  } catch (error) {
+    return []
+  }
+}
+
+/**
  * Post a comment on a GitHub PR using gh CLI
  */
 async function commentOnPR(pr: PRInfo, repository: string): Promise<void> {
   const { number, packages } = pr
+
+  // Check for duplicate comments
+  if (hasExistingComment(number, 'pr')) {
+    console.log(`↷ Already commented on PR #${number}, skipping`)
+    return
+  }
 
   // Build the comment body
   let comment = `🎉 This PR has been released!\n\n`
 
   for (const pkg of packages) {
     // Link to the package's changelog and version anchor
-    const changelogUrl = `https://github.com/${repository}/blob/main/${pkg.pkgPath}/CHANGELOG.md#${pkg.version.replaceAll('.', '')}`
+    const changelogUrl = `https://github.com/${repository}/blob/main/${pkg.pkgPath}/CHANGELOG.md#${pkg.version.replace(/\./g, '')}`
     comment += `- [${pkg.name}@${pkg.version}](${changelogUrl})\n`
   }
 
@@ -124,6 +198,49 @@ async function commentOnPR(pr: PRInfo, repository: string): Promise<void> {
     console.log(`✓ Commented on PR #${number}`)
   } catch (error) {
     console.error(`✗ Failed to comment on PR #${number}:`, error)
+  }
+}
+
+/**
+ * Post a comment on a GitHub issue using gh CLI
+ */
+async function commentOnIssue(
+  issue: IssueInfo,
+  repository: string,
+): Promise<void> {
+  const { number, prs, packages } = issue
+
+  // Check for duplicate comments
+  if (hasExistingComment(number, 'issue')) {
+    console.log(`↷ Already commented on issue #${number}, skipping`)
+    return
+  }
+
+  const prLinks = Array.from(prs)
+    .map((pr) => `#${pr}`)
+    .join(', ')
+  const prWord = prs.size === 1 ? 'PR' : 'PRs'
+
+  // Build the comment body
+  let comment = `🎉 The ${prWord} fixing this issue (${prLinks}) has been released!\n\n`
+
+  for (const pkg of packages) {
+    // Link to the package's changelog and version anchor
+    const changelogUrl = `https://github.com/${repository}/blob/main/${pkg.pkgPath}/CHANGELOG.md#${pkg.version.replace(/\./g, '')}`
+    comment += `- [${pkg.name}@${pkg.version}](${changelogUrl})\n`
+  }
+
+  comment += `\nThank you for reporting!`
+
+  try {
+    // Use gh CLI to post the comment
+    execSync(
+      `gh issue comment ${number} --body '${comment.replace(/'/g, '"')}'`,
+      { stdio: 'inherit' },
+    )
+    console.log(`✓ Commented on issue #${number}`)
+  } catch (error) {
+    console.error(`✗ Failed to comment on issue #${number}:`, error)
   }
 }
 
@@ -170,12 +287,49 @@ async function main() {
 
   console.log(`Found ${prMap.size} PR(s) to comment on...`)
 
-  // Comment on each PR
+  // Collect issues linked to PRs
+  const issueMap = new Map<number, IssueInfo>()
+
+  // Comment on each PR and collect linked issues
   for (const pr of prMap.values()) {
     await commentOnPR(pr, repository)
+
+    // Find issues that this PR closes/fixes
+    const linkedIssues = findLinkedIssues(pr.number, repository)
+    for (const issueNumber of linkedIssues) {
+      if (!issueMap.has(issueNumber)) {
+        issueMap.set(issueNumber, {
+          number: issueNumber,
+          prs: new Set(),
+          packages: [],
+        })
+      }
+      const issueInfo = issueMap.get(issueNumber)!
+      issueInfo.prs.add(pr.number)
+
+      // Merge packages, avoiding duplicates
+      for (const pkg of pr.packages) {
+        if (
+          !issueInfo.packages.some(
+            (p) => p.name === pkg.name && p.version === pkg.version,
+          )
+        ) {
+          issueInfo.packages.push(pkg)
+        }
+      }
+    }
   }
 
-  console.log('✓ Done!')
+  if (issueMap.size > 0) {
+    console.log(`\nFound ${issueMap.size} linked issue(s) to comment on...`)
+
+    // Comment on each linked issue
+    for (const issue of issueMap.values()) {
+      await commentOnIssue(issue, repository)
+    }
+  }
+
+  console.log('\n✓ Done!')
 }
 
 main().catch((error) => {

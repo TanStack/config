@@ -15,6 +15,7 @@ permissions:
   contents: write
   id-token: write
   pull-requests: write
+  issues: write
 
 jobs:
   release:
@@ -41,7 +42,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Comment on PRs about release
+      - name: Comment on PRs and issues about release
         if: steps.changesets.outputs.published == 'true'
         uses: ./.github/comment-on-release
         with:
