@@ -8,6 +8,7 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   minify: false,
+  fixedExtension: false,
   external: ['vite'],
   publint: {
     strict: true,
