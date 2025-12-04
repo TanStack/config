@@ -1,0 +1,19 @@
+import { defineConfig } from 'tsdown'
+
+export default defineConfig({
+  entry: ['./src/*.ts'],
+  format: ['esm'],
+  unbundle: true,
+  dts: true,
+  sourcemap: true,
+  clean: true,
+  minify: false,
+  external: ['vite'],
+  publint: {
+    strict: true,
+  },
+  attw: {
+    profile: 'esm-only',
+    level: 'error',
+  },
+})

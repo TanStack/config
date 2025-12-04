@@ -1,5 +1,3 @@
-import type { UserConfig } from 'vite'
-
 export type Options = {
   /** Entry file, e.g. `./src/index.ts` */
   entry: string | Array<string>
@@ -20,6 +18,3 @@ export type Options = {
   /** Hook called prior to writing each declaration file; allows to transform the content */
   beforeWriteDeclarationFile?: (filePath: string, content: string) => string
 }
-
-/** https://tanstack.com/config/latest/docs/vite */
-export function tanstackViteConfig(config: Options): UserConfig

@@ -30,7 +30,7 @@
     "vue": "catalog:"
   },
   "devDependencies": {
-    "@tanstack/config": "workspace:*",
+    "@tanstack/vite-config": "workspace:*",
     "@vitejs/plugin-vue": "catalog:",
     "vite": "catalog:",
     "vitest": "catalog:"

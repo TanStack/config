@@ -23,8 +23,8 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./src/index.d.ts",
-        "default": "./src/index.js"
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
       }
     },
     "./package.json": "./package.json"
@@ -32,6 +32,7 @@
   "preferGlobal": false,
   "sideEffects": false,
   "files": [
+    "dist",
     "src"
   ],
   "engines": {
@@ -44,6 +45,7 @@
     "vite-tsconfig-paths": "catalog:"
   },
   "devDependencies": {
-    "vite": "catalog:"
+    "vite": "catalog:",
+    "tsdown": "catalog:"
   }
 }
