@@ -1,5 +1,11 @@
 # @tanstack/vite-config
 
+## 0.4.2
+
+### Patch Changes
+
+- chore: build with tsdown ([#321](https://github.com/TanStack/config/pull/321))
+
 ## 0.4.1
 
 ### Patch Changes
