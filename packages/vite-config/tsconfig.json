@@ -1,4 +1,5 @@
 {
   "extends": "../../tsconfig.json",
+  "isolatedDeclarations": true,
   "include": ["src", "*.config.*"]
 }
