@@ -7,6 +7,14 @@ title: ESLint
 
 This package unifies the shared ESLint config used across all TanStack projects. It is designed to be framework-agnostic, and does not include any framework-specific plugins.
 
+## Installation
+
+To install the package, run the following command:
+
+```bash
+pnpm add -D @tanstack/eslint-config
+```
+
 ## Setup
 
 ### package.json
@@ -17,8 +25,6 @@ This package unifies the shared ESLint config used across all TanStack projects.
 
 ```js
 import { tanstackConfig } from '@tanstack/eslint-config'
-// OR
-import { tanstackConfig } from '@tanstack/config/eslint'
 
 export default [
   ...tanstackConfig,

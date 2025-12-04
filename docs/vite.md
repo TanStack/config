@@ -9,6 +9,14 @@ The Vite build setup is the culmination of several attempts to dual publish ESM 
 
 ES Modules (ESM) is the standard for writing JavaScript modules. However, due to the historical dependency on CommonJS (CJS), many ecosystem tools and projects were initially incompatible with ESM. It is becoming exceedingly rare for this to be the case, and I would urge you to consider whether it is necessary to distribute CJS code at all. Sindre Sorhus has a good summary on this issue [here](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
 
+## Installation
+
+To install the package, run the following command:
+
+```bash
+pnpm add -D @tanstack/vite-config
+```
+
 ## Setup
 
 The build config is quite opinionated, as it is designed to work with our internal libraries. If you follow the below instructions, it _may_ work for your library too!
@@ -52,9 +60,6 @@ The build config is quite opinionated, as it is designed to work with our intern
 
 ```ts
 import { defineConfig, mergeConfig } from 'vite'
-
-import { tanstackViteConfig } from '@tanstack/config/vite'
-// OR
 import { tanstackViteConfig } from '@tanstack/vite-config'
 
 const config = defineConfig({
@@ -77,7 +82,7 @@ While this config _will_ work with most frameworks with a Vite adapter, it doesn
 | Framework | Recommendation                                                                                     |
 | --------- | -------------------------------------------------------------------------------------------------- |
 | Angular   | [ng-packagr](https://www.npmjs.com/package/ng-packagr) (official tool)                             |
-| React     | [@tanstack/config](https://www.npmjs.com/package/@tanstack/config) (only if you need dual ESM/CJS) |
+| React     | [@tanstack/vite-config](https://www.npmjs.com/package/@tanstack/vite-config) (only if you need dual ESM/CJS) |
 | Solid     | [tsc](https://www.npmjs.com/package/typescript) (preserves JSX, necessary for SSR)                 |
 | Svelte    | [@sveltejs/package](https://www.npmjs.com/package/@sveltejs/package) (official tool)               |
-| Vue       | [@tanstack/config](https://www.npmjs.com/package/@tanstack/config) (only if you need dual ESM/CJS) |
+| Vue       | [@tanstack/vite-config](https://www.npmjs.com/package/@tanstack/vite-config) (only if you need dual ESM/CJS) |
