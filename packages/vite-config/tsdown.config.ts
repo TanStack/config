@@ -1,6 +1,7 @@
 import { defineConfig } from 'tsdown'
+import type { UserConfig } from 'tsdown'
 
-export default defineConfig({
+const config: UserConfig = defineConfig({
   entry: ['./src/*.ts'],
   format: ['esm'],
   unbundle: true,
@@ -9,7 +10,6 @@ export default defineConfig({
   clean: true,
   minify: false,
   fixedExtension: false,
-  external: ['vite'],
   publint: {
     strict: true,
   },
@@ -18,3 +18,5 @@ export default defineConfig({
     level: 'error',
   },
 })
+
+export default config

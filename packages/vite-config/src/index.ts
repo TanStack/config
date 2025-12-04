@@ -8,6 +8,8 @@ import dts from 'vite-plugin-dts'
 import type { UserConfig } from 'vite'
 import type { Options } from './types.js'
 
+export type { Options }
+
 function ensureImportFileExtension({
   content,
   extension,
