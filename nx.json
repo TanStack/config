@@ -15,11 +15,11 @@
     },
     "test:eslint": {
       "cache": true,
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build"]
     },
     "test:types": {
       "cache": true,
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build"]
     },
     "build": {
       "cache": true,
