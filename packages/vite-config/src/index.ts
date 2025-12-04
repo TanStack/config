@@ -5,6 +5,7 @@ import { preserveDirectives } from 'rollup-plugin-preserve-directives'
 import { externalizeDeps } from 'vite-plugin-externalize-deps'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import dts from 'vite-plugin-dts'
+import type { UserConfig } from 'vite'
 import type { Options } from './types.js'
 
 function ensureImportFileExtension({
@@ -28,7 +29,7 @@ function ensureImportFileExtension({
   return content
 }
 
-export const tanstackViteConfig = (options: Options) => {
+export const tanstackViteConfig = (options: Options): UserConfig => {
   const outDir = options.outDir ?? 'dist'
   const cjs = options.cjs ?? true
 
