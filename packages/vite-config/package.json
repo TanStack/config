@@ -17,7 +17,6 @@
   "scripts": {
     "test:types": "tsc",
     "test:eslint": "eslint --concurrency=auto ./src",
-    "test:build": "publint --strict",
     "build": "tsdown"
   },
   "type": "module",
@@ -46,7 +45,7 @@
     "vite-tsconfig-paths": "catalog:"
   },
   "devDependencies": {
-    "vite": "catalog:",
-    "tsdown": "catalog:"
+    "tsdown": "catalog:",
+    "vite": "catalog:"
   }
 }
