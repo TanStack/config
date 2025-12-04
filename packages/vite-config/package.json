@@ -17,14 +17,15 @@
   "scripts": {
     "test:types": "tsc",
     "test:eslint": "eslint --concurrency=auto ./src",
-    "test:build": "publint --strict"
+    "test:build": "publint --strict",
+    "build": "tsdown"
   },
   "type": "module",
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
       }
     },
     "./package.json": "./package.json"
