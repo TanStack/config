@@ -1,5 +1,5 @@
-name: Comment on PRs about release
-description: Automatically comments on PRs when they are included in a release
+name: Comment on PRs and issues about release
+description: Automatically comments on PRs and linked issues when they are included in a release
 inputs:
   published-packages:
     description: 'JSON string of published packages from changesets/action'
@@ -7,7 +7,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Comment on PRs
+    - name: Comment on PRs and issues
       shell: bash
       run: node ${{ github.action_path }}/comment-on-release.ts
       env:
