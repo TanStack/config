@@ -14,10 +14,12 @@
       "inputs": ["{workspaceRoot}/**/package.json"]
     },
     "test:eslint": {
-      "cache": true
+      "cache": true,
+      "dependsOn": ["^build"],
     },
     "test:types": {
-      "cache": true
+      "cache": true,
+      "dependsOn": ["^build"],
     },
     "build": {
       "cache": true,
