@@ -27,7 +27,7 @@
     "test:build": "vitest && publint --strict"
   },
   "devDependencies": {
-    "@tanstack/config": "workspace:*",
+    "@tanstack/vite-config": "workspace:*",
     "vite": "catalog:",
     "vitest": "catalog:"
   }

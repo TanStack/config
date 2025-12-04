@@ -5,12 +5,18 @@ import { preserveDirectives } from 'rollup-plugin-preserve-directives'
 import { externalizeDeps } from 'vite-plugin-externalize-deps'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import dts from 'vite-plugin-dts'
+import type { UserConfig } from 'vite'
+import type { Options } from './types.js'
 
-/**
- * @param {{content: string, extension: string}} params
- * @returns
- */
-function ensureImportFileExtension({ content, extension }) {
+export type { Options }
+
+function ensureImportFileExtension({
+  content,
+  extension,
+}: {
+  content: string
+  extension: string
+}) {
   // replace e.g. `import { foo } from './foo'` with `import { foo } from './foo.js'`
   content = content.replace(
     /(im|ex)port\s[\w{}/*\s,]+from\s['"](?:\.\.?\/)+?[^.'"]+(?=['"];?)/gm,
@@ -25,11 +31,7 @@ function ensureImportFileExtension({ content, extension }) {
   return content
 }
 
-/**
- * @param {import('./index.js').Options} options
- * @returns {import('vite').UserConfig}
- */
-export const tanstackViteConfig = (options) => {
+export const tanstackViteConfig = (options: Options): UserConfig => {
   const outDir = options.outDir ?? 'dist'
   const cjs = options.cjs ?? true
 

@@ -3,13 +3,20 @@ id: publish
 title: Publish
 ---
 
+## Installation
+
+To install the package, run the following command:
+
+```bash
+pnpm add -D @tanstack/publish-config
+```
+
+
 ## Usage
 
 To use the TanStack Config programmatically, you can import the `publish` function:
 
 ```ts
-import { publish } from '@tanstack/config/publish'
-// OR
 import { publish } from '@tanstack/publish-config'
 
 publish({

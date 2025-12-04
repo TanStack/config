@@ -32,7 +32,7 @@
     "react-dom": "catalog:"
   },
   "devDependencies": {
-    "@tanstack/config": "workspace:*",
+    "@tanstack/vite-config": "workspace:*",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",

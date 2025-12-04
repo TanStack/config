@@ -1,11 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
-    "checkJs": true,
     "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -23,5 +21,5 @@
     "strict": true,
     "target": "ES2022"
   },
-  "include": ["prettier.config.js", "scripts"]
+  "include": ["scripts", "*.config.*"]
 }

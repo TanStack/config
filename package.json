@@ -35,6 +35,7 @@
     ]
   },
   "devDependencies": {
+    "@arethetypeswrong/core": "catalog:",
     "@changesets/cli": "catalog:",
     "@svitejs/changesets-changelog-github-compact": "catalog:",
     "@types/node": "catalog:",

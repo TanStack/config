@@ -17,14 +17,14 @@
   "scripts": {
     "test:types": "tsc",
     "test:eslint": "eslint --concurrency=auto ./src",
-    "test:build": "publint --strict"
+    "build": "tsdown"
   },
   "type": "module",
   "exports": {
     ".": {
       "import": {
-        "types": "./src/index.d.ts",
-        "default": "./src/index.js"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
       }
     },
     "./package.json": "./package.json"
@@ -32,6 +32,7 @@
   "preferGlobal": false,
   "sideEffects": false,
   "files": [
+    "dist",
     "src"
   ],
   "engines": {
@@ -44,6 +45,10 @@
     "vite-tsconfig-paths": "catalog:"
   },
   "devDependencies": {
+    "tsdown": "catalog:",
     "vite": "catalog:"
+  },
+  "peerDependencies": {
+    "vite": "^6.0.0 || ^7.0.0"
   }
 }

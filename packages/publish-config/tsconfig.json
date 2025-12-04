@@ -1,4 +1,7 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["src", "eslint.config.js"]
+  "compilerOptions": {
+    "checkJs": true
+  },
+  "include": ["src", "*.config.*"]
 }

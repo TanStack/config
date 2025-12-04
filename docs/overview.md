@@ -3,11 +3,11 @@ id: overview
 title: Overview
 ---
 
-TanStack Config allows you to publish, update, and maintain your packages without having to provide complex configuration.
+TanStack Config is a collection of tools we currently use between our projects to simplify configuration.
 
 ## Required Pre-Requisites
 
-The following tools are required to use this package:
+The following tools are required to use these packages:
 
 - [Node.js v18.17+](https://nodejs.org/en/download/current/)
 - [Git CLI](https://git-scm.com/downloads)
@@ -15,27 +15,6 @@ The following tools are required to use this package:
 - [pnpm v8+](https://pnpm.io/)
 
 > pnpm is the only supported package manager for TanStack Config.
-
-## Installation
-
-To install the package, run the following command:
-
-```bash
-# AIO
-pnpm add -D @tanstack/config
-
-# ESLint
-pnpm add -D @tanstack/eslint-config
-
-# Publish
-pnpm add -D @tanstack/publish-config
-
-# Typedoc
-pnpm add -D @tanstack/typedoc-config
-
-# Vite
-pnpm add -D @tanstack/vite-config
-```
 
 ## Utilities
 

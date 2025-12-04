@@ -1,6 +1,6 @@
 import { defineConfig, mergeConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
-import { tanstackViteConfig } from '@tanstack/config/vite'
+import { tanstackViteConfig } from '@tanstack/vite-config'
 
 const config = defineConfig({
   plugins: [react()],
