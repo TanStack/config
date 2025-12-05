@@ -1,5 +1,11 @@
 # @tanstack/eslint-config
 
+## 0.3.4
+
+### Patch Changes
+
+- chore(eslint): move to tsdown ([#325](https://github.com/TanStack/config/pull/325))
+
 ## 0.3.3
 
 ### Patch Changes
