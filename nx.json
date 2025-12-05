@@ -26,7 +26,8 @@
       "cache": true
     },
     "test:build": {
-      "cache": true
+      "cache": true,
+      "dependsOn": ["build"]
     }
   }
 }
