@@ -1,5 +1,11 @@
 # @tanstack/vite-config
 
+## 0.4.3
+
+### Patch Changes
+
+- chore: use publishConfig exports ([#325](https://github.com/TanStack/config/pull/325))
+
 ## 0.4.2
 
 ### Patch Changes
