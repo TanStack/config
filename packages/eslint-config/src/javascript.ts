@@ -1,7 +1,9 @@
-// https://eslint.org/docs/latest/rules/
+import type { Linter } from 'eslint'
 
-/** @type {import('eslint').Linter.RulesRecord} */
-export const javascriptRules = {
+/**
+ * @see https://eslint.org/docs/latest/rules/
+ */
+export const javascriptRules: Linter.RulesRecord = {
   /** TODO */
   'for-direction': 'error',
   'no-async-promise-executor': 'error',

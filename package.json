@@ -40,6 +40,7 @@
     "@svitejs/changesets-changelog-github-compact": "catalog:",
     "@types/node": "catalog:",
     "eslint": "catalog:",
+    "jiti": "catalog:",
     "jsdom": "catalog:",
     "markdown-link-extractor": "catalog:",
     "nx": "catalog:",

@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "checkJs": true
+    "isolatedDeclarations": true
   },
-  "include": ["src", "*.config.*"]
+  "include": ["src"]
 }

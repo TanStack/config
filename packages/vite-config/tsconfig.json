@@ -3,5 +3,5 @@
   "compilerOptions": {
     "isolatedDeclarations": true
   },
-  "include": ["src", "*.config.*"]
+  "include": ["src"]
 }

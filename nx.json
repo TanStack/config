@@ -4,6 +4,9 @@
   "nxCloudId": "65cc80a2ddc7c22ebb07831c",
   "useInferencePlugins": false,
   "parallel": 5,
+  "tui": {
+    "enabled": false
+  },
   "targetDefaults": {
     "test:docs": {
       "cache": true,
@@ -14,20 +17,16 @@
       "inputs": ["{workspaceRoot}/**/package.json"]
     },
     "test:eslint": {
-      "cache": true,
-      "dependsOn": ["^build"]
+      "cache": true
     },
     "test:types": {
-      "cache": true,
-      "dependsOn": ["^build"]
+      "cache": true
     },
     "build": {
-      "cache": true,
-      "dependsOn": ["^build"]
+      "cache": true
     },
     "test:build": {
-      "cache": true,
-      "dependsOn": ["build"]
+      "cache": true
     }
   }
 }
