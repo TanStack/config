@@ -18,12 +18,12 @@ The following tools are required to use these packages:
 
 ## Utilities
 
-- [ESLint](../eslint.md)
-- [Publish](../publish.md)
-- [Vite](../vite.md)
+- [ESLint](./eslint.md)
+- [Publish](./publish.md)
+- [Vite](./vite.md)
 
 ## Conventions
 
-- [CI/CD](../ci-cd.md)
-- [Dependencies](../dependencies.md)
-- [Package Structure](../package-structure.md)
+- [CI/CD](./ci-cd.md)
+- [Dependencies](./dependencies.md)
+- [Package Structure](./package-structure.md)

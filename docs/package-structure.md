@@ -19,7 +19,7 @@ The following structure ensures packages work optimally with our monorepo/Nx wor
 
 ### `./vite.config.ts`
 
-- Includes config for Vitest, and for Vite if [@tanstack/vite-config](../vite.md) is used
+- Includes config for Vitest, and for Vite if [@tanstack/vite-config](./vite.md) is used
 
 ### `./src`
 
