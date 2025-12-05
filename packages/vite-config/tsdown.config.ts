@@ -2,7 +2,7 @@ import { defineConfig } from 'tsdown'
 import type { UserConfig } from 'tsdown'
 
 const config: UserConfig = defineConfig({
-  entry: ['./src/*.ts'],
+  entry: ['./src/index.ts'],
   format: ['esm'],
   unbundle: true,
   dts: true,
@@ -10,6 +10,9 @@ const config: UserConfig = defineConfig({
   clean: true,
   minify: false,
   fixedExtension: false,
+  exports: {
+    devExports: true,
+  },
   publint: {
     strict: true,
   },
