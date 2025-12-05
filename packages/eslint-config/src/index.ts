@@ -9,6 +9,7 @@ import { importRules } from './import.js'
 import { typescriptRules } from './typescript.js'
 import { nodeRules } from './node.js'
 import { stylisticRules } from './stylistic.js'
+import type { Linter } from 'eslint'
 
 const GLOB_EXCLUDE = [
   '**/.nx/**',
@@ -35,8 +36,7 @@ const jsPlugins = {
   node: nodePlugin,
 }
 
-/** @type {Array<import('eslint').Linter.Config>} */
-export const tanstackConfig = [
+export const tanstackConfig: Array<Linter.Config> = [
   {
     name: 'tanstack/ignores',
     ignores: GLOB_EXCLUDE,

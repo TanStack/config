@@ -1,7 +1,9 @@
-// https://typescript-eslint.io/rules/
+import type { Linter } from 'eslint'
 
-/** @type {import('eslint').Linter.RulesRecord} */
-export const typescriptRules = {
+/**
+ * @see https://typescript-eslint.io/rules/
+ */
+export const typescriptRules: Linter.RulesRecord = {
   /** Prefer Array<T> format */
   '@typescript-eslint/array-type': [
     'error',

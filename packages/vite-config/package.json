@@ -20,14 +20,18 @@
     "build": "tsdown"
   },
   "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      }
-    },
+    ".": "./src/index.ts",
     "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": "./dist/index.js",
+      "./package.json": "./package.json"
+    }
   },
   "preferGlobal": false,
   "sideEffects": false,
@@ -45,6 +49,7 @@
     "vite-tsconfig-paths": "catalog:"
   },
   "devDependencies": {
+    "@tanstack/eslint-config": "workspace:*",
     "tsdown": "catalog:",
     "vite": "catalog:"
   },

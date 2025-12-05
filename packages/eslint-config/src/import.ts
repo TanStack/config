@@ -1,7 +1,9 @@
-// https://github.com/un-ts/eslint-plugin-import-x
+import type { Linter } from 'eslint'
 
-/** @type {import('eslint').Linter.RulesRecord} */
-export const importRules = {
+/**
+ * @see https://github.com/un-ts/eslint-plugin-import-x
+ */
+export const importRules: Linter.RulesRecord = {
   /** Bans the use of inline type-only markers for named imports */
   'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
   /** Reports any imports that come after non-import statements */

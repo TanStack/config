@@ -44,6 +44,7 @@
     "simple-git": "catalog:"
   },
   "devDependencies": {
+    "@tanstack/eslint-config": "workspace:*",
     "@types/jsonfile": "catalog:",
     "@types/semver": "catalog:",
     "type-fest": "catalog:"
