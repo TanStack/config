@@ -197,6 +197,9 @@ importers:
       tinyglobby:
         specifier: 'catalog:'
         version: 0.2.15
+      tsdown:
+        specifier: 'catalog:'
+        version: 0.17.0(@arethetypeswrong/core@0.18.2)(publint@0.3.15)(typescript@5.9.3)
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -296,9 +299,6 @@ importers:
       eslint:
         specifier: 'catalog:'
         version: 9.37.0(jiti@2.6.1)
-      tsdown:
-        specifier: 'catalog:'
-        version: 0.17.0(@arethetypeswrong/core@0.18.2)(publint@0.3.15)(typescript@5.9.3)
 
   packages/publish-config:
     dependencies:
@@ -362,9 +362,6 @@ importers:
       '@tanstack/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      tsdown:
-        specifier: 'catalog:'
-        version: 0.17.0(@arethetypeswrong/core@0.18.2)(publint@0.3.15)(typescript@5.9.3)
       vite:
         specifier: 'catalog:'
         version: 7.2.4(@types/node@24.10.1)(jiti@2.6.1)(yaml@2.8.1)

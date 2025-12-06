@@ -17,21 +17,21 @@
   "scripts": {
     "test:types": "tsc",
     "test:eslint": "eslint --concurrency=auto ./src",
-    "test:build": "publint --strict"
+    "build": "tsdown"
   },
   "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "import": {
-        "types": "./src/index.d.ts",
-        "default": "./src/index.js"
-      }
-    },
+    ".": "./dist/index.js",
+    "./typedoc-custom-settings": "./dist/typedoc-custom-settings.js",
     "./package.json": "./package.json"
   },
   "preferGlobal": false,
   "sideEffects": false,
   "files": [
+    "dist",
     "src"
   ],
   "engines": {

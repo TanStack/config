@@ -50,7 +50,6 @@
   },
   "devDependencies": {
     "@tanstack/eslint-config": "workspace:*",
-    "tsdown": "catalog:",
     "vite": "catalog:"
   },
   "peerDependencies": {
