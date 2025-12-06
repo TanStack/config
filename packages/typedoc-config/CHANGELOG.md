@@ -1,5 +1,11 @@
 # @tanstack/typedoc-config
 
+## 0.3.3
+
+### Patch Changes
+
+- build: migrate to tsdown ([#327](https://github.com/TanStack/config/pull/327))
+
 ## 0.3.2
 
 ### Patch Changes
