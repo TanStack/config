@@ -5,8 +5,9 @@ import { preserveDirectives } from 'rollup-plugin-preserve-directives'
 import { externalizeDeps } from 'vite-plugin-externalize-deps'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import dts from 'vite-plugin-dts'
+import { reportIndexFiles } from './report-index-files.ts'
 import type { UserConfig } from 'vite'
-import type { Options } from './types.js'
+import type { Options } from './types.ts'
 
 export type { Options }
 
@@ -37,6 +38,7 @@ export const tanstackViteConfig = (options: Options): UserConfig => {
 
   return defineConfig({
     plugins: [
+      reportIndexFiles(),
       externalizeDeps({
         include: options.externalDeps ?? [],
         except: options.bundledDeps ?? [],
