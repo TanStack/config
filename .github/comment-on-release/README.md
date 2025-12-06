@@ -50,7 +50,6 @@ Add this step to your `.github/workflows/release.yml` file after the `changesets
     title: 'ci: Version Packages'
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 - name: Comment on PRs about release
   if: steps.changesets.outputs.published == 'true'
