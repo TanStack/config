@@ -12,5 +12,3 @@ export type Options = {
   /** Override branch for GitHub links */
   gitBranch?: string
 }
-
-export function generateReferenceDocs(config: Options): Promise<void>

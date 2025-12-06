@@ -2,13 +2,12 @@ import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { mkdir, rm } from 'node:fs/promises'
 import * as TypeDoc from 'typedoc'
+import type { PluginOptions } from 'typedoc-plugin-markdown'
+import type { Options } from './types.ts'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
-/**
- * @type {Partial<import("typedoc").TypeDocOptions & import("typedoc-plugin-markdown").PluginOptions>}
- */
-const settings = {
+const settings: Partial<TypeDoc.TypeDocOptions & PluginOptions> = {
   plugin: [
     'typedoc-plugin-markdown',
     'typedoc-plugin-frontmatter',
@@ -23,11 +22,9 @@ const settings = {
   excludePrivate: true,
 }
 
-/**
- * @param {import('./index.js').Options} options
- * @returns {Promise<void>}
- */
-export const generateReferenceDocs = async (options) => {
+export const generateReferenceDocs = async (
+  options: Options,
+): Promise<void> => {
   for (const pkg of options.packages) {
     // Clean and recreate the output directories
     try {
