@@ -21,7 +21,7 @@ The TanStack projects use Nx to enable rapid execution of our tests and builds. 
 ### Config Files
 
 - `./nx.json`: Main config file, which defines task dependencies, inputs, and outputs
-- `./package.json`: Need to manually specify root-level scripts (e.g. `test:format`)
+- `./package.json`: Need to manually specify root-level scripts (e.g. `test:eslint`)
 - `./**/package.json`: Package-level scripts (e.g. `build`) are automatically detected
 
 ### Nx Agents

@@ -42,3 +42,10 @@ publish({
 > ```
 >
 > in your `package.json` file and use `import` instead of `require`.
+
+
+## Trusted Publishing
+
+- [setup-npm-trusted-publish](https://github.com/azu/setup-npm-trusted-publish)
+- [open-packages-on-npm](https://github.com/antfu/open-packages-on-npm)
+- [sxzz's userscript](https://github.com/sxzz/userscripts/blob/main/src/npm-trusted-publisher.md)
