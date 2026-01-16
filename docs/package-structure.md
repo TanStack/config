@@ -17,10 +17,6 @@ The following structure ensures packages work optimally with our monorepo/Nx wor
 - Extends the root-level tsconfig (e.g. `"extends": "../../tsconfig.json"`)
 - Add any framework-specific options and included files here
 
-### `./vite.config.ts`
-
-- Includes config for Vitest, and for Vite if [@tanstack/vite-config](./vite.md) is used
-
 ### `./src`
 
 - This folder should only include code which gets built and shipped to users
@@ -30,3 +26,11 @@ The following structure ensures packages work optimally with our monorepo/Nx wor
 
 - This folder should include all test files
 - It should also include any test setup files required by that framework
+
+### `./tsdown.config.ts`
+
+- Defines `tsdown` config, including any framework-specific plugins.
+
+### `./vitest.config.ts`
+
+- Defines config for Vitest
