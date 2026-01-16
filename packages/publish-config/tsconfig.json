@@ -3,5 +3,5 @@
   "compilerOptions": {
     "checkJs": true
   },
-  "include": ["src", "*.config.*"]
+  "include": ["src"]
 }
