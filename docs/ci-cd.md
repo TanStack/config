@@ -6,13 +6,13 @@ title: CI/CD
 ## GitHub Workflows
 
 - `pr.yml`:
-    - Runs tests for all pull requests
-    - Runs `nx affected`, which only executes tasks with invalidated cache
-    - Also uses `pkg-pr-new` to publish package previews and create links to our examples
+  - Runs tests for all pull requests
+  - Runs `nx affected`, which only executes tasks with invalidated cache
+  - Also uses `pkg-pr-new` to publish package previews and create links to our examples
 - `release.yml`:
-    - Runs tests for code merged into release branches
-    - Runs `nx run-many`, which executes all tasks and ensures the outputs are present (necessary for publishing builds)
-    - Uses [Changesets](https://github.com/changesets/changesets) to handle versioning and publishing
+  - Runs tests for code merged into release branches
+  - Runs `nx run-many`, which executes all tasks and ensures the outputs are present (necessary for publishing builds)
+  - Uses [Changesets](https://github.com/changesets/changesets) to handle versioning and publishing
 
 ## Nx
 

@@ -3,6 +3,5 @@
 **/.svelte-kit
 **/coverage
 **/dist
-**/docs
 **/snap
 pnpm-lock.yaml

@@ -9,10 +9,10 @@ TanStack Config is a collection of tools we currently use between our projects t
 
 The following tools are required to use these packages:
 
-- [Node.js v18.17+](https://nodejs.org/en/download/current/)
+- [Node.js v20.17.0+](https://nodejs.org/en/download/current/)
 - [Git CLI](https://git-scm.com/downloads)
 - [GitHub CLI](https://cli.github.com/) (pre-installed on GitHub Actions)
-- [pnpm v8+](https://pnpm.io/)
+- [pnpm v10+](https://pnpm.io/)
 
 > pnpm is the only supported package manager for TanStack Config.
 
