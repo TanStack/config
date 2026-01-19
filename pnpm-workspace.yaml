@@ -13,7 +13,7 @@ catalog:
   '@eslint/js': ^9.39.2
   '@stylistic/eslint-plugin': ^5.7.0
   '@svitejs/changesets-changelog-github-compact': ^1.2.0
-  '@tanstack/query-core': ^5.90.18
+  '@tanstack/query-core': ^5.90.19
   '@types/eslint': ^9.6.1
   '@types/jsonfile': ^6.1.4
   '@types/node': ^24.10.1
@@ -38,7 +38,7 @@ catalog:
   react-dom: ^19.2.3
   rollup-plugin-preserve-directives: ^0.4.0
   semver: ^7.7.3
-  sherif: ^1.9.0
+  sherif: ^1.10.0
   simple-git: ^3.30.0
   tinyglobby: ^0.2.15
   tsdown: ^0.19.0
