@@ -9,6 +9,7 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "lib": ["ES2022"],
+    "libReplacement": false,
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "noEmit": true,
