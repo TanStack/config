@@ -28,11 +28,10 @@ export const javascriptConfig: OxlintConfig = {
     'no-loss-of-precision': 'error',
     'no-misleading-character-class': 'error',
     'no-nonoctal-decimal-escape': 'error',
-    // 'no-octal': 'error', // No implementation yet / unsupported
     'no-regex-spaces': 'error',
     'no-self-assign': 'error',
     /** Warn about variable with identical names in the outer scope */
-    // 'no-shadow': 'warn', // No implementation yet / unsupported
+    // 'no-shadow': 'warn', // No implementation yet
     'no-shadow-restricted-names': 'error',
     'no-sparse-arrays': 'error',
     'no-unsafe-finally': 'error',

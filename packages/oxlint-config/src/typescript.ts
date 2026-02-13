@@ -22,10 +22,10 @@ export const typescriptConfig: OxlintConfig = {
       { prefer: 'type-imports' },
     ],
     /** Shorthand method style is less strict */
-    // '@typescript-eslint/method-signature-style': ['error', 'property'], // No implemented yet / unsuppported
+    // '@typescript-eslint/method-signature-style': ['error', 'property'], // No implemented yet
 
     /** Enforces generic type convention */
-    // // Not implemented yet / unsupported
+    // // Not implemented yet
     // '@typescript-eslint/naming-convention': [
     //   'error',
     //   {

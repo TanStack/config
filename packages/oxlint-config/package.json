@@ -1,7 +1,7 @@
 {
   "name": "@tanstack/oxlint-config",
-  "version": "0.3.4",
-  "description": "Shared oxlint config used by TanStack projects.",
+  "version": "0.1.0",
+  "description": "Oxlint config based on @tanstack/eslint-config",
   "author": "tannerlinsley",
   "license": "MIT",
   "repository": {
