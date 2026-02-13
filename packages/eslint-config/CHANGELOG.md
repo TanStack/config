@@ -1,5 +1,11 @@
 # @tanstack/eslint-config
 
+## 0.4.0
+
+### Minor Changes
+
+- feat: update to @eslint/js v10 ([#340](https://github.com/TanStack/config/pull/340))
+
 ## 0.3.4
 
 ### Patch Changes
