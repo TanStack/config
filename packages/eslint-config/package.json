@@ -20,8 +20,6 @@
     "build": "tsdown"
   },
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": "./src/index.ts",
@@ -56,6 +54,6 @@
     "eslint": "catalog:"
   },
   "peerDependencies": {
-    "eslint": "^8.0.0 || ^9.0.0"
+    "eslint": "^9.0.0 || ^10.0.0"
   }
 }
