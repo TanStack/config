@@ -1,5 +1,5 @@
 ---
-'@tanstack/vite-config': minor
+'@tanstack/vite-config': major
 ---
 
-Add Vite 8 peer dependency support
+Bump to Vite 8 with Rolldown. Drops Vite 6/7 support. Switches to `rolldownOptions` and native `resolve.tsconfigPaths`.
