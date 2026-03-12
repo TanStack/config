@@ -1,5 +1,15 @@
 # @tanstack/vite-config
 
+## 0.5.0
+
+### Minor Changes
+
+- Bump to Vite 8 with Rolldown. Drops Vite 6/7 support. Switches to `rolldownOptions` and native `resolve.tsconfigPaths`. ([#348](https://github.com/TanStack/config/pull/348))
+
+### Patch Changes
+
+- fix: remove rollup-plugin-preserve-directives ([#351](https://github.com/TanStack/config/pull/351))
+
 ## 0.4.3
 
 ### Patch Changes
