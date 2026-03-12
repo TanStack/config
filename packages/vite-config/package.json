@@ -41,7 +41,6 @@
     "node": ">=18"
   },
   "dependencies": {
-    "rollup-plugin-preserve-directives": "catalog:",
     "vite-plugin-dts": "catalog:",
     "vite-plugin-externalize-deps": "catalog:",
     "vite-tsconfig-paths": "catalog:"

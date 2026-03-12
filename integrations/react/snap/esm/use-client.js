@@ -1,5 +1,4 @@
 "use client";
-"use client";
 import { jsx } from "react/jsx-runtime";
 //#region src/use-client.tsx
 var Component = () => {
