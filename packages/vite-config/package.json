@@ -51,6 +51,6 @@
     "vite": "catalog:"
   },
   "peerDependencies": {
-    "vite": "^6.0.0 || ^7.0.0"
+    "vite": "^6.0.0 || ^7.0.0 || ^8.0.0"
   }
 }

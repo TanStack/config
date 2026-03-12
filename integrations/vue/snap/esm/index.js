@@ -1,5 +1,2 @@
-import { default as default2 } from "./App.vue.js";
-export {
-  default2 as App
-};
-//# sourceMappingURL=index.js.map
+import App_default from "./App.js";
+export { App_default as App };

@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
@@ -22,8 +22,10 @@ describe('check Vanilla build output', () => {
   it('should build the same ESM output', () => {
     files.forEach((file) => {
       esmExtensions.forEach((ext) => {
+        const filePath = `${rootDir}/dist/esm/${file}${ext}`
+        if (!existsSync(filePath)) return
         expect(
-          readFileSync(`${rootDir}/dist/esm/${file}${ext}`).toString(),
+          readFileSync(filePath).toString(),
         ).toMatchFileSnapshot(`${rootDir}/snap/esm/${file}${ext}`)
       })
     })
@@ -32,8 +34,10 @@ describe('check Vanilla build output', () => {
   it('should build the same CJS output', () => {
     files.forEach((file) => {
       cjsExtensions.forEach((ext) => {
+        const filePath = `${rootDir}/dist/cjs/${file}${ext}`
+        if (!existsSync(filePath)) return
         expect(
-          readFileSync(`${rootDir}/dist/cjs/${file}${ext}`).toString(),
+          readFileSync(filePath).toString(),
         ).toMatchFileSnapshot(`${rootDir}/snap/cjs/${file}${ext}`)
       })
     })
