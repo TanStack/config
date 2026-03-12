@@ -1,10 +1,8 @@
-"use strict";
-const _export_sfc = (sfc, props) => {
-  const target = sfc.__vccOpts || sfc;
-  for (const [key, val] of props) {
-    target[key] = val;
-  }
-  return target;
+//#region \0plugin-vue:export-helper
+var _plugin_vue_export_helper_default = (sfc, props) => {
+	const target = sfc.__vccOpts || sfc;
+	for (const [key, val] of props) target[key] = val;
+	return target;
 };
-module.exports = _export_sfc;
-//# sourceMappingURL=_plugin-vue_export-helper.cjs.map
+//#endregion
+exports.default = _plugin_vue_export_helper_default;

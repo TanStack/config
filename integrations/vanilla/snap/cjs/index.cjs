@@ -1,5 +1,3 @@
-"use strict";
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const utils = require("./utils.cjs");
-exports.optionalChaining = utils.optionalChaining;
-//# sourceMappingURL=index.cjs.map
+const require_utils = require("./utils.cjs");
+exports.optionalChaining = require_utils.optionalChaining;

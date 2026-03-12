@@ -1,8 +1,9 @@
-const optionalChaining = (data) => {
-  return data?.maybe?.property;
+//#region src/utils.ts
+var optionalChaining = (data) => {
+	return data?.maybe?.property;
 };
 console.log(import("./dynamic.js"));
-export {
-  optionalChaining
-};
+//#endregion
+export { optionalChaining };
+
 //# sourceMappingURL=utils.js.map

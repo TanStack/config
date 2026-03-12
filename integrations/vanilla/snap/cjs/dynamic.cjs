@@ -1,5 +1,6 @@
-"use strict";
-Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const foo = "HELLO";
+//#region src/dynamic.ts
+var foo = "HELLO";
+//#endregion
 exports.foo = foo;
+
 //# sourceMappingURL=dynamic.cjs.map
