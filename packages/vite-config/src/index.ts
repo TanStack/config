@@ -1,7 +1,6 @@
 // @ts-check
 
 import { defineConfig } from 'vite'
-import { preserveDirectives } from 'rollup-plugin-preserve-directives'
 import { externalizeDeps } from 'vite-plugin-externalize-deps'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import dts from 'vite-plugin-dts'
@@ -44,7 +43,6 @@ export const tanstackViteConfig = (options: Options): UserConfig => {
         include: options.externalDeps ?? [],
         except: options.bundledDeps ?? [],
       }),
-      preserveDirectives(),
       // Use vite-tsconfig-paths plugin only when a custom tsconfigPath is specified,
       // otherwise Vite 8's native resolve.tsconfigPaths handles it
       options.tsconfigPath

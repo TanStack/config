@@ -1,1 +1,1 @@
-{"version":3,"file":"use-client.js","names":[],"sources":["../../src/use-client.tsx"],"sourcesContent":["'use client'\n\nexport const Component = () => {\n  return <div>Hello world!</div>\n}\n"],"mappings":";;;;AAEA,IAAA,kBAAA;AACE,QAAA,oBAAA,OAAA,EAAA,UAAA,gBAAA,CAAA"}
+{"version":3,"file":"use-client.js","names":[],"sources":["../../src/use-client.tsx"],"sourcesContent":["'use client'\n\nexport const Component = () => {\n  return <div>Hello world!</div>\n}\n"],"mappings":";;;AAEA,IAAa,kBAAkB;AAC7B,QAAO,oBAAC,OAAD,EAAA,UAAK,gBAAkB,CAAA"}

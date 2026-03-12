@@ -56,7 +56,6 @@ export const tanstackConfig: Array<Linter.Config> = [
         ...globals.browser,
       },
     },
-    // @ts-expect-error
     plugins: jsPlugins,
     rules: jsRules,
   },
@@ -76,7 +75,6 @@ export const tanstackConfig: Array<Linter.Config> = [
         ...globals.browser,
       },
     },
-    // @ts-expect-error
     plugins: jsPlugins,
     rules: jsRules,
   },
