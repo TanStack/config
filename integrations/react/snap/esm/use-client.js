@@ -1,9 +1,10 @@
 "use client";
 import { jsx } from "react/jsx-runtime";
-const Component = () => {
-  return /* @__PURE__ */ jsx("div", { children: "Hello world!" });
+//#region src/use-client.tsx
+var Component = () => {
+	return /* @__PURE__ */ jsx("div", { children: "Hello world!" });
 };
-export {
-  Component
-};
+//#endregion
+export { Component };
+
 //# sourceMappingURL=use-client.js.map

@@ -1,5 +1,6 @@
-const foo = "HELLO";
-export {
-  foo
-};
+//#region src/dynamic.ts
+var foo = "HELLO";
+//#endregion
+export { foo };
+
 //# sourceMappingURL=dynamic.js.map

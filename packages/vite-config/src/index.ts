@@ -1,7 +1,6 @@
 // @ts-check
 
 import { defineConfig } from 'vite'
-import { preserveDirectives } from 'rollup-plugin-preserve-directives'
 import { externalizeDeps } from 'vite-plugin-externalize-deps'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import dts from 'vite-plugin-dts'
@@ -36,15 +35,21 @@ export const tanstackViteConfig = (options: Options): UserConfig => {
   const cjs = options.cjs ?? true
 
   return defineConfig({
+    resolve: {
+      tsconfigPaths: !options.tsconfigPath,
+    },
     plugins: [
       externalizeDeps({
         include: options.externalDeps ?? [],
         except: options.bundledDeps ?? [],
       }),
-      preserveDirectives(),
-      tsconfigPaths({
-        projects: options.tsconfigPath ? [options.tsconfigPath] : undefined,
-      }),
+      // Use vite-tsconfig-paths plugin only when a custom tsconfigPath is specified,
+      // otherwise Vite 8's native resolve.tsconfigPaths handles it
+      options.tsconfigPath
+        ? tsconfigPaths({
+            projects: [options.tsconfigPath],
+          })
+        : undefined,
       dts({
         outDir: `${outDir}/esm`,
         entryRoot: options.srcDir,
@@ -114,7 +119,7 @@ export const tanstackViteConfig = (options: Options): UserConfig => {
           return 'esm/[name].js'
         },
       },
-      rollupOptions: {
+      rolldownOptions: {
         output: {
           preserveModules: true,
         },
