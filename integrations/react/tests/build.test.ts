@@ -24,9 +24,9 @@ describe('check React build output', () => {
       esmExtensions.forEach((ext) => {
         const filePath = `${rootDir}/dist/esm/${file}${ext}`
         if (!existsSync(filePath)) return
-        expect(
-          readFileSync(filePath).toString(),
-        ).toMatchFileSnapshot(`${rootDir}/snap/esm/${file}${ext}`)
+        expect(readFileSync(filePath).toString()).toMatchFileSnapshot(
+          `${rootDir}/snap/esm/${file}${ext}`,
+        )
       })
     })
   })
@@ -36,9 +36,9 @@ describe('check React build output', () => {
       cjsExtensions.forEach((ext) => {
         const filePath = `${rootDir}/dist/cjs/${file}${ext}`
         if (!existsSync(filePath)) return
-        expect(
-          readFileSync(filePath).toString(),
-        ).toMatchFileSnapshot(`${rootDir}/snap/cjs/${file}${ext}`)
+        expect(readFileSync(filePath).toString()).toMatchFileSnapshot(
+          `${rootDir}/snap/cjs/${file}${ext}`,
+        )
       })
     })
   })
