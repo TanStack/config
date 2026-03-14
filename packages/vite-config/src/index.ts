@@ -83,7 +83,7 @@ export const tanstackViteConfig = (options: Options): UserConfig => {
             exclude: options.exclude,
             tsconfigPath: options.tsconfigPath,
             compilerOptions: {
-              module: 1, // CommonJS
+              module: 100, // CommonJS - Node16
               declarationMap: false,
             },
             beforeWriteFile: (filePath, content) => {
