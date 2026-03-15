@@ -1,5 +1,11 @@
 # @tanstack/vite-config
 
+## 0.5.1
+
+### Patch Changes
+
+- fix: declaration resolution where CJS output does not exist for import ([#352](https://github.com/TanStack/config/pull/352))
+
 ## 0.5.0
 
 ### Minor Changes
