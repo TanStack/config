@@ -2,4 +2,4 @@
 '@tanstack/vite-config': patch
 ---
 
-fix: upgrade from cjs node10 to node16
+fix: declaration resolution where CJS output does not exist for import
