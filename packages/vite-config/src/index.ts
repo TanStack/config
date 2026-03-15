@@ -57,7 +57,7 @@ export const tanstackViteConfig = (options: Options): UserConfig => {
         exclude: options.exclude,
         tsconfigPath: options.tsconfigPath,
         compilerOptions: {
-          module: 99, // ESNext
+          module: 199, // NodeNext
           declarationMap: false,
         },
         beforeWriteFile: (filePath, content) => {
@@ -83,7 +83,7 @@ export const tanstackViteConfig = (options: Options): UserConfig => {
             exclude: options.exclude,
             tsconfigPath: options.tsconfigPath,
             compilerOptions: {
-              module: 1, // CommonJS
+              module: 199, // NodeNext
               declarationMap: false,
             },
             beforeWriteFile: (filePath, content) => {
