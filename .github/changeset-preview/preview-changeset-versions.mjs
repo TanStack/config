@@ -1,16 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Preview the version bumps that `changeset version` will produce.
- *
- * Workflow:
- *   1. Snapshot every workspace package's current version
- *   2. Run `changeset version` (mutates package.json files)
- *   3. Diff against the snapshot
- *   4. Print a markdown summary (or write to --output file)
- *
- * This script is meant to run in CI on a disposable checkout — it does NOT
- * revert the changes it makes.
+ * Uses `@changesets/get-release-plan` to get the version bumps and formats it as markdown.
  */
 
 import { writeFileSync } from 'node:fs'
