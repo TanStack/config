@@ -52,7 +52,7 @@ async function main() {
   const bumps = []
   for (const release of releases) {
     if (release.oldVersion === release.newVersion) continue
-    const reason = release.changesets.length !== 0 ? 'direct' : 'indirect'
+    const reason = release.changesets.length !== 0 ? 'Changeset' : 'Dependent'
     bumps.push({ ...release, reason })
   }
 
@@ -73,8 +73,8 @@ async function main() {
     const majorBumps = bumps.filter((b) => b.type === 'major')
     const minorBumps = bumps.filter((b) => b.type === 'minor')
     const patchBumps = bumps.filter((b) => b.type === 'patch')
-    const directBumps = bumps.filter((b) => b.reason === 'direct')
-    const indirectBumps = bumps.filter((b) => b.reason === 'indirect')
+    const directBumps = bumps.filter((b) => b.reason === 'Changeset')
+    const indirectBumps = bumps.filter((b) => b.reason === 'Dependent')
 
     lines.push(
       `**${directBumps.length}** package(s) bumped directly, **${indirectBumps.length}** bumped as dependents.`,
