@@ -48,5 +48,8 @@
     "@types/jsonfile": "catalog:",
     "@types/semver": "catalog:",
     "type-fest": "catalog:"
+  },
+  "peerDependencies": {
+    "@tanstack/eslint-config": ">=0.4.0"
   }
 }
