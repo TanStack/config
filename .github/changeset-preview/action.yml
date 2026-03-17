@@ -1,0 +1,22 @@
+name: Changeset Preview
+description: Generates comment on a PR showing expected version impact
+runs:
+  using: composite
+  steps:
+    - name: Install dependencies
+      shell: bash
+      run: npm install
+      working-directory: ${{ github.action_path }}
+    - name: Preview version bumps
+      shell: bash
+      run: node ${{ github.action_path }}/preview-changeset-versions.mjs --output /tmp/changeset-preview.md
+    - name: Post PR comment
+      shell: bash
+      run: |
+        node ${{ github.action_path }}/upsert-pr-comment.mjs \
+          --pr "${{ github.event.number }}" \
+          --body-file /tmp/changeset-preview.md \
+          --marker "<!-- changeset-version-preview -->"
+      env:
+        REPOSITORY: ${{ github.repository }}
+        GH_TOKEN: ${{ github.token }}
