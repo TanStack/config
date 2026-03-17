@@ -18,7 +18,7 @@ import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { parseArgs } from 'node:util'
 
-const ROOT = resolve(import.meta.dirname, '..')
+const ROOT = resolve(import.meta.dirname, '..', '..')
 console.log(ROOT)
 
 const PACKAGES_DIR = join(ROOT, 'packages')
