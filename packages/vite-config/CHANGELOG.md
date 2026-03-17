@@ -1,5 +1,11 @@
 # @tanstack/vite-config
 
+## 0.5.2
+
+### Patch Changes
+
+- fix: esm module 99 and cjs module 100 ([#354](https://github.com/TanStack/config/pull/354))
+
 ## 0.5.1
 
 ### Patch Changes
