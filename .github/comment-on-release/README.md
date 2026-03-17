@@ -53,7 +53,7 @@ Add this step to your `.github/workflows/release.yml` file after the `changesets
 
 - name: Comment on PRs about release
   if: steps.changesets.outputs.published == 'true'
-  uses: tanstack/config/.github/comment-on-release@main
+  uses: TanStack/config/.github/comment-on-release@main
   with:
     published-packages: ${{ steps.changesets.outputs.publishedPackages }}
 ```
