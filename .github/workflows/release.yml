@@ -15,7 +15,6 @@ permissions:
   contents: write
   id-token: write
   pull-requests: write
-  issues: write
 
 jobs:
   release:
@@ -39,8 +38,6 @@ jobs:
           publish: pnpm run changeset:publish
           commit: 'ci: Version Packages'
           title: 'ci: Version Packages'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Comment on PRs and issues about release
         if: steps.changesets.outputs.published == 'true'
         uses: ./.github/comment-on-release
