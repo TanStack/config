@@ -12,6 +12,7 @@ env:
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   test:
@@ -36,8 +37,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6.0.2
-        with:
-          fetch-depth: 0
       - name: Setup Tools
         uses: ./.github/setup
       - name: Build Packages
@@ -50,9 +49,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6.0.2
-        with:
-          fetch-depth: 0
       - name: Check Provenance
         uses: danielroe/provenance-action@v0.1.1
         with:
           fail-on-downgrade: true
+  version-preview:
+    name: Version Preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+      - name: Setup Tools
+        uses: ./.github/setup
+      - name: Changeset Preview
+        uses: ./.github/changeset-preview
