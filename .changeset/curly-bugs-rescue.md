@@ -1,5 +1,5 @@
 ---
-'@tanstack/publish-config': minor
+'@tanstack/publish-config': patch
 ---
 
 test

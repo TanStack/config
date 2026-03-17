@@ -20,8 +20,8 @@ import getReleasePlan from '@changesets/get-release-plan'
 
 const ROOT = resolve(import.meta.dirname, '..', '..')
 
-function bumpRank(bump) {
-  return bump === 'major' ? 3 : bump === 'minor' ? 2 : 1
+function reasonRank(reason) {
+  return reason === 'Changeset' ? 2 : 1
 }
 
 async function main() {
@@ -56,7 +56,12 @@ async function main() {
     bumps.push({ ...release, reason })
   }
 
-  bumps.sort((a, b) => a.name.localeCompare(b.name))
+  // Order by reason and name
+  bumps.sort(
+    (a, b) =>
+      reasonRank(b.reason) - reasonRank(a.reason) ||
+      a.name.localeCompare(b.name),
+  )
 
   // 7. Build markdown
   const lines = []
