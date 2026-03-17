@@ -18,5 +18,4 @@ runs:
           --body-file /tmp/changeset-preview.md \
           --marker "<!-- changeset-version-preview -->"
       env:
-        REPOSITORY: ${{ github.repository }}
-        GH_TOKEN: ${{ github.token }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
