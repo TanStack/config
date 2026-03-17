@@ -343,9 +343,6 @@ importers:
 
   packages/vite-config:
     dependencies:
-      '@tanstack/publish-config':
-        specifier: workspace:^
-        version: link:../publish-config
       vite-plugin-dts:
         specifier: 'catalog:'
         version: 4.2.3(@types/node@25.3.3)(rollup@4.59.0)(typescript@6.0.1-rc)(vite@8.0.0(@types/node@25.3.3)(esbuild@0.27.3)(jiti@2.6.1)(yaml@2.8.2))
