@@ -82,7 +82,7 @@ async function main() {
     lines.push('')
 
     if (majorBumps.length > 0) {
-      lines.push('### Major bumps')
+      lines.push('### 🟥 Major bumps')
       lines.push('')
       lines.push('| Package | Version | Reason |')
       lines.push('| --- | --- | --- |')
@@ -95,7 +95,7 @@ async function main() {
     }
 
     if (minorBumps.length > 0) {
-      lines.push('### Minor bumps')
+      lines.push('### 🟨 Minor bumps')
       lines.push('')
       lines.push('| Package | Version | Reason |')
       lines.push('| --- | --- | --- |')
@@ -108,7 +108,7 @@ async function main() {
     }
 
     if (patchBumps.length > 0) {
-      lines.push('### Patch bumps')
+      lines.push('### 🟩 Patch bumps')
       lines.push('')
       lines.push('| Package | Version | Reason |')
       lines.push('| --- | --- | --- |')

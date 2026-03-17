@@ -1,5 +1,5 @@
 ---
-'@tanstack/eslint-config': minor
+'@tanstack/publish-config': minor
 ---
 
 test
