@@ -12,5 +12,3 @@ runs:
       run: node ${{ github.action_path }}/comment-on-release.ts
       env:
         PUBLISHED_PACKAGES: ${{ inputs.published-packages }}
-        REPOSITORY: ${{ github.repository }}
-        GH_TOKEN: ${{ github.token }}

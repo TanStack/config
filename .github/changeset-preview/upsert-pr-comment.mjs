@@ -26,7 +26,7 @@ function parseArgs(argv) {
     bodyFile: values['body-file'],
     repo: values.repo ?? process.env.GITHUB_REPOSITORY,
     marker: values.marker ?? DEFAULT_MARKER,
-    token: values.token ?? (process.env.GITHUB_TOKEN || process.env.GH_TOKEN),
+    token: values.token ?? process.env.GITHUB_TOKEN,
     apiUrl:
       values['api-url'] ??
       (process.env.GITHUB_API_URL || 'https://api.github.com'),
