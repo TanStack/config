@@ -4,7 +4,7 @@ import { promises as fsp } from 'node:fs'
 import path from 'node:path'
 import { parseArgs as parseNodeArgs } from 'node:util'
 
-const DEFAULT_MARKER = '<!-- bundle-size-benchmark -->'
+const DEFAULT_MARKER = '<!-- changeset-version-preview -->'
 
 function parseArgs(argv) {
   const { values } = parseNodeArgs({
@@ -109,9 +109,9 @@ async function main() {
   const args = parseArgs(process.argv.slice(2))
   const bodyPath = path.resolve(args.bodyFile)
   const rawBody = await fsp.readFile(bodyPath, 'utf8')
-  const body = rawBody.includes(args.marker)
-    ? rawBody
-    : `${args.marker}\n${rawBody}`
+  const body = `${args.marker}\n## Changeset Version Preview\n\n${rawBody}`
+
+  process.stdout.write(body)
 
   const comments = await listIssueComments({
     apiUrl: args.apiUrl,

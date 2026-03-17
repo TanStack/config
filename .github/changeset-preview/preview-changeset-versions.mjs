@@ -90,10 +90,10 @@ function main() {
 
   if (explicit.size === 0) {
     const msg = 'No changeset entries found — nothing to preview.\n'
+    process.stdout.write(msg)
     if (values.output) {
       writeFileSync(values.output, msg)
-    } else {
-      process.stdout.write(msg)
+      process.stdout.write(`Written to ${values.output}\n`)
     }
     return
   }
@@ -138,9 +138,6 @@ function main() {
 
   // 7. Build markdown
   const lines = []
-  lines.push('<!-- changeset-version-preview -->')
-  lines.push('## Changeset Version Preview')
-  lines.push('')
 
   if (bumps.length === 0) {
     lines.push('No version changes detected.')
@@ -184,13 +181,12 @@ function main() {
   }
 
   lines.push('')
-
   const md = lines.join('\n')
+
+  process.stdout.write(md)
   if (values.output) {
     writeFileSync(values.output, md)
     process.stdout.write(`Written to ${values.output}\n`)
-  } else {
-    process.stdout.write(md)
   }
 }
 
