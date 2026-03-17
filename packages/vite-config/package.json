@@ -50,7 +50,7 @@
     "vite": "catalog:"
   },
   "peerDependencies": {
-    "@tanstack/publish-config": "workspace:*",
+    "@tanstack/publish-config": "workspace:^",
     "vite": "^8.0.0"
   }
 }
