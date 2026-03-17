@@ -344,7 +344,7 @@ importers:
   packages/vite-config:
     dependencies:
       '@tanstack/publish-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../publish-config
       vite-plugin-dts:
         specifier: 'catalog:'
