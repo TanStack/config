@@ -4,8 +4,10 @@ runs:
   using: composite
   steps:
     - name: Preview version bumps
+      shell: bash
       run: node ${{ github.action_path }}/preview-changeset-versions.mjs --output /tmp/changeset-preview.md
     - name: Post PR comment
+      shell: bash
       run: |
         node ${{ github.action_path }}/upsert-pr-comment.mjs \
           --pr "${{ github.event.number }}" \
