@@ -9,7 +9,9 @@ import { resolve } from 'node:path'
 import { parseArgs } from 'node:util'
 import getReleasePlan from '@changesets/get-release-plan'
 
-const ROOT = resolve(import.meta.dirname, '..', '..')
+const GITHUB_WORKSPACE = resolve(process.env.GITHUB_WORKSPACE)
+
+console.log(`Using workspace: ${GITHUB_WORKSPACE}`)
 
 function reasonRank(reason) {
   return reason === 'Changeset' ? 2 : 1
@@ -25,7 +27,7 @@ async function main() {
     allowPositionals: false,
   })
 
-  const releasePlan = await getReleasePlan(ROOT)
+  const releasePlan = await getReleasePlan(GITHUB_WORKSPACE)
   const releases = releasePlan.releases
 
   if (releases.length === 0) {
