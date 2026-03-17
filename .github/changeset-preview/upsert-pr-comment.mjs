@@ -111,8 +111,6 @@ async function main() {
   const rawBody = await fsp.readFile(bodyPath, 'utf8')
   const body = `${args.marker}\n## 🚀 Changeset Version Preview\n\n${rawBody}`
 
-  process.stdout.write(body)
-
   const comments = await listIssueComments({
     apiUrl: args.apiUrl,
     token: args.token,
