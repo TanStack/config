@@ -56,11 +56,7 @@ async function main() {
     bumps.push({ ...release, reason })
   }
 
-  // Sort: major first, then minor, then patch; within each group alphabetical
-  bumps.sort(
-    (a, b) =>
-      bumpRank(b.type) - bumpRank(a.type) || a.name.localeCompare(b.name),
-  )
+  bumps.sort((a, b) => a.name.localeCompare(b.name))
 
   // 7. Build markdown
   const lines = []
@@ -117,7 +113,6 @@ async function main() {
           `| \`${b.name}\` | ${b.oldVersion} → ${b.newVersion} |${b.reason} |`,
         )
       }
-      lines.push('')
     }
   }
 
