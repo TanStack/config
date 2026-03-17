@@ -487,7 +487,7 @@ export const publish = async (options) => {
       `gh release create v${version} ${
         branchConfig.prerelease ? '--prerelease' : ''
       } --notes '${changelogMd.replace(/'/g, '"')}'`,
-      { env: process.env },
+      { env: { ...process.env, GH_TOKEN: ghToken } },
     )
     console.info('  Github release created.')
   }
