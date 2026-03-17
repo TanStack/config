@@ -109,7 +109,7 @@ async function main() {
   const args = parseArgs(process.argv.slice(2))
   const bodyPath = path.resolve(args.bodyFile)
   const rawBody = await fsp.readFile(bodyPath, 'utf8')
-  const body = `${args.marker}\n## Changeset Version Preview\n\n${rawBody}`
+  const body = `${args.marker}\n## 🚀 Changeset Version Preview\n\n${rawBody}`
 
   process.stdout.write(body)
 

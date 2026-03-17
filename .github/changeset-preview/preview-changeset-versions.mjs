@@ -89,7 +89,8 @@ function main() {
   const explicit = readChangesetEntries()
 
   if (explicit.size === 0) {
-    const msg = 'No changeset entries found — nothing to preview.\n'
+    const msg =
+      'No changeset entries found. Merging this PR will not cause a version bump for any packages.\n'
     process.stdout.write(msg)
     if (values.output) {
       writeFileSync(values.output, msg)
@@ -140,7 +141,9 @@ function main() {
   const lines = []
 
   if (bumps.length === 0) {
-    lines.push('No version changes detected.')
+    lines.push(
+      'No version changes detected. Merging this PR will not cause a version bump for any packages.',
+    )
   } else {
     const explicitBumps = bumps.filter((b) => b.source !== 'dependency')
     const dependencyBumps = bumps.filter((b) => b.source === 'dependency')
