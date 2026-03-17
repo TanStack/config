@@ -89,7 +89,7 @@ async function main() {
       lines.push('| --- | --- | --- |')
       for (const b of majorBumps) {
         lines.push(
-          `| \`${b.name}\` | ${b.oldVersion} → ${b.newVersion} |${b.reason} |`,
+          `| \`${b.name}\` | ${b.oldVersion} → ${b.newVersion} | ${b.reason} |`,
         )
       }
       lines.push('')
@@ -102,7 +102,7 @@ async function main() {
       lines.push('| --- | --- | --- |')
       for (const b of minorBumps) {
         lines.push(
-          `| \`${b.name}\` | ${b.oldVersion} → ${b.newVersion} |${b.reason} |`,
+          `| \`${b.name}\` | ${b.oldVersion} → ${b.newVersion} | ${b.reason} |`,
         )
       }
       lines.push('')
@@ -115,7 +115,7 @@ async function main() {
       lines.push('| --- | --- | --- |')
       for (const b of patchBumps) {
         lines.push(
-          `| \`${b.name}\` | ${b.oldVersion} → ${b.newVersion} |${b.reason} |`,
+          `| \`${b.name}\` | ${b.oldVersion} → ${b.newVersion} | ${b.reason} |`,
         )
       }
     }
