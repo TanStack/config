@@ -53,7 +53,7 @@ jobs:
         uses: danielroe/provenance-action@v0.1.1
         with:
           fail-on-downgrade: true
-  preview:
+  version-preview:
     name: Version Preview
     runs-on: ubuntu-latest
     steps:
