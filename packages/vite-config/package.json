@@ -41,7 +41,6 @@
     "node": ">=18"
   },
   "dependencies": {
-    "@tanstack/publish-config": "workspace:*",
     "vite-plugin-dts": "catalog:",
     "vite-plugin-externalize-deps": "catalog:",
     "vite-tsconfig-paths": "catalog:"
