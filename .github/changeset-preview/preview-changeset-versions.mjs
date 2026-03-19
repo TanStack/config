@@ -9,7 +9,9 @@ import { resolve } from 'node:path'
 import { parseArgs } from 'node:util'
 import getReleasePlan from '@changesets/get-release-plan'
 
-const GITHUB_WORKSPACE = resolve(process.env.GITHUB_WORKSPACE)
+const GITHUB_WORKSPACE = resolve(
+  process.env.CHANGESET_WORKSPACE || process.env.GITHUB_WORKSPACE,
+)
 
 console.log(`Using workspace: ${GITHUB_WORKSPACE}`)
 

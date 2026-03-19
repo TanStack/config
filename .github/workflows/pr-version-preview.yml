@@ -16,17 +16,22 @@ jobs:
     name: Version Preview
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      # First checkout: base branch (trusted) — used for action code
+      - name: Checkout base
         uses: actions/checkout@v6.0.2
         with:
-          # Check out the PR head so we can read its changeset files.
-          # IMPORTANT: Do NOT run `pnpm install` or any repo scripts on
-          # this ref — pull_request_target grants elevated permissions,
-          # so executing untrusted code would be a security risk.
+          path: base
+      # Second checkout: PR merge ref — only used to read changeset files
+      - name: Checkout PR
+        uses: actions/checkout@v6.0.2
+        with:
           ref: refs/pull/${{ github.event.number }}/merge
+          path: pr
       - name: Setup Node
         uses: actions/setup-node@v6.3.0
         with:
-          node-version-file: .nvmrc
+          node-version-file: base/.nvmrc
       - name: Changeset Preview
-        uses: ./.github/changeset-preview
+        uses: ./base/.github/changeset-preview
+        with:
+          workspace: ${{ github.workspace }}/pr
