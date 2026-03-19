@@ -1,0 +1,32 @@
+name: Version Preview
+
+on:
+  pull_request_target:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  version-preview:
+    name: Version Preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+        with:
+          # Check out the PR head so we can read its changeset files.
+          # IMPORTANT: Do NOT run `pnpm install` or any repo scripts on
+          # this ref — pull_request_target grants elevated permissions,
+          # so executing untrusted code would be a security risk.
+          ref: refs/pull/${{ github.event.number }}/merge
+      - name: Setup Node
+        uses: actions/setup-node@v6.3.0
+        with:
+          node-version-file: .nvmrc
+      - name: Changeset Preview
+        uses: ./.github/changeset-preview
