@@ -1,5 +1,9 @@
 name: Changeset Preview
 description: Generates comment on a PR showing expected version impact
+inputs:
+  workspace:
+    description: Path to the repo checkout to read changesets from. Defaults to GITHUB_WORKSPACE.
+    required: false
 runs:
   using: composite
   steps:
@@ -10,6 +14,8 @@ runs:
     - name: Preview version bumps
       shell: bash
       run: node ${{ github.action_path }}/preview-changeset-versions.mjs --output /tmp/changeset-preview.md
+      env:
+        CHANGESET_WORKSPACE: ${{ inputs.workspace }}
     - name: Post PR comment
       shell: bash
       run: |
