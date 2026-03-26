@@ -53,13 +53,3 @@ jobs:
         uses: danielroe/provenance-action@v0.1.1
         with:
           fail-on-downgrade: true
-  version-preview:
-    name: Version Preview
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6.0.2
-      - name: Setup Tools
-        uses: ./.github/setup
-      - name: Changeset Preview
-        uses: ./.github/changeset-preview

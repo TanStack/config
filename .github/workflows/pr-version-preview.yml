@@ -1,0 +1,37 @@
+name: Version Preview
+
+on:
+  pull_request_target:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  version-preview:
+    name: Version Preview
+    runs-on: ubuntu-latest
+    steps:
+      # First checkout: base branch (trusted) — used for action code
+      - name: Checkout base
+        uses: actions/checkout@v6.0.2
+        with:
+          path: base
+      # Second checkout: PR merge ref — only used to read changeset files
+      - name: Checkout PR
+        uses: actions/checkout@v6.0.2
+        with:
+          ref: refs/pull/${{ github.event.number }}/merge
+          path: pr
+      - name: Setup Node
+        uses: actions/setup-node@v6.3.0
+        with:
+          node-version-file: base/.nvmrc
+      - name: Changeset Preview
+        uses: ./base/.github/changeset-preview
+        with:
+          workspace: ${{ github.workspace }}/pr
