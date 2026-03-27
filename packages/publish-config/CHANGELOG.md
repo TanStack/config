@@ -1,5 +1,11 @@
 # @tanstack/publish-config
 
+## 0.2.4
+
+### Patch Changes
+
+- Fix release-related GH_TOKEN handling so composite GitHub actions inherit the token from workflow env. ([`9c303c6`](https://github.com/TanStack/config/commit/9c303c60f811993816212c95017f49be5cc4bf0e))
+
 ## 0.2.3
 
 ### Patch Changes
