@@ -56,11 +56,10 @@ Add this step to your `.github/workflows/release.yml` file after the `changesets
   uses: TanStack/config/.github/comment-on-release@main
   with:
     published-packages: ${{ steps.changesets.outputs.publishedPackages }}
-  env:
     GH_TOKEN: ${{ secrets.GH_TOKEN }}
 ```
 
-This action reads the token from the `GH_TOKEN` environment variable.
+This action requires the `GH_TOKEN` input to authenticate with the GitHub API.
 
 ## Requirements
 
