@@ -1,5 +1,11 @@
 # @tanstack/publish-config
 
+## 0.2.5
+
+### Patch Changes
+
+- Fix composite GitHub actions so `GH_TOKEN` is forwarded into the action steps that post release and preview comments. ([`ea41266`](https://github.com/TanStack/config/commit/ea412667b0b1559cda150dfa5f4b2a5189585682))
+
 ## 0.2.4
 
 ### Patch Changes
