@@ -68,6 +68,12 @@ async function githubRequest({ apiUrl, token, method, endpoint, body }) {
 
   if (!response.ok) {
     const text = await response.text()
+    if (response.status === 403) {
+      process.stdout.write(
+        `Warning: ${method} ${endpoint} returned 403. This is expected for fork PRs where the token has read-only access.\n`,
+      )
+      return undefined
+    }
     throw new Error(
       `${method} ${endpoint} failed (${response.status} ${response.statusText}): ${text}`,
     )
