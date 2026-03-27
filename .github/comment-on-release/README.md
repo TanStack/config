@@ -60,6 +60,8 @@ Add this step to your `.github/workflows/release.yml` file after the `changesets
     GH_TOKEN: ${{ secrets.GH_TOKEN }}
 ```
 
+This action reads the token from the `GH_TOKEN` environment variable.
+
 ## Requirements
 
 - Must be using [Changesets](https://github.com/changesets/changesets) for releases

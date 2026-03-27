@@ -17,3 +17,5 @@ runs:
           --pr "${{ github.event.number }}" \
           --body-file /tmp/changeset-preview.md \
           --marker "<!-- changeset-version-preview -->"
+      env:
+        GH_TOKEN: ${{ env.GH_TOKEN }}
