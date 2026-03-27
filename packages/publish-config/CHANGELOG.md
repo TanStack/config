@@ -1,5 +1,11 @@
 # @tanstack/publish-config
 
+## 0.2.7
+
+### Patch Changes
+
+- Default GH_TOKEN input to github.token in composite actions for backward compatibility with consumer repos. ([`d600d56`](https://github.com/TanStack/config/commit/d600d56aaabaa158e66a4eaef8b87dc59d7718b1))
+
 ## 0.2.6
 
 ### Patch Changes
