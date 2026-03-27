@@ -56,7 +56,8 @@ Add this step to your `.github/workflows/release.yml` file after the `changesets
   uses: TanStack/config/.github/comment-on-release@main
   with:
     published-packages: ${{ steps.changesets.outputs.publishedPackages }}
-    token: ${{ secrets.GH_TOKEN }}
+  env:
+    GH_TOKEN: ${{ secrets.GH_TOKEN }}
 ```
 
 ## Requirements

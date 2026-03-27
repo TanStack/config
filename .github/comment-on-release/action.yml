@@ -4,9 +4,6 @@ inputs:
   published-packages:
     description: 'JSON string of published packages from changesets/action'
     required: true
-  token:
-    description: GitHub token used to comment on PRs and issues
-    required: true
 runs:
   using: composite
   steps:
@@ -15,4 +12,3 @@ runs:
       run: node ${{ github.action_path }}/comment-on-release.ts
       env:
         PUBLISHED_PACKAGES: ${{ inputs.published-packages }}
-        GH_TOKEN: ${{ inputs.token }}

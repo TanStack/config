@@ -1,9 +1,5 @@
 name: Changeset Preview
 description: Generates comment on a PR showing expected version impact
-inputs:
-  token:
-    description: GitHub token used to post the preview comment
-    required: true
 runs:
   using: composite
   steps:
@@ -21,5 +17,3 @@ runs:
           --pr "${{ github.event.number }}" \
           --body-file /tmp/changeset-preview.md \
           --marker "<!-- changeset-version-preview -->"
-      env:
-        GH_TOKEN: ${{ inputs.token }}

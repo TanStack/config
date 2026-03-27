@@ -45,4 +45,5 @@ jobs:
         uses: ./.github/comment-on-release
         with:
           published-packages: ${{ steps.changesets.outputs.publishedPackages }}
-          token: ${{ secrets.GH_TOKEN }}
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
