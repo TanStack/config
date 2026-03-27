@@ -38,8 +38,11 @@ jobs:
           publish: pnpm run changeset:publish
           commit: 'ci: Version Packages'
           title: 'ci: Version Packages'
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Comment on PRs and issues about release
         if: steps.changesets.outputs.published == 'true'
         uses: ./.github/comment-on-release
         with:
           published-packages: ${{ steps.changesets.outputs.publishedPackages }}
+          token: ${{ secrets.GH_TOKEN }}
