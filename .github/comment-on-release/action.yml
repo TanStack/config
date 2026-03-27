@@ -6,7 +6,8 @@ inputs:
     required: true
   GH_TOKEN:
     description: GitHub token used to comment on PRs and issues
-    required: true
+    required: false
+    default: ${{ github.token }}
 runs:
   using: composite
   steps:

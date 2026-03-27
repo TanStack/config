@@ -3,7 +3,8 @@ description: Generates comment on a PR showing expected version impact
 inputs:
   GH_TOKEN:
     description: GitHub token used to post the preview comment
-    required: true
+    required: false
+    default: ${{ github.token }}
 runs:
   using: composite
   steps:
