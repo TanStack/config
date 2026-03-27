@@ -12,4 +12,4 @@ runs:
       run: node ${{ github.action_path }}/comment-on-release.ts
       env:
         PUBLISHED_PACKAGES: ${{ inputs.published-packages }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}

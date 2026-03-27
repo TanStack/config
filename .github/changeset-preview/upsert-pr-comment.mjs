@@ -26,7 +26,7 @@ function parseArgs(argv) {
     bodyFile: values['body-file'],
     repo: values.repo ?? process.env.GITHUB_REPOSITORY,
     marker: values.marker ?? DEFAULT_MARKER,
-    token: values.token ?? process.env.GITHUB_TOKEN,
+    token: values.token ?? process.env.GH_TOKEN,
     apiUrl:
       values['api-url'] ??
       (process.env.GITHUB_API_URL || 'https://api.github.com'),
@@ -47,7 +47,7 @@ function parseArgs(argv) {
   }
 
   if (!args.token) {
-    throw new Error('Missing token. Provide --token or GITHUB_TOKEN.')
+    throw new Error('Missing token. Provide --token or GH_TOKEN.')
   }
 
   return args
