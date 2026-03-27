@@ -1,5 +1,11 @@
 # @tanstack/publish-config
 
+## 0.2.6
+
+### Patch Changes
+
+- Pass GH_TOKEN as an explicit input to composite GitHub actions so the token is available inside inner steps. ([`7222fcd`](https://github.com/TanStack/config/commit/7222fcdd4203a42f8566689fd69651ffbcc88de6))
+
 ## 0.2.5
 
 ### Patch Changes
