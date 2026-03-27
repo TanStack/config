@@ -1,5 +1,11 @@
 # @tanstack/publish-config
 
+## 0.2.3
+
+### Patch Changes
+
+- Standardize GitHub auth token usage on `GH_TOKEN` for release-related tooling and workflows. ([`a2c8f9c`](https://github.com/TanStack/config/commit/a2c8f9c75e69befb22cc16f7e0e35a925debabd2))
+
 ## 0.2.2
 
 ### Patch Changes
