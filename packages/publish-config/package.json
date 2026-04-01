@@ -1,6 +1,6 @@
 {
   "name": "@tanstack/publish-config",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Publish script used by TanStack projects.",
   "author": "tannerlinsley",
   "license": "MIT",
