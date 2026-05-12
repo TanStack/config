@@ -8,6 +8,7 @@ packages:
 
 allowBuilds:
   nx: true
+  unrs-resolver: true
 
 catalog:
   '@arethetypeswrong/core': ^0.18.2
