@@ -1,5 +1,11 @@
 # @tanstack/publish-config
 
+## 0.2.8
+
+### Patch Changes
+
+- Gracefully handle 403 errors when commenting on fork PRs where the token has read-only access. ([`c7356fb`](https://github.com/TanStack/config/commit/c7356fbf42f988b1b690cc9cf57c55f14ddd3487))
+
 ## 0.2.7
 
 ### Patch Changes
