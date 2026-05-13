@@ -6,10 +6,6 @@ packages:
   - integrations/*
   - packages/*
 
-allowBuilds:
-  nx: true
-  unrs-resolver: true
-
 catalog:
   '@arethetypeswrong/core': ^0.18.2
   '@changesets/cli': ^2.31.0
@@ -58,3 +54,7 @@ catalog:
   vitest: ^4.1.6
   vue: ^3.5.34
   vue-eslint-parser: ^10.4.0
+
+allowBuilds:
+  nx: true
+  unrs-resolver: false
