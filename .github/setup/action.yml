@@ -10,10 +10,6 @@ runs:
       with:
         node-version-file: .nvmrc
         package-manager-cache: false
-    - name: Get pnpm store directory
-      shell: bash
-      run: |
-        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
     # - name: Setup pnpm cache
     #   uses: actions/cache@v5.0.4
     #   with:
