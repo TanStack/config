@@ -38,7 +38,7 @@
   "devDependencies": {
     "@arethetypeswrong/core": "catalog:",
     "@changesets/cli": "catalog:",
-    "@svitejs/changesets-changelog-github-compact": "catalog:",
+    "@changesets/changelog-github": "catalog:",
     "@types/node": "catalog:",
     "eslint": "catalog:",
     "jiti": "catalog:",

@@ -8,11 +8,11 @@ packages:
 
 catalog:
   '@arethetypeswrong/core': ^0.18.2
+  '@changesets/changelog-github': ^0.7.0
   '@changesets/cli': ^2.31.0
   '@commitlint/parse': ^20.5.0
   '@eslint/js': ^10.0.1
   '@stylistic/eslint-plugin': ^5.10.0
-  '@svitejs/changesets-changelog-github-compact': ^1.2.0
   '@tanstack/query-core': ^5.100.10
   '@types/eslint': ^9.6.1
   '@types/jsonfile': ^6.1.4
