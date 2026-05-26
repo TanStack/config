@@ -37,8 +37,8 @@
   },
   "devDependencies": {
     "@arethetypeswrong/core": "catalog:",
-    "@changesets/cli": "catalog:",
     "@changesets/changelog-github": "catalog:",
+    "@changesets/cli": "catalog:",
     "@types/node": "catalog:",
     "eslint": "catalog:",
     "jiti": "catalog:",
