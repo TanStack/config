@@ -1,7 +1,7 @@
 let vue = require("vue");
 //#region src/components/HelloWorld.vue?vue&type=script&setup=true&lang.ts
 var _hoisted_1 = { class: "card" };
-var HelloWorld_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ (0, vue.defineComponent)({
+var HelloWorld_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ (0, vue.defineComponent)({
 	__name: "HelloWorld",
 	props: { msg: {} },
 	setup(__props) {

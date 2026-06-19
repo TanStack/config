@@ -7,7 +7,7 @@
   },
   "packageManager": "pnpm@11.8.0",
   "engines": {
-    "pnpm": ">=11.8.0"
+    "pnpm": ">=11.0.0"
   },
   "type": "module",
   "scripts": {

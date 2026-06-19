@@ -1,1 +1,1 @@
-export declare const Component: () => import("react/jsx-runtime").JSX.Element;
+export declare const Component: () => import("react").JSX.Element;
