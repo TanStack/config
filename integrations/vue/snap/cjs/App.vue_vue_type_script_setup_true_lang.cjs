@@ -1,7 +1,7 @@
 const require_HelloWorld = require("./components/HelloWorld.cjs");
 let vue = require("vue");
 //#region src/App.vue?vue&type=script&setup=true&lang.ts
-var App_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ (0, vue.defineComponent)({
+var App_vue_vue_type_script_setup_true_lang_default = /*@__PURE__*/ (0, vue.defineComponent)({
 	__name: "App",
 	setup(__props) {
 		return (_ctx, _cache) => {
