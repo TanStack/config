@@ -9,3 +9,5 @@ runs:
         node-version-file: .nvmrc
         run-install: true
         cache: false
+    - name: Setup pnpm
+      run: vp install -g pnpm
