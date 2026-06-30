@@ -6,6 +6,7 @@
     "helpers:pinGitHubActionDigests",
     "group:allNonMajor",
     "schedule:weekly",
+    "security:minimumReleaseAgeNpm",
     ":approveMajorUpdates",
     ":disablePeerDependencies",
     ":maintainLockFilesMonthly",
