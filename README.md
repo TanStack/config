@@ -27,8 +27,9 @@
 </div>
 
 <div align="center">
-  
+
 ### [Become a Sponsor!](https://github.com/sponsors/tannerlinsley/)
+
 </div>
 
 # TanStack Config
