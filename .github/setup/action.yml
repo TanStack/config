@@ -10,4 +10,5 @@ runs:
         run-install: true
         cache: false
     - name: Setup pnpm
+      shell: bash
       run: vp install -g pnpm
