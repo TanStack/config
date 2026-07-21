@@ -120,8 +120,8 @@ export const tanstackViteConfig = (options: Options): UserConfig => {
         },
       },
       // Set both so module preservation holds whether the consumer builds
-      // with rolldown-vite (`rolldownOptions`) or standard Vite 8's Rollup
-      // path (`rollupOptions`).
+      // with Vite 7 (Rollup → `rollupOptions`) or Vite 8 (Rolldown →
+      // `rolldownOptions`).
       rolldownOptions: {
         output: {
           preserveModules: true,
