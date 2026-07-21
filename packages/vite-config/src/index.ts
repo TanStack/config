@@ -51,7 +51,7 @@ export const tanstackViteConfig = (options: Options): UserConfig => {
           })
         : undefined,
       dts({
-        outDir: `${outDir}/esm`,
+        outDirs: `${outDir}/esm`,
         entryRoot: options.srcDir,
         include: options.srcDir,
         exclude: options.exclude,
@@ -77,7 +77,7 @@ export const tanstackViteConfig = (options: Options): UserConfig => {
       }),
       cjs
         ? dts({
-            outDir: `${outDir}/cjs`,
+            outDirs: `${outDir}/cjs`,
             entryRoot: options.srcDir,
             include: options.srcDir,
             exclude: options.exclude,
@@ -119,7 +119,15 @@ export const tanstackViteConfig = (options: Options): UserConfig => {
           return 'esm/[name].js'
         },
       },
+      // Set both so module preservation holds whether the consumer builds
+      // with rolldown-vite (`rolldownOptions`) or standard Vite 8's Rollup
+      // path (`rollupOptions`).
       rolldownOptions: {
+        output: {
+          preserveModules: true,
+        },
+      },
+      rollupOptions: {
         output: {
           preserveModules: true,
         },
