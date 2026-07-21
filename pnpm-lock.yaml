@@ -51,6 +51,9 @@ catalogs:
     '@vitejs/plugin-vue':
       specifier: ^6.0.7
       version: 6.0.7
+    '@vue/language-core':
+      specifier: ^3.1.5
+      version: 3.3.7
     eslint:
       specifier: ^10.7.0
       version: 10.7.0
@@ -259,6 +262,9 @@ importers:
       '@vitejs/plugin-vue':
         specifier: 'catalog:'
         version: 6.0.7(vite@8.1.4(@types/node@26.0.1)(jiti@2.7.0)(yaml@2.9.0))(vue@3.5.39(typescript@6.0.2))
+      '@vue/language-core':
+        specifier: 'catalog:'
+        version: 3.3.7
       vite:
         specifier: 'catalog:'
         version: 8.1.4(@types/node@26.0.1)(jiti@2.7.0)(yaml@2.9.0)
@@ -345,7 +351,7 @@ importers:
     dependencies:
       vite-plugin-dts:
         specifier: 'catalog:'
-        version: 5.0.3(@microsoft/api-extractor@7.47.7(@types/node@26.0.1))(rolldown@1.1.5)(typescript@6.0.2)(vite@8.1.4(@types/node@26.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 5.0.3(@microsoft/api-extractor@7.47.7(@types/node@26.0.1))(@vue/language-core@3.3.7)(rolldown@1.1.5)(supports-color@7.2.0)(typescript@6.0.2)(vite@8.1.4(@types/node@26.0.1)(jiti@2.7.0)(yaml@2.9.0))
       vite-plugin-externalize-deps:
         specifier: 'catalog:'
         version: 0.10.0(vite@8.1.4(@types/node@26.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -1228,6 +1234,9 @@ packages:
   '@vue/compiler-ssr@3.5.39':
     resolution: {integrity: sha512-Ce7/wvwMHai74bdszfXExdazFigYnlF9zgCmEQUcM1j0fOymlouZ7XilTYNo8oUjhlnjYOZbGrcYKuqjz89Ucw==}
 
+  '@vue/language-core@3.3.7':
+    resolution: {integrity: sha512-LzmkKinXAMMoh8Jfi/jMUSDUjuPdv8mynH5WJGKfXyZtDw3hQ6GBaoI6Bcnl/Xqlu32q/0Z6i/trp4VXykzyLw==}
+
   '@vue/reactivity@3.5.39':
     resolution: {integrity: sha512-TpsuBJ9gGlZa5d23XcM2y8EXanz9dZeVDQBXRwzy46ItgvM+rWpzs+UVM0wcRLxGvcav0HE5jz2gNL53xlRAog==}
 
@@ -1415,6 +1424,9 @@ packages:
 
   ajv@8.13.0:
     resolution: {integrity: sha512-PRA911Blj99jR5RMeTunVbNXMF6Lp4vZXnk5GQjcnUWUTsrXtekg/pnmFFI2u/I36Y/2bITGS30GZCXei6uNkA==}
+
+  alien-signals@3.2.1:
+    resolution: {integrity: sha512-I8FjmltrfnDFoZedi5CG8DghVYNhzb/Ijluz7tCSJH0xpd0484Kowhbb1XDYOxfJpU1p5wnM2X54dA+IfGyD1g==}
 
   ansi-colors@4.1.3:
     resolution: {integrity: sha512-/6w/C21Pm1A7aZitlI5Ni/2J6FFQN8i1Cvz3kHABAAbw93v/NlvKdVOqz7CCWz/3iv/JplRSEEZ83XION15ovw==}
@@ -2398,6 +2410,9 @@ packages:
 
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
+
+  muggle-string@0.4.1:
+    resolution: {integrity: sha512-VNTrAak/KhO2i8dqqnqnAHOa3cYBwXEZe9h+D5h/1ZqFSTEFHdM65lR7RoIqq3tBBYavsOXV84NoHXZ0AkPyqQ==}
 
   nanoid@3.3.15:
     resolution: {integrity: sha512-y7Wygv/7mEOvxTuEQDB8StXdMRBWf1kR/tlhAzBRUFkB2jfcLOAxO/SHmOO2zgz1pVgK29/kyupn059/bCHdjA==}
@@ -4350,6 +4365,16 @@ snapshots:
       '@vue/compiler-dom': 3.5.39
       '@vue/shared': 3.5.39
 
+  '@vue/language-core@3.3.7':
+    dependencies:
+      '@volar/language-core': 2.4.28
+      '@vue/compiler-dom': 3.5.39
+      '@vue/shared': 3.5.39
+      alien-signals: 3.2.1
+      muggle-string: 0.4.1
+      path-browserify: 1.0.1
+      picomatch: 4.0.5
+
   '@vue/reactivity@3.5.39':
     dependencies:
       '@vue/shared': 3.5.39
@@ -4492,6 +4517,8 @@ snapshots:
       require-from-string: 2.0.2
       uri-js: 4.4.1
     optional: true
+
+  alien-signals@3.2.1: {}
 
   ansi-colors@4.1.3: {}
 
@@ -5476,6 +5503,8 @@ snapshots:
 
   ms@2.1.3: {}
 
+  muggle-string@0.4.1: {}
+
   nanoid@3.3.15: {}
 
   napi-postinstall@0.3.4: {}
@@ -6168,7 +6197,7 @@ snapshots:
 
   universalify@2.0.1: {}
 
-  unplugin-dts@1.0.3(@microsoft/api-extractor@7.47.7(@types/node@26.0.1))(rolldown@1.1.5)(typescript@6.0.2)(vite@8.1.4(@types/node@26.0.1)(jiti@2.7.0)(yaml@2.9.0)):
+  unplugin-dts@1.0.3(@microsoft/api-extractor@7.47.7(@types/node@26.0.1))(@vue/language-core@3.3.7)(rolldown@1.1.5)(supports-color@7.2.0)(typescript@6.0.2)(vite@8.1.4(@types/node@26.0.1)(jiti@2.7.0)(yaml@2.9.0)):
     dependencies:
       '@rollup/pluginutils': 5.4.0
       '@volar/typescript': 2.4.28
@@ -6181,6 +6210,7 @@ snapshots:
       unplugin: 2.3.11
     optionalDependencies:
       '@microsoft/api-extractor': 7.47.7(@types/node@26.0.1)
+      '@vue/language-core': 3.3.7
       rolldown: 1.1.5
       vite: 8.1.4(@types/node@26.0.1)(jiti@2.7.0)(yaml@2.9.0)
     transitivePeerDependencies:
@@ -6228,9 +6258,9 @@ snapshots:
 
   validate-npm-package-name@5.0.1: {}
 
-  vite-plugin-dts@5.0.3(@microsoft/api-extractor@7.47.7(@types/node@26.0.1))(rolldown@1.1.5)(typescript@6.0.2)(vite@8.1.4(@types/node@26.0.1)(jiti@2.7.0)(yaml@2.9.0)):
+  vite-plugin-dts@5.0.3(@microsoft/api-extractor@7.47.7(@types/node@26.0.1))(@vue/language-core@3.3.7)(rolldown@1.1.5)(supports-color@7.2.0)(typescript@6.0.2)(vite@8.1.4(@types/node@26.0.1)(jiti@2.7.0)(yaml@2.9.0)):
     dependencies:
-      unplugin-dts: 1.0.3(@microsoft/api-extractor@7.47.7(@types/node@26.0.1))(rolldown@1.1.5)(typescript@6.0.2)(vite@8.1.4(@types/node@26.0.1)(jiti@2.7.0)(yaml@2.9.0))
+      unplugin-dts: 1.0.3(@microsoft/api-extractor@7.47.7(@types/node@26.0.1))(@vue/language-core@3.3.7)(rolldown@1.1.5)(supports-color@7.2.0)(typescript@6.0.2)(vite@8.1.4(@types/node@26.0.1)(jiti@2.7.0)(yaml@2.9.0))
     optionalDependencies:
       '@microsoft/api-extractor': 7.47.7(@types/node@26.0.1)
       vite: 8.1.4(@types/node@26.0.1)(jiti@2.7.0)(yaml@2.9.0)

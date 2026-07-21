@@ -32,6 +32,7 @@
   "devDependencies": {
     "@tanstack/vite-config": "workspace:*",
     "@vitejs/plugin-vue": "catalog:",
+    "@vue/language-core": "catalog:",
     "vite": "catalog:",
     "vitest": "catalog:"
   }

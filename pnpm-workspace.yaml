@@ -22,6 +22,7 @@ catalog:
   '@types/semver': ^7.7.1
   '@vitejs/plugin-react': ^6.0.3
   '@vitejs/plugin-vue': ^6.0.7
+  '@vue/language-core': ^3.1.5
   eslint: ^10.7.0
   eslint-plugin-import-x: ^4.17.1
   eslint-plugin-n: ^17.24.0
