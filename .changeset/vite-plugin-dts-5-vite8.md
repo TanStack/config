@@ -1,5 +1,5 @@
 ---
-"@tanstack/vite-config": minor
+'@tanstack/vite-config': minor
 ---
 
 Support vite-plugin-dts 5 and Vite 8's Rollup build path.
