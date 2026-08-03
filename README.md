@@ -1,7 +1,21 @@
 <img src="https://static.scarf.sh/a.png?x-pxid=be2d8a11-9712-4c1d-9963-580b2d4fb133" />
 
 <div align="center">
-  <img src="./media/header_config.png" alt="TanStack Config" >
+  <picture>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="https://tanstack.com/api/readme/config.png?theme=dark"
+    />
+    <source
+      media="(prefers-color-scheme: light)"
+      srcset="https://tanstack.com/api/readme/config.png"
+    />
+    <img
+      src="https://tanstack.com/api/readme/config.png"
+      alt="TanStack Config"
+      width="900"
+    />
+  </picture>
 </div>
 
 <br />
