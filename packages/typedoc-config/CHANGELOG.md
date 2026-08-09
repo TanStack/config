@@ -1,5 +1,11 @@
 # @tanstack/typedoc-config
 
+## 0.3.4
+
+### Patch Changes
+
+- [#409](https://github.com/TanStack/config/pull/409) [`5bdfa7f`](https://github.com/TanStack/config/commit/5bdfa7f085710d735e0772adf557f6c0ebaf2ba8) - Support TypeScript 6.0
+
 ## 0.3.3
 
 ### Patch Changes
