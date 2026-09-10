@@ -18,6 +18,7 @@ const settings: Partial<TypeDoc.TypeDocOptions & PluginOptions> = {
   entryFileName: 'index',
   hideBreadcrumbs: true,
   hidePageHeader: true,
+  hidePageTitle: true,
   useCodeBlocks: true,
   excludePrivate: true,
 }
