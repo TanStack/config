@@ -8,8 +8,8 @@ packages:
 
 catalog:
   '@arethetypeswrong/core': ^0.18.5
-  '@changesets/changelog-github': ^0.7.0
-  '@changesets/cli': ^2.31.0
+  '@changesets/changelog-github': ^1.0.1
+  '@changesets/cli': ^3.0.3
   '@commitlint/parse': ^20.5.0
   '@eslint/js': ^10.0.1
   '@stylistic/eslint-plugin': ^5.10.0
