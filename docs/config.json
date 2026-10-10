@@ -19,12 +19,12 @@
       "label": "Utilities",
       "children": [
         {
-          "label": "ESLint",
-          "to": "eslint"
-        },
-        {
           "label": "Oxlint",
           "to": "oxlint"
+        },
+        {
+          "label": "ESLint",
+          "to": "eslint"
         },
         {
           "label": "Publish",
