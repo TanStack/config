@@ -33,6 +33,7 @@ catalog:
   jsonfile: ^6.2.1
   markdown-link-extractor: ^4.0.3
   nx: 23.0.2
+  oxfmt: ^0.72.0
   oxlint: ^1.87.0
   oxlint-tsgolint: ^7.0.2003
   premove: ^4.0.0

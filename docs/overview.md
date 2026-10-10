@@ -19,6 +19,7 @@ The following tools are required to use these packages:
 ## Utilities
 
 - [Oxlint](./oxlint.md)
+- [Oxfmt](./oxfmt.md)
 - [ESLint](./eslint.md)
 - [Publish](./publish.md)
 - [Vite](./vite.md)
