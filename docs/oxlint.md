@@ -5,14 +5,13 @@ title: Oxlint
 
 ## Purpose
 
-This package is a port of the [shared ESLint config](./eslint.md) to [Oxlint](https://oxc.rs/docs/guide/usage/linter). It enables the same rules using Oxlint's native rules, apart from the stylistic rules that are left to the formatter. Like the ESLint config, it is framework-agnostic.
-
+This package unifies the shared [Oxlint](https://oxc.rs/docs/guide/usage/linter) config used across all TanStack projects. It is designed to be framework-agnostic, and does not include any framework-specific plugins.
 ## Installation
 
 To install the package, run the following command:
 
 ```bash
-pnpm add -D @tanstack/oxlint-config oxlint oxlint-tsgolint
+pnpm add -D @tanstack/oxlint-config
 ```
 
 ## Setup
@@ -38,16 +37,6 @@ export default defineConfig({
   },
 })
 ```
-
-Oxlint does not inherit `env`, `ignorePatterns` or `settings` through `extends`, so pass `env` and `ignorePatterns` through as shown. Rules, plugins, JS plugins, categories and options are inherited.
-
-## Differences from the ESLint config
-
-- `no-octal` is not enabled, because Oxlint does not implement it. Legacy octal literals are already a syntax error in ES modules.
-- `@typescript-eslint/naming-convention` is replaced by `tanstack/type-parameter-naming`, which enforces the same type parameter pattern.
-- `import/order` and `@stylistic/spaced-comment` are not enabled. Import order is left to the formatter, such as Oxfmt's [`sortImports`](https://oxc.rs/docs/guide/usage/formatter), so the config doesn't need `eslint-plugin-import-x` or `@stylistic/eslint-plugin`.
-- `n/prefer-node-protocol` is replaced by `unicorn/prefer-node-protocol`.
-- The rules apply to every file Oxlint lints, not only `*.{js,ts,tsx}` and `*.vue`. Oxlint only lints the `<script>` blocks of `.vue`, `.svelte` and `.astro` files.
 
 ## Rules
 
