@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test:types": "tsc",
-    "test:eslint": "eslint --concurrency=auto ./src",
+    "test:oxlint": "oxlint ./src",
     "build": "tsdown"
   },
   "type": "module",
@@ -41,6 +41,8 @@
     "typedoc-plugin-markdown": "catalog:"
   },
   "devDependencies": {
-    "@tanstack/eslint-config": "workspace:*"
+    "@tanstack/oxlint-config": "workspace:*",
+    "oxlint": "catalog:",
+    "oxlint-tsgolint": "catalog:"
   }
 }
