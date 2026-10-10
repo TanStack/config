@@ -3,11 +3,10 @@ import type { DummyRuleMap } from 'oxlint'
 /**
  * Port of `importRules` from `@tanstack/eslint-config`.
  *
- * Oxlint does not implement `import/order`, so it runs from
- * `eslint-plugin-import-x` as the `import-js` JS plugin.
+ * Not ported: `import/order`, which Oxlint does not implement. Import order
+ * is left to the formatter, such as Oxfmt's `sortImports`.
  *
  * @see https://oxc.rs/docs/guide/usage/linter/rules.html
- * @see https://github.com/un-ts/eslint-plugin-import-x
  */
 export const importRules: DummyRuleMap = {
   /** Bans the use of inline type-only markers for named imports */
@@ -20,20 +19,4 @@ export const importRules: DummyRuleMap = {
   'import/no-commonjs': 'error',
   /** Reports if a resolved path is imported more than once */
   'import/no-duplicates': 'error',
-  /** Stylistic preference */
-  'import-js/order': [
-    'error',
-    {
-      groups: [
-        'builtin',
-        'external',
-        'internal',
-        'parent',
-        'sibling',
-        'index',
-        'object',
-        'type',
-      ],
-    },
-  ],
 }

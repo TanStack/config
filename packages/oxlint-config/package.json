@@ -43,9 +43,7 @@
     "node": ">=20.19.0"
   },
   "dependencies": {
-    "@oxlint/plugins": "catalog:",
-    "@stylistic/eslint-plugin": "catalog:",
-    "eslint-plugin-import-x": "catalog:"
+    "@oxlint/plugins": "catalog:"
   },
   "devDependencies": {
     "oxlint": "catalog:",
