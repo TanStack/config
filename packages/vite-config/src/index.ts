@@ -1,9 +1,9 @@
 // @ts-check
 
 import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 import { externalizeDeps } from 'vite-plugin-externalize-deps'
 import tsconfigPaths from 'vite-tsconfig-paths'
-import dts from 'vite-plugin-dts'
 import type { UserConfig } from 'vite'
 import type { Options } from './types.js'
 

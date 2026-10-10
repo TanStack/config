@@ -1,12 +1,12 @@
 // @ts-check
 // Originally ported to TS from https://github.com/remix-run/react-router/tree/main/scripts/{version,publish}.js
 
-import path from 'node:path'
 import { execSync } from 'node:child_process'
 import { existsSync, readdirSync } from 'node:fs'
 import { platform } from 'node:os'
-import * as semver from 'semver'
+import path from 'node:path'
 import { parse as parseCommit } from '@commitlint/parse'
+import * as semver from 'semver'
 import { simpleGit } from 'simple-git'
 import {
   capitalize,
