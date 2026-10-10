@@ -23,6 +23,10 @@
           "to": "oxlint"
         },
         {
+          "label": "Oxfmt",
+          "to": "oxfmt"
+        },
+        {
           "label": "ESLint",
           "to": "eslint"
         },

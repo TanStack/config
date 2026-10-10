@@ -1,14 +1,14 @@
-import tseslint from 'typescript-eslint'
-import vueParser from 'vue-eslint-parser'
 import stylisticPlugin from '@stylistic/eslint-plugin'
 import importPlugin from 'eslint-plugin-import-x'
 import nodePlugin from 'eslint-plugin-n'
 import globals from 'globals'
-import { javascriptRules } from './javascript.js'
+import tseslint from 'typescript-eslint'
+import vueParser from 'vue-eslint-parser'
 import { importRules } from './import.js'
-import { typescriptRules } from './typescript.js'
+import { javascriptRules } from './javascript.js'
 import { nodeRules } from './node.js'
 import { stylisticRules } from './stylistic.js'
+import { typescriptRules } from './typescript.js'
 import type { Linter } from 'eslint'
 
 const GLOB_EXCLUDE = [
