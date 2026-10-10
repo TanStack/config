@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test:types": "tsc",
-    "test:eslint": "eslint --concurrency=auto ./src",
+    "test:oxlint": "oxlint ./src",
     "build": "tsdown"
   },
   "type": "module",
@@ -50,8 +50,11 @@
     "vue-eslint-parser": "catalog:"
   },
   "devDependencies": {
+    "@tanstack/oxlint-config": "workspace:*",
     "@types/eslint": "catalog:",
-    "eslint": "catalog:"
+    "eslint": "catalog:",
+    "oxlint": "catalog:",
+    "oxlint-tsgolint": "catalog:"
   },
   "peerDependencies": {
     "eslint": "^9.0.0 || ^10.0.0"

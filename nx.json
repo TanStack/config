@@ -17,7 +17,7 @@
       "cache": true,
       "inputs": ["{workspaceRoot}/**/package.json"]
     },
-    "test:eslint": {
+    "test:oxlint": {
       "cache": true
     },
     "test:types": {

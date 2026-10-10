@@ -12,6 +12,7 @@ catalog:
   '@changesets/cli': ^3.0.3
   '@commitlint/parse': ^20.5.0
   '@eslint/js': ^10.0.1
+  '@oxlint/plugins': ^1.87.0
   '@stylistic/eslint-plugin': ^5.10.0
   '@tanstack/query-core': ^5.101.2
   '@types/eslint': ^9.6.1
@@ -32,6 +33,8 @@ catalog:
   jsonfile: ^6.2.1
   markdown-link-extractor: ^4.0.3
   nx: 23.0.2
+  oxlint: ^1.87.0
+  oxlint-tsgolint: ^7.0.2003
   premove: ^4.0.0
   prettier: ^3.9.5
   publint: ^0.3.21
