@@ -6,6 +6,7 @@ title: Oxlint
 ## Purpose
 
 This package unifies the shared [Oxlint](https://oxc.rs/docs/guide/usage/linter) config used across all TanStack projects. It is designed to be framework-agnostic, and does not include any framework-specific plugins.
+
 ## Installation
 
 To install the package, run the following command:
