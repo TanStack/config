@@ -5,7 +5,7 @@ title: Oxfmt
 
 ## Purpose
 
-This package unifies the shared [Oxfmt](https://oxc.rs/docs/guide/usage/formatter) config used across all TanStack projects. 
+This package unifies the shared [Oxfmt](https://oxc.rs/docs/guide/usage/formatter) config used across all TanStack projects.
 
 ## Installation
 
