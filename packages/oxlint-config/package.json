@@ -1,0 +1,58 @@
+{
+  "name": "@tanstack/oxlint-config",
+  "version": "0.0.0",
+  "description": "Shared Oxlint config used by TanStack projects.",
+  "author": "tannerlinsley",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TanStack/config.git",
+    "directory": "packages/oxlint-config"
+  },
+  "homepage": "https://tanstack.com/config",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/tannerlinsley"
+  },
+  "scripts": {
+    "test:types": "tsc",
+    "test:oxlint": "oxlint ./src",
+    "build": "tsdown"
+  },
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./plugin": "./src/plugin.ts",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": "./dist/index.js",
+      "./plugin": "./dist/plugin.js",
+      "./package.json": "./package.json"
+    }
+  },
+  "preferGlobal": false,
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "dependencies": {
+    "@oxlint/plugins": "catalog:",
+    "@stylistic/eslint-plugin": "catalog:",
+    "eslint-plugin-import-x": "catalog:"
+  },
+  "devDependencies": {
+    "oxlint": "catalog:",
+    "oxlint-tsgolint": "catalog:"
+  },
+  "peerDependencies": {
+    "oxlint": "^1.87.0",
+    "oxlint-tsgolint": ">=7.0.2003"
+  }
+}

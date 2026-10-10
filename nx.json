@@ -20,6 +20,9 @@
     "test:eslint": {
       "cache": true
     },
+    "test:oxlint": {
+      "cache": true
+    },
     "test:types": {
       "cache": true
     },

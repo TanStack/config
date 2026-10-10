@@ -23,6 +23,10 @@
           "to": "eslint"
         },
         {
+          "label": "Oxlint",
+          "to": "oxlint"
+        },
+        {
           "label": "Publish",
           "to": "publish"
         },
