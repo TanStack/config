@@ -1,5 +1,5 @@
-import { defineConfig, mergeConfig } from 'vitest/config'
 import { tanstackViteConfig } from '@tanstack/vite-config'
+import { defineConfig, mergeConfig } from 'vitest/config'
 
 const config = defineConfig({
   test: {
