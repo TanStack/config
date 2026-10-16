@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test:types": "tsc",
-    "test:eslint": "eslint --concurrency=auto ./src",
+    "test:oxlint": "oxlint ./src",
     "test:build": "publint --strict"
   },
   "type": "module",
@@ -44,9 +44,11 @@
     "simple-git": "catalog:"
   },
   "devDependencies": {
-    "@tanstack/eslint-config": "workspace:*",
+    "@tanstack/oxlint-config": "workspace:*",
     "@types/jsonfile": "catalog:",
     "@types/semver": "catalog:",
+    "oxlint": "catalog:",
+    "oxlint-tsgolint": "catalog:",
     "type-fest": "catalog:"
   }
 }
