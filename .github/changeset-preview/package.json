@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "@changesets/get-release-plan": "^4.0.16"
+    "@changesets/get-release-plan": "^5.0.0"
   }
 }
