@@ -250,7 +250,7 @@ async function commentOnIssue(
 async function main() {
   // Read published packages from environment variable (set by GitHub Actions)
   const publishedPackagesJson = process.env.PUBLISHED_PACKAGES
-  const repository = process.env.REPOSITORY
+  const repository = process.env.REPOSITORY || process.env.GITHUB_REPOSITORY
 
   if (!publishedPackagesJson) {
     console.log('No packages were published. Skipping PR comments.')

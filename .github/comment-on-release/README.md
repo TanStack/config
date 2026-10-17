@@ -58,7 +58,9 @@ Add this step to your `.github/workflows/release.yml` file after the `changesets
     GH_TOKEN: ${{ secrets.GH_TOKEN }}
 ```
 
-This action requires the `GH_TOKEN` input to authenticate with the GitHub API.
+The release workflow in this example requires a `GH_TOKEN` secret for its custom
+GitHub token. The comment action also supports the default `github.token` when its
+`GH_TOKEN` input is omitted or empty.
 
 ## Requirements
 
