@@ -42,7 +42,7 @@ Add this step to your `.github/workflows/release.yml` file after the `changesets
 ```yaml
 - name: Run Changesets (version or publish)
   id: changesets
-  uses: changesets/action@v2.1.2
+  uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
   with:
     github-token: ${{ secrets.GH_TOKEN }}
     version-script: pnpm run changeset:version
