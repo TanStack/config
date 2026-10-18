@@ -1,5 +1,5 @@
-import { defineConfig } from 'oxlint'
 import { tanstackConfig } from '@tanstack/oxlint-config'
+import { defineConfig } from 'oxlint'
 
 export default defineConfig({
   extends: [tanstackConfig],

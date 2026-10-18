@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
+import { execSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { execSync } from 'node:child_process'
 
 interface PublishedPackage {
   name: string
