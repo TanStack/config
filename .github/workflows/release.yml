@@ -31,7 +31,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Setup Tools
-        uses: ./.github/setup
+        uses: $/.github/setup
       - name: Run Tests
         run: pnpm run test:ci
       - name: Run Changesets (version or publish)
@@ -45,7 +45,7 @@ jobs:
           pr-title: 'ci: Version Packages'
       - name: Comment on PRs and issues about release
         if: steps.changesets.outputs.published == 'true'
-        uses: ./.github/comment-on-release
+        uses: $/.github/comment-on-release
         with:
           published-packages: ${{ steps.changesets.outputs.published-packages }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}

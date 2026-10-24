@@ -22,7 +22,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Setup Tools
-        uses: ./.github/setup
+        uses: $/.github/setup
       - name: Fix formatting
         run: pnpm run format
       - name: Apply fixes

@@ -24,7 +24,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Setup Tools
-        uses: ./.github/setup
+        uses: $/.github/setup
       - name: Get base and head commits for `nx affected`
         uses: nrwl/nx-set-shas@e602fada7ad5987b0f7b1905e7a99ea1c661514c # v5.1.0
         with:
@@ -40,7 +40,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Setup Tools
-        uses: ./.github/setup
+        uses: $/.github/setup
       - name: Build Packages
         run: pnpm run build:all
       - name: Publish Previews
@@ -69,6 +69,6 @@ jobs:
         with:
           persist-credentials: false
       - name: Setup Tools
-        uses: ./.github/setup
+        uses: $/.github/setup
       - name: Changeset Preview
-        uses: ./.github/changeset-preview
+        uses: $/.github/changeset-preview
