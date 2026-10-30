@@ -31,7 +31,7 @@ catalog:
   jsdom: ^29.1.1
   jsonfile: ^6.2.1
   markdown-link-extractor: ^4.0.4
-  nx: 23.3.0
+  nx: 24.0.2
   premove: ^4.0.0
   prettier: ^3.9.10
   publint: ^0.3.25
