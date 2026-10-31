@@ -5,9 +5,9 @@
     "type": "git",
     "url": "https://github.com/TanStack/config.git"
   },
-  "packageManager": "pnpm@12.14.0",
+  "packageManager": "pnpm@12.16.1",
   "engines": {
-    "pnpm": ">=12.14.0"
+    "pnpm": ">=12.16.1"
   },
   "type": "module",
   "scripts": {
