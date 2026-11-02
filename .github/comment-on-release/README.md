@@ -44,7 +44,6 @@ Add this step to your `.github/workflows/release.yml` file after the `changesets
   id: changesets
   uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
   with:
-    github-token: ${{ secrets.GH_TOKEN }}
     version-script: pnpm run changeset:version
     publish-script: pnpm run changeset:publish
     commit-message: 'ci: Version Packages'
@@ -55,12 +54,7 @@ Add this step to your `.github/workflows/release.yml` file after the `changesets
   uses: TanStack/config/.github/comment-on-release@main
   with:
     published-packages: ${{ steps.changesets.outputs.published-packages }}
-    GH_TOKEN: ${{ secrets.GH_TOKEN }}
 ```
-
-The release workflow in this example requires a `GH_TOKEN` secret for its custom
-GitHub token. The comment action also supports the default `github.token` when its
-`GH_TOKEN` input is omitted or empty.
 
 ## Requirements
 
