@@ -23,14 +23,17 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Setup Tools
-        uses: $/.github/setup
+      - name: Setup Vite+
+        uses: voidzero-dev/setup-vp@cab1ab9eaff52d4857875f4f2c016e36af8f2c76 # v1.22.0
+        with:
+          run-install: true
+          cache: false
       - name: Get base and head commits for `nx affected`
         uses: nrwl/nx-set-shas@e602fada7ad5987b0f7b1905e7a99ea1c661514c # v5.1.0
         with:
           main-branch-name: main
       - name: Run Checks
-        run: pnpm run test:pr
+        run: vp run test:pr
   preview:
     name: Preview
     runs-on: ubuntu-latest
@@ -39,12 +42,15 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - name: Setup Tools
-        uses: $/.github/setup
+      - name: Setup Vite+
+        uses: voidzero-dev/setup-vp@cab1ab9eaff52d4857875f4f2c016e36af8f2c76 # v1.22.0
+        with:
+          run-install: true
+          cache: false
       - name: Build Packages
-        run: pnpm run build:all
+        run: vp run build:all
       - name: Publish Previews
-        run: pnpx pkg-pr-new publish --pnpm --compact './packages/*' --no-template
+        run: vpx pkg-pr-new publish --pnpm --compact './packages/*' --no-template
   provenance:
     name: Provenance
     runs-on: ubuntu-latest
@@ -68,7 +74,10 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - name: Setup Tools
-        uses: $/.github/setup
+      - name: Setup Vite+
+        uses: voidzero-dev/setup-vp@cab1ab9eaff52d4857875f4f2c016e36af8f2c76 # v1.22.0
+        with:
+          run-install: true
+          cache: false
       - name: Changeset Preview
         uses: $/.github/changeset-preview
