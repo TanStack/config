@@ -47,6 +47,6 @@
     "oxlint-tsgolint": "catalog:"
   },
   "peerDependencies": {
-    "oxfmt": ">=0.72.0"
+    "oxfmt": ">=0.72.0 <1.0.0"
   }
 }
