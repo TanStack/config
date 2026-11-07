@@ -21,10 +21,10 @@ describe('check React build output', () => {
 
   it('should build the same ESM output', () => {
     files.forEach((file) => {
-      esmExtensions.forEach((ext) => {
+      esmExtensions.forEach(async (ext) => {
         const filePath = `${rootDir}/dist/esm/${file}${ext}`
         if (!existsSync(filePath)) return
-        expect(readFileSync(filePath).toString()).toMatchFileSnapshot(
+        await expect(readFileSync(filePath).toString()).toMatchFileSnapshot(
           `${rootDir}/snap/esm/${file}${ext}`,
         )
       })
@@ -33,10 +33,10 @@ describe('check React build output', () => {
 
   it('should build the same CJS output', () => {
     files.forEach((file) => {
-      cjsExtensions.forEach((ext) => {
+      cjsExtensions.forEach(async (ext) => {
         const filePath = `${rootDir}/dist/cjs/${file}${ext}`
         if (!existsSync(filePath)) return
-        expect(readFileSync(filePath).toString()).toMatchFileSnapshot(
+        await expect(readFileSync(filePath).toString()).toMatchFileSnapshot(
           `${rootDir}/snap/cjs/${file}${ext}`,
         )
       })

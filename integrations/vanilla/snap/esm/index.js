@@ -1,2 +1,1 @@
-import { optionalChaining } from "./utils.js";
-export { optionalChaining };
+export { optionalChaining } from "./utils.js";

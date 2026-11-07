@@ -1,5 +1,13 @@
 # @tanstack/typedoc-config
 
+## 0.3.5
+
+### Patch Changes
+
+- [#418](https://github.com/TanStack/config/pull/418) [`3f08b37`](https://github.com/TanStack/config/commit/3f08b375c6bdf23c64b5ad06445bd7325610c247) - chore(typedoc-config): update 'typedoc-plugin-markdown' to v4.14.0 and 'typedoc-plugin-frontmatter' to v1.3.3
+
+- [#419](https://github.com/TanStack/config/pull/419) [`468b90e`](https://github.com/TanStack/config/commit/468b90e93761dbcb3aa0a78208a9d01a470836b4) - fix(typedoc-config): add 'DO NOT EDIT' comment to generated pages via 'markdownHooks'
+
 ## 0.3.4
 
 ### Patch Changes
