@@ -3,6 +3,7 @@ import { defineConfig } from 'oxlint'
 import { importRules } from './import.ts'
 import { javascriptRules } from './javascript.ts'
 import { nodeRules } from './node.ts'
+import { stylisticRules } from './stylistic.ts'
 import { typescriptRules } from './typescript.ts'
 import type { OxlintConfig } from 'oxlint'
 
@@ -25,6 +26,7 @@ export const tanstackConfig: TanstackConfig = defineConfig({
   plugins: ['import', 'typescript', 'unicorn'],
   jsPlugins: [
     { name: 'tanstack', specifier: resolve('@tanstack/oxlint-config/plugin') },
+    resolve('@stylistic/eslint-plugin'),
   ],
   categories: {
     correctness: 'off',
@@ -50,7 +52,14 @@ export const tanstackConfig: TanstackConfig = defineConfig({
     ...typescriptRules,
     ...importRules,
     ...nodeRules,
+    ...stylisticRules,
   },
 })
 
-export { javascriptRules, importRules, typescriptRules, nodeRules }
+export {
+  javascriptRules,
+  importRules,
+  typescriptRules,
+  nodeRules,
+  stylisticRules,
+}
