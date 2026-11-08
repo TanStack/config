@@ -1,4 +1,4 @@
-import type { OxfmtConfig, SortImportsConfig } from 'oxfmt'
+import type { OxfmtConfig } from 'oxfmt'
 
 const GLOB_EXCLUDE = [
   '**/.next',
@@ -12,18 +12,9 @@ const GLOB_EXCLUDE = [
 ]
 
 /**
- * `ignorePatterns` and `sortImports` are always set, so consumers can spread
- * them when extending the config.
- */
-type TanstackConfig = Omit<OxfmtConfig, 'ignorePatterns' | 'sortImports'> & {
-  ignorePatterns: Array<string>
-  sortImports: SortImportsConfig
-}
-
-/**
  * @see https://oxc.rs/docs/guide/usage/formatter/config-file-reference
  */
-export const tanstackConfig: TanstackConfig = {
+export const tanstackConfig: OxfmtConfig & { ignorePatterns: Array<string> } = {
   semi: false,
   singleQuote: true,
   trailingComma: 'all',
