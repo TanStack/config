@@ -4,7 +4,7 @@ import nodePlugin from 'eslint-plugin-n'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
 import vueParser from 'vue-eslint-parser'
-import { importRules } from './import.js'
+import { importRules, importSettings } from './import.js'
 import { javascriptRules } from './javascript.js'
 import { nodeRules } from './node.js'
 import { stylisticRules } from './stylistic.js'
@@ -57,6 +57,7 @@ export const tanstackConfig: Array<Linter.Config> = [
       },
     },
     plugins: jsPlugins,
+    settings: importSettings,
     rules: jsRules,
   },
   {
@@ -76,6 +77,7 @@ export const tanstackConfig: Array<Linter.Config> = [
       },
     },
     plugins: jsPlugins,
+    settings: importSettings,
     rules: jsRules,
   },
 ]

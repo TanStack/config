@@ -43,7 +43,8 @@
     "node": "^20.19.0 || >=22.12.0"
   },
   "dependencies": {
-    "@oxlint/plugins": "catalog:"
+    "@oxlint/plugins": "catalog:",
+    "@stylistic/eslint-plugin": "catalog:"
   },
   "devDependencies": {
     "oxlint": "catalog:",

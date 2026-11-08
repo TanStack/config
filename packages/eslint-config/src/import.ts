@@ -1,6 +1,14 @@
 import type { Linter } from 'eslint'
 
 /**
+ * Classifies the same import prefixes as internal as the `internalPattern` of
+ * `@tanstack/oxfmt-config`, so `import/order` agrees with its `sortImports`
+ */
+export const importSettings: Linter.Config['settings'] = {
+  'import-x/internal-regex': '^(~/|@/|#)',
+}
+
+/**
  * @see https://github.com/un-ts/eslint-plugin-import-x
  */
 export const importRules: Linter.RulesRecord = {
