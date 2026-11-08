@@ -38,17 +38,14 @@ function extractPRsFromChangelog(
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i]
 
-      // Check for version header (e.g., "## 0.21.0")
+      // Match the complete version, including prerelease and build suffixes.
       if (line.startsWith('## ')) {
-        const versionMatch = line.match(/^## (\d+\.\d+\.\d+)/)
-        if (versionMatch) {
-          if (versionMatch[1] === version) {
-            inTargetVersion = true
-            foundVersion = true
-          } else if (inTargetVersion) {
-            // We've moved to the next version, stop processing
-            break
-          }
+        if (line.slice(3).trim() === version) {
+          inTargetVersion = true
+          foundVersion = true
+        } else if (inTargetVersion) {
+          // We've moved to the next section, stop processing.
+          break
         }
       }
 
@@ -184,7 +181,7 @@ async function commentOnPR(pr: PRInfo, repository: string): Promise<void> {
 
   for (const pkg of packages) {
     // Link to the package's changelog and version anchor
-    const changelogUrl = `https://github.com/${repository}/blob/main/${pkg.pkgPath}/CHANGELOG.md#${pkg.version.replace(/\./g, '')}`
+    const changelogUrl = `https://github.com/${repository}/blob/main/${pkg.pkgPath}/CHANGELOG.md#${pkg.version.toLowerCase().replace(/[.+]/g, '')}`
     comment += `- [${pkg.name}@${pkg.version}](${changelogUrl})\n`
   }
 
@@ -226,7 +223,7 @@ async function commentOnIssue(
 
   for (const pkg of packages) {
     // Link to the package's changelog and version anchor
-    const changelogUrl = `https://github.com/${repository}/blob/main/${pkg.pkgPath}/CHANGELOG.md#${pkg.version.replace(/\./g, '')}`
+    const changelogUrl = `https://github.com/${repository}/blob/main/${pkg.pkgPath}/CHANGELOG.md#${pkg.version.toLowerCase().replace(/[.+]/g, '')}`
     comment += `- [${pkg.name}@${pkg.version}](${changelogUrl})\n`
   }
 
