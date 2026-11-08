@@ -1,9 +1,9 @@
 import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'oxlint'
-import { javascriptRules } from './javascript.ts'
 import { importRules } from './import.ts'
-import { typescriptRules } from './typescript.ts'
+import { javascriptRules } from './javascript.ts'
 import { nodeRules } from './node.ts'
+import { typescriptRules } from './typescript.ts'
 import type { OxlintConfig } from 'oxlint'
 
 /**

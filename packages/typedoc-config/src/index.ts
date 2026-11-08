@@ -1,6 +1,6 @@
+import { mkdir, rm } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { mkdir, rm } from 'node:fs/promises'
 import * as TypeDoc from 'typedoc'
 import type { PluginOptions } from 'typedoc-plugin-markdown'
 import type { Options } from './types.ts'

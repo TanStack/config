@@ -74,8 +74,8 @@ The build config is opinionated, and was designed to work with our internal libr
 - See an example below:
 
 ```ts
-import { defineConfig, mergeConfig } from 'vite'
 import { tanstackViteConfig } from '@tanstack/vite-config'
+import { defineConfig, mergeConfig } from 'vite'
 
 const config = defineConfig({
   // Framework plugins, vitest config, etc.
