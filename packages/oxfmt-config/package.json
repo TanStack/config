@@ -1,6 +1,6 @@
 {
   "name": "@tanstack/oxfmt-config",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Shared Oxfmt config used by TanStack projects.",
   "author": "tannerlinsley",
   "license": "MIT",
